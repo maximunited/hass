@@ -1,0 +1,9 @@
+# https://www.home-assistant.io/components/input_boolean/
+
+---
+maxim_home:
+  name: Set Maxim Home/Away state
+dana_home:
+  name: Set Dana Home/Away state
+maxim_dana_home:
+  name: Set Maxim and Dana Home/Away state

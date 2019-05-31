@@ -1,0 +1,17 @@
+# Templates
+
+- platform: template
+  sensors:
+    basil_moisture_last_changed:
+      value_template: ‘{{relative_time(states.sensor.basil_moisture.last_changed)}}’
+      entity_id: sensor.basil_moisture
+- platform: template
+  sensors:
+    anthurium_battery_last_changed:
+      value_template: ‘{{relative_time(states.sensor.anthurium_battery.last_changed)}}’
+      entity_id: sensor.anthurium_battery
+- platform: template
+  sensors:
+    anthurium_temperature_last_changed:
+      value_template: ‘{{relative_time(states.sensor.anthurium_temperature.last_changed)}}’
+      entity_id: sensor.anthurium_temperature

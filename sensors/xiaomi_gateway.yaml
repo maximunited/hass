@@ -1,0 +1,16 @@
+#https://home-assistant.io/components/sensor/
+
+####################################################
+#                                                  #
+#                 XIAOMI GW                        #
+#                                                  #
+####################################################
+sensor.Illumination_04cf8c916107:
+    friendly_name: Gateway Lumen
+    icon: mdi:lightbulb-on-outline
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

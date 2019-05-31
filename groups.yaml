@@ -1,0 +1,100 @@
+---
+maxim_dana:
+  name: "Maxim and Dana"
+  view: "no"
+  entities:
+    - person.maxim
+    - person.dana
+
+phones:
+  name: "All mobile phones"
+  view: "no"
+  entities:
+    - device_tracker.samsung_galaxy_s7
+    - device_tracker.dd_phone
+
+laptops:
+  name: "All laptops"
+  view: "no"
+  entities:
+    - device_tracker.dd_laptop
+    - device_tracker.maxima1_tp_wifi
+
+tvs:
+  name: "All TVs"
+  view: "no"
+  entities:
+    - device_tracker.lg_tv
+    - device_tracker.samsung_tv
+
+hw_devices:
+  name: "All physical devices"
+  view: "No"
+  entities:
+    - device_tracker.google_home
+    - device_tracker.jbl_link
+    - device_tracker.chromecast
+
+    - device_tracker.curtain_yeelight_strip
+    - device_tracker.kitchen_cabinet_yeelight_strip
+    - device_tracker.peninsula_yeelight_strip
+    - device_tracker.stove_yeelight_strip
+    - device_tracker.yeelight_office
+    - device_tracker.yeelight_spotlight
+
+    - device_tracker.mijia_xiaomi_gateway
+
+    - device_tracker.miwifi_router
+    - device_tracker.net_switch_living
+    - device_tracker.comm_switch_living
+
+    - device_tracker.rmproplus
+
+    - device_tracker.marantz_nr1608
+
+    - device_tracker.lg_tv
+    - device_tracker.samsung_tv
+
+    - device_tracker.dd_laptop
+    - device_tracker.maxima1_tp_wifi
+
+    - device_tracker.samsung_galaxy_s7
+    - device_tracker.dd_phone
+
+    - device_tracker.raspberry_pi_lan
+    - device_tracker.raspberry_pi_wifi
+
+raspberry_pi:
+  name: "RaspberryPi"
+  view: "no"
+  entities:
+    - device_tracker.raspberry_pi_lan
+    - device_tracker.raspberry_pi_wifi
+
+shelly:
+  name: "All Shelly cloud devices"
+  view: "no"
+  entities:
+    - device_tracker.shelly_bedroom_north_blinds
+    - device_tracker.shelly_bedroom_west_blinds
+
+waze:
+  name: "Waze"
+  view: "no"
+  entities:
+    - sensor.to_work
+    - sensor.to_wotk_distance
+    - sensor.to_wotk_route
+    - sensor.hline_1
+    - sensor.back_home
+    - sensor.back_home_distance
+    - sensor.back_home_route
+
+default_view:
+  view: "yes"
+  icon: mdi:home
+  entities:
+    - group.waze
+    # - group.Network
+    # - group.Weather
+    # - group.Database

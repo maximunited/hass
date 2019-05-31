@@ -1,0 +1,234 @@
+---
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret home_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Asia/Jerusalem
+  # Customization file
+  customize: !include customize.yaml
+  # C for Celcius, F for Fahrenheit
+  temperature_unit: C
+
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
+      api_password: !secret api_password
+    # - type: trusted_networks
+    #  trusted_networks:
+    #     - 127.0.0.1
+    #     - 192.168.1.0/24
+    #     - fd00::/8
+    #     - 195.110.40.247
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+frontend:
+  extra_html_url:
+    - /local/icons/fontawesome/hass-fontawesome-solid.html
+    - /local/icons/fontawesome/hass-fontawesome-regular.html
+    - /local/icons/fontawesome/hass-fontawesome-brands.html
+  javascript_version: latest
+
+default_config:
+
+# Updater
+updater:
+
+# Recorder
+recorder:
+  purge_interval: 5
+
+# History
+history:
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+      - zone
+    entities:
+      - sensor.last_boot
+      - sensor.date
+      - sensor.time
+      - sensor.ipv4_address_eth0
+
+# Logbook
+logbook:
+  exclude:
+    domains:
+      - sun
+      - group
+      - weather
+      - zone
+    entities:
+      - sensor.last_boot
+      - sensor.date
+      - sensor.time
+
+# Panel iFrame
+panel_iframe:
+  router:
+    title: 'Router'
+    icon: mdi:router-wireless-settings
+    url: 'http://192.168.1.1'
+  configurator:
+    title: 'Configurator'
+    icon: mdi:wrench
+    url: 'http://192.168.1.138:3218'
+  portainer:
+    title: 'Portainer'
+    icon: mdi:docker
+    url: 'http://192.168.1.138:9000'
+  network_switch_living:
+    title: 'Network switch (Living)'
+    icon: mdi:server-network
+    url: 'http://192.168.1.31'
+  network_switch_comm:
+    title: 'Network switch (Comm)'
+    icon: mdi:server-network
+    url: 'http://192.168.1.32'
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  server_port: 8123
+  base_url: https://hass.max-rpi.duckdns.org
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.21.0.2      # Traefik container IP
+    - 192.168.1.0/24  # Local network
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+
+# Discover some devices automatically
+discovery:
+
+# Zones
+zone: !include zones.yaml
+
+# Switches
+switch: !include switches.yaml
+
+# Media Players
+media_player: !include media_player.yaml
+
+# Sensors
+sensor: !include_dir_merge_list sensors/
+
+# Binary Sensors
+binary_sensor: !include binary_sensor.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+shell_command: !include shell_command.yaml
+
+google_assistant:
+  project_id: !secret google_assistant_project_id
+  api_key: !secret google_assistant_api_key
+  exposed_domains:
+    - light
+    - cover
+    - switch
+    - media_player
+    - input_boolean
+    - group
+    - script
+
+google_keep:
+  username: !secret google_username
+  password: !secret google_password
+  list_name: "Grocery list"
+
+# If this then that
+ifttt:
+  key: !secret ifttt_api
+
+# Shelly.cloud
+# https://github.com/StyraHem/hass/tree/master/components/shelly
+shelly:
+  discovery: true
+  version: true
+  wifi_sensor: true
+  uptime_sensor: true
+
+# https://custom-components.github.io/custom_updater/Installation
+custom_updater:
+  track:
+    - cards
+    - components
+    - python_scripts
+
+# https://github.com/Sanderhuisman/home-assistant-custom-components#docker_monitor
+# SEEMS BROKEN
+# docker_monitor:
+
+# Xiomi Gateway
+xiaomi_aqara:
+  gateways:
+    - mac: !secret xiaomi_gw_mac
+      key: !secret xiaomi_gw_key
+      host: 192.168.1.193
+
+# Device Tracker
+device_tracker: !include device_tracker.yaml
+
+# Input Boolean
+input_boolean: !include input_boolean.yaml
+
+# Input Text
+input_text: !include input_text.yaml
+
+# MQTT Broker
+mqtt:
+  broker: 127.0.0.1
+  client_id: home-assistant
+  keepalive: 60
+
+#
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api_key
+    mode: daily
+
+# HEOS
+heos:
+  host: 192.168.1.3
+
+# System Health
+system_health:
+
+# Speed tests
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+
+# Plants
+plant: !include plants.yaml
+
+# Notifications (require HTTPS)
+notify:
+  - platform: html5
+    name: notify_html5
+    vapid_pub_key: !secret vapid_pub_key
+    vapid_prv_key: !secret vapid_prv_key
+    vapid_email: !secret vapid_email
+
+  - platform: webostv
+    host: 192.168.1.2
+    name: lg_tv
+    filename: webostv.conf
+
+  - platform: pushbullet
+    name: notify_pushbullet
+    api_key: !secret pushbullet_token

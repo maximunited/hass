@@ -1,0 +1,5 @@
+- platform: jewish_calendar
+  language: english
+  sensors:
+    - holiday_name
+    - holyness

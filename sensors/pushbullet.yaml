@@ -1,0 +1,7 @@
+---
+############################################################
+### https://www.home-assistant.io/components/pushbullet/ ###
+############################################################
+
+- platform: pushbullet
+  api_key: YOUR_API_KEY

@@ -1,0 +1,49 @@
+# Waze
+- platform: waze_travel_time
+  #origin: zone.myhome
+  #destination: zone.mywork
+  origin: Neve Yehoshua St 15, Ramat Gan
+  destination: Derech Menachem Begin 132, Tel Aviv-Yafo
+  region: 'IL'
+  name: To Work
+
+- platform: waze_travel_time
+  #origin: zone.mywork
+  #destination: zone.myhome
+  origin: Derech Menachem Begin 132, Tel Aviv-Yafo
+  destination: Neve Yehoshua St 15, Ramat Gan
+  region: 'IL'
+  name: Back Home
+
+- platform: template
+  sensors:
+    to_work_distance:
+      unit_of_measurement: 'KM'
+      value_template: '{{ states.sensor.to_work.attributes.distance }}'
+      friendly_name: 'Distance'
+      icon_template: mdi:map-marker-distance
+
+
+- platform: template
+  sensors:
+    to_work_route:
+      value_template: '{{ states.sensor.to_work.attributes.route }}'
+      friendly_name: 'Route'
+      icon_template: mdi:routes
+
+- platform: template
+  sensors:
+    back_home_distance:
+      unit_of_measurement: 'KM'
+      value_template: '{{ states.sensor.back_home.attributes.distance }}'
+      friendly_name: 'Distance'
+      icon_template: mdi:map-marker-distance
+
+- platform: template
+  sensors:
+    back_home_route:
+      value_template: '{{ states.sensor.back_home.attributes.route }}'
+      friendly_name: 'Route'
+      icon_template: mdi:routes
+#/Waze
+

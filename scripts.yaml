@@ -1,0 +1,8 @@
+'1551975038878':
+  alias: Notify IFTTT HA started
+  sequence:
+  - data:
+      event: HA started
+      value1: RPI Home HA
+      value2: Test
+    service: ifttt.trigger

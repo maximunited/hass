@@ -1,0 +1,331 @@
+{
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "person.maxim"
+                                },
+                                {
+                                    "entity": "person.dana"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Where's everyone?",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "light.yeelight_strip1_7c49ebaef2fb",
+                                "light.yeelight_strip1_7811dca22799",
+                                "light.yeelight_strip2_04cf8c750535",
+                                "light.yeelight_color2_04cf8c9abf79",
+                                "light.yeelight_strip1_7811dc686e33",
+                                "light.yeelight_color2_04cf8c9a9caf"
+                            ],
+                            "title": "Light",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "switch.tv_lg_hdmi3",
+                                "switch.tv_lg_hdmi1_hdmi2",
+                                "switch.tv_lg_av1_av2",
+                                "switch.tv_lg"
+                            ],
+                            "title": "Switch",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:home",
+                    "path": "default_view",
+                    "title": "default_view"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "sensor.memory_use_percent",
+                            "max": 100,
+                            "min": 0,
+                            "name": "RAM",
+                            "severity": {
+                                "green": 0,
+                                "red": 85,
+                                "yellow": 60
+                            },
+                            "theme": "default",
+                            "type": "gauge"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.ipv4_address_eth0",
+                                    "name": "LAN address"
+                                },
+                                {
+                                    "entity": "sensor.myip",
+                                    "icon": "mdi:wan",
+                                    "name": "WAN address"
+                                },
+                                {
+                                    "entity": "sensor.network_in_eth0",
+                                    "icon": "mdi:download-outline",
+                                    "name": "Network In (LAN)"
+                                },
+                                {
+                                    "entity": "sensor.network_out_eth0",
+                                    "icon": "mdi:upload-outline",
+                                    "name": "Network Out (LAN)"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Networking",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.speedtest_download",
+                                "sensor.speedtest_upload",
+                                "sensor.speedtest_ping"
+                            ],
+                            "hours_to_show": 72,
+                            "title": "Speedtest",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.processor_use"
+                                },
+                                {
+                                    "entity": "sensor.memory_use_percent"
+                                },
+                                {
+                                    "entity": "sensor.disk_use_config"
+                                },
+                                {
+                                    "entity": "sensor.disk_use_percent_config"
+                                },
+                                {
+                                    "entity": "sensor.last_boot",
+                                    "name": "System last boot"
+                                },
+                                {
+                                    "entity": "sensor.uptime",
+                                    "name": "HA uptime"
+                                },
+                                {
+                                    "entity": "sensor.current_version",
+                                    "name": "HA version"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "System information",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.load_15m",
+                                "sensor.load_5m",
+                                "sensor.load_1m"
+                            ],
+                            "title": "System load",
+                            "type": "history-graph"
+                        }
+                    ],
+                    "title": "System"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "light.gateway_light_04cf8c916107",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.yeelight_strip1_7811dc686e33",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.yeelight_strip2_04cf8c750535",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.yeelight_strip1_7c49ebaef2fb",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "media_player.lg_tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.marantz_reciever",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_google_home",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.marantz_nr1608",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room_chromecast",
+                            "type": "media-control"
+                        }
+                    ],
+                    "title": "Living room"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.samsung_tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.master_bedroom_speaker",
+                            "type": "media-control"
+                        }
+                    ],
+                    "title": "Master Bedroom"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "light.yeelight_color2_04cf8c9a9caf",
+                            "type": "light"
+                        },
+                        {
+                            "entity": "light.yeelight_color2_04cf8c9abf79",
+                            "type": "light"
+                        }
+                    ],
+                    "title": "Office"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "plant.basil",
+                            "name": "Basil",
+                            "type": "plant-status"
+                        },
+                        {
+                            "entity": "plant.anthurium",
+                            "type": "plant-status"
+                        },
+                        {
+                            "entity": "plant.portulacaria_afra",
+                            "name": "Portulacaria afra",
+                            "type": "plant-status"
+                        },
+                        {
+                            "entity": "plant.ananas",
+                            "name": "Pineapple",
+                            "type": "plant-status"
+                        },
+                        {
+                            "entity": "plant.jade_plant",
+                            "type": "plant-status"
+                        },
+                        {
+                            "entity": "plant.kalanchoe_poseidon_pink",
+                            "type": "plant-status"
+                        },
+                        {
+                            "entity": "plant.peppermint",
+                            "type": "plant-status"
+                        }
+                    ],
+                    "icon": "mdi:leaf",
+                    "title": "plants"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.back_home"
+                                },
+                                {
+                                    "entity": "sensor.back_home_distance"
+                                },
+                                {
+                                    "entity": "sensor.back_home_route"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "sensor.to_work"
+                                },
+                                {
+                                    "entity": "sensor.to_work_distance"
+                                },
+                                {
+                                    "entity": "sensor.to_work_route"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Waze route",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "zone.myhome"
+                                },
+                                {
+                                    "entity": "zone.mywork"
+                                }
+                            ],
+                            "title": "Zones",
+                            "type": "map"
+                        }
+                    ],
+                    "title": "Travel"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.weather_precipitation"
+                                },
+                                {
+                                    "entity": "sensor.weather_symbol"
+                                },
+                                {
+                                    "entity": "sensor.weather_temperature"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sun.sun"
+                                }
+                            ],
+                            "type": "entities"
+                        }
+                    ],
+                    "title": "environment"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

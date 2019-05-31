@@ -1,0 +1,849 @@
+{
+    "data": [
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Google Home broadcast",
+                    "max": 100,
+                    "min": 0,
+                    "mode": "text",
+                    "pattern": null
+                },
+                "context": {
+                    "id": "e0341805e4644836b40a6440cbf3ecc4",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_text.google_broadcast",
+                "last_changed": "2019-05-29T22:06:45.198777+00:00",
+                "last_updated": "2019-05-29T22:06:45.198777+00:00",
+                "state": "<Say something>"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Add to Grocery list",
+                    "max": 100,
+                    "min": 0,
+                    "mode": "text",
+                    "pattern": null
+                },
+                "context": {
+                    "id": "35393184c1434b6c8ee30f26bb7a888c",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_text.add_to_grocery_list",
+                "last_changed": "2019-05-29T22:06:45.199485+00:00",
+                "last_updated": "2019-05-29T22:06:45.199485+00:00",
+                "state": "<Add something>"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set Maxim Home/Away state"
+                },
+                "context": {
+                    "id": "d0e2dc5628cf495b8a0189737ef43cab",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_boolean.maxim_home",
+                "last_changed": "2019-05-29T22:06:45.200249+00:00",
+                "last_updated": "2019-05-29T22:06:45.200249+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set Maxim and Dana Home/Away state"
+                },
+                "context": {
+                    "id": "d7e96e7e39a2455c8e52f856a11ff5dc",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_boolean.maxim_dana_home",
+                "last_changed": "2019-05-29T22:06:45.200887+00:00",
+                "last_updated": "2019-05-29T22:06:45.200887+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set Dana Home/Away state"
+                },
+                "context": {
+                    "id": "a7396692806c4d8ca4334f002589cc45",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_boolean.dana_home",
+                "last_changed": "2019-05-29T22:06:45.201485+00:00",
+                "last_updated": "2019-05-29T22:06:45.201485+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "editable": true,
+                    "entity_picture": "/local/images/people/Dana.jpg",
+                    "friendly_name": "Dana",
+                    "id": "1d95ef9af7864d829f214330a6067dfd",
+                    "source": "device_tracker.dd_phone"
+                },
+                "context": {
+                    "id": "22af2f063edf4c5fa23c39d63cc6307b",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "person.dana",
+                "last_changed": "2019-05-31T15:20:59.378373+00:00",
+                "last_updated": "2019-05-31T15:20:59.378373+00:00",
+                "state": "home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "editable": true,
+                    "entity_picture": "/local/images/people/Maxim.jpg",
+                    "friendly_name": "Maxim",
+                    "id": "581f7dcb2ca643b69da686a088d2b045",
+                    "source": "device_tracker.samsung_galaxy_s7",
+                    "user_id": "f7d1fae94c1a42f0b35477e15799d42f"
+                },
+                "context": {
+                    "id": "2b79539d48a74cccbe83b0c5a6315ec7",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "person.maxim",
+                "last_changed": "2019-05-31T18:20:25.067399+00:00",
+                "last_updated": "2019-05-31T18:20:25.067399+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Google broadcast",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "0abcc8be98ca4c0e90dfd44fc92525b8",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.google_broadcast",
+                "last_changed": "2019-05-29T22:07:05.386769+00:00",
+                "last_updated": "2019-05-29T22:07:05.386769+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Low Battery Notification",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "b4e199e2758b42538b25ccbd5ab13035",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.low_battery_notification",
+                "last_changed": "2019-05-29T22:07:05.390565+00:00",
+                "last_updated": "2019-05-29T22:07:05.390565+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Startup Notification",
+                    "last_triggered": "2019-05-29T22:07:06.466284+00:00"
+                },
+                "context": {
+                    "id": "83a2765d7c8c46afbaa2be202de9a9b2",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.startup_notification",
+                "last_changed": "2019-05-29T22:07:05.394250+00:00",
+                "last_updated": "2019-05-29T22:07:06.466894+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Update Available Notifications",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "69c828feceb743b9bdc61dfa0b94d939",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.update_available_notifications",
+                "last_changed": "2019-05-29T22:07:05.398549+00:00",
+                "last_updated": "2019-05-29T22:07:05.398549+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Switch - Toggle Pi-Hole",
+                    "id": "toggle Pihole switch",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "dbaf60426a9740c98024a2d343ceeba1",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.switch_toggle_pi_hole",
+                "last_changed": "2019-05-29T22:07:05.410464+00:00",
+                "last_updated": "2019-05-29T22:07:05.410464+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "mark Maxim home",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "cc44c458bdee4232973d2236dee3eeb5",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.mark_maxim_home",
+                "last_changed": "2019-05-29T22:07:05.414200+00:00",
+                "last_updated": "2019-05-29T22:07:05.414200+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "mark Maxim away",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "292444666bac4271a3a5bcfd80da42f1",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.mark_maxim_away",
+                "last_changed": "2019-05-29T22:07:05.418471+00:00",
+                "last_updated": "2019-05-29T22:07:05.418471+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Google Keep list update from google assistant and ifttt",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "a2800f96098641d48ed07061f13ec422",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.google_keep_list_update_from_google_assistant_and_ifttt",
+                "last_changed": "2019-05-29T22:07:05.422633+00:00",
+                "last_updated": "2019-05-29T22:07:05.422633+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Google Keep list update via text box",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "7a7592029b0d43f989ec8f0e01fe5008",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.google_keep_list_update_via_text_box",
+                "last_changed": "2019-05-29T22:07:05.426819+00:00",
+                "last_updated": "2019-05-29T22:07:05.426819+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Speedtest Ping",
+                    "icon": "mdi:speedometer",
+                    "unit_of_measurement": "ms"
+                },
+                "context": {
+                    "id": "46f14c8cf3f1424b886c9afc813427f9",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.speedtest_ping",
+                "last_changed": "2019-05-31T18:38:15.110034+00:00",
+                "last_updated": "2019-05-31T18:38:15.110034+00:00",
+                "state": "5.199"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Speedtest Upload",
+                    "icon": "mdi:upload",
+                    "unit_of_measurement": "Mbit/s"
+                },
+                "context": {
+                    "id": "8165df8715f249f08dd3fe32bc42e8e4",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.speedtest_upload",
+                "last_changed": "2019-05-31T18:38:15.122418+00:00",
+                "last_updated": "2019-05-31T18:38:15.122418+00:00",
+                "state": "131.19"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Speedtest Download",
+                    "icon": "mdi:download",
+                    "unit_of_measurement": "Mbit/s"
+                },
+                "context": {
+                    "id": "7b6235b2a0544a65862258999de76b60",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.speedtest_download",
+                "last_changed": "2019-05-31T18:38:15.161469+00:00",
+                "last_updated": "2019-05-31T18:38:15.161469+00:00",
+                "state": "196.45"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 78 57 e8 70 25 ee",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "913e202638474d2db59d7fed003d6f09",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_78_57_e8_70_25_ee",
+                "last_changed": "2019-05-29T22:07:03.875995+00:00",
+                "last_updated": "2019-05-29T22:07:03.875995+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 66 ab 4d 40 86 e6",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "5f3c78a55be343fbb68cd602327f85cd",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_66_ab_4d_40_86_e6",
+                "last_changed": "2019-05-29T22:07:03.877243+00:00",
+                "last_updated": "2019-05-29T22:07:03.877243+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "LE SRS-XB31",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "af525ad489554e8e9534b6deeca34e31",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.le_srs_xb31",
+                "last_changed": "2019-05-29T22:07:03.878398+00:00",
+                "last_updated": "2019-05-29T22:07:03.878398+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 68 83 2f a4 a8 39",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "15837b310dd2493e92b499d52edb43fc",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_68_83_2f_a4_a8_39",
+                "last_changed": "2019-05-29T22:07:03.879603+00:00",
+                "last_updated": "2019-05-29T22:07:03.879603+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Flower care",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "553948e308f44a57b2e8a50f9746eca3",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.flower_care_3",
+                "last_changed": "2019-05-29T22:07:03.880782+00:00",
+                "last_updated": "2019-05-29T22:07:03.880782+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 79 aa 39 89 02 c7",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "14df581862884ecf81c7ee287fc393d5",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_79_aa_39_89_02_c7",
+                "last_changed": "2019-05-29T22:07:03.881986+00:00",
+                "last_updated": "2019-05-29T22:07:03.881986+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 76 b3 d2 c1 6f a9",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "b43f8f39c23b4969a44631968eda66af",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_76_b3_d2_c1_6f_a9",
+                "last_changed": "2019-05-29T22:07:03.883189+00:00",
+                "last_updated": "2019-05-29T22:07:03.883189+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 4c 0c 2c 31 51 dd",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "fe36743adc7f419daf13046b51f73252",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_4c_0c_2c_31_51_dd",
+                "last_changed": "2019-05-29T22:07:03.884372+00:00",
+                "last_updated": "2019-05-29T22:07:03.884372+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 75 d7 af b6 e6 9a",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "229635c012cc49748ccfdbad5d6b5daa",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_75_d7_af_b6_e6_9a",
+                "last_changed": "2019-05-29T22:07:03.885567+00:00",
+                "last_updated": "2019-05-29T22:07:03.885567+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 59 72 9f 4c ae f5",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "79841dc41d34485bacf87ef479bb4ae5",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_59_72_9f_4c_ae_f5",
+                "last_changed": "2019-05-29T22:07:03.886769+00:00",
+                "last_updated": "2019-05-29T22:07:03.886769+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 4b 79 e0 84 15 b4",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "fc32ae202c8b446e90ec63d2a820e1ba",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_4b_79_e0_84_15_b4",
+                "last_changed": "2019-05-29T22:07:03.888648+00:00",
+                "last_updated": "2019-05-29T22:07:03.888648+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 6c ae 61 81 d1 f3",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "43d72411dc804f55b7f6bb2cc943f152",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_6c_ae_61_81_d1_f3",
+                "last_changed": "2019-05-29T22:07:03.889998+00:00",
+                "last_updated": "2019-05-29T22:07:03.889998+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 58 1f 1c fe 89 b7",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "ee78d246378746c3ac8a37072427a17b",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_58_1f_1c_fe_89_b7",
+                "last_changed": "2019-05-29T22:07:03.891215+00:00",
+                "last_updated": "2019-05-29T22:07:03.891215+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 5d 52 75 44 72 e8",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "4c0cb8412bc347c5ad140789475abcb9",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_5d_52_75_44_72_e8",
+                "last_changed": "2019-05-29T22:07:03.892420+00:00",
+                "last_updated": "2019-05-29T22:07:03.892420+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 6b 80 ce c7 8f 02",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "b6db4d5acc694bd6ae05c1b9471fc7ad",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_6b_80_ce_c7_8f_02",
+                "last_changed": "2019-05-29T22:07:03.893587+00:00",
+                "last_updated": "2019-05-29T22:07:03.893587+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 53 68 d5 74 ee 24",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "ac4a4a067d164f09882511c4d0e4baa1",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_53_68_d5_74_ee_24",
+                "last_changed": "2019-05-29T22:07:03.894785+00:00",
+                "last_updated": "2019-05-29T22:07:03.894785+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 43 4a c3 9f 03 bb",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "a0433dd1b61e427f96dacb26ee5f18c1",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_43_4a_c3_9f_03_bb",
+                "last_changed": "2019-05-29T22:07:03.896000+00:00",
+                "last_updated": "2019-05-29T22:07:03.896000+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 7b 2a e2 b5 1e dd",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "e84cc887c93746719050933b6e79b687",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_7b_2a_e2_b5_1e_dd",
+                "last_changed": "2019-05-29T22:07:03.897199+00:00",
+                "last_updated": "2019-05-29T22:07:03.897199+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 5b fc ea 80 7c 53",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "541288dff4ee421e893e0da1fc67f4b5",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_5b_fc_ea_80_7c_53",
+                "last_changed": "2019-05-29T22:07:03.898394+00:00",
+                "last_updated": "2019-05-29T22:07:03.898394+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 53 bd 4a a8 b7 1c",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "ca31451eb340432496256ece00a26579",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_53_bd_4a_a8_b7_1c",
+                "last_changed": "2019-05-29T22:07:03.899601+00:00",
+                "last_updated": "2019-05-29T22:07:03.899601+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 4c 8a 24 38 c7 af",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "a70b7c710cff411c8527004df865ef6e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_4c_8a_24_38_c7_af",
+                "last_changed": "2019-05-29T22:07:03.901158+00:00",
+                "last_updated": "2019-05-29T22:07:03.901158+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 65 a6 87 5d 36 b5",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "bdcb783933674b148231a821472575fa",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_65_a6_87_5d_36_b5",
+                "last_changed": "2019-05-29T22:07:03.902394+00:00",
+                "last_updated": "2019-05-29T22:07:03.902394+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 4a 1d 59 74 43 69",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "6c3ccbdcc96c409fb22ab237667f7669",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_4a_1d_59_74_43_69",
+                "last_changed": "2019-05-29T22:07:03.903555+00:00",
+                "last_updated": "2019-05-29T22:07:03.903555+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "e4 7c f9 54 06 f6",
+                    "scanner": "XiaomiDeviceScanner",
+                    "source_type": "router"
+                },
+                "context": {
+                    "id": "e0b3bfe4984f433b849fdc6c16d21077",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.e4_7c_f9_54_06_f6",
+                "last_changed": "2019-05-31T18:17:00.012971+00:00",
+                "last_updated": "2019-05-31T18:17:00.012971+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "samsung tv",
+                    "source_type": "router"
+                },
+                "context": {
+                    "id": "2818a773479549aa84fc7a1c167fa2eb",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.samsung_tv",
+                "last_changed": "2019-05-31T18:17:05.011488+00:00",
+                "last_updated": "2019-05-31T18:17:05.011488+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ble 4f 4e 4e 91 5a 12",
+                    "source_type": null
+                },
+                "context": {
+                    "id": "ccd79909e1684ac28e9882caca845da2",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.ble_4f_4e_4e_91_5a_12",
+                "last_changed": "2019-05-29T22:07:03.906947+00:00",
+                "last_updated": "2019-05-29T22:07:03.906947+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "samsung galaxy s7",
+                    "source_type": "router"
+                },
+                "context": {
+                    "id": "53a4488fa7064968827be90140273d2c",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "device_tracker.samsung_galaxy_s7",
+                "last_changed": "2019-05-31T18:20:25.012427+00:00",
+                "last_updated": "2019-05-31T18:20:25.012427+00:00",
+                "state": "not_home"
+            }
+        }
+    ],
+    "key": "core.restore_state",
+    "version": 1
+}

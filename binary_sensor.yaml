@@ -1,0 +1,107 @@
+###############################################################
+### https://www.home-assistant.io/components/binary_sensor/ ###
+###                                                         ###
+###                       Binary Sensor                     ###
+###                                                         ###
+###############################################################
+
+---
+### https://github.com/custom-components/binary_sensor.hadockermon
+- platform: hadockermon
+  host: 127.0.0.1
+  port: 8126
+  stats: true
+  name: hadockermon
+
+# Workday
+# - platform: workday
+#  name: workday
+#  country: US
+#  workdays: [sun, mon, tue, wed, thu]
+#  excludes: [fri, sat]
+
+# Worknight
+# - platform: workday
+#  name: worknight
+#  country: US
+#  days_offset: 1
+
+#  province: !secret state_abbreviation
+#  workdays: [mon, tue, wed, thu, fri]
+#  excludes: [sat, sun, holiday]
+
+
+# International Space Station
+- platform: iss
+  name: 'iss'
+  # friendly_name: 'International Space Station'
+  show_on_map: true
+
+- platform: template
+  sensors:
+    miwifi_router:
+      friendly_name: Router
+      device_class: connectivity
+      entity_id: device_tracker.miwifi_router
+      value_template: "{{ is_state('device_tracker.miwifi_router', 'home') }}"
+      icon_template: >-
+        {% if is_state('device_tracker.miwifi_router', 'home') %}
+          mdi:router-wireless
+        {% else %}
+          mdi:router-wireless
+        {% endif %}
+    switch_living:
+      friendly_name: Network Switch (Living)
+      device_class: connectivity
+      entity_id: device_tracker.net_switch_living
+      value_template: "{{ is_state('device_tracker.net_switch_living', 'home') }}"
+      icon_template: >-
+        {% if is_state('device_tracker.net_switch_living', 'home') %}
+          mdi:switch
+        {% else %}
+          mdi:switch
+        {% endif %}
+    switch_comm:
+      friendly_name: Network Switch (Comm)
+      device_class: connectivity
+      entity_id: device_tracker.net_switch_comm
+      value_template: "{{ is_state('device_tracker.net_switch_comm', 'home') }}"
+      icon_template: >-
+        {% if is_state('device_tracker.net_switch_comm', 'home') %}
+          mdi:switch
+        {% else %}
+          mdi:switch
+        {% endif %}
+    google_home:
+      friendly_name: Google home
+      device_class: connectivity
+      entity_id: device_tracker.google_home
+      value_template: "{{ is_state('device_tracker.google_home', 'home') }}"
+      icon_template: >-
+        {% if is_state('device_tracker.google_home', 'home') %}
+          mdi:voice
+        {% else %}
+          mdi:voice
+        {% endif %}
+    maxima1_tp:
+      friendly_name: MAXIMA1-TP
+      device_class: connectivity
+      entity_id: device_tracker.maxima1_tp_wifi
+      value_template: "{{ is_state('device_tracker.maxima1_tp_wifi', 'home') }}"
+      icon_template: >-
+        {% if is_state('device_tracker.maxima1_tp_wifi', 'home') %}
+          mdi:windows
+        {% else %}
+          mdi:windows
+        {% endif %}
+    mijia_xiaomi_gateway:
+      friendly_name: Xiaomi Gateway
+      device_class: connectivity
+      entity_id: device_tracker.mijia_xiaomi_gateway
+      value_template: "{{ is_state('device_tracker.mijia_xiaomi_gateway', 'home') }}"
+      icon_template: >-
+        {% if is_state('device_tracker.mijia_xiaomi_gateway', 'home') %}
+          mdi:server
+        {% else %}
+          mdi:server
+        {% endif %}

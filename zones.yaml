@@ -1,0 +1,13 @@
+- name: MyHome
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  radius: 20
+  icon: mdi:home
+
+- name: MyWork
+  latitude: !secret work_latitude
+  longitude: !secret work_longitude
+  elevation: !secret work_elevation
+  radius: 35
+  icon: mdi:domain

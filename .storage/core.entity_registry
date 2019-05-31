@@ -1,0 +1,287 @@
+{
+    "data": {
+        "entities": [
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "person.maxim",
+                "name": null,
+                "platform": "person",
+                "unique_id": "581f7dcb2ca643b69da686a088d2b045"
+            },
+            {
+                "config_entry_id": "bd02fca5759948e98763affa7937425f",
+                "device_id": "a8c4c00b458344ecbb215f60e0059486",
+                "disabled_by": null,
+                "entity_id": "media_player.master_bedroom_speaker",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "e0a93a3d-2602-e4b4-6a07-c8f86abf7ff4"
+            },
+            {
+                "config_entry_id": "bd02fca5759948e98763affa7937425f",
+                "device_id": "33e49912cab048808ef313f8fc57d939",
+                "disabled_by": null,
+                "entity_id": "media_player.living_room_chromecast",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "280965cb-4e37-e3c7-ee08-472256cba842"
+            },
+            {
+                "config_entry_id": "bd02fca5759948e98763affa7937425f",
+                "device_id": "496d56ef1a2b4abd9b5c9567f30c0d12",
+                "disabled_by": null,
+                "entity_id": "media_player.living_google_home",
+                "name": null,
+                "platform": "cast",
+                "unique_id": "3f0951a3-b9ee-1449-104e-8699446c1fa7"
+            },
+            {
+                "config_entry_id": "01509494bdc945a79cb0540db52d4490",
+                "device_id": "15a684e83b4e4bfcb4b2a1d3aa065472",
+                "disabled_by": null,
+                "entity_id": "media_player.marantz_nr1608",
+                "name": null,
+                "platform": "heos",
+                "unique_id": "-1108368564"
+            },
+            {
+                "config_entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "device_id": "e16d0e9c32a64ed786f4d506c20f799b",
+                "disabled_by": null,
+                "entity_id": "sensor.miwifi_router_packets_sent",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_packets_sent"
+            },
+            {
+                "config_entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "device_id": "d820408165d6403983b89c03c6d0b243",
+                "disabled_by": null,
+                "entity_id": "sensor.miwifi_router_packets_received",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_packets_received"
+            },
+            {
+                "config_entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "device_id": "a14fb2d664014a36bacfb62753cf892f",
+                "disabled_by": null,
+                "entity_id": "sensor.miwifi_router_bytes_sent",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_bytes_sent"
+            },
+            {
+                "config_entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "device_id": "1e00d80d5e4847099507e4a1363387c8",
+                "disabled_by": null,
+                "entity_id": "sensor.miwifi_router_packets_sec_sent",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_packets/sec_sent"
+            },
+            {
+                "config_entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "device_id": "95703416e3a44b68a3debf7abf11091b",
+                "disabled_by": null,
+                "entity_id": "sensor.miwifi_router_packets_sec_received",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_packets/sec_received"
+            },
+            {
+                "config_entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "device_id": "dc8d5defb549444eaa769ced7279a0eb",
+                "disabled_by": null,
+                "entity_id": "sensor.miwifi_router_kbyte_sec_sent",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_kbyte/sec_sent"
+            },
+            {
+                "config_entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "device_id": "4db23dd409fc423fb7dfd77aae814450",
+                "disabled_by": null,
+                "entity_id": "sensor.miwifi_router_bytes_received",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_bytes_received"
+            },
+            {
+                "config_entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "device_id": "e7d5247937cd4e2281ca0b2f7777d89e",
+                "disabled_by": null,
+                "entity_id": "sensor.miwifi_router_kbyte_sec_received",
+                "name": null,
+                "platform": "upnp",
+                "unique_id": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_kbyte/sec_received"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "person.dana",
+                "name": null,
+                "platform": "person",
+                "unique_id": "1d95ef9af7864d829f214330a6067dfd"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.illumination_04cf8c916107",
+                "name": null,
+                "platform": "xiaomi_aqara",
+                "unique_id": "illumination04cf8c916107"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "light.gateway_light_04cf8c916107",
+                "name": null,
+                "platform": "xiaomi_aqara",
+                "unique_id": "rgb04cf8c916107"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "cover.shelly_shsw_25_73fd26",
+                "name": null,
+                "platform": "shelly",
+                "unique_id": "shelly_SHSW-25_73FD26"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_package_20_fork_spade_wire_connector",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "package_384485836146436459G_UH463973834TR"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_packages_not_found",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "summary_384485836146436459G_not_found"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_package_organizer_box_storage",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "package_384485836146436459G_UR453904595CN"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_packages_ready_to_be_picked_up",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "summary_384485836146436459G_ready_to_be_picked_up"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_packages_in_transit",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "summary_384485836146436459G_in_transit"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_package_2m_yeelight_strip_2x_extention",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "package_384485836146436459G_RU331024725NL"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_packages_undelivered",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "summary_384485836146436459G_undelivered"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_packages_returned",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "summary_384485836146436459G_returned"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_packages_delivered",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "summary_384485836146436459G_delivered"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_package_50_wire_non_insulated_connector",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "package_384485836146436459G_UB210734616TW"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_packages_expired",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "summary_384485836146436459G_expired"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.shelly_shsw_25_73fd26_1_watt",
+                "name": null,
+                "platform": "shelly",
+                "unique_id": "shelly_SHSW-25_73FD26-1_watt"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_package_shelly2_5_x_3_9",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "package_384485836146436459G_RI292105124BG"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.seventeentrack_package_pir_solar_light_29",
+                "name": null,
+                "platform": "seventeentrack",
+                "unique_id": "package_384485836146436459G_LL290205990CN"
+            }
+        ]
+    },
+    "key": "core.entity_registry",
+    "version": 1
+}

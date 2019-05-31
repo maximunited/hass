@@ -1,0 +1,273 @@
+{
+    "data": {
+        "devices": [
+            {
+                "area_id": "9b8a3bfa3c564b199f6dae6a8def02c4",
+                "config_entries": [
+                    "bd02fca5759948e98763affa7937425f"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "a8c4c00b458344ecbb215f60e0059486",
+                "identifiers": [
+                    [
+                        "cast",
+                        "e0a93a3d2602e4b46a07c8f86abf7ff4"
+                    ]
+                ],
+                "manufacturer": "JBL",
+                "model": "JBL Link 10",
+                "name": "Master Bedroom speaker",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "bd02fca5759948e98763affa7937425f"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "33e49912cab048808ef313f8fc57d939",
+                "identifiers": [
+                    [
+                        "cast",
+                        "280965cb4e37e3c7ee08472256cba842"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Chromecast",
+                "name": "Living room Chromecast",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "bd02fca5759948e98763affa7937425f"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "496d56ef1a2b4abd9b5c9567f30c0d12",
+                "identifiers": [
+                    [
+                        "cast",
+                        "3f0951a3b9ee1449104e8699446c1fa7"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home",
+                "name": "Living Google home",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "01509494bdc945a79cb0540db52d4490"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "15a684e83b4e4bfcb4b2a1d3aa065472",
+                "identifiers": [
+                    [
+                        "heos",
+                        -1108368564
+                    ]
+                ],
+                "manufacturer": "HEOS",
+                "model": "Marantz NR1608",
+                "name": "Marantz NR1608",
+                "name_by_user": null,
+                "sw_version": "1.505.140"
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "f69d275920b34f259239b6e3e8f60d55"
+                ],
+                "connections": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95"
+                    ]
+                ],
+                "hub_device_id": null,
+                "id": "5c0f6f1da42e4600b1addd003c45f368",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": null,
+                "name": "MiWiFi router",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "f69d275920b34f259239b6e3e8f60d55"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "e16d0e9c32a64ed786f4d506c20f799b",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_packets_sent"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": null,
+                "name": "MiWiFi router packets sent",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "f69d275920b34f259239b6e3e8f60d55"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "d820408165d6403983b89c03c6d0b243",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_packets_received"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": null,
+                "name": "MiWiFi router packets received",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "f69d275920b34f259239b6e3e8f60d55"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "a14fb2d664014a36bacfb62753cf892f",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_bytes_sent"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": null,
+                "name": "MiWiFi router bytes sent",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "f69d275920b34f259239b6e3e8f60d55"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "1e00d80d5e4847099507e4a1363387c8",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_packets/sec_sent"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": null,
+                "name": "MiWiFi router packets/sec sent",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "f69d275920b34f259239b6e3e8f60d55"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "95703416e3a44b68a3debf7abf11091b",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_packets/sec_received"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": null,
+                "name": "MiWiFi router packets/sec received",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "f69d275920b34f259239b6e3e8f60d55"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "dc8d5defb549444eaa769ced7279a0eb",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_kbyte/sec_sent"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": null,
+                "name": "MiWiFi router kbyte/sec sent",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "f69d275920b34f259239b6e3e8f60d55"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "4db23dd409fc423fb7dfd77aae814450",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_bytes_received"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": null,
+                "name": "MiWiFi router bytes received",
+                "name_by_user": null,
+                "sw_version": null
+            },
+            {
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "config_entries": [
+                    "f69d275920b34f259239b6e3e8f60d55"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "e7d5247937cd4e2281ca0b2f7777d89e",
+                "identifiers": [
+                    [
+                        "upnp",
+                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95_kbyte/sec_received"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": null,
+                "name": "MiWiFi router kbyte/sec received",
+                "name_by_user": null,
+                "sw_version": null
+            }
+        ]
+    },
+    "key": "core.device_registry",
+    "version": 1
+}

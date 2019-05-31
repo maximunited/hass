@@ -1,0 +1,52 @@
+{
+    "data": {
+        "entries": [
+            {
+                "connection_class": "local_push",
+                "data": {},
+                "domain": "cast",
+                "entry_id": "bd02fca5759948e98763affa7937425f",
+                "options": {},
+                "source": "discovery",
+                "title": "Google Cast",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "host": "192.168.1.3"
+                },
+                "domain": "heos",
+                "entry_id": "01509494bdc945a79cb0540db52d4490",
+                "options": {},
+                "source": "discovery",
+                "title": "Controller (192.168.1.3)",
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "udn": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95"
+                },
+                "domain": "upnp",
+                "entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "options": {},
+                "source": "discovery",
+                "title": "UPnP/IGD",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {},
+                "domain": "mqtt",
+                "entry_id": "41ff5b97944745cdb570b4124e106534",
+                "options": {},
+                "source": "import",
+                "title": "configuration.yaml",
+                "version": 1
+            }
+        ]
+    },
+    "key": "core.config_entries",
+    "version": 1
+}

@@ -1,0 +1,78 @@
+# https://home-assistant.io/components/sensor/
+
+####################################################
+#                                                  #
+#                 SYSTEM MONITOR                   #
+#                                                  #
+####################################################
+
+---
+# https://home-assistant.io/components/sensor.systemmonitor/
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /config
+    - type: disk_use
+      arg: /config
+    - type: memory_use_percent
+    - type: processor_use
+    - type: load_1m
+    - type: load_5m
+    - type: load_15m
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
+    - type: ipv4_address
+      arg: eth0
+    - type: last_boot
+    - type: process
+      arg: hass
+
+- platform: uptime
+
+#
+# Version
+#
+# @link https://home-assistant.io/components/sensor.version/
+#
+- platform: version
+  name: version_available
+  source: docker
+  image: raspberrypi3
+  beta: false
+- platform: version
+  name: version_current
+
+#
+# Friendly version report
+#
+- platform: template
+  sensors:
+    version_friendly:
+      friendly_name: Home Assistant Version
+      icon_template: mdi:update
+      value_template: >-
+        {% set version = states('sensor.version_current') %}
+        Home Assistant {% if version != 'unknown' -%}
+          {{ version }}
+        {%- endif %}
+    update_available:
+      friendly_name: Update Available
+      icon_template: mdi:update
+      value_template: >-
+        {% set version = states('updater.updater') %}
+        {% if version != 'unknown' %}
+          Update available: {{ version }}
+        {% endif %}
+
+# - platform: command_line
+#    name: Hass uptime
+#    command: "ps -p $(pidof hass -x) -o etimes --no-headers"
+#    unit_of_measurement: seconds
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

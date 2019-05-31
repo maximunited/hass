@@ -1,0 +1,56 @@
+#https://home-assistant.io/components/sensor/
+
+####################################################
+#                                                  #
+#                 WEATHER                          #
+#                                                  #
+####################################################
+
+- platform: yr
+  name: Weather
+  monitored_conditions:
+    - temperature
+    - symbol
+    - precipitation
+
+- platform: template
+  sensors:
+    solar_angle:
+      friendly_name: "Sun Angle"
+      unit_of_measurement: '°'
+      value_template: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
+
+- platform: darksky
+  api_key: !secret darksky_api_key
+  units: ca
+  forecast:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+  monitored_conditions:
+    - icon
+    - summary
+    - humidity
+    - temperature
+    - temperature_high
+    - temperature_low
+    - wind_speed
+    - wind_bearing
+    - precip_probability
+    - precip_intensity
+    - precip_intensity_max
+    - daily_summary
+    - pressure
+    - visibility
+    - apparent_temperature #Feels like
+  scan_interval:
+    minutes: 5
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

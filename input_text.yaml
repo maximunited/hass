@@ -1,0 +1,12 @@
+---
+############################################################
+### https://www.home-assistant.io/components/input_text/ ###
+############################################################
+
+add_to_grocery_list:
+  name: Add to Grocery list
+  initial: "<Add something>"
+
+google_broadcast:
+  name: Google Home broadcast
+  initial: "<Say something>"

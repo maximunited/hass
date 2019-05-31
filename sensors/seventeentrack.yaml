@@ -1,0 +1,12 @@
+---
+#################################################################
+### 17Track         																					###
+### Parcel tracking 																					###
+### https://www.home-assistant.io/components/seventeentrack/	###
+#################################################################
+#
+- platform: seventeentrack
+  username: !secret seventeentrack_username
+  password: !secret seventeentrack_password
+  show_delivered: true
+  show_archived: false

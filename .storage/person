@@ -1,0 +1,24 @@
+{
+    "data": {
+        "persons": [
+            {
+                "device_trackers": [
+                    "device_tracker.samsung_galaxy_s7"
+                ],
+                "id": "581f7dcb2ca643b69da686a088d2b045",
+                "name": "Maxim",
+                "user_id": "f7d1fae94c1a42f0b35477e15799d42f"
+            },
+            {
+                "device_trackers": [
+                    "device_tracker.dd_phone"
+                ],
+                "id": "1d95ef9af7864d829f214330a6067dfd",
+                "name": "Dana",
+                "user_id": null
+            }
+        ]
+    },
+    "key": "person",
+    "version": 1
+}

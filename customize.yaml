@@ -1,0 +1,83 @@
+---
+
+sensor.speedtest_download:
+  icon: mdi:download
+sensor.speedtest_upload:
+  icon: mdi:upload
+sensor.speedtest_ping:
+  icon: mdi:speedometer
+# sensor.fastcom_download:
+#   icon: mdi:download
+# sensor.owm_condition:
+#   icon: mdi:weather-sunny
+# sensor.owm_cloud_coverage:
+#   icon: mdi:weather-cloudy
+# sensor.owm_rain:
+#   icon: mdi:weather-rainy
+# sensor.owm_humidity:
+#   icon: mdi:water-percent
+# sensor.owm_pressure:
+#   icon: mdi:nest-thermostat
+# sensor.owm_snow:
+#   icon: mdi:weather-snowy
+# sensor.owm_wind_speed:
+#   icon: mdi:weather-windy
+
+sensor.illumination_04cf8c916107:
+  friendly_name: Xiaomi GW illumination
+
+# Yeelight / Xiaomi
+light.gateway_light_04cf8c916107:
+  friendly_name: Gateway light
+  homebridge_name: Xiaomi Gateway
+light.yeelight_color2_04cf8c9a9caf:
+  friendly_name: Yeelight Office
+light.yeelight_color2_04cf8c9abf79:
+  friendly_name: Yeelight Spotlight
+light.yeelight_strip1_7c49ebaef2fb:
+  friendly_name: Stove light
+light.yeelight_strip1_7811dca22799:
+  friendly_name: Kitchen cabinet light
+light.yeelight_strip2_04cf8c750535:
+  friendly_name: Curtain light
+light.yeelight_strip1_7811dc686e33:
+  friendly_name: Peninsula light
+
+# Shelly Cloud
+cover.shelly_shsw_25_73fd26:
+  friendly_name: "Shelly North bedroom blinds [73FD26]"
+cover.shelly_shsw_25_5dbc1f:
+  friendly_name: "[BROKEN] Shelly West bedroom blinds [5DBC1F]"
+
+# Plants
+plant.basil:
+  friendly_name: Basil
+  entity_picture: /local/images/plants/basil.jpg
+plant.portulacaria_afra:
+  friendly_name: Portulacaria afra
+  entity_picture: /local/images/plants/portulacaria_afra.jpg
+plant.ananas:
+  friendly_name: Ananas
+  entity_picture: /local/images/plants/ananas.jpg
+plant.anthurium:
+  friendly_name: Anthurium
+  entity_picture: /local/images/plants/anthurium.jpg
+plant.peppermint:
+  friendly_name: Peppermint
+  entity_picture: /local/images/plants/peppermint.jpg
+plant.kalanchoe_poseidon_pink:
+  friendly_name: Kalanchoe Poseidon Pink
+  entity_picture: /local/images/plants/kalanchoe_poseidon_pink.jpg
+plant.jade_plant:
+  entity_picture: /local/images/plants/jade_plant.jpg
+
+# People
+person.maxim:
+  entity_picture: /local/images/people/Maxim.jpg
+person.dana:
+  entity_picture: /local/images/people/Dana.jpg
+
+switch.pihole_temp_disable:
+  friendly_name: Disable for 5 mins
+  icon: mdi:emoticon-dead
+  assumed_state: false

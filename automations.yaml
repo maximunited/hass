@@ -1,0 +1,140 @@
+---
+# - alias: "Internet Speed Glow Connect Great"
+#   trigger:
+#     - platform: template
+#       value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
+#   action:
+#     - service: shell_command.green
+#
+# - alias: "Internet Speed Glow Connect Poor"
+#   trigger:
+#     - platform: template
+#       value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
+#   action:
+#     - service: shell_command.red
+
+# - id: notify-update
+#   alias: Update Available Notifications
+#   initial_state: 'on'
+#   trigger:
+#     platform: state
+#     entity_id: updater.updater
+#   action:
+#     service: notify.notify
+#     data:
+#       message: "Homeudo hciconfig hci0 down ; sleep 2 ; sudo hciconfig hci0 up
+#       Assistant  {{ states.updater.updater.state }}  is now available."
+
+- alias: Startup Notification
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: ifttt.trigger
+    data: {"event":"HA event", "value1":"Home Assistant started"}
+
+- alias: 'Update Available Notifications'
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: notify.notify_html5
+    data:
+      message: 'Update for Home Assistant is available.'
+
+- alias: 'mark Maxim home'
+  condition:
+    condition: state
+    entity_id: input_boolean.maxim_home
+    state: 'off'
+  trigger:
+    platform: state
+    entity_id: person.maxim
+    to: 'away'
+  action:
+    service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.maxim_home
+
+- alias: 'mark Maxim away'
+  condition:
+    condition: state
+    entity_id: input_boolean.maxim_home
+    state: 'on'
+  trigger:
+    platform: state
+    entity_id: person.maxim
+    to: 'home'
+  action:
+    service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.maxim_home
+
+#################################################################################################
+# yamllint disable-line rule:line-length
+### https://github.com/aFrankLion/hass-google_keep#ifttt-applet-and-home-assistant-automation ###
+#################################################################################################
+- alias: Google Keep list update from google assistant and ifttt
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: call_service
+  action:
+    service_template: '{{ trigger.event.data.service }}'
+    data_template:
+      title: '{{ trigger.event.data.title }}'
+      things: '{{ trigger.event.data.things }}'
+
+- alias: Google Keep list update via text box
+  trigger:
+    platform: state
+    entity_id: input_text.add_to_grocery_list
+  action:
+    # service_template: '{{ trigger.event.data.service }}'
+    service: google_keep.add_to_list
+    data_template:
+      title: 'Grocery list'
+      things: '{{ states.input_text.add_to_grocery_list.state }}'
+
+- alias: Google broadcast
+  trigger:
+    platform: state
+    entity_id: input_text.google_broadcast
+  action:
+    - service: tts.google_say
+      data_template:
+        entity_id: media_player.all_devices
+        message: "{{ states.input_text.google_broadcast.state }}"
+
+### https://github.com/aFrankLion/hass-google_keep#home-assistant-service
+- alias: Low Battery Notification
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.basil_battery
+        - sensor.ananas_battery
+        - sensor.anthurium_battery
+        - sensor.kalanchoe_poseidon_pink_battery
+        - sensor.peppermint_battery
+        - sensor.portulacaria_afra_battery
+        - sensor.crassula_ovata_jade_plant_battery
+      below: 20
+  action:
+    service: google_keep.add_to_list
+    data_template:
+      title: 'Home Supplies'
+      things: 'Batteries for {{ trigger.to_state.name }}.'
+
+### https://www.reddit.com/r/pihole/comments/bbhd0h/loving_the_home_assistant_pihole_component/
+- id: toggle Pihole switch
+  alias: "Switch - Toggle Pi-Hole"
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: switch.pihole_temp_disable
+      to: 'on'
+  action:
+    - delay: '00:05:01'
+    - service: switch.turn_off
+      entity_id: switch.pihole_temp_disable
