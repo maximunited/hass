@@ -1,30 +1,304 @@
 {
     "data": [
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "Google Home broadcast",
-                    "max": 100,
-                    "min": 0,
-                    "mode": "text",
-                    "pattern": null
+                    "editable": true,
+                    "entity_picture": "/local/images/people/Maxim.jpg",
+                    "friendly_name": "Maxim",
+                    "gps_accuracy": 0,
+                    "id": "581f7dcb2ca643b69da686a088d2b045",
+                    "latitude": 32.06,
+                    "longitude": 34.8305,
+                    "source": "device_tracker.samsung_galaxy_s7",
+                    "user_id": "f7d1fae94c1a42f0b35477e15799d42f"
                 },
                 "context": {
-                    "id": "e0341805e4644836b40a6440cbf3ecc4",
+                    "id": "e14a3ef68f6a4f8495e55f7530a509bb",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "input_text.google_broadcast",
-                "last_changed": "2019-05-29T22:06:45.198777+00:00",
-                "last_updated": "2019-05-29T22:06:45.198777+00:00",
-                "state": "<Say something>"
+                "entity_id": "person.maxim",
+                "last_changed": "2020-07-25T07:58:56.374790+00:00",
+                "last_updated": "2020-07-25T07:58:56.374790+00:00",
+                "state": "home"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
+                    "editable": true,
+                    "entity_picture": "/local/images/people/Dana.jpg",
+                    "friendly_name": "Dana",
+                    "gps_accuracy": 0,
+                    "id": "1d95ef9af7864d829f214330a6067dfd",
+                    "latitude": 32.06,
+                    "longitude": 34.8305,
+                    "source": "device_tracker.dd_phone"
+                },
+                "context": {
+                    "id": "76fad60051814f17a7cb513e302e7eef",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "person.dana",
+                "last_changed": "2020-07-25T08:43:21.751815+00:00",
+                "last_updated": "2020-07-25T08:43:21.751815+00:00",
+                "state": "home"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": true,
+                    "friendly_name": "Guy T.",
+                    "id": "1f9604b189f244c3a22bad57c4a8a1e4",
+                    "source": "device_tracker.guy_t_phone"
+                },
+                "context": {
+                    "id": "98bcdafe02944208975ae275d67233df",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "person.guy_t",
+                "last_changed": "2020-07-24T21:59:37.019168+00:00",
+                "last_updated": "2020-07-24T22:10:07.916675+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": true,
+                    "friendly_name": "Kobbi D.",
+                    "id": "8badcf4e02bc44b498febf600b0efc88",
+                    "source": "device_tracker.kobbi_d_phone"
+                },
+                "context": {
+                    "id": "18693ecbac8f4cecb2c2df3b1d7c1aa5",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "person.kobbi_d",
+                "last_changed": "2020-07-24T21:59:37.020159+00:00",
+                "last_updated": "2020-07-24T22:10:07.918461+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": true,
+                    "friendly_name": "Roy D.",
+                    "id": "aef090370c1c46628f03ba541e7347a1",
+                    "source": "device_tracker.roy_d_phone"
+                },
+                "context": {
+                    "id": "37a17b68be0943beae6c408c6c933086",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "person.roy_d",
+                "last_changed": "2020-07-24T21:59:37.021132+00:00",
+                "last_updated": "2020-07-24T22:10:07.920033+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": true,
+                    "friendly_name": "Meir L.",
+                    "id": "bbc1cbd7e2024d3d996f6bed49d16daf",
+                    "source": "device_tracker.meir_work_laptop"
+                },
+                "context": {
+                    "id": "8e7298c9d0b24f2f90d51e0ff16ce0d4",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "person.meir_l",
+                "last_changed": "2020-07-24T21:59:37.022316+00:00",
+                "last_updated": "2020-07-24T22:10:07.921559+00:00",
+                "state": "not_home"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Set Maxim Home/Away state"
+                },
+                "context": {
+                    "id": "f829081875164341a88841f5cadaf527",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_boolean.maxim_home",
+                "last_changed": "2020-07-24T21:59:54.905538+00:00",
+                "last_updated": "2020-07-24T21:59:54.905538+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Set Dana Home/Away state"
+                },
+                "context": {
+                    "id": "43895f21411a4bb1b7ac0cb7ab404dc7",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_boolean.dana_home",
+                "last_changed": "2020-07-24T21:59:54.906994+00:00",
+                "last_updated": "2020-07-24T21:59:54.906994+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Set Maxim and Dana Home/Away state"
+                },
+                "context": {
+                    "id": "3a7ce682a38a41d8b0427af9c946814e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_boolean.maxim_dana_home",
+                "last_changed": "2020-07-24T21:59:54.908617+00:00",
+                "last_updated": "2020-07-24T21:59:54.908617+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Living room AC"
+                },
+                "context": {
+                    "id": "f702f07e37e44396b84f1bd3b45efa6e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_boolean.living_ac",
+                "last_changed": "2020-07-24T21:59:54.910011+00:00",
+                "last_updated": "2020-07-24T21:59:54.910011+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Washing Machine Status",
+                    "icon": "mdi:washing-machine",
+                    "options": [
+                        "Idle",
+                        "Running",
+                        "Finishing",
+                        "Power Off"
+                    ]
+                },
+                "context": {
+                    "id": "d4a9c8d728ac4c3489d28b7e4df600ef",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_select.washing_machine_status",
+                "last_changed": "2020-07-24T21:59:54.911252+00:00",
+                "last_updated": "2020-07-24T21:59:54.911252+00:00",
+                "state": "Idle"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Shower Heater Status",
+                    "options": [
+                        "Idle",
+                        "Light Only",
+                        "Max Power",
+                        "Low Power",
+                        "Power Off"
+                    ]
+                },
+                "context": {
+                    "id": "7f83e81f5caf4fac9166ea92b12c9480",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_select.shower_heater_status",
+                "last_changed": "2020-07-24T21:59:54.912483+00:00",
+                "last_updated": "2020-07-24T21:59:54.912483+00:00",
+                "state": "Power Off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": false,
+                    "friendly_name": "Main Media Status",
+                    "icon": "mdi:television",
+                    "options": [
+                        "False",
+                        "HOT",
+                        "Chromecast"
+                    ]
+                },
+                "context": {
+                    "id": "d2e2e405966c488dad3131e718128300",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "input_select.main_media_status",
+                "last_changed": "2020-07-24T21:59:54.913801+00:00",
+                "last_updated": "2020-07-24T21:59:54.913801+00:00",
+                "state": "False"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "duration": "0:05:00",
+                    "editable": false,
+                    "remaining": "0:05:00"
+                },
+                "context": {
+                    "id": "98cf4f98005a4b92bf8a4641c1de3789",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "timer.living_ac_5min",
+                "last_changed": "2020-07-24T21:59:54.918588+00:00",
+                "last_updated": "2020-07-24T21:59:54.918588+00:00",
+                "state": "idle"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "editable": false,
                     "friendly_name": "Add to Grocery list",
                     "max": 100,
                     "min": 0,
@@ -32,815 +306,2819 @@
                     "pattern": null
                 },
                 "context": {
-                    "id": "35393184c1434b6c8ee30f26bb7a888c",
+                    "id": "bdc484fc63524c94aa887d88d09d08b4",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "input_text.add_to_grocery_list",
-                "last_changed": "2019-05-29T22:06:45.199485+00:00",
-                "last_updated": "2019-05-29T22:06:45.199485+00:00",
+                "last_changed": "2020-07-24T21:59:54.925616+00:00",
+                "last_updated": "2020-07-24T21:59:54.925616+00:00",
                 "state": "<Add something>"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "Set Maxim Home/Away state"
+                    "editable": false,
+                    "friendly_name": "Google Home broadcast",
+                    "max": 100,
+                    "min": 0,
+                    "mode": "text",
+                    "pattern": null
                 },
                 "context": {
-                    "id": "d0e2dc5628cf495b8a0189737ef43cab",
+                    "id": "ddbf91422deb4dd29c08d2ce2428e353",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "input_boolean.maxim_home",
-                "last_changed": "2019-05-29T22:06:45.200249+00:00",
-                "last_updated": "2019-05-29T22:06:45.200249+00:00",
-                "state": "off"
+                "entity_id": "input_text.google_broadcast",
+                "last_changed": "2020-07-24T21:59:54.927015+00:00",
+                "last_updated": "2020-07-24T21:59:54.927015+00:00",
+                "state": "<Say something>"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "Set Maxim and Dana Home/Away state"
+                    "friendly_name": "living_ac_activated",
+                    "last_triggered": "2019-07-10T18:20:54.303418+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "d7e96e7e39a2455c8e52f856a11ff5dc",
+                    "id": "0380e7088e9b4b8eb6ca79b1b77eb8dc",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "input_boolean.maxim_dana_home",
-                "last_changed": "2019-05-29T22:06:45.200887+00:00",
-                "last_updated": "2019-05-29T22:06:45.200887+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "Set Dana Home/Away state"
-                },
-                "context": {
-                    "id": "a7396692806c4d8ca4334f002589cc45",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "input_boolean.dana_home",
-                "last_changed": "2019-05-29T22:06:45.201485+00:00",
-                "last_updated": "2019-05-29T22:06:45.201485+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
-            "state": {
-                "attributes": {
-                    "editable": true,
-                    "entity_picture": "/local/images/people/Dana.jpg",
-                    "friendly_name": "Dana",
-                    "id": "1d95ef9af7864d829f214330a6067dfd",
-                    "source": "device_tracker.dd_phone"
-                },
-                "context": {
-                    "id": "22af2f063edf4c5fa23c39d63cc6307b",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "person.dana",
-                "last_changed": "2019-05-31T15:20:59.378373+00:00",
-                "last_updated": "2019-05-31T15:20:59.378373+00:00",
-                "state": "home"
-            }
-        },
-        {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
-            "state": {
-                "attributes": {
-                    "editable": true,
-                    "entity_picture": "/local/images/people/Maxim.jpg",
-                    "friendly_name": "Maxim",
-                    "id": "581f7dcb2ca643b69da686a088d2b045",
-                    "source": "device_tracker.samsung_galaxy_s7",
-                    "user_id": "f7d1fae94c1a42f0b35477e15799d42f"
-                },
-                "context": {
-                    "id": "2b79539d48a74cccbe83b0c5a6315ec7",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "person.maxim",
-                "last_changed": "2019-05-31T18:20:25.067399+00:00",
-                "last_updated": "2019-05-31T18:20:25.067399+00:00",
-                "state": "not_home"
-            }
-        },
-        {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "Google broadcast",
-                    "last_triggered": null
-                },
-                "context": {
-                    "id": "0abcc8be98ca4c0e90dfd44fc92525b8",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "automation.google_broadcast",
-                "last_changed": "2019-05-29T22:07:05.386769+00:00",
-                "last_updated": "2019-05-29T22:07:05.386769+00:00",
+                "entity_id": "automation.living_ac_activated",
+                "last_changed": "2020-07-24T21:59:55.185023+00:00",
+                "last_updated": "2020-07-24T21:59:55.185023+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "Low Battery Notification",
-                    "last_triggered": null
+                    "friendly_name": "living_ac_stopped",
+                    "last_triggered": "2019-07-10T18:25:55.271484+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "b4e199e2758b42538b25ccbd5ab13035",
+                    "id": "1f46981819ec43429aa259c0d3e7a8d3",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "automation.low_battery_notification",
-                "last_changed": "2019-05-29T22:07:05.390565+00:00",
-                "last_updated": "2019-05-29T22:07:05.390565+00:00",
+                "entity_id": "automation.living_ac_stopped",
+                "last_changed": "2020-07-24T21:59:55.223810+00:00",
+                "last_updated": "2020-07-24T21:59:55.223810+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "ambient lights on if someone's home",
+                    "last_triggered": "2020-07-24T16:14:04.303742+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "92523d6acaef459cad469a2612d63757",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.ambient_lights_on_if_someone_s_home",
+                "last_changed": "2020-07-24T21:59:55.240602+00:00",
+                "last_updated": "2020-07-24T21:59:55.240602+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Boo's home",
+                    "last_triggered": "2020-07-21T19:15:09.613279+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "1dde539fd6b1457abd880d6a5b79083c",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.boo_s_home",
+                "last_changed": "2020-07-24T21:59:55.242787+00:00",
+                "last_updated": "2020-07-24T21:59:55.242787+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Startup Notification",
-                    "last_triggered": "2019-05-29T22:07:06.466284+00:00"
+                    "last_triggered": "2020-07-24T22:10:12.437418+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "83a2765d7c8c46afbaa2be202de9a9b2",
+                    "id": "7eaca2afd7a24400a0011e1bf2093b94",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.startup_notification",
-                "last_changed": "2019-05-29T22:07:05.394250+00:00",
-                "last_updated": "2019-05-29T22:07:06.466894+00:00",
+                "last_changed": "2020-07-24T21:59:55.245607+00:00",
+                "last_updated": "2020-07-24T22:10:12.438004+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Update Available Notifications",
-                    "last_triggered": null
+                    "last_triggered": "2019-08-16T23:51:59.181721+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "69c828feceb743b9bdc61dfa0b94d939",
+                    "id": "9686ef2876be4b8c96602e5a7caf63be",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.update_available_notifications",
-                "last_changed": "2019-05-29T22:07:05.398549+00:00",
-                "last_updated": "2019-05-29T22:07:05.398549+00:00",
+                "last_changed": "2020-07-24T21:59:55.248031+00:00",
+                "last_updated": "2020-07-24T21:59:55.248031+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "Switch - Toggle Pi-Hole",
-                    "id": "toggle Pihole switch",
-                    "last_triggered": null
+                    "friendly_name": "Notify - Home Assistant docker tag changed",
+                    "last_triggered": "2020-07-24T21:26:02.591949+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "dbaf60426a9740c98024a2d343ceeba1",
+                    "id": "aee85eefe8e0485dbee40cbee19274e3",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "automation.switch_toggle_pi_hole",
-                "last_changed": "2019-05-29T22:07:05.410464+00:00",
-                "last_updated": "2019-05-29T22:07:05.410464+00:00",
+                "entity_id": "automation.notify_home_assistant_docker_tag_changed",
+                "last_changed": "2020-07-24T21:59:55.250455+00:00",
+                "last_updated": "2020-07-24T21:59:55.250455+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "mark Maxim home",
-                    "last_triggered": null
+                    "friendly_name": "Notify on shelly FW update",
+                    "last_triggered": "2020-03-17T15:11:11.747171+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "cc44c458bdee4232973d2236dee3eeb5",
+                    "id": "4863dab62e2e4cbba5549fdbe38713e5",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "automation.mark_maxim_home",
-                "last_changed": "2019-05-29T22:07:05.414200+00:00",
-                "last_updated": "2019-05-29T22:07:05.414200+00:00",
+                "entity_id": "automation.notify_on_shelly_fw_update",
+                "last_changed": "2020-07-24T21:59:55.253009+00:00",
+                "last_updated": "2020-07-24T21:59:55.253009+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "mark Maxim away",
-                    "last_triggered": null
+                    "friendly_name": "Handle HTML5 notification action: Update FW",
+                    "last_triggered": "2019-08-20T20:03:16.798911+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "292444666bac4271a3a5bcfd80da42f1",
+                    "id": "301408674ce24be892a9994ee2210189",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "automation.mark_maxim_away",
-                "last_changed": "2019-05-29T22:07:05.418471+00:00",
-                "last_updated": "2019-05-29T22:07:05.418471+00:00",
+                "entity_id": "automation.handle_html5_notification_action_update_fw",
+                "last_changed": "2020-07-24T21:59:55.255341+00:00",
+                "last_updated": "2020-07-24T21:59:55.255341+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "Google Keep list update from google assistant and ifttt",
-                    "last_triggered": null
-                },
-                "context": {
-                    "id": "a2800f96098641d48ed07061f13ec422",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "automation.google_keep_list_update_from_google_assistant_and_ifttt",
-                "last_changed": "2019-05-29T22:07:05.422633+00:00",
-                "last_updated": "2019-05-29T22:07:05.422633+00:00",
-                "state": "on"
-            }
-        },
-        {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Google Keep list update via text box",
-                    "last_triggered": null
+                    "last_triggered": "2019-09-17T11:26:05.182183+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "7a7592029b0d43f989ec8f0e01fe5008",
+                    "id": "60ba87684daf4724ae24d2ece4d85479",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.google_keep_list_update_via_text_box",
-                "last_changed": "2019-05-29T22:07:05.426819+00:00",
-                "last_updated": "2019-05-29T22:07:05.426819+00:00",
+                "last_changed": "2020-07-24T21:59:55.257273+00:00",
+                "last_updated": "2020-07-24T21:59:55.257273+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "Speedtest Ping",
+                    "friendly_name": "Google broadcast",
+                    "last_triggered": "2019-08-18T19:22:13.437450+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "14b083f763ea4d2f893146e415a11c26",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.google_broadcast",
+                "last_changed": "2020-07-24T21:59:55.261538+00:00",
+                "last_updated": "2020-07-24T21:59:55.261538+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Turn ON or OFF input_boolean.living_ac from IFTTT",
+                    "last_triggered": "2019-08-26T12:18:20.944779+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "b91036c8d725473e9d08a834aefbd0cc",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.turn_on_or_off_input_boolean_living_ac_from_ifttt",
+                "last_changed": "2020-07-24T21:59:55.263843+00:00",
+                "last_updated": "2020-07-24T21:59:55.263843+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Report indoor temperature from IFTTT (Google Home)",
+                    "last_triggered": "2020-07-21T20:00:53.565180+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "e1804e623fa647f99e309f01721225a0",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.report_indoor_temperature_from_ifttt_google_home",
+                "last_changed": "2020-07-24T21:59:55.266451+00:00",
+                "last_updated": "2020-07-24T21:59:55.266451+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Create a notification when somethig is added to HACS",
+                    "last_triggered": "2020-07-23T12:32:19.892262+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "715ffe1a4ac542339ff46f26aabdeb6c",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.create_a_notification_when_somethig_is_added_to_hacs",
+                "last_changed": "2020-07-24T21:59:55.268891+00:00",
+                "last_updated": "2020-07-24T21:59:55.268891+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Create a notification when there is updates pending in HACS",
+                    "last_triggered": "2020-07-21T23:30:44.079293+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "25ebc9f08a044fc0a8194ea08a0e7b4e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.create_a_notification_when_there_is_updates_pending_in_hacs",
+                "last_changed": "2020-07-24T21:59:55.271426+00:00",
+                "last_updated": "2020-07-24T21:59:55.271426+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Notify for new devices",
+                    "last_triggered": "2020-05-06T12:28:24.635712+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "a041d3b16cfd4462adb2b1f0aa84e8ea",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.notify_for_new_devices",
+                "last_changed": "2020-07-24T21:59:55.274236+00:00",
+                "last_updated": "2020-07-24T21:59:55.274236+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Low Battery Notification",
+                    "last_triggered": "2019-11-07T20:34:34.595082+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "9145821ba7f24a17b1f221ec1527b784",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.low_battery_notification",
+                "last_changed": "2020-07-24T21:59:55.276936+00:00",
+                "last_updated": "2020-07-24T21:59:55.276936+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set washing machine active when power detected",
+                    "last_triggered": "2020-04-30T17:36:59.820736+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "a8b01f8942944391ba83be9ef957468e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.set_washing_machine_active_when_power_detected",
+                "last_changed": "2020-07-24T21:59:55.279409+00:00",
+                "last_updated": "2020-07-24T21:59:55.279409+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set washing machine finished when power drops",
+                    "last_triggered": "2020-04-30T17:42:04.826208+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "a3b6031da54c4601b9ea21ef98c11127",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.set_washing_machine_finished_when_power_drops",
+                "last_changed": "2020-07-24T21:59:55.281833+00:00",
+                "last_updated": "2020-07-24T21:59:55.281833+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set washing machine clean after timeout",
+                    "last_triggered": "2020-04-30T17:43:05.112926+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "d9f3d604638d4765a9c848785eadf181",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.set_washing_machine_clean_after_timeout",
+                "last_changed": "2020-07-24T21:59:55.284428+00:00",
+                "last_updated": "2020-07-24T21:59:55.284428+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set shower heater max power state",
+                    "last_triggered": "2020-04-27T19:42:53.383991+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "e72c032d035b4e46ba84abbe82aa3e3a",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.set_shower_heater_max_power_state",
+                "last_changed": "2020-07-24T21:59:55.286843+00:00",
+                "last_updated": "2020-07-24T21:59:55.286843+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set shower heater low power state",
+                    "last_triggered": "2020-04-06T19:14:30.081376+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "2386b0a2e98a4d3799bab3ad2aa0095c",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.set_shower_heater_low_power_state",
+                "last_changed": "2020-07-24T21:59:55.289223+00:00",
+                "last_updated": "2020-07-24T21:59:55.289223+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set shower heater light only state",
+                    "last_triggered": "2019-08-22T20:01:09.259898+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "5f042b0be4804918bf6524b7fd217f73",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.set_shower_heater_light_only_state",
+                "last_changed": "2020-07-24T21:59:55.291597+00:00",
+                "last_updated": "2020-07-24T21:59:55.291597+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set shower heater off state",
+                    "last_triggered": "2020-07-15T02:13:43.039428+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "361364f961c44c9c86db1f1caa8c9d36",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.set_shower_heater_off_state",
+                "last_changed": "2020-07-24T21:59:55.294099+00:00",
+                "last_updated": "2020-07-24T21:59:55.294099+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Set shower heater idle state",
+                    "last_triggered": "2019-08-22T20:00:35.058228+00:00",
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "19435e264e7a4b64bc097b2301230332",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.set_shower_heater_idle_state",
+                "last_changed": "2020-07-24T21:59:55.296540+00:00",
+                "last_updated": "2020-07-24T21:59:55.296540+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "commands_encoding": "Base64",
+                    "current_humidity": 63.0,
+                    "current_temperature": 28.5,
+                    "device_code": 2808,
+                    "fan_mode": "low",
+                    "fan_modes": [
+                        "auto",
+                        "low",
+                        "mid",
+                        "high"
+                    ],
+                    "friendly_name": "Living room AC",
+                    "hvac_modes": [
+                        "off",
+                        "cool",
+                        "heat"
+                    ],
+                    "last_on_operation": "cool",
+                    "manufacturer": "Electra",
+                    "max_temp": 30.0,
+                    "min_temp": 16.0,
+                    "supported_controller": "Broadlink",
+                    "supported_features": 9,
+                    "supported_models": [
+                        "Unknown"
+                    ],
+                    "target_temp_step": 1.0,
+                    "temperature": 24
+                },
+                "context": {
+                    "id": "5209b92440cb4f52a62d1c1655549c74",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "climate.living_room_ac",
+                "last_changed": "2020-07-24T22:03:03.457234+00:00",
+                "last_updated": "2020-07-25T09:06:21.278836+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "commands_encoding": "Base64",
+                    "current_humidity": 66.2,
+                    "current_temperature": 28.9,
+                    "device_code": 2808,
+                    "fan_mode": "auto",
+                    "fan_modes": [
+                        "auto",
+                        "low",
+                        "mid",
+                        "high"
+                    ],
+                    "friendly_name": "Master bedroom AC",
+                    "hvac_modes": [
+                        "off",
+                        "cool",
+                        "heat"
+                    ],
+                    "last_on_operation": null,
+                    "manufacturer": "Electra",
+                    "max_temp": 30.0,
+                    "min_temp": 16.0,
+                    "supported_controller": "Broadlink",
+                    "supported_features": 9,
+                    "supported_models": [
+                        "Unknown"
+                    ],
+                    "target_temp_step": 1.0,
+                    "temperature": 25
+                },
+                "context": {
+                    "id": "faa18ab087ea46c282106e494fb66bdf",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "climate.master_bedroom_ac",
+                "last_changed": "2020-07-24T22:03:03.459766+00:00",
+                "last_updated": "2020-07-25T08:45:51.516232+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "commands_encoding": "Base64",
+                    "device_class": "tv",
+                    "device_code": 6900,
+                    "friendly_name": "Living Room HOT",
+                    "manufacturer": "HOT",
+                    "source_list": [
+                        "Channel 0",
+                        "Channel 1",
+                        "Channel 2",
+                        "Channel 3",
+                        "Channel 4",
+                        "Channel 5",
+                        "Channel 6",
+                        "Channel 7",
+                        "Channel 8",
+                        "Channel 9"
+                    ],
+                    "supported_controller": "Broadlink",
+                    "supported_features": 3512,
+                    "supported_models": [
+                        "MagicHD"
+                    ]
+                },
+                "context": {
+                    "id": "8fb9c631f74941aaaecf9c02b8f548fd",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "media_player.living_room_hot",
+                "last_changed": "2020-07-24T22:03:03.462095+00:00",
+                "last_updated": "2020-07-24T22:03:03.462095+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "LG TV Power"
+                },
+                "context": {
+                    "id": "6ca0add8809349ce90981523d02b538a",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_lg",
+                "last_changed": "2020-07-24T22:04:24.377467+00:00",
+                "last_updated": "2020-07-24T22:04:24.377467+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "LG TV HDMI1"
+                },
+                "context": {
+                    "id": "af543e90143344cd8657d1ef488bec99",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_lg_hdmi1",
+                "last_changed": "2020-07-24T22:04:24.379495+00:00",
+                "last_updated": "2020-07-24T22:04:24.379495+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "LG TV HDMI1 HDMI2"
+                },
+                "context": {
+                    "id": "e7173528280d4b11a95fab7b1c61fc9a",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_lg_hdmi1_hdmi2",
+                "last_changed": "2020-07-24T22:04:24.381432+00:00",
+                "last_updated": "2020-07-24T22:04:24.381432+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "LG TV Chromecast/Marantz"
+                },
+                "context": {
+                    "id": "672743a8031046779804bd2cb5444a97",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_lg_hdmi2_hdmi3",
+                "last_changed": "2020-07-24T22:04:24.383357+00:00",
+                "last_updated": "2020-07-24T22:04:24.383357+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "LG TV HDMI3"
+                },
+                "context": {
+                    "id": "f8deeab7ac324b3b93e39829c400bdc2",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_lg_hdmi3",
+                "last_changed": "2020-07-24T22:04:24.385469+00:00",
+                "last_updated": "2020-07-24T22:04:24.385469+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "TV Box Mute"
+                },
+                "context": {
+                    "id": "eb1382f1aeb440918184de4fe64deb13",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_box_mute",
+                "last_changed": "2020-07-24T22:04:24.387839+00:00",
+                "last_updated": "2020-07-24T22:04:24.387839+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "TV Box OK"
+                },
+                "context": {
+                    "id": "465cc559ade641119888cfa1bbb626af",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_box_ok",
+                "last_changed": "2020-07-24T22:04:24.389869+00:00",
+                "last_updated": "2020-07-24T22:04:24.389869+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "TV Box Channel +/-"
+                },
+                "context": {
+                    "id": "3cd4a4c2242c4ecb87f95a93ec62e9e8",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_box_channel_plus_minus",
+                "last_changed": "2020-07-24T22:04:24.391926+00:00",
+                "last_updated": "2020-07-24T22:04:24.391926+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "TV Box Up/Down"
+                },
+                "context": {
+                    "id": "7cde4bd8481d4f2587d3c6b43f024daa",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_box_up_down",
+                "last_changed": "2020-07-24T22:04:24.394231+00:00",
+                "last_updated": "2020-07-24T22:04:24.394231+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "TV Box Right/Left"
+                },
+                "context": {
+                    "id": "f5f66a745a20491e9b2c1d87681774b3",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_box_right_left",
+                "last_changed": "2020-07-24T22:04:24.396288+00:00",
+                "last_updated": "2020-07-24T22:04:24.396288+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "TV Box 1"
+                },
+                "context": {
+                    "id": "b6e03e7673a9476187e7d6bb0e58b4de",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_box_1",
+                "last_changed": "2020-07-24T22:04:24.398260+00:00",
+                "last_updated": "2020-07-24T22:04:24.398260+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "assumed_state": true,
+                    "friendly_name": "TV Box 6"
+                },
+                "context": {
+                    "id": "c2b9c144eeb246b4aa1e905d4a98f06c",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.tv_box_6",
+                "last_changed": "2020-07-24T22:04:24.400257+00:00",
+                "last_updated": "2020-07-24T22:04:24.400257+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Master Bedroom - West blinds - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B-1",
+                    "shelly_type": "Shelly 2.5"
+                },
+                "context": {
+                    "id": "f352e76050eb4ea2897bbd268d84b868",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_e6292b_1_switch",
+                "last_changed": "2020-07-24T22:04:34.348333+00:00",
+                "last_updated": "2020-07-24T22:04:34.348333+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Master Bedroom - West blinds - 2 - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B-2",
+                    "shelly_type": "Shelly 2.5"
+                },
+                "context": {
+                    "id": "9aad3a732fd448f1a280378109063c52",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_e6292b_2_switch",
+                "last_changed": "2020-07-24T22:04:34.350900+00:00",
+                "last_updated": "2020-07-24T22:04:34.350900+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Bathroom - Dryer - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM"
+                },
+                "context": {
+                    "id": "ea54617a7d42440c8cd8c8ea3794546e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_pm_76b745_switch",
+                "last_changed": "2020-07-24T22:04:34.518453+00:00",
+                "last_updated": "2020-07-24T22:04:34.518453+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "current_position": 0,
+                    "friendly_name": "Shelly West Master bedroom blinds [E6292B]",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B",
+                    "shelly_type": "Shelly 2.5 (Roller)",
+                    "supported_features": 15
+                },
+                "context": {
+                    "id": "bb36da19fef14fc0bcb34aaf86fe56d0",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "cover.shelly_shsw_25_e6292b",
+                "last_changed": "2020-07-24T22:04:34.534047+00:00",
+                "last_updated": "2020-07-24T22:04:34.534047+00:00",
+                "state": "closed"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "cloud_status": "connected",
+                    "friendly_name": "Bathroom - Dryer",
+                    "has_firmware_update": false,
+                    "ip_address": "192.168.1.86",
+                    "over_power": false,
+                    "over_temp": false,
+                    "protocols": [
+                        "CoAP-msg",
+                        "poll",
+                        "mDns",
+                        "CoAP-discovery"
+                    ],
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "switch": false
+                },
+                "context": {
+                    "id": "06ab1024040e42bc860d359062a321eb",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.shelly_shsw_pm_76b745",
+                "last_changed": "2020-07-24T22:04:34.538514+00:00",
+                "last_updated": "2020-07-24T22:04:44.208696+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "current_position": 100,
+                    "friendly_name": "Shelly Kids bedroom blinds [E4CDAF]",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF",
+                    "shelly_type": "Shelly 2.5 (Roller)",
+                    "supported_features": 15
+                },
+                "context": {
+                    "id": "7aa80570a83d46e093e2dcbb85252d4b",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "cover.shelly_shsw_25_e4cdaf",
+                "last_changed": "2020-07-24T22:04:39.984203+00:00",
+                "last_updated": "2020-07-24T22:04:39.984203+00:00",
+                "state": "open"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Kids bedroom - Kids blinds - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF-1",
+                    "shelly_type": "Shelly 2.5"
+                },
+                "context": {
+                    "id": "8d90839d6eb046dea3860af363cd245a",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_e4cdaf_1_switch",
+                "last_changed": "2020-07-24T22:04:39.986348+00:00",
+                "last_updated": "2020-07-24T22:04:39.986348+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Kids bedroom - Kids blinds - 2 - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF-2",
+                    "shelly_type": "Shelly 2.5"
+                },
+                "context": {
+                    "id": "fabdf96ae58a4781b8d8a7390058f353",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_e4cdaf_2_switch",
+                "last_changed": "2020-07-24T22:04:39.988325+00:00",
+                "last_updated": "2020-07-24T22:04:39.988325+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "current_position": 36,
+                    "friendly_name": "Shelly North Master bedroom blinds [73FD26]",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26",
+                    "shelly_type": "Shelly 2.5 (Roller)",
+                    "supported_features": 15
+                },
+                "context": {
+                    "id": "6ff0f82e512f440d8554c2dad579203c",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "cover.shelly_shsw_25_73fd26",
+                "last_changed": "2020-07-25T06:51:26.644405+00:00",
+                "last_updated": "2020-07-25T06:51:26.644405+00:00",
+                "state": "open"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Master Bedroom - North blinds - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26-1",
+                    "shelly_type": "Shelly 2.5"
+                },
+                "context": {
+                    "id": "728a4e1a53964b44be93b696ec64befd",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_73fd26_1_switch",
+                "last_changed": "2020-07-24T22:04:40.409876+00:00",
+                "last_updated": "2020-07-24T22:04:40.409876+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Master Bedroom - North blinds - 2 - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26-2",
+                    "shelly_type": "Shelly 2.5"
+                },
+                "context": {
+                    "id": "85b2026b3a724f8fab6593d75dc9a40f",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_73fd26_2_switch",
+                "last_changed": "2020-07-25T06:51:26.693335+00:00",
+                "last_updated": "2020-07-25T06:51:26.693335+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "cloud_status": "connected",
+                    "friendly_name": "Bathroom - Washing machine",
+                    "has_firmware_update": false,
+                    "ip_address": "192.168.1.85",
+                    "over_power": false,
+                    "over_temp": false,
+                    "protocols": [
+                        "CoAP-msg",
+                        "poll",
+                        "mDns",
+                        "CoAP-discovery"
+                    ],
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "switch": false
+                },
+                "context": {
+                    "id": "b87ffc207a9d495897c7c6cb45879e83",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.shelly_shsw_pm_76b5ac",
+                "last_changed": "2020-07-24T22:04:40.581412+00:00",
+                "last_updated": "2020-07-24T22:04:44.334256+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Bathroom - Washing machine - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM"
+                },
+                "context": {
+                    "id": "0d67d28f28da4adc9c3c814ff0ba383e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_pm_76b5ac_switch",
+                "last_changed": "2020-07-24T22:04:40.583633+00:00",
+                "last_updated": "2020-07-24T22:04:40.583633+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "click_count": 2,
+                    "click_type": "long",
+                    "friendly_name": "Living Room - Balcony light - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904-1",
+                    "shelly_type": "Shelly Dimmer"
+                },
+                "context": {
+                    "id": "d90242192fb04565a2bb7293f5df8d3f",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shdm_1_db3904_1_switch",
+                "last_changed": "2020-07-24T22:04:40.784456+00:00",
+                "last_updated": "2020-07-24T22:04:44.466244+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Living Room - Balcony light - 2 - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904-2",
+                    "shelly_type": "Shelly Dimmer"
+                },
+                "context": {
+                    "id": "719e1c65444d44418eafc09c4eec10ba",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shdm_1_db3904_2_switch",
+                "last_changed": "2020-07-24T22:04:40.786665+00:00",
+                "last_updated": "2020-07-24T22:04:40.786665+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "cloud_status": "connected",
+                    "friendly_name": "Living Room - Balcony light",
+                    "has_firmware_update": false,
+                    "ip_address": "192.168.1.80",
+                    "over_temp": false,
+                    "protocols": [
+                        "CoAP-msg",
+                        "poll",
+                        "mDns",
+                        "CoAP-discovery"
+                    ],
+                    "room": "Living Room",
+                    "shelly_id": "DB3904",
+                    "shelly_type": "Shelly Dimmer",
+                    "supported_features": 1,
+                    "switch_1": false,
+                    "switch_2": false
+                },
+                "context": {
+                    "id": "f46b177104d045ae9c18cfb65dec448d",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "light.shelly_shdm_1_db3904",
+                "last_changed": "2020-07-24T22:04:40.882092+00:00",
+                "last_updated": "2020-07-24T22:04:44.343468+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Bathroom - Dryer - Over power",
+                    "icon": "mdi:flash-alert",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "8c11c5e5717e43eda57b70a8b3a38703",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_pm_76b745_over_power",
+                "last_changed": "2020-07-24T22:04:44.263683+00:00",
+                "last_updated": "2020-07-24T22:04:44.263683+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Bathroom - Dryer - Over temperature",
+                    "icon": "mdi:alert",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "02790e5dc1e24dac8899616abfa8a825",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_pm_76b745_over_temp",
+                "last_changed": "2020-07-24T22:04:44.272280+00:00",
+                "last_updated": "2020-07-24T22:04:44.272280+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "connectivity",
+                    "friendly_name": "Bathroom - Dryer - MQTT connected",
+                    "icon": "mdi:transit-connection-variant",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "a13f0a816b0146f49b468c8bf5753715",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_pm_76b745_mqtt_connected",
+                "last_changed": "2020-07-24T22:04:44.274677+00:00",
+                "last_updated": "2020-07-24T22:04:44.274677+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Master Bedroom - West blinds - Over temperature",
+                    "icon": "mdi:alert",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "9135e0ba28b54ec596efa4351447d06a",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_e6292b_over_temp",
+                "last_changed": "2020-07-24T22:04:44.406730+00:00",
+                "last_updated": "2020-07-24T22:04:44.406730+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "connectivity",
+                    "friendly_name": "Master Bedroom - West blinds - MQTT connected",
+                    "icon": "mdi:transit-connection-variant",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "d3c41313a3644ce0a7dde2d484ea9b8c",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_e6292b_mqtt_connected",
+                "last_changed": "2020-07-24T22:04:44.412213+00:00",
+                "last_updated": "2020-07-24T22:04:44.412213+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Bathroom - Washing machine - Over power",
+                    "icon": "mdi:flash-alert",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "9a83766de687479fa47a7ffa4b51f399",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_pm_76b5ac_over_power",
+                "last_changed": "2020-07-24T22:04:44.462768+00:00",
+                "last_updated": "2020-07-24T22:04:44.462768+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Bathroom - Washing machine - Over temperature",
+                    "icon": "mdi:alert",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "2b49a7f6170f4c1fbca7ff3f9923afb9",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_pm_76b5ac_over_temp",
+                "last_changed": "2020-07-24T22:04:44.471670+00:00",
+                "last_updated": "2020-07-24T22:04:44.471670+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "connectivity",
+                    "friendly_name": "Bathroom - Washing machine - MQTT connected",
+                    "icon": "mdi:transit-connection-variant",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "446f386fcf694e68b612f1cef41e8105",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_pm_76b5ac_mqtt_connected",
+                "last_changed": "2020-07-24T22:04:44.473652+00:00",
+                "last_updated": "2020-07-24T22:04:44.473652+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Master Bedroom - North blinds - Over temperature",
+                    "icon": "mdi:alert",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "57486ba82c604501907a16309ecb49c1",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_73fd26_over_temp",
+                "last_changed": "2020-07-24T22:04:44.491501+00:00",
+                "last_updated": "2020-07-24T22:04:44.491501+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "connectivity",
+                    "friendly_name": "Master Bedroom - North blinds - MQTT connected",
+                    "icon": "mdi:transit-connection-variant",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "1f70f99d161f416cb0148f2998f702a6",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_73fd26_mqtt_connected",
+                "last_changed": "2020-07-24T22:04:44.493554+00:00",
+                "last_updated": "2020-07-24T22:04:44.493554+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Living Room - Balcony light - Over temperature",
+                    "icon": "mdi:alert",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904",
+                    "shelly_type": "Shelly Dimmer",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "3a709054b40149ca8cc42f9c22ea2739",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shdm_1_db3904_over_temp",
+                "last_changed": "2020-07-24T22:04:44.495415+00:00",
+                "last_updated": "2020-07-24T22:04:44.495415+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "connectivity",
+                    "friendly_name": "Living Room - Balcony light - MQTT connected",
+                    "icon": "mdi:transit-connection-variant",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904",
+                    "shelly_type": "Shelly Dimmer",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "7d4a67a6a61e4518b55512a11920cfbf",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shdm_1_db3904_mqtt_connected",
+                "last_changed": "2020-07-24T22:04:44.497189+00:00",
+                "last_updated": "2020-07-24T22:04:44.497189+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Kids bedroom - Kids blinds - Over temperature",
+                    "icon": "mdi:alert",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "f01c03509cb348139eb8915046cab099",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_e4cdaf_over_temp",
+                "last_changed": "2020-07-24T22:04:44.575841+00:00",
+                "last_updated": "2020-07-24T22:04:44.575841+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "connectivity",
+                    "friendly_name": "Kids bedroom - Kids blinds - MQTT connected",
+                    "icon": "mdi:transit-connection-variant",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "3fb8b8362c3f41208bf166521b1214da",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_e4cdaf_mqtt_connected",
+                "last_changed": "2020-07-24T22:04:44.577741+00:00",
+                "last_updated": "2020-07-24T22:04:44.577741+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Office - Office blinds - Over temperature",
+                    "icon": "mdi:alert",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "838316d58e044c3e8c52b4b66c423d8e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_73c9f8_over_temp",
+                "last_changed": "2020-07-24T22:04:45.332742+00:00",
+                "last_updated": "2020-07-24T22:04:45.332742+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "connectivity",
+                    "friendly_name": "Office - Office blinds - MQTT connected",
+                    "icon": "mdi:transit-connection-variant",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "e5c7f699a2d147c2bea6ab27f65276d3",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_73c9f8_mqtt_connected",
+                "last_changed": "2020-07-24T22:04:45.334926+00:00",
+                "last_updated": "2020-07-24T22:04:45.334926+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "attribution": "Data retrieved from Speedtest.net by Ookla",
+                    "friendly_name": "SpeedTest Ping",
                     "icon": "mdi:speedometer",
+                    "server_country": "IL",
+                    "server_id": "17022",
+                    "server_name": "Tel Aviv",
                     "unit_of_measurement": "ms"
                 },
                 "context": {
-                    "id": "46f14c8cf3f1424b886c9afc813427f9",
+                    "id": "fa6cbdcfa078471180ebf32947490209",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "sensor.speedtest_ping",
-                "last_changed": "2019-05-31T18:38:15.110034+00:00",
-                "last_updated": "2019-05-31T18:38:15.110034+00:00",
-                "state": "5.199"
+                "last_changed": "2020-07-25T08:47:49.490352+00:00",
+                "last_updated": "2020-07-25T08:47:49.490352+00:00",
+                "state": "6.97"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "Speedtest Upload",
-                    "icon": "mdi:upload",
-                    "unit_of_measurement": "Mbit/s"
-                },
-                "context": {
-                    "id": "8165df8715f249f08dd3fe32bc42e8e4",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.speedtest_upload",
-                "last_changed": "2019-05-31T18:38:15.122418+00:00",
-                "last_updated": "2019-05-31T18:38:15.122418+00:00",
-                "state": "131.19"
-            }
-        },
-        {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "Speedtest Download",
+                    "attribution": "Data retrieved from Speedtest.net by Ookla",
+                    "bytes_received": 153184774,
+                    "friendly_name": "SpeedTest Download",
                     "icon": "mdi:download",
+                    "server_country": "IL",
+                    "server_id": "17022",
+                    "server_name": "Tel Aviv",
                     "unit_of_measurement": "Mbit/s"
                 },
                 "context": {
-                    "id": "7b6235b2a0544a65862258999de76b60",
+                    "id": "7341369f58414818933af78018bf3b45",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "sensor.speedtest_download",
-                "last_changed": "2019-05-31T18:38:15.161469+00:00",
-                "last_updated": "2019-05-31T18:38:15.161469+00:00",
-                "state": "196.45"
+                "last_changed": "2020-07-25T08:47:49.491618+00:00",
+                "last_updated": "2020-07-25T08:47:49.491618+00:00",
+                "state": "120.13"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 78 57 e8 70 25 ee",
-                    "source_type": null
+                    "attribution": "Data retrieved from Speedtest.net by Ookla",
+                    "bytes_sent": 139550720,
+                    "friendly_name": "SpeedTest Upload",
+                    "icon": "mdi:upload",
+                    "server_country": "IL",
+                    "server_id": "17022",
+                    "server_name": "Tel Aviv",
+                    "unit_of_measurement": "Mbit/s"
                 },
                 "context": {
-                    "id": "913e202638474d2db59d7fed003d6f09",
+                    "id": "0e2ef6e94a53439fa92a5655c9a46eb4",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_78_57_e8_70_25_ee",
-                "last_changed": "2019-05-29T22:07:03.875995+00:00",
-                "last_updated": "2019-05-29T22:07:03.875995+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.speedtest_upload",
+                "last_changed": "2020-07-25T08:47:49.492791+00:00",
+                "last_updated": "2020-07-25T08:47:49.492791+00:00",
+                "state": "111.42"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 66 ab 4d 40 86 e6",
-                    "source_type": null
+                    "friendly_name": "Master Bedroom - West blinds",
+                    "icon": "mdi:flash-outline",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B-1",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "W"
                 },
                 "context": {
-                    "id": "5f3c78a55be343fbb68cd602327f85cd",
+                    "id": "fd97c1d3e0334370b4b193ba39229595",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_66_ab_4d_40_86_e6",
-                "last_changed": "2019-05-29T22:07:03.877243+00:00",
-                "last_updated": "2019-05-29T22:07:03.877243+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_e6292b_1_current_consumption",
+                "last_changed": "2020-07-24T22:09:52.054788+00:00",
+                "last_updated": "2020-07-24T22:09:52.054788+00:00",
+                "state": "0"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "LE SRS-XB31",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Dryer",
+                    "icon": "mdi:flash-outline",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "W"
                 },
                 "context": {
-                    "id": "af525ad489554e8e9534b6deeca34e31",
+                    "id": "28ba594098ba48a68cc65167f3679052",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.le_srs_xb31",
-                "last_changed": "2019-05-29T22:07:03.878398+00:00",
-                "last_updated": "2019-05-29T22:07:03.878398+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b745_current_consumption",
+                "last_changed": "2020-07-24T22:09:52.056942+00:00",
+                "last_updated": "2020-07-24T22:09:52.056942+00:00",
+                "state": "0"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 68 83 2f a4 a8 39",
-                    "source_type": null
+                    "friendly_name": "Kids bedroom - Kids blinds",
+                    "icon": "mdi:flash-outline",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF-1",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "W"
                 },
                 "context": {
-                    "id": "15837b310dd2493e92b499d52edb43fc",
+                    "id": "de98f84f0c344ff883b215f1db9efc4a",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_68_83_2f_a4_a8_39",
-                "last_changed": "2019-05-29T22:07:03.879603+00:00",
-                "last_updated": "2019-05-29T22:07:03.879603+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_e4cdaf_1_current_consumption",
+                "last_changed": "2020-07-24T22:09:52.059282+00:00",
+                "last_updated": "2020-07-24T22:09:52.059282+00:00",
+                "state": "0"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "Flower care",
-                    "source_type": null
+                    "friendly_name": "Master Bedroom - North blinds",
+                    "icon": "mdi:flash-outline",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26-1",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "W"
                 },
                 "context": {
-                    "id": "553948e308f44a57b2e8a50f9746eca3",
+                    "id": "ce435769ad7a4c9a937167cc5bce3279",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.flower_care_3",
-                "last_changed": "2019-05-29T22:07:03.880782+00:00",
-                "last_updated": "2019-05-29T22:07:03.880782+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_73fd26_1_current_consumption",
+                "last_changed": "2020-07-25T06:51:26.718298+00:00",
+                "last_updated": "2020-07-25T06:51:26.718298+00:00",
+                "state": "0"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 79 aa 39 89 02 c7",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Washing machine",
+                    "icon": "mdi:flash-outline",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "W"
                 },
                 "context": {
-                    "id": "14df581862884ecf81c7ee287fc393d5",
+                    "id": "edea2290864b45d289f66b893f490b69",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_79_aa_39_89_02_c7",
-                "last_changed": "2019-05-29T22:07:03.881986+00:00",
-                "last_updated": "2019-05-29T22:07:03.881986+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b5ac_current_consumption",
+                "last_changed": "2020-07-24T22:09:52.063406+00:00",
+                "last_updated": "2020-07-24T22:09:52.063406+00:00",
+                "state": "0"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 76 b3 d2 c1 6f a9",
-                    "source_type": null
+                    "friendly_name": "Living Room - Balcony light - Device temperature",
+                    "icon": "mdi:oil-temperature",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904",
+                    "shelly_type": "Shelly Dimmer",
+                    "unit_of_measurement": "\u00b0C"
                 },
                 "context": {
-                    "id": "b43f8f39c23b4969a44631968eda66af",
+                    "id": "d8a3456841b642ce9a906b4aab238cec",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_76_b3_d2_c1_6f_a9",
-                "last_changed": "2019-05-29T22:07:03.883189+00:00",
-                "last_updated": "2019-05-29T22:07:03.883189+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shdm_1_db3904_device_temp",
+                "last_changed": "2020-07-25T06:16:27.718666+00:00",
+                "last_updated": "2020-07-25T06:16:27.718666+00:00",
+                "state": "55"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 4c 0c 2c 31 51 dd",
-                    "source_type": null
+                    "device_class": "power",
+                    "friendly_name": "Bathroom - Dryer - Total consumption",
+                    "icon": "mdi:flash-circle",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "kWh"
                 },
                 "context": {
-                    "id": "fe36743adc7f419daf13046b51f73252",
+                    "id": "acfa9db55e174a28b54ee6dfeb457968",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_4c_0c_2c_31_51_dd",
-                "last_changed": "2019-05-29T22:07:03.884372+00:00",
-                "last_updated": "2019-05-29T22:07:03.884372+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b745_total_consumption",
+                "last_changed": "2020-07-24T22:09:52.067640+00:00",
+                "last_updated": "2020-07-24T22:09:52.067640+00:00",
+                "state": "0.0"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 75 d7 af b6 e6 9a",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Dryer - RSSI",
+                    "icon": "mdi:wifi",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "dB"
                 },
                 "context": {
-                    "id": "229635c012cc49748ccfdbad5d6b5daa",
+                    "id": "44bf3bcaab524470912a50cd4bb132a4",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_75_d7_af_b6_e6_9a",
-                "last_changed": "2019-05-29T22:07:03.885567+00:00",
-                "last_updated": "2019-05-29T22:07:03.885567+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b745_rssi",
+                "last_changed": "2020-07-25T09:09:51.479492+00:00",
+                "last_updated": "2020-07-25T09:09:51.479492+00:00",
+                "state": "-75"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 59 72 9f 4c ae f5",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Dryer - Uptime",
+                    "icon": "mdi:timer",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "h"
                 },
                 "context": {
-                    "id": "79841dc41d34485bacf87ef479bb4ae5",
+                    "id": "71adcbbca79c49edb5a30305c54a8300",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_59_72_9f_4c_ae_f5",
-                "last_changed": "2019-05-29T22:07:03.886769+00:00",
-                "last_updated": "2019-05-29T22:07:03.886769+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b745_uptime",
+                "last_changed": "2020-07-25T09:09:51.876249+00:00",
+                "last_updated": "2020-07-25T09:09:51.876249+00:00",
+                "state": "44"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 4b 79 e0 84 15 b4",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Dryer - Device temperature",
+                    "icon": "mdi:oil-temperature",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "\u00b0C"
                 },
                 "context": {
-                    "id": "fc32ae202c8b446e90ec63d2a820e1ba",
+                    "id": "9a585c5871d345359d36a967c0fb8111",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_4b_79_e0_84_15_b4",
-                "last_changed": "2019-05-29T22:07:03.888648+00:00",
-                "last_updated": "2019-05-29T22:07:03.888648+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b745_device_temp",
+                "last_changed": "2020-07-25T07:55:44.429913+00:00",
+                "last_updated": "2020-07-25T07:55:44.429913+00:00",
+                "state": "55"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 6c ae 61 81 d1 f3",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Dryer - Cloud status",
+                    "icon": "mdi:cloud-question",
+                    "ip_address": "192.168.1.86",
+                    "room": "Bathroom",
+                    "shelly_id": "76B745",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": ""
                 },
                 "context": {
-                    "id": "43d72411dc804f55b7f6bb2cc943f152",
+                    "id": "1e3d8ac5970e45ce9199a2a3d795eedd",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_6c_ae_61_81_d1_f3",
-                "last_changed": "2019-05-29T22:07:03.889998+00:00",
-                "last_updated": "2019-05-29T22:07:03.889998+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b745_cloud_status",
+                "last_changed": "2020-07-24T22:09:52.076213+00:00",
+                "last_updated": "2020-07-24T22:09:52.076213+00:00",
+                "state": "connected"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 58 1f 1c fe 89 b7",
-                    "source_type": null
+                    "friendly_name": "Master Bedroom - West blinds - RSSI",
+                    "icon": "mdi:wifi",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "dB"
                 },
                 "context": {
-                    "id": "ee78d246378746c3ac8a37072427a17b",
+                    "id": "e0365f79e9d74a0bb2ad8ab83343636e",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_58_1f_1c_fe_89_b7",
-                "last_changed": "2019-05-29T22:07:03.891215+00:00",
-                "last_updated": "2019-05-29T22:07:03.891215+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_e6292b_rssi",
+                "last_changed": "2020-07-25T09:09:51.594155+00:00",
+                "last_updated": "2020-07-25T09:09:51.594155+00:00",
+                "state": "-64"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 5d 52 75 44 72 e8",
-                    "source_type": null
+                    "friendly_name": "Master Bedroom - West blinds - Uptime",
+                    "icon": "mdi:timer",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "h"
                 },
                 "context": {
-                    "id": "4c0cb8412bc347c5ad140789475abcb9",
+                    "id": "ba447faf5e30450390dbcb5efa5d39b3",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_5d_52_75_44_72_e8",
-                "last_changed": "2019-05-29T22:07:03.892420+00:00",
-                "last_updated": "2019-05-29T22:07:03.892420+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_e6292b_uptime",
+                "last_changed": "2020-07-25T08:59:50.274135+00:00",
+                "last_updated": "2020-07-25T08:59:50.274135+00:00",
+                "state": "66"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 6b 80 ce c7 8f 02",
-                    "source_type": null
+                    "friendly_name": "Master Bedroom - West blinds - Device temperature",
+                    "icon": "mdi:oil-temperature",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "\u00b0C"
                 },
                 "context": {
-                    "id": "b6db4d5acc694bd6ae05c1b9471fc7ad",
+                    "id": "c7e9377bc9d143f48f2db881dd42b304",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_6b_80_ce_c7_8f_02",
-                "last_changed": "2019-05-29T22:07:03.893587+00:00",
-                "last_updated": "2019-05-29T22:07:03.893587+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_e6292b_device_temp",
+                "last_changed": "2020-07-24T22:09:52.082782+00:00",
+                "last_updated": "2020-07-24T22:09:52.082782+00:00",
+                "state": "67"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 53 68 d5 74 ee 24",
-                    "source_type": null
+                    "friendly_name": "Master Bedroom - West blinds - Cloud status",
+                    "icon": "mdi:cloud-question",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
                 },
                 "context": {
-                    "id": "ac4a4a067d164f09882511c4d0e4baa1",
+                    "id": "2608e891b5c4400b92239eab2fd5ebb2",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_53_68_d5_74_ee_24",
-                "last_changed": "2019-05-29T22:07:03.894785+00:00",
-                "last_updated": "2019-05-29T22:07:03.894785+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_e6292b_cloud_status",
+                "last_changed": "2020-07-25T01:38:09.116724+00:00",
+                "last_updated": "2020-07-25T01:38:09.116724+00:00",
+                "state": "connected"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 43 4a c3 9f 03 bb",
-                    "source_type": null
+                    "friendly_name": "Master Bedroom - West blinds - Voltage",
+                    "icon": "mdi:flash",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "V"
                 },
                 "context": {
-                    "id": "a0433dd1b61e427f96dacb26ee5f18c1",
+                    "id": "8edf83fcd98443078425030f6910d7e2",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_43_4a_c3_9f_03_bb",
-                "last_changed": "2019-05-29T22:07:03.896000+00:00",
-                "last_updated": "2019-05-29T22:07:03.896000+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_e6292b_voltage",
+                "last_changed": "2020-07-25T09:06:51.203194+00:00",
+                "last_updated": "2020-07-25T09:06:51.203194+00:00",
+                "state": "233"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 7b 2a e2 b5 1e dd",
-                    "source_type": null
+                    "device_class": "power",
+                    "friendly_name": "Bathroom - Washing machine - Total consumption",
+                    "icon": "mdi:flash-circle",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "kWh"
                 },
                 "context": {
-                    "id": "e84cc887c93746719050933b6e79b687",
+                    "id": "ce8d71afa693481f9a78283e2c633573",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_7b_2a_e2_b5_1e_dd",
-                "last_changed": "2019-05-29T22:07:03.897199+00:00",
-                "last_updated": "2019-05-29T22:07:03.897199+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b5ac_total_consumption",
+                "last_changed": "2020-07-24T22:09:52.090027+00:00",
+                "last_updated": "2020-07-24T22:09:52.090027+00:00",
+                "state": "0.0"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 5b fc ea 80 7c 53",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Washing machine - RSSI",
+                    "icon": "mdi:wifi",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "dB"
                 },
                 "context": {
-                    "id": "541288dff4ee421e893e0da1fc67f4b5",
+                    "id": "69b823f96ceb44eeb3157773eba48f97",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_5b_fc_ea_80_7c_53",
-                "last_changed": "2019-05-29T22:07:03.898394+00:00",
-                "last_updated": "2019-05-29T22:07:03.898394+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b5ac_rssi",
+                "last_changed": "2020-07-25T09:09:51.298816+00:00",
+                "last_updated": "2020-07-25T09:09:51.298816+00:00",
+                "state": "-76"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 53 bd 4a a8 b7 1c",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Washing machine - Uptime",
+                    "icon": "mdi:timer",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "h"
                 },
                 "context": {
-                    "id": "ca31451eb340432496256ece00a26579",
+                    "id": "6b9f0a699a1341c0a912bad9cf24e2b8",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_53_bd_4a_a8_b7_1c",
-                "last_changed": "2019-05-29T22:07:03.899601+00:00",
-                "last_updated": "2019-05-29T22:07:03.899601+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b5ac_uptime",
+                "last_changed": "2020-07-25T08:18:46.692210+00:00",
+                "last_updated": "2020-07-25T08:18:46.692210+00:00",
+                "state": "170"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 4c 8a 24 38 c7 af",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Washing machine - Device temperature",
+                    "icon": "mdi:oil-temperature",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": "\u00b0C"
                 },
                 "context": {
-                    "id": "a70b7c710cff411c8527004df865ef6e",
+                    "id": "69098a134c5e46148dc13c31db81b6ef",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_4c_8a_24_38_c7_af",
-                "last_changed": "2019-05-29T22:07:03.901158+00:00",
-                "last_updated": "2019-05-29T22:07:03.901158+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b5ac_device_temp",
+                "last_changed": "2020-07-25T09:09:51.695880+00:00",
+                "last_updated": "2020-07-25T09:09:51.695880+00:00",
+                "state": "54"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 65 a6 87 5d 36 b5",
-                    "source_type": null
+                    "friendly_name": "Bathroom - Washing machine - Cloud status",
+                    "icon": "mdi:cloud-question",
+                    "ip_address": "192.168.1.85",
+                    "room": "Bathroom",
+                    "shelly_id": "76B5AC",
+                    "shelly_type": "Shelly 1 PM",
+                    "unit_of_measurement": ""
                 },
                 "context": {
-                    "id": "bdcb783933674b148231a821472575fa",
+                    "id": "27631c7cebda463daf7f4ceafab0c70b",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_65_a6_87_5d_36_b5",
-                "last_changed": "2019-05-29T22:07:03.902394+00:00",
-                "last_updated": "2019-05-29T22:07:03.902394+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_pm_76b5ac_cloud_status",
+                "last_changed": "2020-07-24T22:09:52.097823+00:00",
+                "last_updated": "2020-07-24T22:09:52.097823+00:00",
+                "state": "connected"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 4a 1d 59 74 43 69",
-                    "source_type": null
+                    "friendly_name": "Master Bedroom - North blinds - RSSI",
+                    "icon": "mdi:wifi",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "dB"
                 },
                 "context": {
-                    "id": "6c3ccbdcc96c409fb22ab237667f7669",
+                    "id": "482ab1480c4d4ed9b724ef77e45951fd",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_4a_1d_59_74_43_69",
-                "last_changed": "2019-05-29T22:07:03.903555+00:00",
-                "last_updated": "2019-05-29T22:07:03.903555+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_73fd26_rssi",
+                "last_changed": "2020-07-25T09:09:51.741998+00:00",
+                "last_updated": "2020-07-25T09:09:51.741998+00:00",
+                "state": "-78"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "e4 7c f9 54 06 f6",
-                    "scanner": "XiaomiDeviceScanner",
-                    "source_type": "router"
+                    "friendly_name": "Master Bedroom - North blinds - Uptime",
+                    "icon": "mdi:timer",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "h"
                 },
                 "context": {
-                    "id": "e0b3bfe4984f433b849fdc6c16d21077",
+                    "id": "99d69eeec5eb4d6fbf860881c73866d4",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.e4_7c_f9_54_06_f6",
-                "last_changed": "2019-05-31T18:17:00.012971+00:00",
-                "last_updated": "2019-05-31T18:17:00.012971+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_73fd26_uptime",
+                "last_changed": "2020-07-25T08:49:49.657553+00:00",
+                "last_updated": "2020-07-25T08:49:49.657553+00:00",
+                "state": "15"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "samsung tv",
-                    "source_type": "router"
+                    "friendly_name": "Master Bedroom - North blinds - Device temperature",
+                    "icon": "mdi:oil-temperature",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "\u00b0C"
                 },
                 "context": {
-                    "id": "2818a773479549aa84fc7a1c167fa2eb",
+                    "id": "d46adc2078764f6ebc6e0329349711ee",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.samsung_tv",
-                "last_changed": "2019-05-31T18:17:05.011488+00:00",
-                "last_updated": "2019-05-31T18:17:05.011488+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_73fd26_device_temp",
+                "last_changed": "2020-07-25T09:06:51.630257+00:00",
+                "last_updated": "2020-07-25T09:06:51.630257+00:00",
+                "state": "67"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "ble 4f 4e 4e 91 5a 12",
-                    "source_type": null
+                    "friendly_name": "Master Bedroom - North blinds - Cloud status",
+                    "icon": "mdi:cloud-question",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
                 },
                 "context": {
-                    "id": "ccd79909e1684ac28e9882caca845da2",
+                    "id": "eea3c6c1199a4cf4b989ee2ac70b8dd1",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.ble_4f_4e_4e_91_5a_12",
-                "last_changed": "2019-05-29T22:07:03.906947+00:00",
-                "last_updated": "2019-05-29T22:07:03.906947+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_73fd26_cloud_status",
+                "last_changed": "2020-07-24T22:09:52.105513+00:00",
+                "last_updated": "2020-07-24T22:09:52.105513+00:00",
+                "state": "connected"
             }
         },
         {
-            "last_seen": "2019-05-31T18:39:48.009263+00:00",
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "samsung galaxy s7",
-                    "source_type": "router"
+                    "friendly_name": "Master Bedroom - North blinds - Voltage",
+                    "icon": "mdi:flash",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "V"
                 },
                 "context": {
-                    "id": "53a4488fa7064968827be90140273d2c",
+                    "id": "8e5143abc8de4cabb98ee1462668b70b",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "device_tracker.samsung_galaxy_s7",
-                "last_changed": "2019-05-31T18:20:25.012427+00:00",
-                "last_updated": "2019-05-31T18:20:25.012427+00:00",
-                "state": "not_home"
+                "entity_id": "sensor.shelly_shsw_25_73fd26_voltage",
+                "last_changed": "2020-07-25T09:03:50.999304+00:00",
+                "last_updated": "2020-07-25T09:03:50.999304+00:00",
+                "state": "235"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Living Room - Balcony light - RSSI",
+                    "icon": "mdi:wifi",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904",
+                    "shelly_type": "Shelly Dimmer",
+                    "unit_of_measurement": "dB"
+                },
+                "context": {
+                    "id": "baf4b447d1a94dcba77b8264a28765ce",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shdm_1_db3904_rssi",
+                "last_changed": "2020-07-25T09:09:51.796080+00:00",
+                "last_updated": "2020-07-25T09:09:51.796080+00:00",
+                "state": "-56"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Living Room - Balcony light - Uptime",
+                    "icon": "mdi:timer",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904",
+                    "shelly_type": "Shelly Dimmer",
+                    "unit_of_measurement": "h"
+                },
+                "context": {
+                    "id": "fad2f6667f034da2abd62589c00e6d08",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shdm_1_db3904_uptime",
+                "last_changed": "2020-07-25T09:00:50.777921+00:00",
+                "last_updated": "2020-07-25T09:00:50.777921+00:00",
+                "state": "86"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Living Room - Balcony light - Cloud status",
+                    "icon": "mdi:cloud-question",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904",
+                    "shelly_type": "Shelly Dimmer",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "980ab28c8acc460f96f265e26e42f7eb",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shdm_1_db3904_cloud_status",
+                "last_changed": "2020-07-24T22:09:52.112946+00:00",
+                "last_updated": "2020-07-24T22:09:52.112946+00:00",
+                "state": "connected"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Living Room - Balcony light",
+                    "icon": "mdi:flash-outline",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904",
+                    "shelly_type": "Shelly Dimmer",
+                    "unit_of_measurement": "W"
+                },
+                "context": {
+                    "id": "f483844f39c54e13a40ff64b460867f9",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shdm_1_db3904_current_consumption",
+                "last_changed": "2020-07-24T22:09:52.115037+00:00",
+                "last_updated": "2020-07-24T22:09:52.115037+00:00",
+                "state": "0"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Kids bedroom - Kids blinds - RSSI",
+                    "icon": "mdi:wifi",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "dB"
+                },
+                "context": {
+                    "id": "c7f67d176afe403f99fcd71490f35ec5",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_e4cdaf_rssi",
+                "last_changed": "2020-07-25T09:07:51.557494+00:00",
+                "last_updated": "2020-07-25T09:07:51.557494+00:00",
+                "state": "-64"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Kids bedroom - Kids blinds - Uptime",
+                    "icon": "mdi:timer",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "h"
+                },
+                "context": {
+                    "id": "b618ce32a54147939c95f37f822f9742",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_e4cdaf_uptime",
+                "last_changed": "2020-07-25T08:38:48.428829+00:00",
+                "last_updated": "2020-07-25T08:38:48.428829+00:00",
+                "state": "83"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Kids bedroom - Kids blinds - Device temperature",
+                    "icon": "mdi:oil-temperature",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "aebee570648c472fa4e613fd88561ca6",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_e4cdaf_device_temp",
+                "last_changed": "2020-07-24T22:09:52.121699+00:00",
+                "last_updated": "2020-07-24T22:09:52.121699+00:00",
+                "state": "59"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Kids bedroom - Kids blinds - Cloud status",
+                    "icon": "mdi:cloud-question",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "e68b809bd92b4390a5cf2b32168d7acf",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_e4cdaf_cloud_status",
+                "last_changed": "2020-07-24T22:09:52.123702+00:00",
+                "last_updated": "2020-07-24T22:09:52.123702+00:00",
+                "state": "connected"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Kids bedroom - Kids blinds - Voltage",
+                    "icon": "mdi:flash",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "V"
+                },
+                "context": {
+                    "id": "8a12c0036e35424ab6095f813cfb1994",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_e4cdaf_voltage",
+                "last_changed": "2020-07-25T09:03:51.094287+00:00",
+                "last_updated": "2020-07-25T09:03:51.094287+00:00",
+                "state": "232"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Office - Office blinds - RSSI",
+                    "icon": "mdi:wifi",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "dB"
+                },
+                "context": {
+                    "id": "aa2429e8378e4fc5b8526b4a0ae0dbb6",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_73c9f8_rssi",
+                "last_changed": "2020-07-25T09:06:51.672922+00:00",
+                "last_updated": "2020-07-25T09:06:51.672922+00:00",
+                "state": "-60"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Office - Office blinds - Uptime",
+                    "icon": "mdi:timer",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "h"
+                },
+                "context": {
+                    "id": "c7a786df260d4e1cbd5338beb8ff1b22",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_73c9f8_uptime",
+                "last_changed": "2020-07-25T08:29:47.836611+00:00",
+                "last_updated": "2020-07-25T08:29:47.836611+00:00",
+                "state": "57"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Office - Office blinds - Device temperature",
+                    "icon": "mdi:oil-temperature",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f89236f2acd341adb04dcfd508704b08",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_73c9f8_device_temp",
+                "last_changed": "2020-07-24T22:09:52.132618+00:00",
+                "last_updated": "2020-07-24T22:09:52.132618+00:00",
+                "state": "60"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Office - Office blinds - Cloud status",
+                    "icon": "mdi:cloud-question",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": ""
+                },
+                "context": {
+                    "id": "04dd5e4627664f189c0a8d0da11fe4fb",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_73c9f8_cloud_status",
+                "last_changed": "2020-07-24T22:09:52.134958+00:00",
+                "last_updated": "2020-07-24T22:09:52.134958+00:00",
+                "state": "connected"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "power",
+                    "friendly_name": "Master Bedroom - West blinds - Total consumption",
+                    "icon": "mdi:flash-circle",
+                    "ip_address": "192.168.1.93",
+                    "room": "Master Bedroom",
+                    "shelly_id": "E6292B-1",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "kWh"
+                },
+                "context": {
+                    "id": "778661a6065b4520aa4a02aae13513c7",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_e6292b_1_total_consumption",
+                "last_changed": "2020-07-24T22:09:57.470197+00:00",
+                "last_updated": "2020-07-24T22:09:57.470197+00:00",
+                "state": "0.0"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "power",
+                    "friendly_name": "Kids bedroom - Kids blinds - Total consumption",
+                    "icon": "mdi:flash-circle",
+                    "ip_address": "192.168.1.91",
+                    "room": "Kids bedroom",
+                    "shelly_id": "E4CDAF-1",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "kWh"
+                },
+                "context": {
+                    "id": "6c584e82fa6a4326bbc07ca168ae53fc",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_e4cdaf_1_total_consumption",
+                "last_changed": "2020-07-24T22:10:00.992263+00:00",
+                "last_updated": "2020-07-24T22:10:00.992263+00:00",
+                "state": "0.0"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "power",
+                    "friendly_name": "Master Bedroom - North blinds - Total consumption",
+                    "icon": "mdi:flash-circle",
+                    "ip_address": "192.168.1.90",
+                    "room": "Master Bedroom",
+                    "shelly_id": "73FD26-1",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "kWh"
+                },
+                "context": {
+                    "id": "f7ffc24b1302485aa2d62ff84329c7ca",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_73fd26_1_total_consumption",
+                "last_changed": "2020-07-24T22:10:01.139388+00:00",
+                "last_updated": "2020-07-24T22:10:01.139388+00:00",
+                "state": "0.0"
+            }
+        },
+        {
+            "last_seen": "2020-07-25T09:10:08.212962+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "power",
+                    "friendly_name": "Living Room - Balcony light - Total consumption",
+                    "icon": "mdi:flash-circle",
+                    "ip_address": "192.168.1.80",
+                    "room": "Living Room",
+                    "shelly_id": "DB3904",
+                    "shelly_type": "Shelly Dimmer",
+                    "unit_of_measurement": "kWh"
+                },
+                "context": {
+                    "id": "13d7c56d041c4b67b200f02da66b9077",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shdm_1_db3904_total_consumption",
+                "last_changed": "2020-07-24T22:10:47.986159+00:00",
+                "last_updated": "2020-07-24T22:10:47.986159+00:00",
+                "state": "0.0"
+            }
+        },
+        {
+            "last_seen": "2020-07-24T21:45:02.087162+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Office - Office blinds - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8-1",
+                    "shelly_type": "Shelly 2.5"
+                },
+                "context": {
+                    "id": "0d822150873b454791669f8cef40f1b2",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_73c9f8_1_switch",
+                "last_changed": "2020-07-24T21:25:50.679824+00:00",
+                "last_updated": "2020-07-24T21:25:50.679824+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-24T21:45:02.087162+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Office - Office blinds - 2 - Switch",
+                    "icon": "mdi:hockey-puck",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8-2",
+                    "shelly_type": "Shelly 2.5"
+                },
+                "context": {
+                    "id": "8f9e9eb36d124106a892f9dbf45ea678",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.shelly_shsw_25_73c9f8_2_switch",
+                "last_changed": "2020-07-24T21:25:50.814903+00:00",
+                "last_updated": "2020-07-24T21:25:50.814903+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-07-24T21:45:02.087162+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Office - Office blinds",
+                    "icon": "mdi:flash-outline",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8-1",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "W"
+                },
+                "context": {
+                    "id": "a023b011ef0a42ab884dab49cef76692",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_73c9f8_1_current_consumption",
+                "last_changed": "2020-07-24T21:25:50.567306+00:00",
+                "last_updated": "2020-07-24T21:25:50.567306+00:00",
+                "state": "0"
+            }
+        },
+        {
+            "last_seen": "2020-07-24T21:45:02.087162+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Office - Office blinds - Voltage",
+                    "icon": "mdi:flash",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "V"
+                },
+                "context": {
+                    "id": "418180208f684aeca158bccd547ef591",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_73c9f8_voltage",
+                "last_changed": "2020-07-24T21:44:52.729479+00:00",
+                "last_updated": "2020-07-24T21:44:52.729479+00:00",
+                "state": "234"
+            }
+        },
+        {
+            "last_seen": "2020-07-24T21:45:02.087162+00:00",
+            "state": {
+                "attributes": {
+                    "current_position": 83,
+                    "friendly_name": "Shelly Office blinds [73C9F8]",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8",
+                    "shelly_type": "Shelly 2.5 (Roller)",
+                    "supported_features": 15
+                },
+                "context": {
+                    "id": "09e19809267944e9b597f32441f171b5",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "cover.shelly_shsw_25_73c9f8",
+                "last_changed": "2020-07-24T21:25:50.564682+00:00",
+                "last_updated": "2020-07-24T21:25:50.564682+00:00",
+                "state": "open"
+            }
+        },
+        {
+            "last_seen": "2020-07-24T21:45:02.087162+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "power",
+                    "friendly_name": "Office - Office blinds - Total consumption",
+                    "icon": "mdi:flash-circle",
+                    "ip_address": "192.168.1.92",
+                    "room": "Office",
+                    "shelly_id": "73C9F8-1",
+                    "shelly_type": "Shelly 2.5",
+                    "unit_of_measurement": "kWh"
+                },
+                "context": {
+                    "id": "07c33bc87b2440c0891e5dd275a4030d",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.shelly_shsw_25_73c9f8_1_total_consumption",
+                "last_changed": "2020-07-24T21:25:50.569535+00:00",
+                "last_updated": "2020-07-24T21:25:50.569535+00:00",
+                "state": "0.0"
             }
         }
     ],

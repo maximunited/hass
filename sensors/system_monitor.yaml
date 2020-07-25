@@ -23,40 +23,65 @@
       arg: eth0
     - type: network_out
       arg: eth0
-    - type: ipv4_address
-      arg: eth0
+      ### Replaced by local_ip integration
+      #    - type: ipv4_address
+      #      arg: eth0
     - type: last_boot
-    - type: process
-      arg: hass
+    # - type: process
+    #   arg: hass
 
 - platform: uptime
 
+- platform: command_line
+  name: "CPU Temperature"
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) | round(1) }}'
 #
 # Version
 #
 # @link https://home-assistant.io/components/sensor.version/
 #
-- platform: version
-  name: version_available
-  source: docker
-  image: raspberrypi3
-  beta: false
+
+# - platform: version
+#   name: version_available
+#   source: docker
+#   image: raspberrypi3
+#   beta: false
 - platform: version
   name: version_current
+
+# @link https://community.home-assistant.io/t/sensor-for-latest-docker-image-versions/48745/10
+- platform: rest
+  name: docker_version_available
+  resource: 'https://registry.hub.docker.com/v2/repositories/homeassistant/raspberrypi3-homeassistant/tags'
+  value_template: >-
+    {% set results = value_json.results %}
+    {%-set res-%}
+    {%-set pipe = joiner('|')-%}
+    {% for result in results if not result.name |regex_search("^[a-z]|dev|-1",ignorecase=TRUE) -%} 
+      {{ pipe()}}{{result.name}}      
+    {% else %}        
+      -1 
+    {% endfor -%}
+    {% endset -%}
+    {% set res = res.split('|')|list -%}
+    {{res[0]}}
+  scan_interval: 1800
 
 #
 # Friendly version report
 #
 - platform: template
   sensors:
-    version_friendly:
-      friendly_name: Home Assistant Version
-      icon_template: mdi:update
-      value_template: >-
-        {% set version = states('sensor.version_current') %}
-        Home Assistant {% if version != 'unknown' -%}
-          {{ version }}
-        {%- endif %}
+    # version_friendly:
+    #   friendly_name: Home Assistant Version
+    #   icon_template: mdi:update
+    #   value_template: >-
+    #     {% set version = states('sensor.version_current') %}
+    #     Home Assistant {% if version != 'unknown' -%}
+    #       {{ version }}
+    #     {%- endif %}
     update_available:
       friendly_name: Update Available
       icon_template: mdi:update
@@ -65,6 +90,12 @@
         {% if version != 'unknown' %}
           Update available: {{ version }}
         {% endif %}
+
+# - platform: hadockermon
+#   host: 127.0.0.1
+#   port: 8126
+#   # stats: true
+#   name: hadockermon
 
 # - platform: command_line
 #    name: Hass uptime

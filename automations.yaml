@@ -25,6 +25,101 @@
 #       message: "Homeudo hciconfig hci0 down ; sleep 2 ; sudo hciconfig hci0 up
 #       Assistant  {{ states.updater.updater.state }}  is now available."
 
+### Living AC activated - persistent notify and start timer
+- alias: living_ac_activated
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.movement
+    event_data:
+      entity_id: binary_sensor.vibration_living_room_ac
+      movement_type: vibrate 
+  action:
+    #    - service: persistent_notification.create
+    #      data_template:
+    #        message: '{{now().strftime("%Y-%m-%d %H:%M:%S")}}: vibrated'
+    #        title: "Living room AC"
+    - service: timer.start
+      entity_id: timer.living_ac_5min
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.living_ac
+
+# Living room AC working
+# - alias: living_ac_working
+#   trigger:
+#     - platform: state
+#       entity_id: timer.living_ac_5min
+#       to: "active"
+#       for:
+#         minutes: 10
+#   action:
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.living_ac
+
+# Living room AC stopped
+- alias: living_ac_stopped
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.living_ac_5min
+  condition:
+    condition: state
+    entity_id: input_boolean.living_ac
+    state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.living_ac
+
+
+#####################
+#####################
+#####################
+
+- alias: ambient lights on if someone's home
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-00:30:00"
+  condition:
+    - condition: state
+      entity_id: group.household
+      state: 'home'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.ambient_full
+
+#####################
+#####################
+#####################
+
+- alias: "Boo's home"
+  trigger:
+    platform: state
+    entity_id: person.dana
+    from: 'not_home'
+    to: 'home'
+    #for:
+    #  minutes: 5
+  condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: person.maxim
+        state: 'not_home'
+      - condition: time
+        after: '12:00:00'
+        before: '23:00:00'
+  action:
+    service: notify.notify_pushbullet
+    data:
+      message: "Boo's home!"
+      target: "device/Samsung SGS 7 Edge"
+
+#####################
+#####################
+#####################
+
+
 - alias: Startup Notification
   trigger:
     platform: homeassistant
@@ -40,58 +135,125 @@
   action:
     service: notify.notify_html5
     data:
-      message: 'Update for Home Assistant is available.'
+      message: 'Update for HA is available.'
+      title: 'Home Assistant'
 
-- alias: 'mark Maxim home'
-  condition:
-    condition: state
-    entity_id: input_boolean.maxim_home
-    state: 'off'
+- alias: 'Notify - Home Assistant docker tag changed'
   trigger:
-    platform: state
-    entity_id: person.maxim
-    to: 'away'
+    - platform: state
+      entity_id: sensor.docker_version_available
+  condition:
+      condition: template
+      value_template: >
+        {{ trigger.to_state.state not in [trigger.from_state.state, 'unavailable'] }}
   action:
-    service: input_boolean.turn_on
-    data:
-      entity_id: input_boolean.maxim_home
+    - service: persistent_notification.create
+      data_template:
+        title: "Home Assistant update available"
+        message: "Home Assistant docker tag changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}"
+    - service: notify.notify_html5
+      data_template:
+        title: "Home Assistant update available"
+        message: "Home Assistant docker tag changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}"
 
-- alias: 'mark Maxim away'
-  condition:
-    condition: state
-    entity_id: input_boolean.maxim_home
-    state: 'on'
+- alias: 'Notify on shelly FW update'
+  initial_state: true
   trigger:
-    platform: state
-    entity_id: person.maxim
-    to: 'home'
+    - platform: state
+      entity_id:
+        - binary_sensor.shelly_73c9f8_fw_update
+        - binary_sensor.shelly_73fd26_fw_update
+        - binary_sensor.shelly_e4cdaf_fw_update
+        - binary_sensor.shelly_e6292b_fw_update
+      to: 'on'
+      for:
+        minutes: 30
   action:
-    service: input_boolean.turn_off
-    data:
-      entity_id: input_boolean.maxim_home
+    - service: persistent_notification.create
+      data_template:
+        title: "Shelly FW update available"
+        message: "{{ trigger.to_state.attributes.friendly_name }} has a FW update available"
+    - service: notify.notify_html5
+      data_template:
+        title: "Shelly FW update available"
+        message: "{{ trigger.to_state.attributes.friendly_name }} has a FW update available"
+      data:
+        data:
+          actions:
+            - action: update_shelly_fw
+              title: "Update FW on {{ trigger.to_state.attributes.friendly_name }}"
+            - action: dismiss_notification
+              title: "Dismiss"
+- alias: 'Handle HTML5 notification action: Update FW'
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: update_shelly_fw
+  action:
+    #- service: switch.turn_on
+    #  data:
+    #    entity_id: switch.docker_duckdns
+    - service: system_log.write
+      data_template:
+        message: "Clicked {{trigger.event.data}}"
+
+
+
+      # - alias: 'mark Maxim home'
+      #   condition:
+      #     condition: state
+      #     entity_id: input_boolean.maxim_home
+      #     state: 'off'
+      #   trigger:
+      #     platform: state
+      #     entity_id: person.maxim
+      #     to: 'away'
+      #   action:
+      #     service: input_boolean.turn_on
+      #     data:
+      #       entity_id: input_boolean.maxim_home
+      # 
+      # - alias: 'mark Maxim away'
+      #   condition:
+      #     condition: state
+      #     entity_id: input_boolean.maxim_home
+      #     state: 'on'
+      #   trigger:
+      #     platform: state
+      #     entity_id: person.maxim
+      #     to: 'home'
+      #   action:
+      #     service: input_boolean.turn_off
+      #     data:
+      #       entity_id: input_boolean.maxim_home
 
 #################################################################################################
 # yamllint disable-line rule:line-length
 ### https://github.com/aFrankLion/hass-google_keep#ifttt-applet-and-home-assistant-automation ###
 #################################################################################################
-- alias: Google Keep list update from google assistant and ifttt
-  trigger:
-    platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: call_service
-  action:
-    service_template: '{{ trigger.event.data.service }}'
-    data_template:
-      title: '{{ trigger.event.data.title }}'
-      things: '{{ trigger.event.data.things }}'
+# OBSOLETE as Google assistant finally supports Google keep
+# - alias: Google Keep list update from google assistant and ifttt
+#   trigger:
+#     platform: event
+#     event_type: ifttt_webhook_received
+#     event_data:
+#       action: call_service
+#   condition:
+#     - condition: template
+#       value_template: '{% if trigger.event.data.title is defined %}True{% else %}False{% endif %}'
+#   action:
+#     service_template: '{{ trigger.event.data.service }}'
+#     data_template:
+#       title: '{{ trigger.event.data.title }}'
+#       things: '{{ trigger.event.data.things | capitalize}}'
 
 - alias: Google Keep list update via text box
   trigger:
     platform: state
     entity_id: input_text.add_to_grocery_list
   action:
-    # service_template: '{{ trigger.event.data.service }}'
     service: google_keep.add_to_list
     data_template:
       title: 'Grocery list'
@@ -106,6 +268,107 @@
       data_template:
         entity_id: media_player.all_devices
         message: "{{ states.input_text.google_broadcast.state }}"
+
+- alias: Turn ON or OFF input_boolean.living_ac from IFTTT
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: call_service
+  condition:
+    - condition: template
+      value_template: '{% if trigger.event.data.title is not defined %}True{% else %}False{% endif %}'
+    - condition: template
+      value_template: '{% if trigger.event.data.entity_id is defined %}True{% else %}False{% endif %}'
+  action:
+    service_template: '{{ trigger.event.data.service | lower }}'
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id | lower }}'
+
+- alias: Report indoor temperature from IFTTT (Google Home)
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: call_service
+  condition:
+    - condition: template
+      value_template: '{% if trigger.event.data.title is not defined %}True{% else %}False{% endif %}'
+    - condition: template
+      value_template: '{% if trigger.event.data.entity_id is not defined %}True{% else %}False{% endif %}'
+  action:
+    service_template: '{{ trigger.event.data.service | lower }}'
+
+################################################################################
+################################## HACS ########################################
+################################################################################
+- alias: Create a notification when somethig is added to HACS
+  trigger:
+    platform: event
+    event_type: hacs/repository
+    event_data:
+      action: registration
+  condition:
+    condition: template
+    value_template: "{{ trigger.event.data.repository is defined }}"
+  action:
+    service: persistent_notification.create
+    data_template:
+      title: New repository in HACS
+      message: >-
+        {% set repo = trigger.event.data.repository %}
+        {% set id = trigger.event.data.repository_id %}
+        [{{ repo }}](/hacs/repository/{{ id }})
+        was just added to HACS.
+
+- alias: Create a notification when there is updates pending in HACS
+  trigger:
+    platform: state
+    entity_id: sensor.hacs
+  condition:
+    - condition: template
+      value_template: "{{ states(trigger.entity_id) != 'unknown'}}"
+    - condition: template
+      value_template: "{{ (states(trigger.entity_id) | float) != 0}}"
+  action:
+    service: persistent_notification.create
+    data_template:
+      title: Updates pending in HACS
+      message: >-
+        {% for repo in state_attr(trigger.entity_id, 'repositories') %}
+          **{{ repo.display_name }}** _{{ repo["installed version"] }}_ -> _{{ repo["available version"] }}_
+        {% endfor %}
+
+#- alias: HACS Peristant Notification
+#  initial_state: 'on'
+#  trigger:
+#    platform: numeric_state
+#    entity_id: sensor.hacs
+#    above: 0
+#  action:
+#    - service: persistent_notification.create
+#      data:
+#        message: "Update available!"
+#        title: "HACS"
+#    - service: notify.notify_html5
+#      data:
+#        message: 'Update for HACS available'
+#        title: "HACS"
+#################################################################################
+
+- alias: Notify for new devices
+  trigger:
+    platform: event
+    event_type: device_tracker_new_device
+  action:
+    - service: notify.notify_html5
+      data_template:
+        message: >
+           New device:
+           {{trigger.event.data.host_name}}
+           ({{trigger.event.data.entity_id}})
+        title: New device
+
 
 ### https://github.com/aFrankLion/hass-google_keep#home-assistant-service
 - alias: Low Battery Notification
@@ -127,14 +390,217 @@
       things: 'Batteries for {{ trigger.to_state.name }}.'
 
 ### https://www.reddit.com/r/pihole/comments/bbhd0h/loving_the_home_assistant_pihole_component/
-- id: toggle Pihole switch
-  alias: "Switch - Toggle Pi-Hole"
-  initial_state: 'on'
+# - id: toggle Pihole switch
+#  alias: "Switch - Toggle Pi-Hole"
+#  initial_state: 'on'
+#  trigger:
+#    - platform: state
+#      entity_id: switch.pihole_temp_disable
+#      to: 'on'
+#  action:
+#    - delay: '00:05:01'
+#    - service: switch.turn_off
+#      entity_id: switch.pihole_temp_disable
+
+##################
+### Tuya plugs ###
+##################
+## When power is detected, and the washing machine is not in
+## the Running state, change the status of the washing machine
+## to Running.
+## The status check will ensure we don't try to put the state
+## to Running each time the power level changes, and we're already
+## in the Running state. 
+
+- alias: Set washing machine active when power detected
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.washing_machine_power
+      above: 50
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.washing_machine_status
+        state: 'Idle'
+      - condition: state
+        entity_id: sensor.washing_machine_status
+        state: 'Power Off'
+      - condition: state
+        entity_id: sensor.washing_machine_status
+        state: 'Finishing'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Running'
+
+
+## When the power drops, move the state of the washing machine to
+## Finishing.
+
+- alias: Set washing machine finished when power drops
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.washing_machine_power
+      below: 42
+  condition:
+    #condition: and
+    #conditions:
+    condition: state
+    entity_id: input_select.washing_machine_status
+    state: Running
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: Finishing
+
+## Wait 1 minutes for us to be in the Finishing state before we
+## decide the washing machine has finished. This way, if the
+## washing machine is in between cycles and the power drops, we
+## won't mark the washing machine cycle as finished too early.
+
+- alias: Set washing machine clean after timeout
   trigger:
     - platform: state
-      entity_id: switch.pihole_temp_disable
-      to: 'on'
+      entity_id: input_select.washing_machine_status
+      to: Finishing
+      for:
+        minutes: 1
+  condition:
+    #condition: and
+    #conditions:
+    condition: state
+    entity_id: input_select.washing_machine_status
+    state: Finishing
   action:
-    - delay: '00:05:01'
-    - service: switch.turn_off
-      entity_id: switch.pihole_temp_disable
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: Done
+
+##################
+
+- alias: Set shower heater max power state
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shower_heater_power
+      above: 2000
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Idle'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Power Off'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Low Power'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Light Only'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Max Power'
+
+- alias: Set shower heater low power state
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shower_heater_power
+      above: 1000
+      below: 2000
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Idle'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Power Off'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Max Power'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Light Only'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Low Power'
+
+- alias: Set shower heater light only state
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shower_heater_power
+      above: 0.5
+      below: 5
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Idle'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Power Off'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Low Power'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Max Power'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Light Only'
+
+- alias: Set shower heater off state
+  trigger:
+    - platform: state
+      entity_id: switch.shower_heater
+      to: 'off'
+      #   condition:
+      #     condition: or
+      #     conditions:
+      #       - condition: state
+      #         entity_id: sensor.shower_heater_status
+      #         state: 'Idle'
+      #       - condition: state
+      #         entity_id: sensor.shower_heater_status
+      #         state: 'Light Only'
+      #       - condition: state
+      #         entity_id: sensor.shower_heater_status
+      #         state: 'Low Power'
+      #       - condition: state
+      #         entity_id: sensor.shower_heater_status
+      #         state: 'Max Power'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Power Off'
+
+- alias: Set shower heater idle state
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shower_heater_power
+      below: 0.1
+      for:
+        minutes: 1
+  condition:
+    - condition: state
+      entity_id: switch.shower_heater
+      state: 'on'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Idle'

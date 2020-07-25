@@ -1,17 +1,24 @@
 ---
-- platform: denonavr
-  host: 192.168.1.3
-  name: Marantz Reciever
-  show_all_sources: true
+#- platform: denonavr
+#  host: 192.168.1.3
+#  name: Marantz Reciever
+#  show_all_sources: true
 
-- platform: webostv
-  host: 192.168.1.2
-  name: LG TV
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
-    data:
-      mac: "38:8C:50:82:51:F5"
+#- platform: webostv
+#  host: 192.168.1.2
+#  name: LG TV
+#  turn_on_action:
+#    service: wake_on_lan.send_magic_packet
+#    data:
+#     mac: "38:8C:50:82:51:F5"
 
-- platform: samsungtv
-  host: 192.168.1.97
-  name: Samsung TV
+#- platform: samsungtv
+#  host: 192.168.1.97
+#  name: Samsung TV
+
+- platform: smartir
+  name: Living Room HOT
+  unique_id: living_room_HOT
+  device_code: 6900
+  controller_data: 192.168.1.15
+  # power_sensor: binary_sensor.tv_power

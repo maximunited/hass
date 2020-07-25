@@ -16,6 +16,38 @@
                 "id": "1d95ef9af7864d829f214330a6067dfd",
                 "name": "Dana",
                 "user_id": null
+            },
+            {
+                "device_trackers": [
+                    "device_tracker.guy_t_phone"
+                ],
+                "id": "1f9604b189f244c3a22bad57c4a8a1e4",
+                "name": "Guy T.",
+                "user_id": null
+            },
+            {
+                "device_trackers": [
+                    "device_tracker.kobbi_d_phone"
+                ],
+                "id": "8badcf4e02bc44b498febf600b0efc88",
+                "name": "Kobbi D.",
+                "user_id": null
+            },
+            {
+                "device_trackers": [
+                    "device_tracker.roy_d_phone"
+                ],
+                "id": "aef090370c1c46628f03ba541e7347a1",
+                "name": "Roy D.",
+                "user_id": null
+            },
+            {
+                "device_trackers": [
+                    "device_tracker.meir_work_laptop"
+                ],
+                "id": "bbc1cbd7e2024d3d996f6bed49d16daf",
+                "name": "Meir L.",
+                "user_id": null
             }
         ]
     },

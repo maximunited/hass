@@ -3,46 +3,271 @@
         "entries": [
             {
                 "connection_class": "local_push",
-                "data": {},
+                "data": {
+                    "user_id": "c04794512b854a7a804617b65833cef8"
+                },
                 "domain": "cast",
                 "entry_id": "bd02fca5759948e98763affa7937425f",
                 "options": {},
                 "source": "discovery",
+                "system_options": {
+                    "disable_new_entities": false
+                },
                 "title": "Google Cast",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "unknown",
+                "data": {
+                    "cloudhook": false,
+                    "webhook_id": "19e904e9b52de0590142a30db42a53ac533a08a9ce04e4dc1a10fb9995f3ed5b"
+                },
+                "domain": "ifttt",
+                "entry_id": "65ae2ab1b74347119457b0c58361f244",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "IFTTT Webhook",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {},
+                "domain": "hacs",
+                "entry_id": "a178251262ef4e4d9588e663bfc90c7e",
+                "options": {
+                    "country": "ALL",
+                    "debug": false,
+                    "experimental": true,
+                    "release_limit": 5
+                },
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "configuration.yaml",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {},
+                "domain": "shelly",
+                "entry_id": "062352f4753947bd8e790408a1530907",
+                "options": {},
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "configuration.yaml",
+                "unique_id": null,
                 "version": 1
             },
             {
                 "connection_class": "local_push",
                 "data": {
-                    "host": "192.168.1.3"
+                    "broker": "mosquitto",
+                    "discovery": true,
+                    "port": 1883
                 },
-                "domain": "heos",
-                "entry_id": "01509494bdc945a79cb0540db52d4490",
+                "domain": "mqtt",
+                "entry_id": "aa51b691c1204e7c88ee2e83be9e7b59",
                 "options": {},
-                "source": "discovery",
-                "title": "Controller (192.168.1.3)",
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "172.19.0.5",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {},
+                "domain": "local_ip",
+                "entry_id": "e01da0292f484f1a93a854d754fa5d37",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "local_ip",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {},
+                "domain": "speedtestdotnet",
+                "entry_id": "a4e317057aba4b3ca91d0854c5573758",
+                "options": {
+                    "manual": false,
+                    "scan_interval": 30,
+                    "server_id": ""
+                },
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "SpeedTest",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "country_code": "972",
+                    "password": "ManUtd99",
+                    "platform": "smart_life",
+                    "username": "maxim_united@yahoo.com"
+                },
+                "domain": "tuya",
+                "entry_id": "08c397aa657746a28c89fc0c1d2b4491",
+                "options": {},
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "maxim_united@yahoo.com",
+                "unique_id": null,
                 "version": 1
             },
             {
                 "connection_class": "local_poll",
                 "data": {
+                    "host": "192.168.1.3",
+                    "mac": "00:05:cd:ae:c1:bc",
+                    "manufacturer": "Marantz",
+                    "model": "Marantz NR1608",
+                    "serial_number": "APR36180310433",
+                    "type": "avr-x-2016"
+                },
+                "domain": "denonavr",
+                "entry_id": "dc7a1af2b6fe4a3597d15ce97d519b02",
+                "options": {},
+                "source": "ssdp",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Marantz NR1608",
+                "unique_id": "Marantz NR1608-APR36180310433",
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "st": "urn:schemas-upnp-org:device:InternetGatewayDevice:1",
                     "udn": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95"
                 },
                 "domain": "upnp",
-                "entry_id": "f69d275920b34f259239b6e3e8f60d55",
+                "entry_id": "f2fec5185af0435c81ab2c880b5762e9",
                 "options": {},
-                "source": "discovery",
-                "title": "UPnP/IGD",
+                "source": "ssdp",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "MiWiFi router",
+                "unique_id": "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95::urn:schemas-upnp-org:device:InternetGatewayDevice:1",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "host": "192.168.1.193",
+                    "interface": "any",
+                    "key": "rjuz4i52935vhlfj",
+                    "mac": "04:cf:8c:91:61:07",
+                    "port": 9898,
+                    "protocol": "1.1.2",
+                    "sid": "04cf8c916107"
+                },
+                "domain": "xiaomi_aqara",
+                "entry_id": "f106f76ecadf47368cca59ec80b0cc71",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Xiaomi Aqara Gateway",
+                "unique_id": "04:cf:8c:91:61:07",
+                "version": 1
+            },
+            {
+                "connection_class": "unknown",
+                "data": {},
+                "domain": "fontawesome",
+                "entry_id": "1388492aac054905b47015a46c760e9a",
+                "options": {
+                    "brands": false,
+                    "regular": false,
+                    "solid": true
+                },
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "",
+                "unique_id": null,
                 "version": 1
             },
             {
                 "connection_class": "local_push",
                 "data": {},
-                "domain": "mqtt",
-                "entry_id": "41ff5b97944745cdb570b4124e106534",
+                "domain": "homekit_controller",
+                "entry_id": "414106f1b2f9426e8d30ba907e867e7f",
                 "options": {},
-                "source": "import",
-                "title": "configuration.yaml",
+                "source": "ignore",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Ignored",
+                "unique_id": "e1:59:ef:62:f3:94",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {},
+                "domain": "homekit_controller",
+                "entry_id": "4a7f351c227141819bf3a60ee474b7df",
+                "options": {},
+                "source": "ignore",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Ignored",
+                "unique_id": "be:fa:45:03:10:ce",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {},
+                "domain": "homekit_controller",
+                "entry_id": "c9c4e1c9bfe34174a3adb81405eedc8b",
+                "options": {},
+                "source": "ignore",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Ignored",
+                "unique_id": "44:33:a9:39:6f:e9",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {},
+                "domain": "heos",
+                "entry_id": "9c5eff34130a49fbbd9d05aa456345d5",
+                "options": {},
+                "source": "ignore",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Ignored",
+                "unique_id": "heos",
                 "version": 1
             }
         ]

@@ -11,7 +11,31 @@
             },
             {
                 "id": "9b8a3bfa3c564b199f6dae6a8def02c4",
-                "name": "Bedroom"
+                "name": "Master Bedroom"
+            },
+            {
+                "id": "f12d6ad311d843529c99ba1cfc879a6e",
+                "name": "Kids Bedroom"
+            },
+            {
+                "id": "185a9dacf5464a4bbc41230e42454e8c",
+                "name": "Shower"
+            },
+            {
+                "id": "825ba0d33f2347acb290b28d64ee1380",
+                "name": "Bathroom"
+            },
+            {
+                "id": "8e097acb5e0444a6b28c50fbaddf3a0a",
+                "name": "Balcony"
+            },
+            {
+                "id": "63e5827bf94343f59ea97981980a7410",
+                "name": "Storage"
+            },
+            {
+                "id": "9e4e92dae3ec4b898be01356b1bde721",
+                "name": "Wardrobe"
             }
         ]
     },

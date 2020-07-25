@@ -1,6 +1,13 @@
+---
+
 - platform: broadlink
   #  update_interval: 60
   host: 192.168.1.15
   mac: 34:EA:34:42:D7:58
   monitored_conditions:
     - temperature
+
+- platform: broadlink
+  #  update_interval: 60
+  host: 192.168.1.14
+  mac: C8:F7:42:F6:05:F6

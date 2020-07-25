@@ -1,42 +1,66 @@
 ---
-maxim_dana:
+household:
   name: "Maxim and Dana"
-  view: "no"
+  # view: "no"
   entities:
     - person.maxim
     - person.dana
 
+guests_maxim:
+  name: All Maxim's Guests
+  # view: "no"
+  entities:
+    - person.guy_t
+    - person.kobbi_d
+    - person.roy_d
+
+guests_all:
+  name: All Guests
+  # view: "no"
+  entities:
+    - person.guy_t
+    - person.kobbi_d
+    - person.roy_d
+
 phones:
   name: "All mobile phones"
-  view: "no"
+  # view: "no"
   entities:
     - device_tracker.samsung_galaxy_s7
     - device_tracker.dd_phone
 
 laptops:
   name: "All laptops"
-  view: "no"
+  # view: "no"
   entities:
     - device_tracker.dd_laptop
     - device_tracker.maxima1_tp_wifi
 
 tvs:
   name: "All TVs"
-  view: "no"
+  # view: "no"
   entities:
     - device_tracker.lg_tv
     - device_tracker.samsung_tv
 
+ambient_lights:
+  name: Ambient lights
+  # view: "no"
+  entities:
+    - device_tracker.curtain_yeelight_strip
+    - device_tracker.peninsula_yeelight_strip
+    - device_tracker.stove_yeelight_strip
+
 hw_devices:
   name: "All physical devices"
-  view: "No"
+  # view: "no"
   entities:
     - device_tracker.google_home
     - device_tracker.jbl_link
     - device_tracker.chromecast
 
-    - device_tracker.curtain_yeelight_strip
     - device_tracker.kitchen_cabinet_yeelight_strip
+    - device_tracker.curtain_yeelight_strip
     - device_tracker.peninsula_yeelight_strip
     - device_tracker.stove_yeelight_strip
     - device_tracker.yeelight_office
@@ -66,21 +90,52 @@ hw_devices:
 
 raspberry_pi:
   name: "RaspberryPi"
-  view: "no"
+  # view: "no"
   entities:
     - device_tracker.raspberry_pi_lan
     - device_tracker.raspberry_pi_wifi
 
 shelly:
   name: "All Shelly cloud devices"
-  view: "no"
+  # view: "no"
   entities:
     - device_tracker.shelly_bedroom_north_blinds
     - device_tracker.shelly_bedroom_west_blinds
+    - device_tracker.shelly_kids_bedroom
+    - device_tracker.shelly_office
+    - device_tracker.shellyswitch25_e6292b_master_b_west
+
+shelly_covers:
+  name: "All Shelly cover devices"
+  # view: "no"
+  entities:
+    - cover.shelly_shsw_25_73c9f8
+    - cover.shelly_shsw_25_73fd26
+    - cover.shelly_shsw_25_e4cdaf
+    - cover.shelly_shsw_25_e6292b
+
+shelly_fw_update:
+  name: "All Shelly FW update"
+  # view: "no"
+  icon: mdi:flash
+  entities:
+    - switch.shelly_shsw_25_73c9f8_firmware_update
+    - switch.shelly_shsw_25_73fd26_firmware_update
+    - switch.shelly_shsw_25_e4cdaf_firmware_update
+    - switch.shelly_shsw_25_e6292b_firmware_update
+
+### For testing purposes - Does not exist
+shelly_fw_update_none:
+  name: "None Shelly FW update"
+  # view: "no"
+  icon: mdi:flash-outline
+  entities:
+    - switch.shelly_shsw_25_73c9f8_firmware_update_wrong
+    - switch.shelly_shsw_25_73fd26_firmware_update_wrong
 
 waze:
   name: "Waze"
-  view: "no"
+  # view: "no"
   entities:
     - sensor.to_work
     - sensor.to_wotk_distance
@@ -90,11 +145,11 @@ waze:
     - sensor.back_home_distance
     - sensor.back_home_route
 
-default_view:
-  view: "yes"
-  icon: mdi:home
-  entities:
-    - group.waze
+# default_view:
+#   view: "yes"
+#   icon: mdi:home
+#   entities:
+#     - group.waze
     # - group.Network
     # - group.Weather
     # - group.Database

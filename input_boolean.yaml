@@ -7,3 +7,6 @@ dana_home:
   name: Set Dana Home/Away state
 maxim_dana_home:
   name: Set Maxim and Dana Home/Away state
+
+living_ac:
+  name: Living room AC

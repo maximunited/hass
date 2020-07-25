@@ -20,12 +20,6 @@ homeassistant:
     - type: homeassistant
     - type: legacy_api_password
       api_password: !secret api_password
-    # - type: trusted_networks
-    #  trusted_networks:
-    #     - 127.0.0.1
-    #     - 192.168.1.0/24
-    #     - fd00::/8
-    #     - 195.110.40.247
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 frontend:
@@ -41,72 +35,60 @@ default_config:
 updater:
 
 # Recorder
-recorder:
-  purge_interval: 5
+recorder: !include recorder.yaml
+
+# Logger
+logger: !include logger.yaml
 
 # History
-history:
-  exclude:
-    domains:
-      - automation
-      - weblink
-      - updater
-      - zone
-    entities:
-      - sensor.last_boot
-      - sensor.date
-      - sensor.time
-      - sensor.ipv4_address_eth0
+history: !include history.yaml
 
 # Logbook
-logbook:
-  exclude:
-    domains:
-      - sun
-      - group
-      - weather
-      - zone
-    entities:
-      - sensor.last_boot
-      - sensor.date
-      - sensor.time
+logbook: !include logbook.yaml
 
 # Panel iFrame
-panel_iframe:
-  router:
-    title: 'Router'
-    icon: mdi:router-wireless-settings
-    url: 'http://192.168.1.1'
-  configurator:
-    title: 'Configurator'
-    icon: mdi:wrench
-    url: 'http://192.168.1.138:3218'
-  portainer:
-    title: 'Portainer'
-    icon: mdi:docker
-    url: 'http://192.168.1.138:9000'
-  network_switch_living:
-    title: 'Network switch (Living)'
-    icon: mdi:server-network
-    url: 'http://192.168.1.31'
-  network_switch_comm:
-    title: 'Network switch (Comm)'
-    icon: mdi:server-network
-    url: 'http://192.168.1.32'
+panel_iframe: !include panel_iframe.yaml
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
   server_port: 8123
-  base_url: https://hass.max-rpi.duckdns.org
+  base_url: !secret http_base_url
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.21.0.2      # Traefik container IP
+    - 127.19.0.2      # Traefik container IP
+    - 127.18.0.6      # node-red container IP
     - 192.168.1.0/24  # Local network
   ip_ban_enabled: true
   login_attempts_threshold: 5
 
 # Discover some devices automatically
 discovery:
+  ignore:
+#    - homekit
+    - apple_tv
+    - belkin_wemo
+    - bluesound
+    - bose_soundtouch
+    - enigma2
+    - frontier_silicon
+    - harmony
+#    - igd
+    - logitech_mediaserver
+    - netgear_router
+    - octoprint
+    - openhome
+#    - panasonic_viera
+    - philips_hue
+#    - roku
+    - sabnzbd
+    - samsung_printer
+    - sonos
+    - songpal
+    - tellstick
+    - wink
+    - yamaha
+#    - yeelight
 
 # Zones
 zone: !include zones.yaml
@@ -132,18 +114,21 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 shell_command: !include shell_command.yaml
+timer: !include timer.yaml
 
 google_assistant:
   project_id: !secret google_assistant_project_id
-  api_key: !secret google_assistant_api_key
+  service_account: !include GOOGLE_SERVICE_ACCOUNT.json
+  #api_key: !secret google_assistant_api_key
+  report_state: true
   exposed_domains:
-    - light
-    - cover
     - switch
-    - media_player
     - input_boolean
-    - group
-    - script
+    # - light
+    # - cover
+    # - media_player
+    # - group
+    # - script
 
 google_keep:
   username: !secret google_username
@@ -155,23 +140,56 @@ ifttt:
   key: !secret ifttt_api
 
 # Shelly.cloud
-# https://github.com/StyraHem/hass/tree/master/components/shelly
+# https://github.com/StyraHem/ShellyForHASS
 shelly:
   discovery: true
   version: true
-  wifi_sensor: true
-  uptime_sensor: true
+  sensors:
+    - all
+  cloud_auth_key: !secret shelly_cloud_auth_key
+  cloud_server: shelly-5-eu.shelly.cloud
 
+# SmartIR
+# https://github.com/smartHomeHub/SmartIR
+smartir:
+
+climate: !include climate.yaml
+
+# REPLACED BY HACS
 # https://custom-components.github.io/custom_updater/Installation
-custom_updater:
-  track:
-    - cards
-    - components
-    - python_scripts
+#custom_updater:
+#  track:
+#    - cards
+#    - components
+#    - python_scripts
+
+### https://custom-components.github.io/hacs
+hacs:
+  token: !secret github_token
+  sidepanel_title: "HACS"
+  # python_script: true
+  # theme: true
+  options:
+    experimental: true
+    country: 'IL'
+
+### https://github.com/Armaell/home-assistant-custom-icons-loader
+custom_icons:
 
 # https://github.com/Sanderhuisman/home-assistant-custom-components#docker_monitor
 # SEEMS BROKEN
 # docker_monitor:
+
+# https://github.com/ualex73/monitor_docker
+monitor_docker:
+  - name: Docker
+    rename:
+      mariadb: MariaDB
+      hass: Home Assistant
+      mosquitto: Mosquitto
+      node-red: "Node-RED"
+      traefik: Traefik
+      oauth: OAuth
 
 # Xiomi Gateway
 xiaomi_aqara:
@@ -179,6 +197,23 @@ xiaomi_aqara:
     - mac: !secret xiaomi_gw_mac
       key: !secret xiaomi_gw_key
       host: 192.168.1.193
+
+### Yeelight
+yeelight:
+  devices:
+    192.168.1.198:
+      name: Peninsula light
+    192.168.1.96:
+      name: Office light
+    192.168.1.42:
+      name: Storage light
+    192.168.1.33:
+      name: Cabinet light
+    192.168.1.77:
+      name: Curtain light
+      model: strip1
+    192.168.1.16:
+      name: Stove light
 
 # Device Tracker
 device_tracker: !include device_tracker.yaml
@@ -189,11 +224,14 @@ input_boolean: !include input_boolean.yaml
 # Input Text
 input_text: !include input_text.yaml
 
+# Input Select
+input_select: !include input_select.yaml
+
 # MQTT Broker
-mqtt:
-  broker: 127.0.0.1
-  client_id: home-assistant
-  keepalive: 60
+#mqtt:
+#  broker: 127.0.0.1
+#  client_id: home-assistant
+#  keepalive: 60
 
 #
 weather:
@@ -201,9 +239,13 @@ weather:
     api_key: !secret darksky_api_key
     mode: daily
 
+# Scenes:
+scene: !include scene.yaml
+
+
 # HEOS
-heos:
-  host: 192.168.1.3
+# heos:
+#   host: 192.168.1.3
 
 # System Health
 system_health:
@@ -213,8 +255,40 @@ speedtestdotnet:
   scan_interval:
     minutes: 30
 
+# Tuya Smart Life
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: !secret tuya_cc
+  platform: smart_life
+
+# Switcher
+switcher_kis:
+  phone_id: "0000"
+  device_id: "bc005f"
+  device_password: "00000000"
+
 # Plants
 plant: !include plants.yaml
+
+jewish_calendar:
+
+wake_on_lan:
+
+webostv:
+  host: 192.168.1.2
+  name: LG TV
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: "38:8C:50:82:51:F5"
+#  customize:
+#    sources:
+#      - Marantz receiver
+#      - Chromecast
+#      - Netflix
+#      - YouTube
+#      - makoTV
 
 # Notifications (require HTTPS)
 notify:
@@ -224,10 +298,10 @@ notify:
     vapid_prv_key: !secret vapid_prv_key
     vapid_email: !secret vapid_email
 
-  - platform: webostv
-    host: 192.168.1.2
-    name: lg_tv
-    filename: webostv.conf
+  #- platform: webostv
+  #  host: 192.168.1.2
+  #  name: lg_tv
+  #  filename: webostv.conf
 
   - platform: pushbullet
     name: notify_pushbullet

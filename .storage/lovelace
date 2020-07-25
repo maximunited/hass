@@ -1,6 +1,22 @@
 {
     "data": {
         "config": {
+            "custom_header": {
+                "clock_format": 24,
+                "compact_mode": true,
+                "exceptions": [],
+                "header_text": "Maxim's Home Assistant",
+                "hide_help": true,
+                "options": "clock",
+                "tabs_color": {
+                    "0": "green",
+                    "10": "green",
+                    "14": "rgb(3, 252, 119)",
+                    "15": "red",
+                    "7": "#FFFF00"
+                },
+                "voice": "overflow"
+            },
             "title": "Home",
             "views": [
                 {
@@ -16,29 +32,64 @@
                                 }
                             ],
                             "show_header_toggle": false,
+                            "style": "ha-card {\n  height: 180px;\n  width: 250px;\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  #padding: 1%;\n  #color: [[ if(person.maxim == \"home\", \"red\", \"\") ]];\n}\n",
                             "title": "Where's everyone?",
                             "type": "entities"
                         },
                         {
+                            "card": {
+                                "show_header_toggle": true,
+                                "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 250px;\n}\n",
+                                "title": "Lights",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "exclude": [
+                                    {
+                                        "entity_id": "light.shelly_shdm_1_f35f68"
+                                    }
+                                ],
+                                "include": [
+                                    {
+                                        "domain": "light"
+                                    }
+                                ]
+                            },
+                            "type": "custom:auto-entities"
+                        },
+                        {
                             "entities": [
-                                "light.yeelight_strip1_7c49ebaef2fb",
-                                "light.yeelight_strip1_7811dca22799",
-                                "light.yeelight_strip2_04cf8c750535",
-                                "light.yeelight_color2_04cf8c9abf79",
-                                "light.yeelight_strip1_7811dc686e33",
-                                "light.yeelight_color2_04cf8c9a9caf"
+                                {
+                                    "entity": "switch.tv_lg_hdmi3"
+                                },
+                                {
+                                    "entity": "switch.tv_lg_hdmi1_hdmi2"
+                                },
+                                {
+                                    "entity": "switch.tv_lg"
+                                },
+                                {
+                                    "entity": "switch.tv_box_channel_plus_minus"
+                                },
+                                {
+                                    "entity": "switch.tv_box_mute"
+                                }
                             ],
-                            "title": "Light",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "title": "Switch",
                             "type": "entities"
                         },
                         {
                             "entities": [
-                                "switch.tv_lg_hdmi3",
-                                "switch.tv_lg_hdmi1_hdmi2",
-                                "switch.tv_lg_av1_av2",
-                                "switch.tv_lg"
+                                {
+                                    "entity": "input_text.google_broadcast"
+                                },
+                                {
+                                    "entity": "input_text.add_to_grocery_list"
+                                }
                             ],
-                            "title": "Switch",
+                            "show_header_toggle": false,
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
                             "type": "entities"
                         }
                     ],
@@ -50,166 +101,1112 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "sensor.memory_use_percent",
-                            "max": 100,
-                            "min": 0,
-                            "name": "RAM",
-                            "severity": {
-                                "green": 0,
-                                "red": 85,
-                                "yellow": 60
-                            },
-                            "theme": "default",
-                            "type": "gauge"
-                        },
-                        {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.ipv4_address_eth0",
-                                    "name": "LAN address"
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.local_ip",
+                                            "name": "LAN address"
+                                        },
+                                        {
+                                            "entity": "sensor.myip",
+                                            "icon": "mdi:wan",
+                                            "name": "WAN address"
+                                        },
+                                        {
+                                            "entity": "sensor.network_in_eth0",
+                                            "icon": "mdi:download-outline",
+                                            "name": "Network In (LAN)"
+                                        },
+                                        {
+                                            "entity": "sensor.network_out_eth0",
+                                            "icon": "mdi:upload-outline",
+                                            "name": "Network Out (LAN)"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "title": "Networking",
+                                    "type": "entities"
                                 },
                                 {
-                                    "entity": "sensor.myip",
-                                    "icon": "mdi:wan",
-                                    "name": "WAN address"
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.processor_use"
+                                        },
+                                        {
+                                            "entity": "sensor.cpu_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.memory_use_percent"
+                                        },
+                                        {
+                                            "entity": "sensor.disk_use_config"
+                                        },
+                                        {
+                                            "entity": "sensor.disk_use_percent_config"
+                                        },
+                                        {
+                                            "entity": "sensor.hass_db_size",
+                                            "icon": "mdi:database"
+                                        },
+                                        {
+                                            "entity": "sensor.hass_database_events",
+                                            "icon": "mdi:database"
+                                        },
+                                        {
+                                            "entity": "sensor.last_boot",
+                                            "name": "System last boot"
+                                        },
+                                        {
+                                            "entity": "sensor.uptime",
+                                            "name": "HA uptime"
+                                        },
+                                        {
+                                            "entity": "sensor.version_current",
+                                            "name": "HA version"
+                                        },
+                                        {
+                                            "entity": "sensor.docker_version_available",
+                                            "icon": "mdi:package-down",
+                                            "name": "HA version available"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "title": "System information",
+                                    "type": "entities"
+                                },
+                                "break",
+                                {
+                                    "align_header": "center",
+                                    "animate": true,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.speedtest_download",
+                                            "name": "download"
+                                        },
+                                        {
+                                            "entity": "sensor.speedtest_upload",
+                                            "name": "upload"
+                                        }
+                                    ],
+                                    "hour24": true,
+                                    "hours_to_show": 72,
+                                    "name": "SpeedTest",
+                                    "show": {
+                                        "extrema": true,
+                                        "fill": "fade",
+                                        "icon": false
+                                    },
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-graph-card"
                                 },
                                 {
-                                    "entity": "sensor.network_in_eth0",
-                                    "icon": "mdi:download-outline",
-                                    "name": "Network In (LAN)"
+                                    "align_header": "center",
+                                    "animate": true,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.speedtest_ping",
+                                            "name": "ping"
+                                        }
+                                    ],
+                                    "font_size": 75,
+                                    "hour24": true,
+                                    "hours_to_show": 72,
+                                    "line_color": "red",
+                                    "line_width": 8,
+                                    "show": {
+                                        "extrema": true,
+                                        "fill": "fade",
+                                        "icon": false
+                                    },
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-graph-card"
                                 },
                                 {
-                                    "entity": "sensor.network_out_eth0",
-                                    "icon": "mdi:upload-outline",
-                                    "name": "Network Out (LAN)"
+                                    "animate": true,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.load_15m",
+                                            "name": "15m load"
+                                        },
+                                        {
+                                            "entity": "sensor.load_5m",
+                                            "name": "5m load"
+                                        },
+                                        {
+                                            "entity": "sensor.load_1m",
+                                            "name": "1m load"
+                                        }
+                                    ],
+                                    "hour24": true,
+                                    "hours_to_show": 72,
+                                    "line_width": 2,
+                                    "name": "System load",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-graph-card"
+                                },
+                                "break",
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.memory_use_percent",
+                                            "max": 100,
+                                            "min": 0,
+                                            "name": "RAM",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 85,
+                                                "yellow": 60
+                                            },
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "theme": "default",
+                                            "type": "gauge"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entity": "switch.docker_ha_dockermon",
+                                                    "name": "ha-dockermon",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "entity-button"
+                                                },
+                                                {
+                                                    "entity": "switch.docker_mariadb",
+                                                    "name": "mariadb",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "entity-button"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entity": "switch.docker_traefik",
+                                                    "name": "traefik",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "entity-button"
+                                                },
+                                                {
+                                                    "entity": "switch.docker_mosquitto",
+                                                    "name": "mosquitto",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "entity-button"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entity": "switch.docker_dockerbot",
+                                                    "name": "dockerbot",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "entity-button"
+                                                },
+                                                {
+                                                    "entity": "switch.docker_node_red",
+                                                    "name": "node-red",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "entity-button"
+                                                },
+                                                {
+                                                    "entity": "switch.docker_portainer",
+                                                    "name": "portainer",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "entity-button"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entity": "switch.docker_hass",
+                                                    "name": "Home Asisstant",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  #width: 400px;\n  height: 100px;\n}\n",
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "entity-button"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
+                                        }
+                                    ],
+                                    "type": "vertical-stack"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Networking",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "sensor.speedtest_download",
-                                "sensor.speedtest_upload",
-                                "sensor.speedtest_ping"
-                            ],
-                            "hours_to_show": 72,
-                            "title": "Speedtest",
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.processor_use"
-                                },
-                                {
-                                    "entity": "sensor.memory_use_percent"
-                                },
-                                {
-                                    "entity": "sensor.disk_use_config"
-                                },
-                                {
-                                    "entity": "sensor.disk_use_percent_config"
-                                },
-                                {
-                                    "entity": "sensor.last_boot",
-                                    "name": "System last boot"
-                                },
-                                {
-                                    "entity": "sensor.uptime",
-                                    "name": "HA uptime"
-                                },
-                                {
-                                    "entity": "sensor.current_version",
-                                    "name": "HA version"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "System information",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "sensor.load_15m",
-                                "sensor.load_5m",
-                                "sensor.load_1m"
-                            ],
-                            "title": "System load",
-                            "type": "history-graph"
+                            "layout": "vertical",
+                            "type": "custom:layout-card"
                         }
                     ],
+                    "icon": "mdi:gauge",
+                    "panel": true,
                     "title": "System"
                 },
                 {
-                    "badges": [],
+                    "badges": [
+                        "sensor.front_door",
+                        "sensor.balcony_door",
+                        "sensor.living_room_temperature",
+                        "sensor.living_room_humidity",
+                        "sensor.living_room_pressure"
+                    ],
                     "cards": [
                         {
-                            "entity": "light.gateway_light_04cf8c916107",
-                            "type": "light"
+                            "cards": [
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.lg_tv",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:television",
+                                    "shortcuts": {
+                                        "buttons": [
+                                            {
+                                                "icon": "mdi:audio-video",
+                                                "id": "Marantz receiver",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:google-chrome",
+                                                "id": "Chromecast",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:netflix",
+                                                "id": "Netflix",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:youtube",
+                                                "id": "YouTube",
+                                                "type": "source"
+                                            }
+                                        ],
+                                        "columns": 4,
+                                        "hide_when_off": true,
+                                        "label": "blah"
+                                    },
+                                    "source": "full",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.marantz_nr1608",
+                                    "hide": {
+                                        "power_state": false,
+                                        "sound_mode": false
+                                    },
+                                    "icon": "mdi:audio-video",
+                                    "shortcuts": {
+                                        "buttons": [
+                                            {
+                                                "icon": "mdi:set-top-box",
+                                                "id": "HOT",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:television-box",
+                                                "id": "TV Audio",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:playstation",
+                                                "id": "PlayStation4",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:laptop-windows",
+                                                "id": "AUX1",
+                                                "type": "source"
+                                            }
+                                        ],
+                                        "columns": 4
+                                    },
+                                    "source": "full",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.living_room_hot",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:television-box",
+                                    "shortcuts": {
+                                        "buttons": [
+                                            {
+                                                "icon": "mdi:numeric-1-box-outline",
+                                                "id": "Channel 1",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:numeric-2-box-outline",
+                                                "id": "Channel 2",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:numeric-3-box-outline",
+                                                "id": "Channel 3",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:numeric-4-box-outline",
+                                                "id": "Channel 4",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:numeric-5-box-outline",
+                                                "id": "Channel 5",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:numeric-6-box-outline",
+                                                "id": "Channel 6",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:numeric-7-box-outline",
+                                                "id": "Channel 7",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:numeric-8-box-outline",
+                                                "id": "Channel 8",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:numeric-9-box-outline",
+                                                "id": "Channel 9",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:numeric-0-box-outline",
+                                                "id": "Channel 0",
+                                                "type": "source"
+                                            }
+                                        ],
+                                        "columns": 3
+                                    },
+                                    "source": "full",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.living_room_chromecast",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:google-chrome",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.playstation_4_2",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:playstation",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.living_google_home",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:google-home",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "tts": {
+                                        "platform": "google"
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.googlehome4430",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:google-home",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "tts": {
+                                        "platform": "google"
+                                    },
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         },
                         {
-                            "entity": "light.yeelight_strip1_7811dc686e33",
-                            "type": "light"
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.stove_light",
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "light"
+                                        },
+                                        {
+                                            "entity": "light.peninsula_light",
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "light"
+                                        },
+                                        {
+                                            "entity": "light.curtain_light",
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "light"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "entity": "light.gateway_light_04cf8c916107",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "light"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         },
                         {
-                            "entity": "light.yeelight_strip2_04cf8c750535",
-                            "type": "light"
+                            "entity": "climate.living_room_ac",
+                            "name": "AC",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "type": "thermostat"
                         },
                         {
-                            "entity": "light.yeelight_strip1_7c49ebaef2fb",
-                            "type": "light"
-                        },
-                        {
-                            "entity": "media_player.lg_tv",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.marantz_reciever",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.living_google_home",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.marantz_nr1608",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.living_room_chromecast",
-                            "type": "media-control"
+                            "broadlink_host": "192.168.1.15",
+                            "buttons": {
+                                "back": "JgBQAAABKJMTERMREzYSEhMRExETERMREzYTNhMREzYSNhQ2EzYTNhMRExETERM2ExETNhMRExETNhI4EzYTERM2ExESNxM2EwAFJAABKEkSAA0FAAAAAAAAAAA=",
+                                "bottom": "JgBQAAABKZMTERMREjcTERMRExETERMREzYSNxMREzYTNhM2EzYQORM2ExETFRMRExETERM2ExETERM2EjcTNhM2EzYTERM2EwAFJAABKEkTAA0FAAAAAAAAAAA=",
+                                "button0": "JgBQAAABKJMTERMREzYTERMREhITERMREzYTNhMREjcTNhM2EzYTNhMRExESEhMREzYTERMRExEQOBQ2EzYTNhMREzYTNhI3EwAFJAABKEkTAA0FAAAAAAAAAAA=",
+                                "button1": "JgBQAAABKJMTERMREzYTERMRExETERMREDkTNhMREzYTNhM2FDUUNhM2ExETERMTEjYTERAUExETERM2EzYTNhMREzYTNhM2EwAFJAABJUsUAA0FAAAAAAAAAAA=",
+                                "button2": "JgBQAAABKJMTERMREzYTERMREhITERMREzYTNhMREDgUNhM2EzYTNhMREzcTERMREzYTERAUExETNhMREzYTNhMREjcTNhM2EwAFJAABJ0oTAA0FAAAAAAAAAAA=",
+                                "button3": "JgBQAAABKZMTERMREzYTERMRExETERMREzYTNhMREzYTNhM2EzYTNhM2EzYTERMREzYTERISExETERMREzYTNhMREzYTNhM2EwAFJAABJ0oTAA0FAAAAAAAAAAA=",
+                                "button4": "JgBQAAABJ5MTERMREzYTERMREhITERMREzYTNhMREzYQOBQ2EzYTNhMRExEQOBQREzYTERMRExEQORM2ExETNhMREzYTNhI3EwAFJAABKEkTAA0FAAAAAAAAAAA=",
+                                "button5": "JgBQAAABJ5MQFBMREzYTERMRExETERISEzYTNhMREjYUNhM2EzYTNhM2ExESNxMREzYTERMRExESEhM2ExETNhMREzYQOBQ2EwAFJAABKEkTAA0FAAAAAAAAAAA=",
+                                "button6": "JgBQAAABKJMTERMREzYTERMRExETERISEzYTNhMREzYTNhA4FDYTNhMREzYTNhMREzYTERMRExETNhMREhITNhMREzYTNhM2EAAFJgABKUkTAA0FAAAAAAAAAAA=",
+                                "button7": "JgBQAAABKJMTERISEzYTERMRExETERAUEzYTNhMREzYTNhM2EzYTNhM2EjcTNhMREzYTERMRExESEhMRExETNhMREzYSNhQ2EwAFJAABKEkSAA0FAAAAAAAAAAA=",
+                                "button8": "JgBQAAABKJMSEhQREzYTERMRExESEhMREzYTNhMREzYSNxM2EzYTNhMREBQTERM2EzYTERMRExESNxM2EzYTERMREzYSNxM2EwAFJAABKEkRAA0FAAAAAAAAAAA=",
+                                "button9": "JgBQAAABKJMTERISEzYTERMRExETERMREzYTNhMREzYTNhM2EjcTNhM2ExETERM1EzcTERMRExETERM2EzYTERMREzYTNhM2EwAFIwABKUkTAA0FAAAAAAAAAAA=",
+                                "buttonClear": null,
+                                "buttonEnter": null,
+                                "channeldown": "JgBQAAABKZMTERMREzYSEhMRExETERMREzYSNxMREzYSNxQ2EzYTNhM2ExETERMRExEQFBMRExETERM2EzYTNhI3EzYTNhM2EwAFJAABKEkTAA0FAAAAAAAAAAA=",
+                                "channelup": "JgBQAAABJZUUERMREzYTERMRExETERMREDkTNhMREzYTNhM2EzUUNhMRExETERMRExESEhMRExEQOBQ2EzYTNxM2EjYTNxM2EwAFJAABKEgTAA0FAAAAAAAAAAA=",
+                                "exit": "JgBQAAABKJMTERAUEzYTERMRExETERMREzYTNhMREzYTNhM2EjcTNhM2EzYTERM2EjcTERM2ExETERMREzUUERMREzYTERM2EwAFJAABKEkTAA0FAAAAAAAAAAA=",
+                                "info": null,
+                                "left": "JgBQAAABKpIVEBMRFRAVEBUQFBEUERQREjcUNhM2EzYUNhM2FBAVNRQ1FRAVEBQ2EzYTERYPFRAVERM2EjcUEBUREzYUNRQ2FAAFTQABKUgUAA0FAAAAAAAAAAA=",
+                                "menu": "JgBQAAABKJMTERMREzYTERMSExETERMREjcTNhMREzYTNhM2EzUTNhQ2EzYTERMRExEQFBM2ExETERMREzYSNhQ2EzYTERM2EwAFJAABKEkTAA0FAAAAAAAAAAA=",
+                                "mute": "JgBQAAABKJIUERMSETcTERMRExETERMREzYTNhMREzYTNRQ2EzYTNhM2ExETERI3ExETERMRExETERA5EzYTERM2EzYTNhM1FAAFJAABKEkTAA0FAAAAAAAAAAA=",
+                                "netflix": null,
+                                "ok": "JgBQAAABJ5ITEhMREzYTERMRExEQFBMREzYTNhMREzYTNRQ1FDYTNhMRExETNhMQFBETERM2ExETNhQ2ExESNxM2EzYUERM2EwAFIwABKUkTAA0FAAAAAAAAAAA=",
+                                "power": "JgBYAAABKpIVEBURFDUWEBQRFBETEhURFDUVNRUQFTUVNRQ2FDUTNxQTExEUEhE3ExQTERMSFRITNRU1FDYUEhI3FDUVNRM3FQAFMwABKEoWAAxMAAEqSBUADQU=",
+                                "right": "JgBQAAABKJMTERMREzYTERMRExETERMREzYTNhMREzYSNxM2EzYTNhMREzYTNhMRExETERMRExETNRMSExETNhM4EzYTNhM1FAAFJAABKEgUAA0FAAAAAAAAAAA=",
+                                "source": "JgBYAAABJpMSExEUETgRFBEUERMSExITEjcSOBETEjgROBI4ETgSOBETEjgROBITEhMSEhM3ETgTNxITERMSOBE4EjgRExITEQAFGwABJkoSAAxGAAElSxIADQU=",
+                                "top": "JgBQAAABKJIUERMSETcTERMRExETERMREzYTNhMREzYTNRQ2EzYTNhM2ExETERI3ExETERMRExETERA5EzYTERM2EzYTNhM1FAAFJAABKEkTAA0FAAAAAAAAAAA=",
+                                "volmin": "JgBYAAABJpMSExEUETgSExEUERMSExEUETgSOBMREjgROBI4ETgSNxI4EjgRExITERQRExITEhMRFBETEjgROBI4ETgSOBE4EQAFGwABJkoSAAxFAAEmShIADQU=",
+                                "volplus": "JgBQAAABJZMTEhITETgSExEUERMSExITETgSOBITETgSNxM3ETgSOBEUETgRFBETEhMSExEUERMTNxISEzcROBM3ETgSOBI3EwAFGQABJkoSAA0FAAAAAAAAAAA="
+                            },
+                            "name": "LG TV",
+                            "remote_template": "lg",
+                            "type": "custom:content-card-remote-control"
                         }
                     ],
+                    "icon": "fas:couch",
                     "title": "Living room"
                 },
                 {
-                    "badges": [],
+                    "badges": [
+                        "binary_sensor.kitchen_water_leak"
+                    ],
                     "cards": [
                         {
-                            "entity": "media_player.samsung_tv",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.master_bedroom_speaker",
-                            "type": "media-control"
+                            "entity": "light.cabinet_light",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "type": "light"
                         }
                     ],
+                    "icon": "fas:utensils",
+                    "title": "Kitchen"
+                },
+                {
+                    "badges": [
+                        {
+                            "entity": "binary_sensor.bathroom_window"
+                        },
+                        {
+                            "entity": "binary_sensor.bathroom_water_leak"
+                        },
+                        {
+                            "entity": "binary_sensor.bathroom_pir_sensor"
+                        }
+                    ],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                "sensor.bathroom_temperature"
+                                            ],
+                                            "font_size": 75,
+                                            "line_color": "red",
+                                            "line_width": 8,
+                                            "name": "Temperature",
+                                            "style": "ha-card {\n  height: 140px;\n  width: 140px;\n  left: 20%;\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "custom:mini-graph-card"
+                                        },
+                                        {
+                                            "entities": [
+                                                "sensor.bathroom_humidity"
+                                            ],
+                                            "font_size": 75,
+                                            "line_color": "DodgerBlue",
+                                            "line_width": 8,
+                                            "name": "Humidity",
+                                            "style": "ha-card {\n  height: 140px;\n  width: 140px;\n  left: 8%;\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "custom:mini-graph-card"
+                                        },
+                                        {
+                                            "entities": [
+                                                "sensor.bathroom_pressure"
+                                            ],
+                                            "font_size": 75,
+                                            "line_color": "orange",
+                                            "line_width": 8,
+                                            "name": "Pressure",
+                                            "style": "ha-card {\n  height: 140px;\n  width: 140px;\n  left: -6%;\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "custom:mini-graph-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "elements": [
+                                                {
+                                                    "entity": "sensor.shelly_shsw_pm_76b5ac_current_consumption",
+                                                    "style": {
+                                                        "font-family": "poppins",
+                                                        "left": "92%",
+                                                        "top": "24%"
+                                                    },
+                                                    "type": "state-label"
+                                                },
+                                                {
+                                                    "entity": "sensor.washing_machine_status",
+                                                    "style": {
+                                                        "font-family": "poppins",
+                                                        "left": "92%",
+                                                        "top": "20.5%"
+                                                    },
+                                                    "type": "state-label"
+                                                },
+                                                {
+                                                    "entity": "switch.shelly_shsw_pm_76b5ac",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "image": "/local/images/devices/outlet.jpg",
+                                                    "state_filter": {
+                                                        "off": "hue-rotate(174deg)",
+                                                        "on": "hue-rotate(0deg)"
+                                                    },
+                                                    "style": {
+                                                        "height": "15%",
+                                                        "left": "92%",
+                                                        "top": "9%",
+                                                        "width": "15%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "type": "image"
+                                                },
+                                                {
+                                                    "entity": "switch.shelly_shsw_pm_76b5ac",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "state_image": {
+                                                        "off": "/local/images/devices/shelly_1pm_OFF.png",
+                                                        "on": "/local/images/devices/shelly_1pm.png"
+                                                    },
+                                                    "style": {
+                                                        "height": "7%",
+                                                        "left": "97%",
+                                                        "top": "13%",
+                                                        "width": "7%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "image"
+                                                },
+                                                {
+                                                    "entity": "switch.shelly_shsw_pm_76b5ac",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "state_filter": {
+                                                        "off": "hue-rotate(174deg)",
+                                                        "on": "hue-rotate(0deg)"
+                                                    },
+                                                    "style": {
+                                                        "font-size": "120%",
+                                                        "left": "92%",
+                                                        "top": "16.5%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-label"
+                                                }
+                                            ],
+                                            "image": "/local/images/devices/miele_washing_machine.png",
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  left: -105%;\n  height: 500px;\n  width: 500px;\n}\n",
+                                            "type": "picture-elements"
+                                        },
+                                        {
+                                            "elements": [
+                                                {
+                                                    "entity": "sensor.shelly_shsw_pm_76b745_current_consumption",
+                                                    "style": {
+                                                        "font-family": "poppins",
+                                                        "left": "92%",
+                                                        "top": "24%"
+                                                    },
+                                                    "type": "state-label"
+                                                },
+                                                {
+                                                    "entity": "sensor.washing_machine_status",
+                                                    "style": {
+                                                        "font-family": "poppins",
+                                                        "left": "92%",
+                                                        "top": "20.5%"
+                                                    },
+                                                    "type": "state-label"
+                                                },
+                                                {
+                                                    "entity": "switch.shelly_shsw_pm_76b745",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "image": "/local/images/devices/outlet.jpg",
+                                                    "state_filter": {
+                                                        "off": "hue-rotate(174deg)",
+                                                        "on": "hue-rotate(0deg)"
+                                                    },
+                                                    "style": {
+                                                        "height": "15%",
+                                                        "left": "92%",
+                                                        "top": "9%",
+                                                        "width": "15%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "type": "image"
+                                                },
+                                                {
+                                                    "entity": "switch.shelly_shsw_pm_76b745",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "state_image": {
+                                                        "off": "/local/images/devices/shelly_1pm_OFF.png",
+                                                        "on": "/local/images/devices/shelly_1pm.png"
+                                                    },
+                                                    "style": {
+                                                        "height": "7%",
+                                                        "left": "97%",
+                                                        "top": "13%",
+                                                        "width": "7%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "image"
+                                                },
+                                                {
+                                                    "entity": "switch.shelly_shsw_pm_76b745",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "state_filter": {
+                                                        "off": "hue-rotate(174deg)",
+                                                        "on": "hue-rotate(0deg)"
+                                                    },
+                                                    "style": {
+                                                        "font-size": "120%",
+                                                        "left": "92%",
+                                                        "top": "16.5%"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-label"
+                                                }
+                                            ],
+                                            "image": "/local/images/devices/Dryer_T75280AC.jpg",
+                                            "style": "ha-card {\n  border-radius: 12px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 500px;\n  width: 500px;\n}\n",
+                                            "type": "picture-elements"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "fas:bath",
+                    "panel": false,
+                    "title": "Bathroom"
+                },
+                {
+                    "badges": [
+                        "binary_sensor.master_bedroom_door",
+                        "binary_sensor.vault",
+                        "sensor.master_bedroom_temperature",
+                        "sensor.master_bedroom_humidity",
+                        "sensor.master_bedroom_pressure"
+                    ],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "artwork": "cover",
+                                    "columns": 3,
+                                    "entity": "media_player.samsung_tv",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:television",
+                                    "shortcuts": {
+                                        "buttons": [
+                                            {
+                                                "icon": "mdi:earth",
+                                                "id": "Browser",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:netflix",
+                                                "id": "Netflix",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:youtube",
+                                                "id": "YouTube",
+                                                "type": "source"
+                                            }
+                                        ]
+                                    },
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.master_bedroom_chromecast",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:google-chrome",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.master_bedroom_speaker",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:speaker-bluetooth",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "tts": {
+                                        "platform": "google"
+                                    },
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "cover.shelly_shsw_25_73fd26",
+                                            "name": "North blinds"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_73fd26",
+                                            "full_row": true,
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_e6292b",
+                                            "name": "West blinds"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_e6292b",
+                                            "full_row": true,
+                                            "type": "custom:slider-entity-row"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "entity": "climate.master_bedroom_ac",
+                            "name": "AC",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "type": "thermostat"
+                        }
+                    ],
+                    "icon": "fas:bed",
                     "title": "Master Bedroom"
+                },
+                {
+                    "badges": [
+                        "sensor.shower_window",
+                        "binary_sensor.shower_water_leak"
+                    ],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "sensor.shower_temperature"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "red",
+                                    "line_width": 8,
+                                    "name": "Temperature",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.shower_humidity"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "DodgerBlue",
+                                    "line_width": 8,
+                                    "name": "Humidity",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.shower_pressure"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "orange",
+                                    "line_width": 8,
+                                    "name": "Pressure",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "entity": "sensor.shower_heater_status",
+                                    "style": {
+                                        "font-family": "Poppins",
+                                        "left": "22%",
+                                        "top": "85%"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.shower_heater_power",
+                                    "style": {
+                                        "font-family": "Poppins",
+                                        "left": "20%",
+                                        "top": "95%"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.shower_heater_current",
+                                    "style": {
+                                        "font-family": "Poppins",
+                                        "left": "20%",
+                                        "top": "90%"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "switch.shower_heater",
+                                    "hold_action": {
+                                        "action": "more-info"
+                                    },
+                                    "icon": "mdi:power",
+                                    "style": {
+                                        "--iron-icon-height": "60px",
+                                        "--iron-icon-width": "60px",
+                                        "left": "5%",
+                                        "top": "88%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                }
+                            ],
+                            "image": "/local/images/devices/shower_heater.jpg",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "attribute": "remaining_time",
+                            "attribute_max": "auto_off_set",
+                            "entity": "switch.boiler",
+                            "font_style": {
+                                "font-size": "1.5em"
+                            },
+                            "gradient": true,
+                            "name": "Boiler",
+                            "show_card": true,
+                            "show_max": true,
+                            "stroke_color": "red",
+                            "style": "ha-card {\n  height: 150px;\n  width: 150px;\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "type": "custom:circle-sensor-card"
+                        }
+                    ],
+                    "icon": "mdi:shower-head",
+                    "title": "Shower"
                 },
                 {
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "light.yeelight_color2_04cf8c9a9caf",
-                            "type": "light"
+                            "entities": [
+                                {
+                                    "entity": "cover.shelly_shsw_25_e4cdaf",
+                                    "name": "Kids bedroom blinds"
+                                },
+                                {
+                                    "entity": "cover.shelly_shsw_25_e4cdaf",
+                                    "full_row": true,
+                                    "step": 1,
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "buttons_position": "right",
+                                            "entity": "cover.shelly_shsw_25_e4cdaf",
+                                            "name": "Kids bedroom blinds",
+                                            "title_position": "bottom"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  left: 16px;\n  top: 16px;\n}\n",
+                                    "type": "custom:shutter-card"
+                                }
+                            ],
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  #padding: 10%;\n  #height: 100px;\n}\n  \n",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "fas:child",
+                    "title": "Kids bedroom"
+                },
+                {
+                    "badges": [],
+                    "cards": [],
+                    "icon": "fas:dungeon",
+                    "path": "mamad",
+                    "title": "Mamad"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entity": "light.office_light",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "light"
+                                }
+                            ],
+                            "type": "horizontal-stack"
                         },
                         {
-                            "entity": "light.yeelight_color2_04cf8c9abf79",
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "cover.shelly_shsw_25_73c9f8"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_73c9f8",
+                                            "full_row": true,
+                                            "type": "custom:slider-entity-row"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        }
+                    ],
+                    "icon": "mdi:desk-lamp",
+                    "title": "Office"
+                },
+                {
+                    "badges": [
+                        "binary_sensor.storage_room_pir_sensor"
+                    ],
+                    "cards": [
+                        {
+                            "entity": "light.storage_light",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
                             "type": "light"
                         }
                     ],
-                    "title": "Office"
+                    "icon": "mdi:package-variant",
+                    "title": "Storage room"
                 },
                 {
                     "badges": [],
@@ -217,32 +1214,49 @@
                         {
                             "entity": "plant.basil",
                             "name": "Basil",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 287px;\n}\n",
                             "type": "plant-status"
                         },
                         {
                             "entity": "plant.anthurium",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 287px;\n}\n",
                             "type": "plant-status"
                         },
                         {
                             "entity": "plant.portulacaria_afra",
                             "name": "Portulacaria afra",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 287px;\n}\n",
                             "type": "plant-status"
                         },
                         {
                             "entity": "plant.ananas",
                             "name": "Pineapple",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 287px;\n}\n",
                             "type": "plant-status"
                         },
                         {
                             "entity": "plant.jade_plant",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 287px;\n}\n",
                             "type": "plant-status"
                         },
                         {
                             "entity": "plant.kalanchoe_poseidon_pink",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 287px;\n}\n",
                             "type": "plant-status"
                         },
                         {
                             "entity": "plant.peppermint",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 287px;\n}\n",
+                            "type": "plant-status"
+                        },
+                        {
+                            "entity": "plant.sweet_alyssum",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 287px;\n}\n",
+                            "type": "plant-status"
+                        },
+                        {
+                            "entity": "plant.avocado",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  height: 287px;\n}\n",
                             "type": "plant-status"
                         }
                     ],
@@ -255,30 +1269,18 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.back_home"
+                                    "entity": "sensor.back_home",
+                                    "name": "Home",
+                                    "zone": "zone.myhome"
                                 },
                                 {
-                                    "entity": "sensor.back_home_distance"
-                                },
-                                {
-                                    "entity": "sensor.back_home_route"
-                                },
-                                {
-                                    "type": "divider"
-                                },
-                                {
-                                    "entity": "sensor.to_work"
-                                },
-                                {
-                                    "entity": "sensor.to_work_distance"
-                                },
-                                {
-                                    "entity": "sensor.to_work_route"
+                                    "entity": "sensor.to_work",
+                                    "name": "Work",
+                                    "zone": "zone.mywork"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Waze route",
-                            "type": "entities"
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "type": "custom:travel-time-card"
                         },
                         {
                             "entities": [
@@ -289,39 +1291,868 @@
                                     "entity": "zone.mywork"
                                 }
                             ],
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
                             "title": "Zones",
                             "type": "map"
                         }
                     ],
+                    "icon": "fas:car",
                     "title": "Travel"
                 },
                 {
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "sensor.weather_precipitation"
+                                    "current_text_font_size": "0.8 em",
+                                    "current_text_left_pos": "4 em",
+                                    "current_text_top_margin": "65px",
+                                    "entity": "weather.dark_sky",
+                                    "entity_apparent_temp": "sensor.dark_sky_apparent_temperature",
+                                    "entity_current_conditions": "sensor.dark_sky_icon",
+                                    "entity_current_text": "sensor.dark_sky_summary_0d",
+                                    "entity_daily_summary": "sensor.dark_sky_daily_summary",
+                                    "entity_daytime_high": "sensor.dark_sky_daytime_high_temperature_0d",
+                                    "entity_forecast_high_temp_1": "sensor.dark_sky_daytime_high_temperature_1d",
+                                    "entity_forecast_high_temp_2": "sensor.dark_sky_daytime_high_temperature_2d",
+                                    "entity_forecast_high_temp_3": "sensor.dark_sky_daytime_high_temperature_3d",
+                                    "entity_forecast_high_temp_4": "sensor.dark_sky_daytime_high_temperature_4d",
+                                    "entity_forecast_high_temp_5": "sensor.dark_sky_daytime_high_temperature_5d",
+                                    "entity_forecast_icon_1": "sensor.dark_sky_icon_1d",
+                                    "entity_forecast_icon_2": "sensor.dark_sky_icon_2d",
+                                    "entity_forecast_icon_3": "sensor.dark_sky_icon_3d",
+                                    "entity_forecast_icon_4": "sensor.dark_sky_icon_4d",
+                                    "entity_forecast_icon_5": "sensor.dark_sky_icon_5d",
+                                    "entity_forecast_low_temp_1": "sensor.dark_sky_overnight_low_temperature_1d",
+                                    "entity_forecast_low_temp_2": "sensor.dark_sky_overnight_low_temperature_2d",
+                                    "entity_forecast_low_temp_3": "sensor.dark_sky_overnight_low_temperature_3d",
+                                    "entity_forecast_low_temp_4": "sensor.dark_sky_overnight_low_temperature_4d",
+                                    "entity_forecast_low_temp_5": "sensor.dark_sky_overnight_low_temperature_5d",
+                                    "entity_humidity": "sensor.dark_sky_humidity",
+                                    "entity_pop": "sensor.dark_sky_precip_probability",
+                                    "entity_pop_1": "sensor.dark_sky_precip_probability_1d",
+                                    "entity_pop_2": "sensor.dark_sky_precip_probability_2d",
+                                    "entity_pop_3": "sensor.dark_sky_precip_probability_3d",
+                                    "entity_pop_4": "sensor.dark_sky_precip_probability_4d",
+                                    "entity_pop_5": "sensor.dark_sky_precip_probability_5d",
+                                    "entity_pop_intensity": "sensor.dark_sky_precip_intensity",
+                                    "entity_pressure": "sensor.dark_sky_pressure",
+                                    "entity_summary_1": "sensor.dark_sky_summary_1d",
+                                    "entity_summary_2": "sensor.dark_sky_summary_2d",
+                                    "entity_summary_3": "sensor.dark_sky_summary_3d",
+                                    "entity_summary_4": "sensor.dark_sky_summary_4d",
+                                    "entity_summary_5": "sensor.dark_sky_summary_5d",
+                                    "entity_sun": "sun.sun",
+                                    "entity_temperature": "sensor.dark_sky_temperature",
+                                    "entity_visibility": "sensor.dark_sky_visibility",
+                                    "entity_wind_bearing": "sensor.dark_sky_wind_bearing",
+                                    "entity_wind_speed": "sensor.dark_sky_wind_speed",
+                                    "static_icons": false,
+                                    "style": "ha-card {\n  #border: 'solid 1px rgba(100,100,100,0.2)';\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  overflow: hidden ;\n}\n",
+                                    "sunset": true,
+                                    "tooltip_bg_color": "royalblue",
+                                    "tooltip_border_color": "navy",
+                                    "tooltip_border_width": 2.5,
+                                    "tooltip_caret_size": 10,
+                                    "tooltip_fg_color": "white",
+                                    "tooltip_left_offset": -5,
+                                    "tooltip_width": 100,
+                                    "tooltips": true,
+                                    "type": "custom:dark-sky-weather-card"
                                 },
                                 {
-                                    "entity": "sensor.weather_symbol"
-                                },
-                                {
-                                    "entity": "sensor.weather_temperature"
+                                    "cards": [
+                                        {
+                                            "align_header": "center",
+                                            "animate": true,
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.master_bedroom_humidity",
+                                                    "name": "Master Bedroom"
+                                                },
+                                                {
+                                                    "entity": "sensor.living_room_humidity",
+                                                    "name": "Living Room"
+                                                },
+                                                {
+                                                    "entity": "sensor.shower_humidity",
+                                                    "name": "Shower"
+                                                }
+                                            ],
+                                            "hour24": true,
+                                            "hours_to_show": 72,
+                                            "line_width": 3,
+                                            "name": "Humidy",
+                                            "show": {
+                                                "extrema": true,
+                                                "fill": "fade",
+                                                "icon": false,
+                                                "labels": true
+                                            },
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "custom:mini-graph-card"
+                                        },
+                                        {
+                                            "align_header": "center",
+                                            "animate": true,
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.master_bedroom_pressure",
+                                                    "name": "Master Bedroom"
+                                                },
+                                                {
+                                                    "entity": "sensor.living_room_pressure",
+                                                    "name": "Living Room"
+                                                },
+                                                {
+                                                    "entity": "sensor.shower_pressure",
+                                                    "name": "Shower"
+                                                }
+                                            ],
+                                            "hour24": true,
+                                            "hours_to_show": 72,
+                                            "line_width": 3,
+                                            "name": "Atmospheric Pressure",
+                                            "show": {
+                                                "extrema": true,
+                                                "fill": "fade",
+                                                "icon": false,
+                                                "labels": true
+                                            },
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "custom:mini-graph-card"
+                                        },
+                                        {
+                                            "align_header": "center",
+                                            "animate": true,
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.master_bedroom_temperature",
+                                                    "name": "Master Bedroom"
+                                                },
+                                                {
+                                                    "entity": "sensor.living_room_temperature",
+                                                    "name": "Living Room"
+                                                },
+                                                {
+                                                    "entity": "sensor.shower_temperature",
+                                                    "name": "Shower"
+                                                }
+                                            ],
+                                            "hour24": true,
+                                            "hours_to_show": 72,
+                                            "line_width": 3,
+                                            "name": "Indoor Temperature",
+                                            "show": {
+                                                "extrema": true,
+                                                "fill": "fade",
+                                                "icon": false,
+                                                "labels": true
+                                            },
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "custom:mini-graph-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
                                 }
                             ],
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sun.sun"
-                                }
-                            ],
-                            "type": "entities"
+                            "type": "vertical-stack"
                         }
                     ],
+                    "icon": "fas:cloud-sun",
+                    "panel": true,
                     "title": "environment"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "cover.shelly_shsw_25_73fd26"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_73fd26",
+                                            "full_row": true,
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_e6292b"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_e6292b",
+                                            "full_row": true,
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_73c9f8"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_73c9f8",
+                                            "full_row": true,
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_e4cdaf"
+                                        },
+                                        {
+                                            "entity": "cover.shelly_shsw_25_e4cdaf",
+                                            "full_row": true,
+                                            "type": "custom:slider-entity-row"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "card": {
+                                                "show_header_toggle": false,
+                                                "title": "Blinds",
+                                                "type": "entities"
+                                            },
+                                            "filter": {
+                                                "exclude": [
+                                                    {
+                                                        "entity_id": "sensor.seventeentrack_package*"
+                                                    },
+                                                    {
+                                                        "entity_id": "cover.shelly_shsw_25_*"
+                                                    },
+                                                    {
+                                                        "entity_id": "sensor.uptime"
+                                                    },
+                                                    {
+                                                        "domain": "device_tracker"
+                                                    },
+                                                    {
+                                                        "domain": "group"
+                                                    },
+                                                    {
+                                                        "domain": "automation"
+                                                    },
+                                                    {
+                                                        "domain": "switch"
+                                                    }
+                                                ],
+                                                "include": [
+                                                    {
+                                                        "entity_id": "*shelly*"
+                                                    },
+                                                    {
+                                                        "entity_id": "*rssi*"
+                                                    },
+                                                    {
+                                                        "entity_id": "*uptime*"
+                                                    },
+                                                    {
+                                                        "entity_id": "*firmware*"
+                                                    }
+                                                ]
+                                            },
+                                            "type": "custom:auto-entities",
+                                            "unique": true
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "card": [
+                                                        {
+                                                            "filter": {
+                                                                "include": [
+                                                                    {
+                                                                        "domain": "group",
+                                                                        "options": {
+                                                                            "head": {
+                                                                                "entity": "group.shelly_fw_update",
+                                                                                "name": "Update all Shelly firmware",
+                                                                                "type": "entity"
+                                                                            },
+                                                                            "show_header_toggle": false,
+                                                                            "type": "custom:fold-entity-row'custom:fold-entity-row'"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "type": "entities"
+                                                        }
+                                                    ],
+                                                    "type": "custom:auto-entities"
+                                                }
+                                            ],
+                                            "style": "ha-card {\n  border-radius: 0px;\n  box-shadow: 0px 0px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 1000px;\n  padding: 50px;\n  \n}\n.card-header {\n  font-size: 16px;\n  color: red;\n}\n",
+                                            "type": "custom:layout-card"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "cover.shelly_shsw_25_73fd26"
+                                                }
+                                            ],
+                                            "type": "entities"
+                                        }
+                                    ],
+                                    "type": "custom:vertical-stack-in-card"
+                                }
+                            ],
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "card": [
+                                {
+                                    "filter": {
+                                        "include": [
+                                            {
+                                                "domain": "group",
+                                                "options": {
+                                                    "head": {
+                                                        "entity": "group.shelly_fw_update",
+                                                        "name": "Update all Shelly firmware",
+                                                        "type": "entity"
+                                                    },
+                                                    "show_header_toggle": false,
+                                                    "type": "custom:fold-entity-row"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "custom:auto-entities"
+                        }
+                    ],
+                    "icon": "mdi:window-open",
+                    "title": "Shelly"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entities": [],
+                                                    "image": "/local/images/devices/xiaomi_door_window.png",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height:100%;\n}\n",
+                                                    "title": "Motion sensor Battery",
+                                                    "type": "picture-glance"
+                                                },
+                                                {
+                                                    "align": "split",
+                                                    "attribute": "battery_level",
+                                                    "card_style": {
+                                                        "border-radius": "8px"
+                                                    },
+                                                    "columns": 3,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "binary_sensor.balcony_door",
+                                                            "title": "Balcony door"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.front_door",
+                                                            "title": "Front door"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.shower_window",
+                                                            "title": "Shower window"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.bathroom_window",
+                                                            "title": "Bathroom window"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.master_bedroom_door",
+                                                            "title": "Master bedroom door"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.master_bedroom_ac_vent",
+                                                            "title": "Master bdrm AC vent",
+                                                            "width": "100%"
+                                                        }
+                                                    ],
+                                                    "padding": "2px",
+                                                    "severity": [
+                                                        {
+                                                            "color": "#bf4040",
+                                                            "value": 50
+                                                        },
+                                                        {
+                                                            "color": "#bf9540",
+                                                            "value": 75
+                                                        },
+                                                        {
+                                                            "color": "#40bf40",
+                                                            "value": 100
+                                                        }
+                                                    ],
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title_position": "inside",
+                                                    "type": "custom:bar-card",
+                                                    "unit_of_measurement": "%",
+                                                    "width": "100%"
+                                                },
+                                                {
+                                                    "align": "split",
+                                                    "attribute": "battery_level",
+                                                    "card_style": {
+                                                        "border-radius": "8px"
+                                                    },
+                                                    "columns": 1,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "binary_sensor.vault",
+                                                            "title": "Vault"
+                                                        }
+                                                    ],
+                                                    "padding": "2px",
+                                                    "severity": [
+                                                        {
+                                                            "color": "#bf4040",
+                                                            "value": 50
+                                                        },
+                                                        {
+                                                            "color": "#bf9540",
+                                                            "value": 75
+                                                        },
+                                                        {
+                                                            "color": "#40bf40",
+                                                            "value": 100
+                                                        }
+                                                    ],
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title_position": "inside",
+                                                    "type": "custom:bar-card",
+                                                    "unit_of_measurement": "%",
+                                                    "width": "100%"
+                                                }
+                                            ],
+                                            "type": "vertical-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entities": [],
+                                                    "image": "/local/images/devices/xiaomi_aqara_pir.jpg",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title": "Motion sensor Battery",
+                                                    "type": "picture-glance"
+                                                },
+                                                {
+                                                    "align": "split",
+                                                    "attribute": "battery_level",
+                                                    "card_style": {
+                                                        "border-radius": "8px"
+                                                    },
+                                                    "columns": 2,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "binary_sensor.bathroom_pir_sensor",
+                                                            "title": "Bathroom"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.front_door_pir_sensor",
+                                                            "title": "Front door"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.storage_room_pir_sensor",
+                                                            "title": "Storage room"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.office_pir_sensor",
+                                                            "title": "Office"
+                                                        }
+                                                    ],
+                                                    "padding": "2px",
+                                                    "severity": [
+                                                        {
+                                                            "color": "#bf4040",
+                                                            "value": 50
+                                                        },
+                                                        {
+                                                            "color": "#bf9540",
+                                                            "value": 75
+                                                        },
+                                                        {
+                                                            "color": "#40bf40",
+                                                            "value": 100
+                                                        }
+                                                    ],
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title_position": "inside",
+                                                    "type": "custom:bar-card",
+                                                    "unit_of_measurement": "%",
+                                                    "width": "100%"
+                                                }
+                                            ],
+                                            "type": "vertical-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entities": [],
+                                                    "image": "/local/images/devices/xiaomi_temp_humid.jpg",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title": "HT sensor Battery",
+                                                    "type": "picture-glance"
+                                                },
+                                                {
+                                                    "align": "split",
+                                                    "attribute": "battery_level",
+                                                    "card_style": {
+                                                        "border-radius": "5px"
+                                                    },
+                                                    "columns": 2,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "sensor.bathroom_temperature",
+                                                            "title": "Bathroom"
+                                                        },
+                                                        {
+                                                            "entity": "sensor.shower_temperature",
+                                                            "title": "Shower"
+                                                        },
+                                                        {
+                                                            "entity": "sensor.master_bedroom_temperature",
+                                                            "title": "Master bedroom"
+                                                        },
+                                                        {
+                                                            "entity": "sensor.living_room_temperature",
+                                                            "title": "Living room"
+                                                        }
+                                                    ],
+                                                    "padding": "2px",
+                                                    "severity": [
+                                                        {
+                                                            "color": "#bf4040",
+                                                            "value": 50
+                                                        },
+                                                        {
+                                                            "color": "#bf9540",
+                                                            "value": 75
+                                                        },
+                                                        {
+                                                            "color": "#40bf40",
+                                                            "value": 100
+                                                        }
+                                                    ],
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title_position": "inside",
+                                                    "type": "custom:bar-card",
+                                                    "unit_of_measurement": "%",
+                                                    "width": "100%"
+                                                }
+                                            ],
+                                            "type": "vertical-stack"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entities": [],
+                                                    "image": "/local/images/devices/xiaomi_wall_switch.jpg",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title": "Wall switch Battery",
+                                                    "type": "picture-glance"
+                                                },
+                                                {
+                                                    "align": "split",
+                                                    "attribute": "battery_level",
+                                                    "card_style": {
+                                                        "border-radius": "5px"
+                                                    },
+                                                    "columns": 1,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "binary_sensor.ambient_light_wall_switch",
+                                                            "title": "Ambient lights switch"
+                                                        }
+                                                    ],
+                                                    "padding": "2px",
+                                                    "severity": [
+                                                        {
+                                                            "color": "#bf4040",
+                                                            "value": 50
+                                                        },
+                                                        {
+                                                            "color": "#bf9540",
+                                                            "value": 75
+                                                        },
+                                                        {
+                                                            "color": "#40bf40",
+                                                            "value": 100
+                                                        }
+                                                    ],
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title_position": "inside",
+                                                    "type": "custom:bar-card",
+                                                    "unit_of_measurement": "%",
+                                                    "width": "100%"
+                                                }
+                                            ],
+                                            "type": "vertical-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entities": [],
+                                                    "image": "/local/images/devices/xiaomi_water_leak.jpg",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title": "Water leak sensor Battery",
+                                                    "type": "picture-glance"
+                                                },
+                                                {
+                                                    "align": "split",
+                                                    "attribute": "battery_level",
+                                                    "card_style": {
+                                                        "border-radius": "5px"
+                                                    },
+                                                    "columns": 3,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "binary_sensor.bathroom_water_leak",
+                                                            "title": "Bathroom"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.kitchen_water_leak",
+                                                            "title": "Kitchen"
+                                                        },
+                                                        {
+                                                            "entity": "binary_sensor.shower_water_leak",
+                                                            "title": "Shower"
+                                                        }
+                                                    ],
+                                                    "padding": "2px",
+                                                    "severity": [
+                                                        {
+                                                            "color": "#bf4040",
+                                                            "value": 50
+                                                        },
+                                                        {
+                                                            "color": "#bf9540",
+                                                            "value": 75
+                                                        },
+                                                        {
+                                                            "color": "#40bf40",
+                                                            "value": 100
+                                                        }
+                                                    ],
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title_position": "inside",
+                                                    "type": "custom:bar-card",
+                                                    "unit_of_measurement": "%",
+                                                    "width": "100%"
+                                                }
+                                            ],
+                                            "type": "vertical-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entities": [],
+                                                    "image": "/local/images/devices/xiaomi_vibration.jpg",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title": "Vibration sensor Battery",
+                                                    "type": "picture-glance"
+                                                },
+                                                {
+                                                    "align": "split",
+                                                    "attribute": "battery_level",
+                                                    "card_style": {
+                                                        "border-radius": "5px"
+                                                    },
+                                                    "columns": 1,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "binary_sensor.vibration_living_room_ac"
+                                                        }
+                                                    ],
+                                                    "padding": "2px",
+                                                    "severity": [
+                                                        {
+                                                            "color": "#bf4040",
+                                                            "value": 50
+                                                        },
+                                                        {
+                                                            "color": "#bf9540",
+                                                            "value": 75
+                                                        },
+                                                        {
+                                                            "color": "#40bf40",
+                                                            "value": 100
+                                                        }
+                                                    ],
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title_position": "inside",
+                                                    "type": "custom:bar-card",
+                                                    "unit_of_measurement": "%",
+                                                    "width": "100%"
+                                                }
+                                            ],
+                                            "type": "vertical-stack"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "cards": [
+                                                {
+                                                    "entities": [],
+                                                    "image": "/local/images/devices/xiaomi_flower_care.jpg",
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title": "Flower care Battery",
+                                                    "type": "picture-glance"
+                                                },
+                                                {
+                                                    "align": "split",
+                                                    "attribute": "battery",
+                                                    "card_style": {
+                                                        "border-radius": "5px"
+                                                    },
+                                                    "columns": 5,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "plant.portulacaria_afra"
+                                                        },
+                                                        {
+                                                            "entity": "plant.sweet_alyssum"
+                                                        },
+                                                        {
+                                                            "entity": "plant.jade_plant"
+                                                        },
+                                                        {
+                                                            "entity": "plant.peppermint"
+                                                        },
+                                                        {
+                                                            "entity": "plant.kalanchoe_poseidon_pink"
+                                                        }
+                                                    ],
+                                                    "padding": "2px",
+                                                    "severity": [
+                                                        {
+                                                            "color": "#bf4040",
+                                                            "value": 50
+                                                        },
+                                                        {
+                                                            "color": "#bf9540",
+                                                            "value": 75
+                                                        },
+                                                        {
+                                                            "color": "#40bf40",
+                                                            "value": 100
+                                                        }
+                                                    ],
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title_position": "inside",
+                                                    "type": "custom:bar-card",
+                                                    "unit_of_measurement": "%",
+                                                    "width": "100%"
+                                                },
+                                                {
+                                                    "align": "split",
+                                                    "attribute": "battery",
+                                                    "card_style": {
+                                                        "border-radius": "5px"
+                                                    },
+                                                    "columns": 4,
+                                                    "entities": [
+                                                        {
+                                                            "entity": "plant.basil"
+                                                        },
+                                                        {
+                                                            "entity": "plant.avocado"
+                                                        },
+                                                        {
+                                                            "entity": "plant.anthurium"
+                                                        },
+                                                        {
+                                                            "entity": "plant.ananas"
+                                                        }
+                                                    ],
+                                                    "padding": "2px",
+                                                    "severity": [
+                                                        {
+                                                            "color": "#bf4040",
+                                                            "value": 50
+                                                        },
+                                                        {
+                                                            "color": "#bf9540",
+                                                            "value": 75
+                                                        },
+                                                        {
+                                                            "color": "#40bf40",
+                                                            "value": 100
+                                                        }
+                                                    ],
+                                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 100%;\n  height: 100%;\n}\n",
+                                                    "title_position": "inside",
+                                                    "type": "custom:bar-card",
+                                                    "unit_of_measurement": "%",
+                                                    "width": "100%"
+                                                }
+                                            ],
+                                            "type": "vertical-stack"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:battery-charging-70",
+                    "panel": true,
+                    "title": "Batteries"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "max_results": 16,
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "type": "custom:search-card"
+                        },
+                        {
+                            "card": {
+                                "title": "All groups",
+                                "type": "entities"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "domain": "group",
+                                        "options": {
+                                            "state": "off",
+                                            "type": "custom:fold-entity-row"
+                                        }
+                                    }
+                                ]
+                            },
+                            "type": "custom:auto-entities"
+                        }
+                    ],
+                    "icon": "mdi:bug",
+                    "title": "Debug"
                 }
             ]
         }

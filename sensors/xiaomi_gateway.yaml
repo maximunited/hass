@@ -5,9 +5,153 @@
 #                 XIAOMI GW                        #
 #                                                  #
 ####################################################
-sensor.Illumination_04cf8c916107:
-    friendly_name: Gateway Lumen
-    icon: mdi:lightbulb-on-outline
+# - sensor.Illumination_04cf8c916107:
+#     friendly_name: Gateway Lumen
+#     icon: mdi:lightbulb-on-outline
+- platform: template
+  sensors:
+    vibration_living_room_ac:
+      friendly_name: living_ac_vibrate_sensor_action
+      value_template: '{{ states.binary_sensor.vibration_living_room_ac.attributes["last_action"] }}'
+
+- platform: template
+  sensors:
+    front_door:
+      value_template: >-
+        {% if states.binary_sensor.front_door.state == 'on' %}
+          Open
+        {% elif states.binary_sensor.front_door.state == 'off' %}
+          Closed
+        {% else %}
+          n/a
+        {% endif %}
+      icon_template: >
+        {% if states.binary_sensor.front_door.state == 'on' %}
+          mdi:door-open
+        {% elif states.binary_sensor.front_door.state == 'off' %}
+          mdi:door-closed
+        {% else %}
+          mdi:help
+        {% endif %} 
+    balcony_door:
+      value_template: >-
+        {% if states.binary_sensor.balcony_door.state == 'on' %}
+          Open
+        {% elif states.binary_sensor.balcony_door.state == 'off' %}
+          Closed
+        {% else %}
+          n/a
+        {% endif %}
+      icon_template: >
+        {% if states.binary_sensor.balcony_door.state == 'on' %}
+          mdi:door-open
+        {% elif states.binary_sensor.balcony_door.state == 'off' %}
+          mdi:door-closed
+        {% else %}
+          mdi:help
+        {% endif %} 
+    master_bedroom_door:
+      value_template: >-
+        {% if states.binary_sensor.master_bedroom_door.state == 'on' %}
+          Open
+        {% elif states.binary_sensor.master_bedroom_door.state == 'off' %}
+          Closed
+        {% else %}
+          n/a
+        {% endif %}
+      icon_template: >
+        {% if states.binary_sensor.master_bedroom_door.state == 'on' %}
+          mdi:door-open
+        {% elif states.binary_sensor.master_bedroom_door.state == 'off' %}
+          mdi:door-closed
+        {% else %}
+          mdi:help
+        {% endif %} 
+    shower_window:
+      value_template: >-
+        {% if states.binary_sensor.shower_window.state == 'on' %}
+          Open
+        {% elif states.binary_sensor.shower_window.state == 'off' %}
+          Closed
+        {% else %}
+          n/a
+        {% endif %}
+      icon_template: >
+        {% if states.binary_sensor.shower_window.state == 'on' %}
+          mdi:window-open
+        {% elif states.binary_sensor.shower_window.state == 'off' %}
+          mdi:window-closed
+        {% else %}
+          mdi:help
+        {% endif %} 
+    bathroom_window:
+      value_template: >-
+        {% if states.binary_sensor.bathroom_window.state == 'on' %}
+          Open
+        {% elif states.binary_sensor.bathroom_window.state == 'off' %}
+          Closed
+        {% else %}
+          n/a
+        {% endif %}
+      icon_template: >
+        {% if states.binary_sensor.bathroom_window.state == 'on' %}
+          mdi:window-open
+        {% elif states.binary_sensor.bathroom_window.state == 'off' %}
+          mdi:window-closed
+        {% else %}
+          mdi:help
+        {% endif %} 
+    bathroom_door:
+      value_template: >-
+        {% if states.binary_sensor.bathroom_door.state == 'on' %}
+          Open
+        {% elif states.binary_sensor.bathroom_door.state == 'off' %}
+          Closed
+        {% else %}
+          n/a
+        {% endif %}
+      icon_template: >
+        {% if states.binary_sensor.bathroom_door.state == 'on' %}
+          mdi:door-open
+        {% elif states.binary_sensor.bathroom_door.state == 'off' %}
+          mdi:door-closed
+        {% else %}
+          mdi:help
+        {% endif %} 
+    vault:
+      value_template: >-
+        {% if states.binary_sensor.vault.state == 'on' %}
+          Open
+        {% elif states.binary_sensor.vault.state == 'off' %}
+          Closed
+        {% else %}
+          n/a
+        {% endif %}
+      icon_template: >
+        {% if states.binary_sensor.vault.state == 'on' %}
+          mdi:window-open
+        {% elif states.binary_sensor.vault.state == 'off' %}
+          mdi:window-closed
+        {% else %}
+          mdi:help
+        {% endif %} 
+    master_bedroom_ac_vent:
+      value_template: >-
+        {% if states.binary_sensor.master_bedroom_ac_vent.state == 'on' %}
+          Open
+        {% elif states.binary_sensor.master_bedroom_ac_vent.state == 'off' %}
+          Closed
+        {% else %}
+          n/a
+        {% endif %}
+      icon_template: >
+        {% if states.binary_sensor.master_bedroom_ac_vent.state == 'on' %}
+          mdi:window-open
+        {% elif states.binary_sensor.master_bedroom_ac_vent.state == 'off' %}
+          mdi:window-closed
+        {% else %}
+          mdi:help
+        {% endif %} 
 
 ####################################################
 #                                                  #

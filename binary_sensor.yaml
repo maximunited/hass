@@ -7,11 +7,11 @@
 
 ---
 ### https://github.com/custom-components/binary_sensor.hadockermon
-- platform: hadockermon
-  host: 127.0.0.1
-  port: 8126
-  stats: true
-  name: hadockermon
+# - platform: hadockermon
+#   host: 127.0.0.1
+#   port: 8126
+#   stats: true
+#   name: hadockermon
 
 # Workday
 # - platform: workday
@@ -30,78 +30,146 @@
 #  workdays: [mon, tue, wed, thu, fri]
 #  excludes: [sat, sun, holiday]
 
+# - platform: template
+#   sensors:
+#     living_ac_sensor:
+#       friendly_name: Living Room AC
+#       entity_id: input_boolean.living_ac
+#       device_class: plug
+#       value_template: "{{ states.input_boolean.living_ac.state == 'on' }}"
+#       icon_template: >-
+#         {% if is_state('states.input_boolean.living_ac.state', 'on') %}
+#           mdi:fan
+#         {% else %}
+#           mdi:fan-off
+#         {% endif %}
+
 
 # International Space Station
-- platform: iss
-  name: 'iss'
-  # friendly_name: 'International Space Station'
-  show_on_map: true
+# - platform: iss
+#   name: 'iss'
+#   # friendly_name: 'International Space Station'
+#   show_on_map: true
+
+# - platform: template
+#   sensors:
+#     miwifi_router:
+#       friendly_name: Router
+#       device_class: connectivity
+#       entity_id: device_tracker.miwifi_router
+#       value_template: "{{ is_state('device_tracker.miwifi_router', 'home') }}"
+#       icon_template: >-
+#         {% if is_state('device_tracker.miwifi_router', 'home') %}
+#           mdi:router-wireless
+#         {% else %}
+#           mdi:router-wireless
+#         {% endif %}
+#     switch_living:
+#       friendly_name: Network Switch (Living)
+#       device_class: connectivity
+#       entity_id: device_tracker.net_switch_living
+#       value_template: "{{ is_state('device_tracker.net_switch_living', 'home') }}"
+#       icon_template: >-
+#         {% if is_state('device_tracker.net_switch_living', 'home') %}
+#           mdi:switch
+#         {% else %}
+#           mdi:switch
+#         {% endif %}
+#     switch_comm:
+#       friendly_name: Network Switch (Comm)
+#       device_class: connectivity
+#       entity_id: device_tracker.net_switch_comm
+#       value_template: "{{ is_state('device_tracker.net_switch_comm', 'home') }}"
+#       icon_template: >-
+#         {% if is_state('device_tracker.net_switch_comm', 'home') %}
+#           mdi:switch
+#         {% else %}
+#           mdi:switch
+#         {% endif %}
+#     google_home:
+#       friendly_name: Google home
+#       device_class: connectivity
+#       entity_id: device_tracker.google_home
+#       value_template: "{{ is_state('device_tracker.google_home', 'home') }}"
+#       icon_template: >-
+#         {% if is_state('device_tracker.google_home', 'home') %}
+#           mdi:voice
+#         {% else %}
+#           mdi:voice
+#         {% endif %}
+#     maxima1_tp:
+#       friendly_name: MAXIMA1-TP
+#       device_class: connectivity
+#       entity_id: device_tracker.maxima1_tp_wifi
+#       value_template: "{{ is_state('device_tracker.maxima1_tp_wifi', 'home') }}"
+#       icon_template: >-
+#         {% if is_state('device_tracker.maxima1_tp_wifi', 'home') %}
+#           mdi:windows
+#         {% else %}
+#           mdi:windows
+#         {% endif %}
+#     mijia_xiaomi_gateway:
+#       friendly_name: Xiaomi Gateway
+#       device_class: connectivity
+#       entity_id: device_tracker.mijia_xiaomi_gateway
+#       value_template: "{{ is_state('device_tracker.mijia_xiaomi_gateway', 'home') }}"
+#       icon_template: >-
+#         {% if is_state('device_tracker.mijia_xiaomi_gateway', 'home') %}
+#           mdi:server
+#         {% else %}
+#           mdi:server
+#         {% endif %}
+
 
 - platform: template
   sensors:
-    miwifi_router:
-      friendly_name: Router
-      device_class: connectivity
-      entity_id: device_tracker.miwifi_router
-      value_template: "{{ is_state('device_tracker.miwifi_router', 'home') }}"
+    ## Shower Heater Status
+    living_ac:
+      value_template: '{{ states.input_boolean.living_ac.state}}'
+      friendly_name: 'Shower Heater Status'
+
+    shelly_73fd26_fw_update:
+      value_template: "{{ states.cover.shelly_shsw_25_73fd26.attributes.has_firmware_update }}"
+      friendly_name: "Shelly North Master bedroom blinds [73FD26] FW update"
       icon_template: >-
-        {% if is_state('device_tracker.miwifi_router', 'home') %}
-          mdi:router-wireless
+        {% if is_state_attr('cover.shelly_shsw_25_73fd26','has_firmware_update', True) %}
+          mdi:cloud-upload
+        {% elif is_state_attr('cover.shelly_shsw_25_73fd26','has_firmware_update', False) %}
+          mdi:cloud
         {% else %}
-          mdi:router-wireless
+          mdi:cloud-question
         {% endif %}
-    switch_living:
-      friendly_name: Network Switch (Living)
-      device_class: connectivity
-      entity_id: device_tracker.net_switch_living
-      value_template: "{{ is_state('device_tracker.net_switch_living', 'home') }}"
+    shelly_73c9f8_fw_update:
+      value_template: "{{ states.cover.shelly_shsw_25_73c9f8.attributes.has_firmware_update }}"
+      friendly_name: "Shelly Office blinds [73C9F8] FW update"
       icon_template: >-
-        {% if is_state('device_tracker.net_switch_living', 'home') %}
-          mdi:switch
+        {% if is_state_attr('cover.shelly_shsw_25_73c9f8', 'has_firmware_update', True) %}
+          mdi:cloud-upload
+        {% elif is_state_attr('cover.shelly_shsw_25_73c9f8', 'has_firmware_update', False) %}
+          mdi:cloud
         {% else %}
-          mdi:switch
+          mdi:cloud-question
         {% endif %}
-    switch_comm:
-      friendly_name: Network Switch (Comm)
-      device_class: connectivity
-      entity_id: device_tracker.net_switch_comm
-      value_template: "{{ is_state('device_tracker.net_switch_comm', 'home') }}"
+    shelly_e4cdaf_fw_update:
+      value_template: "{{ states.cover.shelly_shsw_25_e4cdaf.attributes.has_firmware_update }}"
+      friendly_name: "Shelly Kids bedroom blinds [E4CDAF] FW update"
       icon_template: >-
-        {% if is_state('device_tracker.net_switch_comm', 'home') %}
-          mdi:switch
+        {% if is_state_attr('cover.shelly_shsw_25_e4cdaf', 'has_firmware_update', True) %}
+          mdi:cloud-upload
+        {% elif is_state_attr('cover.shelly_shsw_25_e4cdaf', 'has_firmware_update', False) %}
+          mdi:cloud
         {% else %}
-          mdi:switch
+          mdi:cloud-question
         {% endif %}
-    google_home:
-      friendly_name: Google home
-      device_class: connectivity
-      entity_id: device_tracker.google_home
-      value_template: "{{ is_state('device_tracker.google_home', 'home') }}"
+    shelly_e6292b_fw_update:
+      value_template: "{{ states.cover.shelly_shsw_25_e6292b.attributes.has_firmware_update }}"
+      friendly_name: "Shelly West Master bedroom blinds [E6292B] FW update"
       icon_template: >-
-        {% if is_state('device_tracker.google_home', 'home') %}
-          mdi:voice
+        {% if is_state_attr('cover.shelly_shsw_25_e6292b', 'has_firmware_update', True) %}
+          mdi:cloud-upload
+        {% elif is_state_attr('cover.shelly_shsw_25_e6292b', 'has_firmware_update', False) %}
+          mdi:cloud
         {% else %}
-          mdi:voice
+          mdi:cloud-question
         {% endif %}
-    maxima1_tp:
-      friendly_name: MAXIMA1-TP
-      device_class: connectivity
-      entity_id: device_tracker.maxima1_tp_wifi
-      value_template: "{{ is_state('device_tracker.maxima1_tp_wifi', 'home') }}"
-      icon_template: >-
-        {% if is_state('device_tracker.maxima1_tp_wifi', 'home') %}
-          mdi:windows
-        {% else %}
-          mdi:windows
-        {% endif %}
-    mijia_xiaomi_gateway:
-      friendly_name: Xiaomi Gateway
-      device_class: connectivity
-      entity_id: device_tracker.mijia_xiaomi_gateway
-      value_template: "{{ is_state('device_tracker.mijia_xiaomi_gateway', 'home') }}"
-      icon_template: >-
-        {% if is_state('device_tracker.mijia_xiaomi_gateway', 'home') %}
-          mdi:server
-        {% else %}
-          mdi:server
-        {% endif %}
+

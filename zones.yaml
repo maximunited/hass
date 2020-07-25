@@ -1,13 +1,20 @@
 - name: MyHome
   latitude: !secret home_latitude
   longitude: !secret home_longitude
-  elevation: !secret home_elevation
+  # elevation: !secret home_elevation
   radius: 20
   icon: mdi:home
+
+- name: IBM XIV
+  latitude: !secret xiv_work_latitude
+  longitude: !secret xiv_work_longitude
+  # elevation: !secret xiv_work_elevation
+  radius: 35
+  icon: mdi:domain
 
 - name: MyWork
   latitude: !secret work_latitude
   longitude: !secret work_longitude
-  elevation: !secret work_elevation
-  radius: 35
+  # elevation: !secret work_elevation
+  radius: 150
   icon: mdi:domain
