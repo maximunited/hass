@@ -30,13 +30,13 @@ main_media_hot:
   sequence:
     - service: media_player.turn_on
       entity_id:
-        - media_player.marantz_reciever
+        - media_player.marantz_nr1608
     - service: media_player.turn_on
       entity_id:
         - media_player.lg_tv
     - service: media_player.select_source
       data:
-        entity_id: media_player.marantz_reciever
+        entity_id: media_player.marantz_nr1608
         source: HOT
     - service: media_player.select_source
       data:
@@ -48,13 +48,13 @@ main_media_chromecast:
   sequence:
     - service: media_player.turn_on
       entity_id:
-        - media_player.marantz_reciever
+        - media_player.marantz_nr1608
     - service: media_player.turn_on
       entity_id:
         - media_player.living_room_chromecast
     - service: media_player.select_source
       data:
-        entity_id: media_player.marantz_reciever
+        entity_id: media_player.marantz_nr1608
         source: 'TV Audio'
     - service: media_player.select_source
       data:
@@ -66,7 +66,7 @@ main_media_off:
   sequence:
     - service: media_player.turn_off
       entity_id:
-        - media_player.marantz_reciever
+        - media_player.marantz_nr1608
     - service: media_player.turn_off
       entity_id:
         - media_player.living_room_chromecast

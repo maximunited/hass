@@ -52,12 +52,12 @@ panel_iframe: !include panel_iframe.yaml
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
   server_port: 8123
-  base_url: !secret http_base_url
+  #base_url: !secret http_base_url
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.21.0.2      # Traefik container IP
     - 127.19.0.2      # Traefik container IP
-    - 127.18.0.6      # node-red container IP
+      #- 127.18.0.6      # node-red container IP
     - 192.168.1.0/24  # Local network
   ip_ban_enabled: true
   login_attempts_threshold: 5
@@ -109,26 +109,48 @@ binary_sensor: !include binary_sensor.yaml
 tts:
   - platform: google_translate
     service_name: google_say
+    base_url: http://192.168.1.138:8123
 
 group: !include groups.yaml
-automation: !include automations.yaml
+#automation: !include automations.yaml
+automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 shell_command: !include shell_command.yaml
 timer: !include timer.yaml
+scene: !include scenes.yaml
 
-google_assistant:
-  project_id: !secret google_assistant_project_id
-  service_account: !include GOOGLE_SERVICE_ACCOUNT.json
-  #api_key: !secret google_assistant_api_key
-  report_state: true
-  exposed_domains:
-    - switch
-    - input_boolean
-    # - light
-    # - cover
-    # - media_player
-    # - group
-    # - script
+google_assistant: !include google_assisstant.yaml
+#  project_id: !secret google_assistant_project_id
+#  service_account: !include GOOGLE_SERVICE_ACCOUNT.json
+#  #api_key: !secret google_assistant_api_key
+#  report_state: true
+#  expose_by_default: false
+#  exposed_domains:
+#    #- switch
+#    #- input_boolean
+#    #- sensor
+#    #- script
+#  entity_config:
+#    - script.main_media_chromecast:
+#      name: Script Chromecast
+#      aliases:
+#        - Switch chromecast
+#        - Switch main chromecast
+#        - Script main chromecast
+#    - script.main_media_hot:
+#      name: Script Cable
+#      aliases:
+#        - Script Hot
+#        - Script Main hot
+#        - Script main cable
+#    - switch.docker_dockerbot
+#    - switch.docker_hass
+#    - switch.docker_mariadb
+#    - switch.docker_mosquitto
+#    - switch.docker_node_red
+#    - switch.docker_oauth
+#    - switch.docker_portainer
+#    - switch.docker_traefik
 
 google_keep:
   username: !secret google_username
@@ -146,12 +168,15 @@ shelly:
   version: true
   sensors:
     - all
+  settings:
+    current_consumption: { decimals: 2 }
   cloud_auth_key: !secret shelly_cloud_auth_key
   cloud_server: shelly-5-eu.shelly.cloud
 
 # SmartIR
 # https://github.com/smartHomeHub/SmartIR
 smartir:
+  check_updates: false
 
 climate: !include climate.yaml
 
@@ -239,8 +264,6 @@ weather:
     api_key: !secret darksky_api_key
     mode: daily
 
-# Scenes:
-scene: !include scene.yaml
 
 
 # HEOS
@@ -290,6 +313,12 @@ webostv:
 #      - YouTube
 #      - makoTV
 
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_allowed_chat_id
+
 # Notifications (require HTTPS)
 notify:
   - platform: html5
@@ -297,6 +326,10 @@ notify:
     vapid_pub_key: !secret vapid_pub_key
     vapid_prv_key: !secret vapid_prv_key
     vapid_email: !secret vapid_email
+
+  - platform: telegram
+    name: telegram_bot
+    chat_id: !secret telegram_allowed_chat_id
 
   #- platform: webostv
   #  host: 192.168.1.2

@@ -44,6 +44,8 @@ light.yeelight_strip1_7811dc686e33:
 # Xiaomi Door / Window sensors
 binary_sensor.door_window_sensor_158d00031e8cb9:
   friendly_name: Shower window
+binary_sensor.door_window_sensor_158d0004240a56:
+  friendly_name: Shower door
 binary_sensor.door_window_sensor_158d00033ace24:
   friendly_name: Main door
 binary_sensor.door_window_sensor_158d00033ab6fb:
@@ -54,8 +56,6 @@ binary_sensor.door_window_sensor_158d000397374d:
   friendly_name: Master bedroom AC vent
 binary_sensor.door_window_sensor_158d0003eef105:
   friendly_name: Bathroom window
-binary_sensor.door_window_sensor_158d0004240a56:
-  friendly_name: Bathroom door
 binary_sensor.door_window_sensor_158d0003f1cf6f:
   friendly_name: Vault
 binary_sensor.door_window_sensor_158d00044ab446:
