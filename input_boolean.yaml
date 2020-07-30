@@ -10,3 +10,8 @@ maxim_dana_home:
 
 living_ac:
   name: Living room AC
+
+disable_washing_machine_notification:
+  name: Disable Washing Machine Notification
+  initial: off
+  icon: mdi:washing-machine

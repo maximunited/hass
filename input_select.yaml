@@ -10,7 +10,7 @@ washing_machine_status:
     - Rinse / Spin
     - Finishing
     - Clean
-  initial: Idle
+  initial: Powered Down
   icon: mdi:washing-machine
 
 shower_heater_status:

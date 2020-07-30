@@ -3,7 +3,8 @@
 ################################################################################
 ################################## HACS ########################################
 ################################################################################
-- alias: Create a notification when somethig is added to HACS
+- id: hacs_notify_new_repo
+  alias: "Create a notification when something is added to HACS"
   trigger:
     platform: event
     event_type: hacs/repository
@@ -22,7 +23,8 @@
         [{{ repo }}](/hacs/repository/{{ id }})
         was just added to HACS.
 
-- alias: Create a notification when there is updates pending in HACS
+- id: hacs_notify_updates
+  alias: "Create a notification when there is updates pending in HACS"
   trigger:
     platform: state
     entity_id: sensor.hacs

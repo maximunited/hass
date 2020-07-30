@@ -10,7 +10,7 @@ core
 *.BACKUP
 .google_maps_location_sharing.cookies.*
 GOOGLE_SERVICE_ACCOUNT*.json
-html5_push_registrations.conf
+html5_push_registrations\.conf
 
 # You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
@@ -20,7 +20,7 @@ html5_push_registrations.conf
 !automation/*.yaml
 
 # Ignore folders.
-.storage
+.storage/
 custom_components
 .cloud
 .git
