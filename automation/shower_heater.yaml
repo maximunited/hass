@@ -1,0 +1,125 @@
+---
+##################
+
+- alias: Set shower heater max power state
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shower_heater_power
+      above: 2000
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Idle'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Power Off'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Low Power'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Light Only'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Max Power'
+
+- alias: Set shower heater low power state
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shower_heater_power
+      above: 1000
+      below: 2000
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Idle'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Power Off'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Max Power'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Light Only'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Low Power'
+
+- alias: Set shower heater light only state
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shower_heater_power
+      above: 0.5
+      below: 5
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Idle'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Power Off'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Low Power'
+      - condition: state
+        entity_id: sensor.shower_heater_status
+        state: 'Max Power'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Light Only'
+
+- alias: Set shower heater off state
+  trigger:
+    - platform: state
+      entity_id: switch.shower_heater
+      to: 'off'
+      #   condition:
+      #     condition: or
+      #     conditions:
+      #       - condition: state
+      #         entity_id: sensor.shower_heater_status
+      #         state: 'Idle'
+      #       - condition: state
+      #         entity_id: sensor.shower_heater_status
+      #         state: 'Light Only'
+      #       - condition: state
+      #         entity_id: sensor.shower_heater_status
+      #         state: 'Low Power'
+      #       - condition: state
+      #         entity_id: sensor.shower_heater_status
+      #         state: 'Max Power'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Power Off'
+
+- alias: Set shower heater idle state
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shower_heater_power
+      below: 0.1
+      for:
+        minutes: 1
+  condition:
+    - condition: state
+      entity_id: switch.shower_heater
+      state: 'on'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.shower_heater_status
+        option: 'Idle'

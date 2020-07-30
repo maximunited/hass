@@ -1,0 +1,230 @@
+#########################################
+### Shelly1PM (previously Tuya) plugs ###
+#########################################
+## When power is detected, and the washing machine is not in
+## the Running state, change the status of the washing machine
+## to Running.
+## The status check will ensure we don't try to put the state
+## to Running each time the power level changes, and we're already
+## in the Running state. 
+#
+# Washing Cycles:
+# Off == 0 W
+# Button on == 1 W
+# Working high cycle == 2150 W
+# Working regular cycle > 250 W
+# Post cycle/Anti-Crease/Finish < 35 W
+#
+
+# Links:
+# https://community.home-assistant.io/t/washing-machine-power-consumption-trigger/70938/6
+#
+## Set washing machine status to switched off if (outlet) switch is off
+- id: washingmachine_switchedoff #Done#
+  alias: 'Washing Machine - Change State Switched Off'
+  trigger:
+    - platform: state
+      entity_id: switch.shelly_shsw_pm_76b5ac
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Switched Off'
+
+- id: washingmachine_powereddown #Done#
+  alias: 'Washing Machine - Change State Powered Down'
+  trigger:
+    - platform: state
+      entity_id: switch.shelly_shsw_pm_76b5ac
+      to: 'on'
+    - platform: template
+      value_template: '{{((states.sensor.shelly_shsw_pm_76b5ac_current_consumption.state)|round(0)) == 0}}'
+      #entity_id: sensor.shelly_shsw_pm_76b5ac_current_consumption
+      #below: 2
+      # for: '00:01:00'
+      #  condition:
+      #  - condition: state
+      #    entity_id: switch.shelly_shsw_pm_76b5ac
+      #    state: 'on'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Powered Down'
+
+- id: washingmachine_idle
+  alias: 'Washing Machine - Change State Idle'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly_shsw_pm_76b5ac_current_consumption
+      above: 1
+      below: 4
+      for: '00:01:00'
+  condition:
+    - condition: state
+      entity_id: switch.shelly_shsw_pm_76b5ac
+      state: 'on'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Powered Down'
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Rinse / Spin'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Idle'
+
+- id: washingmachine_rinsespin
+  alias: 'Washing Machine - Change State Rinse Spin'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly_shsw_pm_76b5ac_current_consumption
+      above: 10
+      below: 550
+      for: '00:01:00'
+  condition:
+    - condition: state
+      entity_id: switch.shelly_shsw_pm_76b5ac
+      state: 'on'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Powered Down'
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Idle'
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Wash'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Rinse / Spin'
+
+- id: washingmachine_wash
+  alias: 'Washing Machine - Change State Wash'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly_shsw_pm_76b5ac_current_consumption
+      above: 1000
+      for: '00:01:00'
+  condition:
+    - condition: state
+      entity_id: switch.shelly_shsw_pm_76b5ac
+      state: 'on'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Powered Down'
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Idle'
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Rinse / Spin'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Wash'
+
+- alias: Set washing machine active when power detected
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly_shsw_pm_76b5ac_current_consumption
+      above: 40
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: sensor.washing_machine_status
+        state: 'Idle'
+      - condition: state
+        entity_id: sensor.washing_machine_status
+        state: 'Clean'
+      - condition: state
+        entity_id: sensor.washing_machine_status
+        state: 'Finishing'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Running'
+
+
+## When the power drops, move the state of the washing machine to
+## Finishing.
+
+- id: washingmachine_finishing
+  alias: 'Washing Machine - Set washing machine finished when power drops'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly_shsw_pm_76b5ac_current_consumption
+      below: 40
+  condition:
+    #condition: and
+    #conditions:
+    condition: state
+    entity_id: input_select.washing_machine_status
+    state: 'Running'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Finishing'
+
+## Wait 1 minutes for us to be in the Finishing state before we
+## decide the washing machine has finished. This way, if the
+## washing machine is in between cycles and the power drops, we
+## won't mark the washing machine cycle as finished too early.
+
+- alias: Set washing machine clean after timeout
+  trigger:
+    - platform: state
+      entity_id: input_select.washing_machine_status
+      to: 'Finishing'
+      for:
+        minutes: 1
+  condition:
+    #condition: and
+    #conditions:
+    condition: state
+    entity_id: input_select.washing_machine_status
+    state: 'Finishing'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Clean'
+
+# When we open the washing machine door, reset the status back to
+# idle, so we don't spam people that the washing machine has
+# finished, and someone has already emptied it
+
+- alias: Set washing machine dirty when door opens
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.washing_machine_door
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Clean'
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: 'Finishing'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.washing_machine_status
+        option: 'Idle'

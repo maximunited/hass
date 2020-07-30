@@ -1,0 +1,13 @@
+---
+
+exclude:
+  domains:
+    - sun
+    - group
+    - weather
+    - zone
+  entities:
+    - sensor.last_boot
+    - sensor.date
+    - sensor.time
+

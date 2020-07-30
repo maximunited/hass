@@ -1,0 +1,65 @@
+---
+- id: 'bedroomac_notifyonopenings'
+  alias: 'Bedroom AC - Notify if doors or window open'
+  description: 'if the master bedroom AC is running for 5 minutes, and either the shower window or door are open or if the bedroom door is open, raise a notification'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_ac_vent
+      to: 'on'
+      for: 00:05:00
+    - platform: state
+      entity_id: binary_sensor.door_window_sensor_158d0004240a56
+      to: 'on'
+      for: 00:05:00
+    - platform: state
+      entity_id: binary_sensor.shower_window
+      to: 'on'
+      for: 00:05:00
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_door
+      to: 'on'
+      for: 00:05:00
+  condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.master_bedroom_ac_vent
+        state: 'on'
+      - condition: not
+        conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: binary_sensor.master_bedroom_door
+            state: 'off'
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: binary_sensor.door_window_sensor_158d0004240a56
+              state: 'off'
+            - condition: state
+              entity_id: binary_sensor.shower_window
+              state: 'off'
+  action:
+    - service: notify.telegram_bot
+      #- service: persistent_notification.create
+      data_template:
+        title: "*You're wasting electricity!*"
+        message: >
+          Master bedroom AC is on!
+          {# bedroom door is open #}
+          {%- if is_state("binary_sensor.master_bedroom_door", "on") %} 
+            {{- "Please close master bedroom door" }}
+            {# Both shower window and door are open #}
+            {%- if is_state("binary_sensor.door_window_sensor_158d0004240a56", "on")
+              and is_state("binary_sensor.shower_window", "on") -%}
+                {{ " and close either the shower door or window" }}
+            {% endif %}
+          {%- elif is_state("binary_sensor.door_window_sensor_158d0004240a56", "on")
+             and is_state("binary_sensor.shower_window", "on") %}
+            {{- " Please close the shower door or window" }}
+          {%- else %}
+            !!Assert!!
+          {%- endif %}
+
+  mode: single

@@ -1,0 +1,33 @@
+---
+
+washing_machine_status:
+  name: Washing Machine Status
+  options:
+    - Switched Off
+    - Powered Down
+    - Idle
+    - Running
+    - Rinse / Spin
+    - Finishing
+    - Clean
+  initial: Idle
+  icon: mdi:washing-machine
+
+shower_heater_status:
+  name: Shower Heater Status
+  options:
+    - Idle
+    - Light Only
+    - Max Power
+    - Low Power
+    - Power Off
+  initial: Power Off
+
+main_media_status:
+  name: Main Media Status
+  options:
+    - Off
+    - HOT
+    - Chromecast
+  initial: Off
+  icon: mdi:television

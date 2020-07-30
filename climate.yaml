@@ -1,0 +1,29 @@
+---
+
+- platform: smartir
+  name: Living room AC
+  unique_id: living_room_ac
+  device_code: 2808
+  controller_data: 192.168.1.15
+  temperature_sensor: sensor.living_room_temperature
+  humidity_sensor: sensor.living_room_humidity
+  power_sensor: input_boolean.living_ac
+
+- platform: smartir
+  name: Master bedroom AC
+  unique_id: master_bedroom_ac
+  device_code: 2808
+  controller_data: 192.168.1.14
+  temperature_sensor: sensor.master_bedroom_temperature
+  humidity_sensor: sensor.master_bedroom_humidity
+  power_sensor: binary_sensor.master_bedroom_ac_vent
+
+- platform: smartir
+  name: bedroom AC
+  unique_id: bedroom_ac
+  device_code: 1942
+  controller_data: 192.168.1.14
+  temperature_sensor: sensor.master_bedroom_temperature
+  humidity_sensor: sensor.master_bedroom_humidity
+  power_sensor: binary_sensor.master_bedroom_ac_vent
+

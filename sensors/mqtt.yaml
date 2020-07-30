@@ -1,0 +1,25 @@
+---
+
+- platform: mqtt
+  name: "Shower heater power"
+  state_topic: "devices/tuya_shower"
+  value_template: "{{ value_json.data['dps']['5'] | multiply(0.1) | float(2) | round(2) }}"
+  unit_of_measurement: W
+
+- platform: mqtt
+  name: "Shower heater current"
+  state_topic: "devices/tuya_shower"
+  value_template: "{{ value_json.data['dps']['4'] }}"
+  unit_of_measurement: mA
+
+- platform: mqtt
+  name: "Dishwasher power"
+  state_topic: "devices/tuya_dishwasher"
+  value_template: "{{ value_json.data['dps']['5'] | multiply(0.1) | float(2) | round(2) }}"
+  unit_of_measurement: W
+
+- platform: mqtt
+  name: "Dishwasher current"
+  state_topic: "devices/tuya_dishwasher"
+  value_template: "{{ value_json.data['dps']['4'] }}"
+  unit_of_measurement: mA

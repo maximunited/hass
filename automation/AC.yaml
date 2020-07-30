@@ -1,0 +1,46 @@
+---
+
+### Living AC activated - persistent notify and start timer
+- alias: living_ac_activated
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.movement
+    event_data:
+      entity_id: binary_sensor.vibration_living_room_ac
+      movement_type: vibrate 
+  action:
+    #    - service: persistent_notification.create
+    #      data_template:
+    #        message: '{{now().strftime("%Y-%m-%d %H:%M:%S")}}: vibrated'
+    #        title: "Living room AC"
+    - service: timer.start
+      entity_id: timer.living_ac_5min
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.living_ac
+
+# Living room AC working
+# - alias: living_ac_working
+#   trigger:
+#     - platform: state
+#       entity_id: timer.living_ac_5min
+#       to: "active"
+#       for:
+#         minutes: 10
+#   action:
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.living_ac
+
+# Living room AC stopped
+- alias: living_ac_stopped
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.living_ac_5min
+  condition:
+    condition: state
+    entity_id: input_boolean.living_ac
+    state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.living_ac

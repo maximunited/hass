@@ -1,0 +1,17 @@
+---
+
+- platform: template
+  sensors:
+## Washing Machine Status
+    washing_machine_status:
+      entity_id:
+        - input_select.washing_machine_status
+      value_template: '{{ states.input_select.washing_machine_status.state}}'
+      friendly_name: 'Washing Machine Status'
+
+## Shower Heater Status
+    shower_heater_status:
+      entity_id:
+        - input_select.shower_heater_status
+      value_template: '{{ states.input_select.shower_heater_status.state}}'
+      friendly_name: 'Shower Heater Status'

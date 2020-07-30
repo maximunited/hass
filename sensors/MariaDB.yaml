@@ -1,0 +1,27 @@
+---
+#https://home-assistant.io/components/sensor/
+
+####################################################
+#                                                  #
+#                 MARIADB                          #
+#                                                  #
+####################################################
+
+- platform: sql
+  db_url: !secret db_url
+  #icon: mdi:database
+  queries:
+    - name: HASS DB size
+      # jsurf/rpi-mariadb query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1048576, 2) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
+      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1048576, 2) "value" FROM information_schema.tables WHERE table_schema="hassdb" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+    - name: HASS database events
+      query: 'SELECT FORMAT(count(*), 0) AS number_events FROM events;'
+      column: number_events
+
+####################################################
+#                                                  #
+#            END OF CONFIGURATION FILE             #
+#                                                  #
+####################################################

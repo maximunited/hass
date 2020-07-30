@@ -1,0 +1,27 @@
+---
+
+router:
+  title: 'Router'
+  icon: mdi:router-wireless-settings
+  url: !secret router_url
+configurator:
+  title: 'Configurator'
+  icon: mdi:wrench
+  url: !secret configurator_url
+portainer:
+  title: 'Portainer'
+  icon: mdi:docker
+  url: !secret portainer_url
+nodered:
+  title: 'Node-Red'
+  icon: 'mdi:shuffle-variant'
+  url: !secret nodered_url
+network_switch_living:
+  title: 'Network switch (Living)'
+  icon: mdi:server-network
+  url: !secret network_switch_living_url
+network_switch_comm:
+  title: 'Network switch (Comm)'
+  icon: mdi:server-network
+  url: !secret network_switch_comm_url
+
