@@ -20,6 +20,7 @@ html5_push_registrations\.conf
 !automation/*.yaml
 
 # Ignore folders.
+.vscode
 .storage/
 custom_components
 .cloud
@@ -31,3 +32,4 @@ deps
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
+hass_vscode.code-workspace
