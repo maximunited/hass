@@ -1,0 +1,28 @@
+---
+
+####
+- id: notify_on_unknown_devices_home
+  alias: 'Notify when unknown devices are marked home'
+  trigger:
+    - platform: state
+      entity_id:
+        - device_tracker.54_ee_75_1b_7a_6d
+        - device_tracker.6c_c7_ec_da_ff_9f 
+      to: 'home'
+      from: 'not_home'
+  action:
+    - service: notify.telegram_bot
+      #- service: persistent_notification.create
+      data_template:
+        title: "*Unknown device is home*"
+        message: >
+          MAC: {{ trigger.to_state.attributes.friendly_name | upper | replace("_", ":") }}
+          Detected by: {{ trigger.to_state.attributes.source }}
+          - service: notify.telegram_bot
+    - service: persistent_notification.create
+      data_template:
+        title: "*Unknown device is home*"
+        message: >
+          MAC: {{ trigger.to_state.attributes.friendly_name | upper | replace("_", ":") }}
+          Detected by: {{ trigger.to_state.attributes.source }}
+  mode: single

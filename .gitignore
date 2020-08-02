@@ -21,12 +21,15 @@ html5_push_registrations\.conf
 
 # Ignore folders.
 .vscode
-.storage/
+.storage
 custom_components
 .cloud
 .git
 tts
 deps
+www/community
+www/cards
+www/github
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml

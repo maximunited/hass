@@ -24,7 +24,7 @@
                 "via_device_id": null
             },
             {
-                "area_id": "9b8a3bfa3c564b199f6dae6a8def02c4",
+                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
                 "config_entries": [
                     "bd02fca5759948e98763affa7937425f"
                 ],
@@ -40,7 +40,7 @@
                 "manufacturer": "Google Inc.",
                 "model": "Chromecast",
                 "name": "Living room Chromecast",
-                "name_by_user": "Master bedroom Chromecast",
+                "name_by_user": "Living room Chromecast",
                 "sw_version": null,
                 "via_device_id": null
             },
@@ -92,7 +92,7 @@
                 "via_device_id": null
             },
             {
-                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
+                "area_id": "cb05ec77df534538a102c687dbd1ab04",
                 "config_entries": [
                     "bd02fca5759948e98763affa7937425f"
                 ],
@@ -108,7 +108,7 @@
                 "manufacturer": "Google Inc.",
                 "model": "Chromecast",
                 "name": "Bedroom Chromecast",
-                "name_by_user": "Living room Chromecast",
+                "name_by_user": "Bedroom Chromecast",
                 "sw_version": null,
                 "via_device_id": null
             },
@@ -961,6 +961,69 @@
                 "name_by_user": null,
                 "sw_version": "1.1.2",
                 "via_device_id": "230e41b850e246c59365561b869c42d5"
+            },
+            {
+                "area_id": "cb05ec77df534538a102c687dbd1ab04",
+                "config_entries": [
+                    "fede64859c2a42ea8527351cd5d61db1"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "fe189654d49b41b7a6b121b64d1b89b4",
+                "identifiers": [
+                    [
+                        "samsungtv",
+                        "0a21fe80-00aa-1000-a87f-0c891030e463"
+                    ]
+                ],
+                "manufacturer": "Samsung Electronics",
+                "model": "UA32F5300",
+                "name": "Samsung UA32F5300",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "062352f4753947bd8e790408a1530907"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "6cbe0ffb112c4725b7bf5d470d613f64",
+                "identifiers": [
+                    [
+                        "shelly",
+                        "A4CF12F3CA7F"
+                    ]
+                ],
+                "manufacturer": "Allterco",
+                "model": "Shelly 1 PM",
+                "name": "Shower - Shower heater",
+                "name_by_user": null,
+                "sw_version": "1.7.0 (200601)",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "062352f4753947bd8e790408a1530907"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "8a85cf262ec245659b3cc3f18756b90e",
+                "identifiers": [
+                    [
+                        "shelly",
+                        "A4CF12F43AE7"
+                    ]
+                ],
+                "manufacturer": "Allterco",
+                "model": "Shelly 1 PM",
+                "name": "Kitchen - Dishwasher",
+                "name_by_user": null,
+                "sw_version": "1.7.0 (200601)",
+                "via_device_id": null
             }
         ]
     },

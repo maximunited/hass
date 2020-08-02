@@ -269,6 +269,29 @@
                 "title": "Ignored",
                 "unique_id": "heos",
                 "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "host": "192.168.1.97",
+                    "id": "0a21fe80-00aa-1000-a87f-0c891030e463",
+                    "ip_address": "192.168.1.97",
+                    "manufacturer": "Samsung Electronics",
+                    "method": "legacy",
+                    "model": "UA32F5300",
+                    "name": "Samsung UA32F5300",
+                    "port": null
+                },
+                "domain": "samsungtv",
+                "entry_id": "fede64859c2a42ea8527351cd5d61db1",
+                "options": {},
+                "source": "ssdp",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "UA32F5300",
+                "unique_id": "192.168.1.97",
+                "version": 1
             }
         ]
     },
