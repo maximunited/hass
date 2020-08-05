@@ -1,16 +1,28 @@
 ---
+################################################################
+### @url: https://www.home-assistant.io/integrations/logger/ ###
+################################################################
+# Log levels:
+#   critical
+#   fatal
+#   error
+#   warning
+#   warn
+#   info
+#   debug
+#   notset
 
 default: warn
 logs:
   root: warn
   homeassistant.core: error
-  homeassistant.components.automation: warn
+  homeassistant.components.automation: debug
   homeassistant.components.binary_sensor: error
   homeassistant.components.device_tracker: error
   homeassistant.components.discovery: warn
   homeassistant.components.http: warn
   homeassistant.components.media_player: warn
-  custom_components.hacs: debug
-  #yeelight: debug
+  custom_components.hacs: warn
+  yeelight: info
   switcher_kis: warn
 

@@ -18,12 +18,12 @@
   humidity_sensor: sensor.master_bedroom_humidity
   power_sensor: binary_sensor.master_bedroom_ac_vent
 
-- platform: smartir
-  name: bedroom AC
-  unique_id: bedroom_ac
-  device_code: 1942
-  controller_data: 192.168.1.14
-  temperature_sensor: sensor.master_bedroom_temperature
-  humidity_sensor: sensor.master_bedroom_humidity
-  power_sensor: binary_sensor.master_bedroom_ac_vent
+#- platform: smartir
+# name: bedroom AC
+#  unique_id: bedroom_ac
+#  device_code: 1942
+#  controller_data: 192.168.1.14
+#  temperature_sensor: sensor.master_bedroom_temperature
+#  humidity_sensor: sensor.master_bedroom_humidity
+# power_sensor: binary_sensor.master_bedroom_ac_vent
 

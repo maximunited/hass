@@ -1,5 +1,4 @@
-# Example .gitignore file for your config dir.
-# A * ensures that everything will be ignored.
+# A * ensures that everything will be ignored
 #
 
 .*.swp
@@ -12,16 +11,18 @@ core
 GOOGLE_SERVICE_ACCOUNT*.json
 html5_push_registrations\.conf
 
-# You can whitelist files/folders with !, these will not be ignored.
+# You can whitelist files/folders with !, these will not be ignored
 !*.yaml
 !.gitignore
 !*.md
 !sensors/*.yaml
 !automation/*.yaml
+!ui-lovelace.BACKUP
 
-# Ignore folders.
+# Ignore folders
 .vscode
 .storage
+.storage/core.config_entries
 custom_components
 .cloud
 .git
@@ -30,8 +31,10 @@ deps
 www/community
 www/cards
 www/github
+www/google*.html
+extraconfig
 
-# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml

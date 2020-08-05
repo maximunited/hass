@@ -317,7 +317,7 @@
                 ],
                 "manufacturer": "Smart Life",
                 "model": "switch",
-                "name": "Shower heater",
+                "name": "media socket",
                 "name_by_user": null,
                 "sw_version": null,
                 "via_device_id": null
@@ -338,7 +338,7 @@
                 ],
                 "manufacturer": "Smart Life",
                 "model": "switch",
-                "name": "Washing machine",
+                "name": "disconnected socket (prev. shower heater)",
                 "name_by_user": null,
                 "sw_version": null,
                 "via_device_id": null
@@ -1023,6 +1023,69 @@
                 "name": "Kitchen - Dishwasher",
                 "name_by_user": null,
                 "sw_version": "1.7.0 (200601)",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "062352f4753947bd8e790408a1530907"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "019837556e7f4dc8a63612f7843a1cd3",
+                "identifiers": [
+                    [
+                        "shelly",
+                        "E09806950FD2"
+                    ]
+                ],
+                "manufacturer": "Allterco",
+                "model": "Shelly Dimmer 2",
+                "name": "Living Room - Entry light",
+                "name_by_user": null,
+                "sw_version": "1.7.6 (200716)",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "062352f4753947bd8e790408a1530907"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "105e077be7e54200b519d462221ab04b",
+                "identifiers": [
+                    [
+                        "shelly",
+                        "E09806950634"
+                    ]
+                ],
+                "manufacturer": "Allterco",
+                "model": "Shelly Dimmer 2",
+                "name": "Master Bedroom - Master bedroom hall light",
+                "name_by_user": null,
+                "sw_version": "1.7.6 (200716)",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "40c23009b5de4632ac10e6a02923f8cb"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "eba3c5a7ab1f4cd7abe5ca4f696f2f12",
+                "identifiers": [
+                    [
+                        "hacs",
+                        "0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd"
+                    ]
+                ],
+                "manufacturer": "hacs.xyz",
+                "model": "",
+                "name": "HACS",
+                "name_by_user": null,
+                "sw_version": "1.3.3",
                 "via_device_id": null
             }
         ]

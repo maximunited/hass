@@ -15,20 +15,22 @@ homeassistant:
   customize: !include customize.yaml
   # C for Celcius, F for Fahrenheit
   temperature_unit: C
+  external_url: !secret external_url
+  internal_url: !secret internal_url
 
   auth_providers:
     - type: homeassistant
     - type: legacy_api_password
       api_password: !secret api_password
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
-frontend:
-  extra_html_url:
-    - /local/icons/fontawesome/hass-fontawesome-solid.html
-    - /local/icons/fontawesome/hass-fontawesome-regular.html
-    - /local/icons/fontawesome/hass-fontawesome-brands.html
-  javascript_version: latest
+#frontend:
+  #extra_html_url: ## Depricated
+  #  - /local/icons/fontawesome/hass-fontawesome-solid.html
+  #  - /local/icons/fontawesome/hass-fontawesome-regular.html
+  #  - /local/icons/fontawesome/hass-fontawesome-brands.html
+  #javascript_version: latest
 
+# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
 # Updater
@@ -65,7 +67,6 @@ http:
 # Discover some devices automatically
 discovery:
   ignore:
-#    - homekit
     - apple_tv
     - belkin_wemo
     - bluesound
@@ -73,14 +74,11 @@ discovery:
     - enigma2
     - frontier_silicon
     - harmony
-#    - igd
     - logitech_mediaserver
     - netgear_router
     - octoprint
     - openhome
-#    - panasonic_viera
     - philips_hue
-#    - roku
     - sabnzbd
     - samsung_printer
     - sonos
@@ -88,7 +86,6 @@ discovery:
     - tellstick
     - wink
     - yamaha
-#    - yeelight
 
 # Zones
 zone: !include zones.yaml
@@ -109,10 +106,9 @@ binary_sensor: !include binary_sensor.yaml
 tts:
   - platform: google_translate
     service_name: google_say
-    base_url: http://192.168.1.138:8123
+    base_url: !secret internal_url
 
 group: !include groups.yaml
-#automation: !include automations.yaml
 automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 shell_command: !include shell_command.yaml
@@ -120,37 +116,6 @@ timer: !include timer.yaml
 scene: !include scenes.yaml
 
 google_assistant: !include google_assisstant.yaml
-#  project_id: !secret google_assistant_project_id
-#  service_account: !include GOOGLE_SERVICE_ACCOUNT.json
-#  #api_key: !secret google_assistant_api_key
-#  report_state: true
-#  expose_by_default: false
-#  exposed_domains:
-#    #- switch
-#    #- input_boolean
-#    #- sensor
-#    #- script
-#  entity_config:
-#    - script.main_media_chromecast:
-#      name: Script Chromecast
-#      aliases:
-#        - Switch chromecast
-#        - Switch main chromecast
-#        - Script main chromecast
-#    - script.main_media_hot:
-#      name: Script Cable
-#      aliases:
-#        - Script Hot
-#        - Script Main hot
-#        - Script main cable
-#    - switch.docker_dockerbot
-#    - switch.docker_hass
-#    - switch.docker_mariadb
-#    - switch.docker_mosquitto
-#    - switch.docker_node_red
-#    - switch.docker_oauth
-#    - switch.docker_portainer
-#    - switch.docker_traefik
 
 google_keep:
   username: !secret google_username
@@ -188,15 +153,16 @@ climate: !include climate.yaml
 #    - components
 #    - python_scripts
 
-### https://custom-components.github.io/hacs
-hacs:
-  token: !secret github_token
-  sidepanel_title: "HACS"
-  # python_script: true
-  # theme: true
-  options:
-    experimental: true
-    country: 'IL'
+### https://hacs.xyz/
+### Legacy YAML config - moved to UI
+# hacs:
+#   token: !secret github_token
+#   sidepanel_title: "HACS"
+#   # python_script: true
+#   # theme: true
+#   options:
+#     experimental: true
+#     country: 'IL'
 
 ### https://github.com/Armaell/home-assistant-custom-icons-loader
 custom_icons:
@@ -225,20 +191,22 @@ xiaomi_aqara:
 
 ### Yeelight
 yeelight:
+  # Doesn't work with auto discovery
   devices:
-    192.168.1.198:
-      name: Peninsula light
-    192.168.1.96:
-      name: Office light
-    192.168.1.42:
-      name: Storage light
-    192.168.1.33:
-      name: Cabinet light
-    192.168.1.77:
+    192.168.1.120:
       name: Curtain light
       model: strip1
-    192.168.1.16:
+    192.168.1.121:
+      name: Peninsula light
+    192.168.1.122:
       name: Stove light
+    192.168.1.123:
+      name: Kitchen Cabinet light
+    192.168.1.125:
+      name: Office light
+    192.168.1.126:
+      name: Storage light
+
 
 # Device Tracker
 device_tracker: !include device_tracker.yaml
@@ -264,28 +232,27 @@ weather:
     api_key: !secret darksky_api_key
     mode: daily
 
-
-
-# HEOS
+# HEOS - moved to UI integration
 # heos:
 #   host: 192.168.1.3
 
-# System Health
-system_health:
+# System Health - part of default_config:
+#system_health:
 
 # Speed tests
 speedtestdotnet:
   scan_interval:
     minutes: 30
 
-# Tuya Smart Life
-tuya:
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: !secret tuya_cc
-  platform: smart_life
+# Tuya Smart Life - Depricated in yaml
+#tuya:
+#  username: !secret tuya_username
+#  password: !secret tuya_password
+#  country_code: !secret tuya_cc
+#  platform: smart_life
 
 # Switcher
+# @url: https://www.home-assistant.io/integrations/switcher_kis/
 switcher_kis:
   phone_id: "0000"
   device_id: "bc005f"
@@ -294,12 +261,15 @@ switcher_kis:
 # Plants
 plant: !include plants.yaml
 
+# Jewish Calendar
+# @url: https://www.home-assistant.io/integrations/jewish_calendar/
 jewish_calendar:
 
+# @url: https://www.home-assistant.io/integrations/wake_on_lan/
 wake_on_lan:
 
 webostv:
-  host: 192.168.1.2
+  host: 192.168.1.96
   name: LG TV
   turn_on_action:
     service: wake_on_lan.send_magic_packet
@@ -313,6 +283,7 @@ webostv:
 #      - YouTube
 #      - makoTV
 
+# Telegram Bot - does not work together with dockerbot
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_api_key
@@ -321,6 +292,7 @@ telegram_bot:
 
 # Notifications (require HTTPS)
 notify:
+    # @url: https://www.home-assistant.io/integrations/html5/
   - platform: html5
     name: notify_html5
     vapid_pub_key: !secret vapid_pub_key
@@ -332,7 +304,7 @@ notify:
     chat_id: !secret telegram_allowed_chat_id
 
   #- platform: webostv
-  #  host: 192.168.1.2
+  #  host: 192.168.1.96
   #  name: lg_tv
   #  filename: webostv.conf
 

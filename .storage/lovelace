@@ -267,8 +267,8 @@
                                         {
                                             "cards": [
                                                 {
-                                                    "entity": "switch.docker_ha_dockermon",
-                                                    "name": "ha-dockermon",
+                                                    "entity": "switch.docker_oauth",
+                                                    "name": "oauth",
                                                     "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
                                                     "tap_action": {
                                                         "action": "toggle"
@@ -438,7 +438,7 @@
                                                 "type": "source"
                                             },
                                             {
-                                                "icon": "mdi:playstation",
+                                                "icon": "mdi:sony-playstation",
                                                 "id": "PlayStation4",
                                                 "type": "source"
                                             },
@@ -585,6 +585,21 @@
                                         },
                                         {
                                             "entity": "light.curtain_light",
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "light"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.balcony_light",
+                                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                            "type": "light"
+                                        },
+                                        {
+                                            "entity": "light.entry_light",
                                             "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
                                             "type": "light"
                                         }
@@ -906,62 +921,17 @@
                     ],
                     "cards": [
                         {
-                            "cards": [
-                                {
-                                    "artwork": "cover",
-                                    "columns": 3,
-                                    "entity": "media_player.samsung_tv",
-                                    "hide": {
-                                        "power_state": false
-                                    },
-                                    "icon": "mdi:television",
-                                    "shortcuts": {
-                                        "buttons": [
-                                            {
-                                                "icon": "mdi:earth",
-                                                "id": "Browser",
-                                                "type": "source"
-                                            },
-                                            {
-                                                "icon": "mdi:netflix",
-                                                "id": "Netflix",
-                                                "type": "source"
-                                            },
-                                            {
-                                                "icon": "mdi:youtube",
-                                                "id": "YouTube",
-                                                "type": "source"
-                                            }
-                                        ]
-                                    },
-                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "artwork": "cover",
-                                    "entity": "media_player.master_bedroom_chromecast",
-                                    "hide": {
-                                        "power_state": false
-                                    },
-                                    "icon": "mdi:google-chrome",
-                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "artwork": "cover",
-                                    "entity": "media_player.master_bedroom_speaker",
-                                    "hide": {
-                                        "power_state": false
-                                    },
-                                    "icon": "mdi:speaker-bluetooth",
-                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
-                                    "tts": {
-                                        "platform": "google"
-                                    },
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "vertical-stack"
+                            "artwork": "cover",
+                            "entity": "media_player.master_bedroom_speaker",
+                            "hide": {
+                                "power_state": false
+                            },
+                            "icon": "mdi:speaker-bluetooth",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                            "tts": {
+                                "platform": "google"
+                            },
+                            "type": "custom:mini-media-player"
                         },
                         {
                             "cards": [
@@ -1153,7 +1123,53 @@
                 },
                 {
                     "badges": [],
-                    "cards": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "artwork": "cover",
+                                    "columns": 3,
+                                    "entity": "media_player.samsung_tv",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:television",
+                                    "shortcuts": {
+                                        "buttons": [
+                                            {
+                                                "icon": "mdi:earth",
+                                                "id": "Browser",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:netflix",
+                                                "id": "Netflix",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:youtube",
+                                                "id": "YouTube",
+                                                "type": "source"
+                                            }
+                                        ]
+                                    },
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.master_bedroom_chromecast",
+                                    "hide": {
+                                        "power_state": false
+                                    },
+                                    "icon": "mdi:google-chrome",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n",
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
                     "icon": "fas:dungeon",
                     "path": "mamad",
                     "title": "Mamad"

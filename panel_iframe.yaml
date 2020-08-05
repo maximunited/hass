@@ -1,13 +1,18 @@
 ---
 
+##################################################################
+# @url: https://www.home-assistant.io/integrations/panel_iframe/ #
+##################################################################
+
 router:
   title: 'Router'
   icon: mdi:router-wireless-settings
-  url: !secret router_url
-configurator:
-  title: 'Configurator'
-  icon: mdi:wrench
-  url: !secret configurator_url
+  #url: !secret router_url
+  url: https://hass.malter.duckdns.org/local/panel_iframe_router.html
+#configurator:
+#  title: 'Configurator'
+#  icon: mdi:wrench
+#  url: !secret configurator_url
 portainer:
   title: 'Portainer'
   icon: mdi:docker
