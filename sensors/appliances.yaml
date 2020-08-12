@@ -9,6 +9,13 @@
       value_template: '{{ states.input_select.washing_machine_status.state}}'
       friendly_name: 'Washing Machine Status'
 
+## Tumble Dryer Status
+    dryer_status:
+      entity_id:
+        - input_select.dryer_status
+      value_template: '{{ states.input_select.dryer_status.state}}'
+      friendly_name: 'Dryer Status'
+
 ## Shower Heater Status
     shower_heater_status:
       entity_id:

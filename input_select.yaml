@@ -6,12 +6,24 @@ washing_machine_status:
     - Switched Off
     - Powered Down
     - Idle
-    - Running
-    - Rinse / Spin
+    - Wash
+    #- Running
+    #- Rinse / Spin
     - Finishing
     - Clean
   initial: Powered Down
   icon: mdi:washing-machine
+
+dryer_status:
+  name: Washing Machine Status
+  options:
+    - Switched Off
+    - Powered Down
+    - Idle
+    - Drying
+    - Dry
+  initial: Powered Down
+  icon: mdi:tumble-dryer
 
 shower_heater_status:
   name: Shower Heater Status
@@ -31,3 +43,38 @@ main_media_status:
     - Chromecast
   initial: Off
   icon: mdi:television
+
+master_bedroom_lights:
+  name: Master Bedroom Lights
+  options:
+    - 'All On'
+    - 'All Off'
+    - 'Main On'
+    - 'Hall On'
+  initial: 'All Off'
+
+bathroom_lights:
+  name: Bathroom Lights
+  options:
+    - 'All On'
+    - 'All Off'
+    - 'Mirror and Wall On'     # Unlikely combination - recess and wall are connected
+    - 'Recess and Wall On'
+    - 'Recess and Mirror On'   # Unlikely combination - recess and wall are connected
+    - 'Mirror On'
+    - 'Recess On'              # Unlikely combination - recess and wall are connected
+    - 'Wall On'                # Unlikely combination - recess and wall are connected
+  initial: 'All Off'
+
+shower_lights:
+  name: Shower Lights
+  options:
+    - 'All On'
+    - 'All Off'
+    - 'Main On'
+    - 'Wall On'                 # Unlikely combination - wall and mirror are connected
+    - 'Mirror On'               # Unlikely combination - wall and mirror are connected
+    - 'Mirror and Wall On'
+    - 'Main and Wall On'        # Unlikely combination - wall and mirror are connected
+    - 'Main and Mirror On'      # Unlikely combination - wall and mirror are connected
+  initial: 'All Off'
