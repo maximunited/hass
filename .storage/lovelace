@@ -370,8 +370,14 @@
                 },
                 {
                     "badges": [
-                        "sensor.front_door",
-                        "sensor.balcony_door",
+                        {
+                            "entity": "sensor.front_door",
+                            "name": "Front door"
+                        },
+                        {
+                            "entity": "sensor.balcony_door",
+                            "name": "Balcony door"
+                        },
                         "sensor.living_room_temperature",
                         "sensor.living_room_humidity",
                         "sensor.living_room_pressure"
@@ -555,7 +561,7 @@
                                 },
                                 {
                                     "artwork": "cover",
-                                    "entity": "media_player.googlehome4430",
+                                    "entity": "media_player.googlehome_mini",
                                     "hide": {
                                         "power_state": false
                                     },
@@ -751,6 +757,16 @@
                                                     "type": "state-label"
                                                 },
                                                 {
+                                                    "entity": "binary_sensor.washing_machine_door",
+                                                    "prefix": "Door: ",
+                                                    "style": {
+                                                        "font-family": "poppins",
+                                                        "left": "26%",
+                                                        "top": "68%"
+                                                    },
+                                                    "type": "state-label"
+                                                },
+                                                {
                                                     "entity": "switch.shelly_shsw_pm_76b5ac",
                                                     "hold_action": {
                                                         "action": "more-info"
@@ -827,7 +843,7 @@
                                                     "type": "state-label"
                                                 },
                                                 {
-                                                    "entity": "sensor.washing_machine_status",
+                                                    "entity": "sensor.dryer_status",
                                                     "style": {
                                                         "font-family": "poppins",
                                                         "left": "92%",
@@ -974,7 +990,14 @@
                 },
                 {
                     "badges": [
-                        "sensor.shower_window",
+                        {
+                            "entity": "sensor.shower_window",
+                            "name": "Shower Window"
+                        },
+                        {
+                            "entity": "binary_sensor.shower_door",
+                            "name": "Shower Door"
+                        },
                         "binary_sensor.shower_water_leak"
                     ],
                     "cards": [
@@ -2169,6 +2192,58 @@
                     ],
                     "icon": "mdi:bug",
                     "title": "Debug"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "elements": [
+                                {
+                                    "entity": "input_select.master_bedroom_lights",
+                                    "hold_action": "none",
+                                    "state_image": {
+                                        "All Off": "/local/floorplan/transparent_square.png",
+                                        "All On": "/local/floorplan/M_bdrm_all_on.png",
+                                        "Hall On": "/local/floorplan/M_bdrm_Recess_on_2.png",
+                                        "Main On": "/local/floorplan/M_bdrm_main_on_2.png"
+                                    },
+                                    "style": {
+                                        "left": "19.3%",
+                                        "top": "19.3%",
+                                        "transform": "scale(1.63)"
+                                    },
+                                    "tap_action": "none",
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "input_select.bathroom_lights",
+                                    "hold_action": "none",
+                                    "state_image": {
+                                        "All Off": "/local/floorplan/transparent_square.png",
+                                        "All On": "/local/floorplan/Bath_on.png",
+                                        "Mirror On": "/local/floorplan/Bath_mirror_on.png",
+                                        "Mirror and Wall On": "/local/floorplan/Bath_Mirror+wall_on.png",
+                                        "Recess On": "/local/floorplan/Bath_recess_on.png",
+                                        "Recess and Mirror On": "/local/floorplan/Bath_on.png",
+                                        "Recess and Wall On": "/local/floorplan/Bath_Wall+Recess_on.png",
+                                        "Wall On": "/local/floorplan/Bath_Wall_on.png"
+                                    },
+                                    "style": {
+                                        "left": "19.3%",
+                                        "top": "19.3%",
+                                        "transform": "scale(1.63)"
+                                    },
+                                    "tap_action": "none",
+                                    "type": "image"
+                                }
+                            ],
+                            "image": "/local/floorplan/all_off.png",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 319%;\n  height: 319%;\n  left: -110%\n}\n",
+                            "type": "picture-elements"
+                        }
+                    ],
+                    "panel": false,
+                    "title": "Floorplan"
                 }
             ]
         }

@@ -6,7 +6,7 @@
   trigger:
     - platform: state
       entity_id:
-        - device_tracker.54_ee_75_1b_7a_6d
+        # Maxim-laptop LAN - finally found - device_tracker.54_ee_75_1b_7a_6d
         - device_tracker.6c_c7_ec_da_ff_9f 
       to: 'home'
       from: 'not_home'
