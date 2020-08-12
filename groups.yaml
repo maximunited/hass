@@ -29,6 +29,13 @@ phones:
     - device_tracker.samsung_galaxy_s7
     - device_tracker.dd_phone
 
+google_speakers:
+  name: "All Google home speakers"
+  entities:
+    - media_player.googlehome_mini
+    - media_player.living_google_home
+    - media_player.master_bedroom_speaker
+
 laptops:
   name: "All laptops"
   # view: "no"

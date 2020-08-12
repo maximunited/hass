@@ -220,7 +220,8 @@
   action:
     - service: tts.google_say
       data_template:
-        entity_id: media_player.all_devices
+        entity_id: group.google_speakers
+        #entity_id: media_player.master_bedroom_speaker
         message: "{{ states.input_text.google_broadcast.state }}"
 
 - alias: Turn ON or OFF input_boolean.living_ac from IFTTT

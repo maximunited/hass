@@ -48,3 +48,13 @@ entity_config:
     name: Traefik
     aliases:
       - Traffic
+
+  # Doesn't work
+  # sensor.living_room_temperature:
+  #   name: Living room temperature
+  # sensor.master_bedroom_temperature:
+  #   name: Master bedroom temperature
+  # sensor.shower_temperature:
+  #   name: Shower temperature
+  # sensor.bathroom_temperature:
+  #   name: Bathroom temperature

@@ -8,7 +8,7 @@
       to: 'on'
       for: 00:05:00
     - platform: state
-      entity_id: binary_sensor.door_window_sensor_158d0004240a56
+      entity_id: binary_sensor.shower_door
       to: 'on'
       for: 00:05:00
     - platform: state
@@ -35,7 +35,7 @@
           - condition: or
             conditions:
             - condition: state
-              entity_id: binary_sensor.door_window_sensor_158d0004240a56
+              entity_id: binary_sensor.shower_door
               state: 'off'
             - condition: state
               entity_id: binary_sensor.shower_window
@@ -51,11 +51,11 @@
           {%- if is_state("binary_sensor.master_bedroom_door", "on") %} 
             {{- "Please close master bedroom door" }}
             {# Both shower window and door are open #}
-            {%- if is_state("binary_sensor.door_window_sensor_158d0004240a56", "on")
+            {%- if is_state("binary_sensor.shower_door", "on")
               and is_state("binary_sensor.shower_window", "on") -%}
                 {{ " and close either the shower door or window" }}
             {% endif %}
-          {%- elif is_state("binary_sensor.door_window_sensor_158d0004240a56", "on")
+          {%- elif is_state("binary_sensor.showre_door", "on")
              and is_state("binary_sensor.shower_window", "on") %}
             {{- " Please close the shower door or window" }}
           {%- else %}
