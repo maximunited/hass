@@ -78,3 +78,31 @@ shower_lights:
     - 'Main and Wall On'        # Unlikely combination - wall and mirror are connected
     - 'Main and Mirror On'      # Unlikely combination - wall and mirror are connected
   initial: 'All Off'
+
+mamad_lights:
+  name: Mamad Lights
+  options:
+    - 'All On'
+    - 'All Off'
+  initial: 'All Off'
+
+kids_bedroom_lights:
+  name: Kids Bedroom Lights
+  options:
+    - 'All On'
+    - 'All Off'
+  initial: 'All Off'
+
+storage_lights:
+  name: Storage Lights
+  options:
+    - 'All On'
+    - 'All Off'
+  initial: 'All Off'
+  
+closet_lights:
+  name: Closet Lights
+  options:
+    - 'All On'
+    - 'All Off'
+  initial: 'All Off'

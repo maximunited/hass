@@ -2197,6 +2197,81 @@
                     "badges": [],
                     "cards": [
                         {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.master_bedroom_lights",
+                                            "name": "Master bedroom"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 240px;\n  height: 50%;\n  left: -900%;\n}\n",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.bathroom_lights",
+                                            "name": "Bathroom"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 250px;\n  height: 50%;\n  left: -630%;\n}\n",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.shower_lights",
+                                            "name": "Shower"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 250px;\n  height: 50%;\n  left: -342%;\n}\n",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.kids_bedroom_lights",
+                                            "name": "Kids bedroom"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 250px;\n  height: 50%;\n  left: -55%;\n}\n",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.mamad_lights",
+                                            "name": "Mamad"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 250px;\n  height: 50%;\n  left: 250%;\n}\n",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.storage_lights",
+                                            "name": "Storage"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 160px;\n  height: 50%;\n  left: 600%;\n}\n",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_select.closet_lights",
+                                            "name": "Closet"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 160px;\n  height: 50%;\n  left: 750%;\n}\n",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
                             "elements": [
                                 {
                                     "entity": "input_select.master_bedroom_lights",
@@ -2204,12 +2279,12 @@
                                     "state_image": {
                                         "All Off": "/local/floorplan/transparent_square.png",
                                         "All On": "/local/floorplan/M_bdrm_all_on.png",
-                                        "Hall On": "/local/floorplan/M_bdrm_Recess_on_2.png",
-                                        "Main On": "/local/floorplan/M_bdrm_main_on_2.png"
+                                        "Hall On": "/local/floorplan/M_bdrm-Recess_on.png",
+                                        "Main On": "/local/floorplan/M_bdrm-main_on.png"
                                     },
                                     "style": {
-                                        "left": "19.3%",
-                                        "top": "19.3%",
+                                        "left": "19.33%",
+                                        "top": "19.42%",
                                         "transform": "scale(1.63)"
                                     },
                                     "tap_action": "none",
@@ -2220,17 +2295,98 @@
                                     "hold_action": "none",
                                     "state_image": {
                                         "All Off": "/local/floorplan/transparent_square.png",
-                                        "All On": "/local/floorplan/Bath_on.png",
+                                        "All On": "/local/floorplan/Bath_all_on.png",
                                         "Mirror On": "/local/floorplan/Bath_mirror_on.png",
-                                        "Mirror and Wall On": "/local/floorplan/Bath_Mirror+wall_on.png",
+                                        "Mirror and Wall On": "/local/floorplan/Bath-Mirror+wall_on.png",
                                         "Recess On": "/local/floorplan/Bath_recess_on.png",
-                                        "Recess and Mirror On": "/local/floorplan/Bath_on.png",
+                                        "Recess and Mirror On": "/local/floorplan/Bath_Mirrror+Recess.png",
                                         "Recess and Wall On": "/local/floorplan/Bath_Wall+Recess_on.png",
                                         "Wall On": "/local/floorplan/Bath_Wall_on.png"
                                     },
                                     "style": {
-                                        "left": "19.3%",
-                                        "top": "19.3%",
+                                        "left": "19.325%",
+                                        "top": "19.478%",
+                                        "transform": "scale(1.63)"
+                                    },
+                                    "tap_action": "none",
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "input_select.shower_lights",
+                                    "hold_action": "none",
+                                    "state_image": {
+                                        "All Off": "/local/floorplan/transparent_square.png",
+                                        "All On": "/local/floorplan/Show_main+wall.png",
+                                        "Main On": "/local/floorplan/Show_Main_on.png",
+                                        "Main and Mirror On": "/local/floorplan/Show_Main_on.png",
+                                        "Main and Wall On": "/local/floorplan/Show_main+wall.png",
+                                        "Mirror On": "/local/floorplan/transparent_square.png",
+                                        "Mirror and Wall On": "/local/floorplan/Show_Wall_on.png",
+                                        "Wall On": "/local/floorplan/Show_Wall_on.png"
+                                    },
+                                    "style": {
+                                        "left": "19.38%",
+                                        "top": "19.4%",
+                                        "transform": "scale(1.63)"
+                                    },
+                                    "tap_action": "none",
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "input_select.storage_lights",
+                                    "hold_action": "none",
+                                    "state_image": {
+                                        "All Off": "/local/floorplan/transparent_square.png",
+                                        "All On": "/local/floorplan/Storage_on.png"
+                                    },
+                                    "style": {
+                                        "left": "19.38%",
+                                        "top": "19.4%",
+                                        "transform": "scale(1.63)"
+                                    },
+                                    "tap_action": "none",
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "input_select.closet_lights",
+                                    "hold_action": "none",
+                                    "state_image": {
+                                        "All Off": "/local/floorplan/transparent_square.png",
+                                        "All On": "/local/floorplan/Closet_on.png"
+                                    },
+                                    "style": {
+                                        "left": "19.38%",
+                                        "top": "19.4%",
+                                        "transform": "scale(1.63)"
+                                    },
+                                    "tap_action": "none",
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "input_select.kids_bedroom_lights",
+                                    "hold_action": "none",
+                                    "state_image": {
+                                        "All Off": "/local/floorplan/transparent_square.png",
+                                        "All On": "/local/floorplan/K_bdrm_on.png"
+                                    },
+                                    "style": {
+                                        "left": "19.38%",
+                                        "top": "19.4%",
+                                        "transform": "scale(1.63)"
+                                    },
+                                    "tap_action": "none",
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "input_select.mamad_lights",
+                                    "hold_action": "none",
+                                    "state_image": {
+                                        "All Off": "/local/floorplan/transparent_square.png",
+                                        "All On": "/local/floorplan/Mamad_on.png"
+                                    },
+                                    "style": {
+                                        "left": "19.38%",
+                                        "top": "19.4%",
                                         "transform": "scale(1.63)"
                                     },
                                     "tap_action": "none",
