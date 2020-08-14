@@ -106,3 +106,45 @@ closet_lights:
     - 'All On'
     - 'All Off'
   initial: 'All Off'
+
+living_room_lights:
+  name: Living Room Lights
+  options:
+    - 'All On'
+    - 'All Off'
+    - 'Cabinet'   # L-D
+    - 'Stove'     # L-I
+    - 'Peninsula' # L-J
+    - 'Curtain'   # L-K
+    - 'Entry'     # L-R
+    - 'Balcony'   # L-W
+    - 'Cabinet, Stove'      # L-DI
+    - 'Cabinet, Peninsula'  # L-DJ
+    - 'Cabinet, Curtain'    # L-DK
+    - 'Cabinet, Balcony'    # L-DW
+    - 'Stove, Peninsula'    # L-IJ
+    - 'Stove, Curtain'      # L-IK
+    - 'Peninsula, Curtain'  # L-JK
+    - 'Curtain, Entry'      # L-KR
+    - 'Entry, Balcony'      # L-RW
+    - 'Curtain, Balcony'    # L-KW
+    - 'Cabinet, Stove, Peninsula'   # L-DIJ
+    - 'Cabinet, Stove, Curtain'     # L-DIK
+    - 'Cabinet, Entry, Balcony'     # L-DRW
+    - 'Stove, Peninsula, Curtain'   # L-IJK
+    - 'Stove, Peninsula, Entry'     # L-IJR
+    - 'Peninsula, Curtain, Entry'   # L-JKR
+    - 'Peninsula, Curtain, Balcony' # L-JKW
+    - 'Peninsula, Entry, Balcony'   # L-JRW
+    - 'Curtain, Entry, Balcony'     # L-KRW
+    - 'Cabinet, Stove, Peninsula, Balcony'  # L-DIJW
+    - 'Cabinet, Peninsula, Entry, Balcony'  # L-DJRW
+    - 'Stove, Peninsula, Curtain, Entry'  # L-IJKR
+    - 'Stove, Peninsula, Curtain, Balcony'  # L-IJKW
+    - 'Stove, Peninsula, Entry, Balcony'  # L-IJRW
+    - 'Stove, Curtain, Entry, Balcony'    # L-IKRW
+    - 'Cabinet, Stove, Peninsula, Curtain, Balcony'   # L-DIJKW
+    - 'Cabinet, Stove, Peninsula, Entry, Balcony'     # L-DIJRW
+    - 'Cabinet, Stove, Curtain, Entry, Balcony'       # L-DIKRW
+    - 'Cabinet, Stove, Peninsula, Curtain, Entry, Balcony' # L-DIJKRW
+  initial: 'All Off'

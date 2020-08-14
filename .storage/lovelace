@@ -2231,11 +2231,21 @@
                                 {
                                     "entities": [
                                         {
+                                            "entity": "input_select.living_room_lights",
+                                            "name": "Living room"
+                                        }
+                                    ],
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 257px;\n  height: 50%;\n  left: 0%;\n}\n",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
                                             "entity": "input_select.kids_bedroom_lights",
                                             "name": "Kids bedroom"
                                         }
                                     ],
-                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 250px;\n  height: 50%;\n  left: -55%;\n}\n",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 157px;\n  height: 50%;\n  left: 330%;\n}\n",
                                     "type": "entities"
                                 },
                                 {
@@ -2245,7 +2255,7 @@
                                             "name": "Mamad"
                                         }
                                     ],
-                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 250px;\n  height: 50%;\n  left: 250%;\n}\n",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 157px;\n  height: 50%;\n  left: 470%;\n}\n",
                                     "type": "entities"
                                 },
                                 {
@@ -2255,7 +2265,7 @@
                                             "name": "Storage"
                                         }
                                     ],
-                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 160px;\n  height: 50%;\n  left: 600%;\n}\n",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 157px;\n  height: 50%;\n  left: 610%;\n}\n",
                                     "type": "entities"
                                 },
                                 {
@@ -2265,7 +2275,7 @@
                                             "name": "Closet"
                                         }
                                     ],
-                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 160px;\n  height: 50%;\n  left: 750%;\n}\n",
+                                    "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 157px;\n  height: 50%;\n  left: 750%;\n}\n",
                                     "type": "entities"
                                 }
                             ],
@@ -2387,6 +2397,49 @@
                                     "style": {
                                         "left": "19.38%",
                                         "top": "19.4%",
+                                        "transform": "scale(1.63)"
+                                    },
+                                    "tap_action": "none",
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "input_select.living_room_lights",
+                                    "hold_action": "none",
+                                    "state_image": {
+                                        "All Off": "/local/floorplan/transparent_square.png",
+                                        "Balcony": "/local/floorplan/L-W.png",
+                                        "Cabinet, Balcony": "/local/floorplan/L-DW.png",
+                                        "Cabinet, Curtain": "/local/floorplan/L-DK.png",
+                                        "Cabinet, Entry, Balcony": "/local/floorplan/L-DRW.png",
+                                        "Cabinet, Peninsula": "/local/floorplan/L-DJ.png",
+                                        "Cabinet, Peninsula, Entry, Balcony": "/local/floorplan/L-DJRW.png",
+                                        "Cabinet, Stove": "/local/floorplan/L-DI.png",
+                                        "Cabinet, Stove, Curtain": "/local/floorplan/L-DIK.png",
+                                        "Cabinet, Stove, Curtain, Entry, Balcony": "/local/floorplan/L-DIKRW.png",
+                                        "Cabinet, Stove, Peninsula": "/local/floorplan/L-DIJ.png",
+                                        "Cabinet, Stove, Peninsula, Balcony": "/local/floorplan/L-DIJW.png",
+                                        "Cabinet, Stove, Peninsula, Curtain, Balcony": "/local/floorplan/L-DIJKW.png",
+                                        "Cabinet, Stove, Peninsula, Curtain, Entry, Balcony": "/local/floorplan/L-DIJKRW.png",
+                                        "Cabinet, Stove, Peninsula, Entry, Balcony": "/local/floorplan/L-DIJRW.png",
+                                        "Curtain": "/local/floorplan/L-K.png",
+                                        "Curtain, Balcony": "/local/floorplan/L-KW.png",
+                                        "Curtain, Entry": "/local/floorplan/L-KR.png",
+                                        "Curtain, Entry, Balcony": "/local/floorplan/L-KRW.png",
+                                        "Entry": "/local/floorplan/L-R.png",
+                                        "Entry, Balcony": "/local/floorplan/L-RW.png",
+                                        "Peninsula, Curtain": "/local/floorplan/L-JK.png",
+                                        "Peninsula, Curtain, Balcony": "/local/floorplan/L-JKW.png",
+                                        "Peninsula, Curtain, Entry": "/local/floorplan/L-JKR.png",
+                                        "Peninsula, Entry, Balcony": "/local/floorplan/L-JRW.png",
+                                        "Stove, Curtain, Entry, Balcony": "/local/floorplan/L-IKRW.png",
+                                        "Stove, Peninsula, Curtain": "/local/floorplan/L-IJK.png",
+                                        "Stove, Peninsula, Curtain, Balcony": "/local/floorplan/L-IJKW.png",
+                                        "Stove, Peninsula, Curtain, Entry": "/local/floorplan/L-IJKR.png",
+                                        "Stove, Peninsula, Entry, Balcony": "/local/floorplan/L-IJRW.png"
+                                    },
+                                    "style": {
+                                        "left": "19.46%",
+                                        "top": "19.44%",
                                         "transform": "scale(1.63)"
                                     },
                                     "tap_action": "none",
