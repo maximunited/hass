@@ -1,35 +1,37 @@
 ---
-# @link: https://www.home-assistant.io/components/scene/
-# Scenes
-
-- name: Ambient full
-  entities:
-    light.stove_light:
-      state: true
-      #      brightness: 255
-      #color_temp: 588
-      #hs_color: 0,0
-      #rgb_color: 255,255,255
-      xy_color: [0.323, 0.329]
-    light.peninsula_light:
-      state: true
-      #      brightness: 255
-      #color_temp: 588
-      #hs_color: 0,0
-      #rgb_color: 255,255,255
-      xy_color: [0.323, 0.329]
-    light.curtain_light:
-      state: true
-      #      brightness: 255
-      #color_temp: 588
-      #hs_color: 0,0
-      #rgb_color: 255,255,255
-      xy_color: [0.323, 0.329]
-#- name: Movies
-#  entities:
-#    light.tv_back_light:
-#      state: true
-#      brightness: 100
-#    light.ceiling: false
-#    media_player.sony_bravia_tv:
-#      source: HDMI 1
+  # @link: https://www.home-assistant.io/components/scene/
+  # Scenes
+  
+  - name: Ambient full
+    id: ambient_led_strips_on
+    entities:
+      light.stove_light:
+        state: "on"
+        #      brightness: 255
+        #color_temp: 588
+        #hs_color: 0,0
+        #rgb_color: 255,255,255
+        xy_color: [0.323, 0.329]
+      light.peninsula_light:
+        state: "on"
+        #      brightness: 255
+        #color_temp: 588
+        #hs_color: 0,0
+        #rgb_color: 255,255,255
+        xy_color: [0.323, 0.329]
+      light.curtain_light:
+        state: "on"
+        #      brightness: 255
+        #color_temp: 588
+        #hs_color: 0,0
+        #rgb_color: 255,255,255
+        xy_color: [0.323, 0.329]
+  #- name: Movies
+  #  entities:
+  #    light.tv_back_light:
+  #      state: "on"
+  #      brightness: 100
+  #    light.ceiling: false
+  #    media_player.sony_bravia_tv:
+  #      source: HDMI 1
+  
