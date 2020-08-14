@@ -8,8 +8,8 @@
 ---
 
 
-# https://github.com/custom-components/sensor.rpi_power
-# Moved from sensor to binary_sensor
+### https://github.com/custom-components/sensor.rpi_power
+### Moved from sensor to binary_sensor
 - platform: rpi_power
   text_state: true
 
@@ -21,21 +21,11 @@
 #   name: hadockermon
 
 # Workday
-# - platform: workday
-#  name: workday
-#  country: US
-#  workdays: [sun, mon, tue, wed, thu]
-#  excludes: [fri, sat]
-
-# Worknight
-# - platform: workday
-#  name: worknight
-#  country: US
-#  days_offset: 1
-
-#  province: !secret state_abbreviation
-#  workdays: [mon, tue, wed, thu, fri]
-#  excludes: [sat, sun, holiday]
+- platform: workday
+  name: workday
+  country: IL
+  workdays: [sun, mon, tue, wed, thu]
+  excludes: [fri, sat]
 
 # - platform: template
 #   sensors:
