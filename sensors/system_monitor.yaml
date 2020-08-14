@@ -38,9 +38,6 @@
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
-# https://github.com/custom-components/sensor.rpi_power
-- platform: rpi_power
-  text_state: true
 #
 # Version
 #
