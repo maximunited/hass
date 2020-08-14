@@ -6,6 +6,13 @@
 ###############################################################
 
 ---
+
+
+# https://github.com/custom-components/sensor.rpi_power
+# Moved from sensor to binary_sensor
+- platform: rpi_power
+  text_state: true
+
 ### https://github.com/custom-components/binary_sensor.hadockermon
 # - platform: hadockermon
 #   host: 127.0.0.1
