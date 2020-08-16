@@ -11,21 +11,21 @@
         #color_temp: 588
         #hs_color: 0,0
         #rgb_color: 255,255,255
-        xy_color: [0.323, 0.329]
+        xy_color: [0.493, 0.389]
       light.peninsula_light:
         state: "on"
         #      brightness: 255
         #color_temp: 588
         #hs_color: 0,0
         #rgb_color: 255,255,255
-        xy_color: [0.323, 0.329]
+        xy_color: [0.493, 0.389]
       light.curtain_light:
         state: "on"
         #      brightness: 255
         #color_temp: 588
         #hs_color: 0,0
         #rgb_color: 255,255,255
-        xy_color: [0.323, 0.329]
+        xy_color: [0.493, 0.389]
   #- name: Movies
   #  entities:
   #    light.tv_back_light:
