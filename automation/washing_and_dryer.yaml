@@ -147,7 +147,7 @@
     - platform: numeric_state
       entity_id: sensor.shelly_shsw_pm_76b5ac_current_consumption
       below: 8
-      for: '00:03:30'
+      for: '00:04:00'
   condition:
     - condition: state
       entity_id: switch.shelly_shsw_pm_76b5ac
