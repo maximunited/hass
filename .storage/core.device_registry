@@ -1043,7 +1043,7 @@
                 "model": "Shelly Dimmer 2",
                 "name": "Living Room - Entry light",
                 "name_by_user": null,
-                "sw_version": "1.7.6 (200716)",
+                "sw_version": "1.8.0 (200812)",
                 "via_device_id": null
             },
             {
