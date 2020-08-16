@@ -105,3 +105,29 @@
         {% else %}
           Unknown
         {% endif %}
+
+### Living room ###
+- platform: template
+  sensors:
+    living_room_lights:
+      entity_id:
+        - light.cabinet_light
+        - light.stove_light
+        - light.peninsula_light
+        - light.curtain_light
+        - light.entry_light
+        - light.balcony_light
+      value_template: >
+        {% set lights = ["cabinet_light",
+                  "stove_light",
+                  "peninsula_light",
+                  "curtain_light",
+                  "entry_light",
+                  "balcony_light"]
+        %}
+        {% for state in states.light|sort(attribute='name') -%}
+          {% if is_state(state.entity_id,"on") -%} 
+            {{ state.name | regex_replace('(Kitchen )?(.*)[Ll]ight', '\\2') | title if (state.entity_id.replace("light.","") 
+              in lights) else '' -}}
+          {% endif -%}
+        {% endfor -%} 

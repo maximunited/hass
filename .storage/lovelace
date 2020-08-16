@@ -2403,39 +2403,39 @@
                                     "type": "image"
                                 },
                                 {
-                                    "entity": "input_select.living_room_lights",
+                                    "entity": "sensor.living_room_lights",
                                     "hold_action": "none",
                                     "state_image": {
                                         "All Off": "/local/floorplan/transparent_square.png",
                                         "Balcony": "/local/floorplan/L-W.png",
-                                        "Cabinet, Balcony": "/local/floorplan/L-DW.png",
-                                        "Cabinet, Curtain": "/local/floorplan/L-DK.png",
-                                        "Cabinet, Entry, Balcony": "/local/floorplan/L-DRW.png",
-                                        "Cabinet, Peninsula": "/local/floorplan/L-DJ.png",
-                                        "Cabinet, Peninsula, Entry, Balcony": "/local/floorplan/L-DJRW.png",
-                                        "Cabinet, Stove": "/local/floorplan/L-DI.png",
-                                        "Cabinet, Stove, Curtain": "/local/floorplan/L-DIK.png",
-                                        "Cabinet, Stove, Curtain, Entry, Balcony": "/local/floorplan/L-DIKRW.png",
-                                        "Cabinet, Stove, Peninsula": "/local/floorplan/L-DIJ.png",
-                                        "Cabinet, Stove, Peninsula, Balcony": "/local/floorplan/L-DIJW.png",
-                                        "Cabinet, Stove, Peninsula, Curtain, Balcony": "/local/floorplan/L-DIJKW.png",
-                                        "Cabinet, Stove, Peninsula, Curtain, Entry, Balcony": "/local/floorplan/L-DIJKRW.png",
-                                        "Cabinet, Stove, Peninsula, Entry, Balcony": "/local/floorplan/L-DIJRW.png",
+                                        "Balcony Cabinet": "/local/floorplan/L-DW.png",
+                                        "Balcony Cabinet Curtain Entry Peninsula Stove": "/local/floorplan/L-DIJKRW.png",
+                                        "Balcony Cabinet Curtain Peninsula Stove": "/local/floorplan/L-DIJKW.png",
+                                        "Balcony Cabinet Entry": "/local/floorplan/L-DRW.png",
+                                        "Balcony Cabinet Entry Peninsula": "/local/floorplan/L-DJRW.png",
+                                        "Balcony Cabinet Entry Peninsula Stove": "/local/floorplan/L-DIJRW.png",
+                                        "Balcony Cabinet Peninsula Stove": "/local/floorplan/L-DIJW.png",
+                                        "Balcony Curtain": "/local/floorplan/L-KW.png",
+                                        "Balcony Curtain Entry": "/local/floorplan/L-KRW.png",
+                                        "Balcony Curtain Entry Stove": "/local/floorplan/L-IKRW.png",
+                                        "Balcony Curtain Peninsula": "/local/floorplan/L-JKW.png",
+                                        "Balcony Curtain Peninsula Stove": "/local/floorplan/L-IJKW.png",
+                                        "Balcony Entry": "/local/floorplan/L-RW.png",
+                                        "Balcony Entry Peninsula": "/local/floorplan/L-JRW.png",
+                                        "Balcony Entry Peninsula Stove": "/local/floorplan/L-IJRW.png",
+                                        "Cabinet Curtain": "/local/floorplan/L-DK.png",
+                                        "Cabinet Curtain Stove": "/local/floorplan/L-DIK.png",
+                                        "Cabinet Peninsula": "/local/floorplan/L-DJ.png",
+                                        "Cabinet Stove": "/local/floorplan/L-DI.png",
+                                        "Cabinet Stove Curtain Entry Balcony": "/local/floorplan/L-DIKRW.png",
+                                        "Cabinet Stove Peninsula": "/local/floorplan/L-DIJ.png",
                                         "Curtain": "/local/floorplan/L-K.png",
-                                        "Curtain, Balcony": "/local/floorplan/L-KW.png",
-                                        "Curtain, Entry": "/local/floorplan/L-KR.png",
-                                        "Curtain, Entry, Balcony": "/local/floorplan/L-KRW.png",
-                                        "Entry": "/local/floorplan/L-R.png",
-                                        "Entry, Balcony": "/local/floorplan/L-RW.png",
-                                        "Peninsula, Curtain": "/local/floorplan/L-JK.png",
-                                        "Peninsula, Curtain, Balcony": "/local/floorplan/L-JKW.png",
-                                        "Peninsula, Curtain, Entry": "/local/floorplan/L-JKR.png",
-                                        "Peninsula, Entry, Balcony": "/local/floorplan/L-JRW.png",
-                                        "Stove, Curtain, Entry, Balcony": "/local/floorplan/L-IKRW.png",
-                                        "Stove, Peninsula, Curtain": "/local/floorplan/L-IJK.png",
-                                        "Stove, Peninsula, Curtain, Balcony": "/local/floorplan/L-IJKW.png",
-                                        "Stove, Peninsula, Curtain, Entry": "/local/floorplan/L-IJKR.png",
-                                        "Stove, Peninsula, Entry, Balcony": "/local/floorplan/L-IJRW.png"
+                                        "Curtain Entry": "/local/floorplan/L-KR.png",
+                                        "Curtain Entry Peninsula": "/local/floorplan/L-JKR.png",
+                                        "Curtain Entry Peninsula Stove": "/local/floorplan/L-IJKR.png",
+                                        "Curtain Peninsula": "/local/floorplan/L-JK.png",
+                                        "Curtain Peninsula Stove": "/local/floorplan/L-IJK.png",
+                                        "Entry": "/local/floorplan/L-R.png"
                                     },
                                     "style": {
                                         "left": "19.46%",
@@ -2444,10 +2444,122 @@
                                     },
                                     "tap_action": "none",
                                     "type": "image"
+                                },
+                                {
+                                    "entity": "person.maxim",
+                                    "hold_action": "more-info",
+                                    "image": "/local/images/people/Maxim.jpg",
+                                    "state_filter": {
+                                        "not_home": "grayscale(100%) blur(3px)"
+                                    },
+                                    "style": {
+                                        "border": "3px solid",
+                                        "border-radius": "15%",
+                                        "left": "3%",
+                                        "top": "5%",
+                                        "transform": "none",
+                                        "width": "75px"
+                                    },
+                                    "tap_action": "more-info",
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "person.maxim",
+                                    "style": {
+                                        "font-family": "Arial",
+                                        "font-weight": "bold",
+                                        "left": "5.6%",
+                                        "top": "16%"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "person.dana",
+                                    "hold_action": "more-info",
+                                    "image": "/local/images/people/Dana.jpg?v=1.0",
+                                    "state_filter": {
+                                        "not_home": "grayscale(100%) blur(3px)"
+                                    },
+                                    "style": {
+                                        "border": "3px solid",
+                                        "border-radius": "15%",
+                                        "left": "9%",
+                                        "top": "5%",
+                                        "transform": "none",
+                                        "width": "75px"
+                                    },
+                                    "tap_action": "more-info",
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "person.dana",
+                                    "style": {
+                                        "font-family": "Arial",
+                                        "font-weight": "bold",
+                                        "left": "11.8%",
+                                        "top": "16%"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.bathroom_temperature",
+                                    "style": {
+                                        "background-color": "rgba(254, 254, 254, 0.3)",
+                                        "border-radius": "15%",
+                                        "font-family": "Arial",
+                                        "font-size": "10px",
+                                        "font-weight": "bold",
+                                        "left": "36%",
+                                        "top": "58%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.living_room_temperature",
+                                    "style": {
+                                        "background-color": "rgba(254, 254, 254, 0.3)",
+                                        "border-radius": "15%",
+                                        "font-family": "Arial",
+                                        "font-size": "10px",
+                                        "font-weight": "bold",
+                                        "left": "53%",
+                                        "top": "52.8%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.master_bedroom_temperature",
+                                    "style": {
+                                        "background-color": "rgba(254, 254, 254, 0.3)",
+                                        "border-radius": "15%",
+                                        "font-family": "Arial",
+                                        "font-size": "10px",
+                                        "font-weight": "bold",
+                                        "left": "49%",
+                                        "top": "19.7%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.shower_temperature",
+                                    "style": {
+                                        "background-color": "rgba(254, 254, 254, 0.3)",
+                                        "border-radius": "15%",
+                                        "font-family": "Arial",
+                                        "font-size": "10px",
+                                        "font-weight": "bold",
+                                        "left": "55%",
+                                        "top": "26.4%",
+                                        "transform": "initial"
+                                    },
+                                    "type": "state-label"
                                 }
                             ],
                             "image": "/local/floorplan/all_off.png",
-                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 319%;\n  height: 319%;\n  left: -110%\n}\n",
+                            "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n  width: 319%;\n  height: 319%;\n  left: -110%;\n  filter: brightness(125%)\n}\n",
                             "type": "picture-elements"
                         }
                     ],
