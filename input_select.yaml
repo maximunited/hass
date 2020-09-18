@@ -15,7 +15,7 @@ washing_machine_status:
   icon: mdi:washing-machine
 
 dryer_status:
-  name: Washing Machine Status
+  name: Dryer Status
   options:
     - Switched Off
     - Powered Down
@@ -24,6 +24,17 @@ dryer_status:
     - Dry
   initial: Powered Down
   icon: mdi:tumble-dryer
+
+dishwasher_status:
+  name: Dishwasher Status
+  options:
+    - Switched Off
+    - Powered Down
+    - Idle
+    - Washing
+    - Clean
+  initial: Powered Down
+  icon: mdi:dishwasher
 
 shower_heater_status:
   name: Shower Heater Status

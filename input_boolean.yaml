@@ -1,6 +1,7 @@
 # https://www.home-assistant.io/components/input_boolean/
 
 ---
+# Unused
 maxim_home:
   name: Set Maxim Home/Away state
 dana_home:
@@ -8,10 +9,22 @@ dana_home:
 maxim_dana_home:
   name: Set Maxim and Dana Home/Away state
 
+# For living room AC state automation
 living_ac:
   name: Living room AC
 
+# For appliances cycle finish notifications (Clean/Dry)
 disable_washing_machine_notification:
   name: Disable Washing Machine Notification
   initial: off
   icon: mdi:washing-machine
+
+disable_dryer_notification:
+  name: Disable Dryer Notification
+  initial: off
+  icon: mdi:tumble-dryer
+
+disable_dishwasher_notification:
+  name: Disable Dishwasher Notification
+  initial: off
+  icon: mdi:dishwasher
