@@ -219,7 +219,7 @@
     entity_id: input_text.google_broadcast
   action:
     - service: tts.google_say
-      data_template:
+      data:
         entity_id: group.google_speakers
         #entity_id: media_player.master_bedroom_speaker
         message: "{{ states.input_text.google_broadcast.state }}"
@@ -236,8 +236,8 @@
     - condition: template
       value_template: '{% if trigger.event.data.entity_id is defined %}True{% else %}False{% endif %}'
   action:
-    service_template: '{{ trigger.event.data.service | lower }}'
-    data_template:
+    service: '{{ trigger.event.data.service | lower }}'
+    data:
       entity_id: '{{ trigger.event.data.entity_id | lower }}'
 
 - alias: Report indoor temperature from IFTTT (Google Home)
@@ -252,7 +252,7 @@
     - condition: template
       value_template: '{% if trigger.event.data.entity_id is not defined %}True{% else %}False{% endif %}'
   action:
-    service_template: '{{ trigger.event.data.service | lower }}'
+    service: '{{ trigger.event.data.service | lower }}'
 
 #################################################################################
 
@@ -272,7 +272,7 @@
       below: 20
   action:
     service: google_keep.add_to_list
-    data_template:
+    data:
       title: 'Home Supplies'
       things: 'Batteries for {{ trigger.to_state.name }}.'
 

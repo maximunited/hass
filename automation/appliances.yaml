@@ -257,6 +257,125 @@
         #        entity_id: input_select.washing_machine_status
         #        option: 'Idle'
 
+
+## Set dishwasher status to switched off if (outlet) switch is off
+- id: dishwasher_switchedoff #Done#
+  alias: 'Dishwasher - Change State Switched Off'
+  trigger:
+    - platform: state
+      entity_id: switch.shelly_shsw_pm_a4cf12f43ae7
+      to: 'off'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: 'Switched Off'
+
+## Powered down when switch is on, but no power draw
+- id: dishwasher_powereddown #Done#
+  alias: 'Dishwasher - Change State Powered Down'
+  trigger:
+    - platform: state
+      entity_id: switch.shelly_shsw_pm_a4cf12f43ae7
+      to: 'on'
+    - platform: template # Power draw is 0 #
+      value_template: '{{((states.sensor.sensor.shelly_shsw_pm_a4cf12f43ae7_current_consumption.state)|round(0)) == 0}}'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: 'Powered Down'
+      
+# There's a little power draw
+- id: dishwasher_idle
+  alias: 'Dishwasher - Change State Idle'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly_shsw_pm_a4cf12f43ae7_current_consumption
+      above: 0
+      below: 2
+      for: '00:00:30'
+  condition:
+    - condition: state
+      entity_id: switch.shelly_shsw_pm_a4cf12f43ae7
+      state: 'on'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: 'Powered Down'
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: 'Switched Off'
+      # - condition: and ## Door open after state is clean
+      #   conditions:
+      #     - condition: state
+      #       entity_id: binary_sensor.dishwasher_door
+      #       state: 'on' # Door open
+      #     - condition: state
+      #       entity_id: input_select.dishwasher_status
+      #       state: 'Clean'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: 'Idle'
+
+## Set status as washing when power draw is above 4W
+- id: dishwasher_wash
+  alias: 'Dishwasher - Change State Wash'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly_shsw_pm_a4cf12f43ae7_current_consumption
+      above: 4
+      for: '00:00:30'
+  condition:
+    - condition: state
+      entity_id: switch.shelly_shsw_pm_a4cf12f43ae7
+      state: 'on' # Power socket is on
+    # - condition: state
+    #   entity_id: binary_sensor.dishwasher_door
+    #   state: 'off' # Door closed
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: 'Powered Down'
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: 'Idle'
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: 'Clean'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: 'Washing'
+      
+- id: dishwasher_clean
+  alias: 'Dishwasher - Change State Clean'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly_shsw_pm_a4cf12f43ae7_current_consumption
+      below: 4
+      for: '00:01:00'
+  condition:
+    - condition: state
+      entity_id: switch.shelly_shsw_pm_a4cf12f43ae7
+      state: 'on' # Power socket is on
+    # - condition: state
+    #   entity_id: binary_sensor.dishwasher_door
+    #   state: 'off' # Door closed
+    - condition: state
+      entity_id: input_select.dishwasher_status
+      state: 'Washing'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: 'Clean'
+      
 #####################
 ### Notifications ###
 #####################
@@ -293,9 +412,9 @@
       - condition: state
         entity_id: input_select.washing_machine_status
         state: Clean
-        #- condition: state
-        #  entity_id: input_boolean.disable_washing_machine_notification
-        #  state: 'off'
+      - condition: state
+        entity_id: input_boolean.disable_washing_machine_notification
+        state: 'off'
       # Don't send this alert if it was last triggered less than 30 minutes ago (1,800 seconds)
       - condition: template
         value_template: >
@@ -331,3 +450,59 @@
     #  data:
     #    message: 'Hey, the washing machine has finished and is ready to be emptied'
     #    title: 'Washing Machine'
+
+
+
+- id: dishwasher_nofify
+  alias: 'Dishwasher - Send alerts when dishes are clean'
+  trigger:
+    - platform: state
+      entity_id: input_select.dishwasher_status
+      to: Clean
+      for:
+        minutes: 1
+    - platform: state
+      entity_id: person.maxim
+      to: 'home'
+      for:
+        minutes: 2
+    - platform: state
+      entity_id: person.dana
+      to: 'home'
+      for:
+        minutes: 2
+    - platform: time
+      at: '10:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '10:00:00'
+        before: '23:00:00'
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: Clean
+      - condition: state
+        entity_id: input_boolean.disable_dishwasher_notification
+        state: 'off'
+      # Don't send this alert if it was last triggered less than 30 minutes ago (1,800 seconds)
+      - condition: template
+        value_template: >
+          {% if states.automation.dishwasher_send_alerts_when_dishes_are_clean.attributes.last_triggered is not none %}
+            {% if as_timestamp(now()) | int - as_timestamp(states.automation.dishwasher_send_alerts_when_dishes_are_clean.attributes.last_triggered) | int > 1800 %} true {% else %} false
+            {% endif %}
+          {% else %}
+          false
+          {% endif %}
+  action:
+    - service: notify.telegram_bot
+      data_template:
+        title: "*Dishes are clean!*"
+        message: >
+          {{ [
+            "Time to remove them",
+            "Please empty the dishwasher"
+            ] | random }} 
