@@ -1,0 +1,77 @@
+---
+
+####################################################################
+### https://www.home-assistant.io/integrations/google_assistant/ ###
+####################################################################
+
+project_id: !secret google_assistant_project_id
+service_account: !include SERVICE_ACCOUNT.json
+report_state: true
+expose_by_default: false
+# redirect_uri: https://oauth-redirect.googleusercontent.com
+exposed_domains:
+  - switch
+  - input_boolean
+  - sensor
+  - script
+entity_config:
+  script.main_media_chromecast:
+    name: Script Chromecast
+    aliases:
+      - Switch chromecast
+      - Switch main chromecast
+      - Script main chromecast
+    # room: Living Room
+  script.main_media_hot:
+    name: Script Cable
+    aliases:
+      - Script Hot
+      - Script Main hot
+      - Script main cable
+    # room: Living Room
+  script.main_media_plex:
+    name: Script Plex
+    aliases:
+      - Script plex
+      - Script Main plex
+      - Script main plex
+    # room: Living Room
+  script.main_media_playstation:
+    name: Script Playstation
+    aliases:
+      - Script playstation
+      - Script Main playstation
+      - Script main playstation
+    # room: Living Room
+  # switch.docker_dockerbot:
+  #   name: Dockerbot
+  switch.docker_hass:
+    name: Home Assisstant
+    aliases:
+      - hass
+  switch.docker_mariadb:
+    name: MariaDB
+  switch.docker_mosquitto:
+    name: Mosquitto
+  switch.docker_node_red:
+    name: Node-RED
+    aliases:
+      - Node red
+  switch.docker_oauth:
+    name: OAuth
+  switch.docker_portainer:
+    name: Portainer
+  switch.docker_traefik:
+    name: Traefik
+    aliases:
+      - Traffic
+
+  # Doesn't work
+  # sensor.living_room_temperature:
+  #   name: Living room temperature
+  # sensor.master_bedroom_temperature:
+  #   name: Master bedroom temperature
+  # sensor.shower_temperature:
+  #   name: Shower temperature
+  # sensor.bathroom_temperature:
+  #   name: Bathroom temperature

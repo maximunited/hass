@@ -10,8 +10,8 @@
 
 ### https://github.com/custom-components/sensor.rpi_power
 ### Moved from sensor to binary_sensor
-- platform: rpi_power
-  text_state: true
+# - platform: rpi_power
+#   text_state: true
 
 ### https://github.com/custom-components/binary_sensor.hadockermon
 # - platform: hadockermon
@@ -21,11 +21,11 @@
 #   name: hadockermon
 
 # Workday
-- platform: workday
-  name: workday
-  country: IL
-  workdays: [sun, mon, tue, wed, thu]
-  excludes: [fri, sat]
+# - platform: workday
+#   name: workday
+#   country: IL
+#   workdays: [sun, mon, tue, wed, thu]
+#   excludes: [fri, sat]
 
 # - platform: template
 #   sensors:
@@ -125,48 +125,48 @@
       value_template: '{{ states.input_boolean.living_ac.state}}'
       friendly_name: 'Shower Heater Status'
 
-    shelly_73fd26_fw_update:
-      value_template: "{{ states.cover.shelly_shsw_25_73fd26.attributes.has_firmware_update }}"
-      friendly_name: "Shelly North Master bedroom blinds [73FD26] FW update"
-      icon_template: >-
-        {% if is_state_attr('cover.shelly_shsw_25_73fd26','has_firmware_update', True) %}
-          mdi:cloud-upload
-        {% elif is_state_attr('cover.shelly_shsw_25_73fd26','has_firmware_update', False) %}
-          mdi:cloud
-        {% else %}
-          mdi:cloud-question
-        {% endif %}
-    shelly_73c9f8_fw_update:
-      value_template: "{{ states.cover.shelly_shsw_25_73c9f8.attributes.has_firmware_update }}"
-      friendly_name: "Shelly Office blinds [73C9F8] FW update"
-      icon_template: >-
-        {% if is_state_attr('cover.shelly_shsw_25_73c9f8', 'has_firmware_update', True) %}
-          mdi:cloud-upload
-        {% elif is_state_attr('cover.shelly_shsw_25_73c9f8', 'has_firmware_update', False) %}
-          mdi:cloud
-        {% else %}
-          mdi:cloud-question
-        {% endif %}
-    shelly_e4cdaf_fw_update:
-      value_template: "{{ states.cover.shelly_shsw_25_e4cdaf.attributes.has_firmware_update }}"
-      friendly_name: "Shelly Kids bedroom blinds [E4CDAF] FW update"
-      icon_template: >-
-        {% if is_state_attr('cover.shelly_shsw_25_e4cdaf', 'has_firmware_update', True) %}
-          mdi:cloud-upload
-        {% elif is_state_attr('cover.shelly_shsw_25_e4cdaf', 'has_firmware_update', False) %}
-          mdi:cloud
-        {% else %}
-          mdi:cloud-question
-        {% endif %}
-    shelly_e6292b_fw_update:
-      value_template: "{{ states.cover.shelly_shsw_25_e6292b.attributes.has_firmware_update }}"
-      friendly_name: "Shelly West Master bedroom blinds [E6292B] FW update"
-      icon_template: >-
-        {% if is_state_attr('cover.shelly_shsw_25_e6292b', 'has_firmware_update', True) %}
-          mdi:cloud-upload
-        {% elif is_state_attr('cover.shelly_shsw_25_e6292b', 'has_firmware_update', False) %}
-          mdi:cloud
-        {% else %}
-          mdi:cloud-question
-        {% endif %}
+    # shelly_73fd26_fw_update:
+    #   value_template: "{{ states.cover.shelly_shsw_25_73fd26.attributes.has_firmware_update }}"
+    #   friendly_name: "Shelly North Master bedroom blinds [73FD26] FW update"
+    #   icon_template: >-
+    #     {% if is_state_attr('cover.shelly_shsw_25_73fd26','has_firmware_update', True) %}
+    #       mdi:cloud-upload
+    #     {% elif is_state_attr('cover.shelly_shsw_25_73fd26','has_firmware_update', False) %}
+    #       mdi:cloud
+    #     {% else %}
+    #       mdi:cloud-question
+    #     {% endif %}
+    # shelly_73c9f8_fw_update:
+    #   value_template: "{{ states.cover.shelly_shsw_25_73c9f8.attributes.has_firmware_update }}"
+    #   friendly_name: "Shelly Office blinds [73C9F8] FW update"
+    #   icon_template: >-
+    #     {% if is_state_attr('cover.shelly_shsw_25_73c9f8', 'has_firmware_update', True) %}
+    #       mdi:cloud-upload
+    #     {% elif is_state_attr('cover.shelly_shsw_25_73c9f8', 'has_firmware_update', False) %}
+    #       mdi:cloud
+    #     {% else %}
+    #       mdi:cloud-question
+    #     {% endif %}
+    # shelly_e4cdaf_fw_update:
+    #   value_template: "{{ states.cover.shelly_shsw_25_e4cdaf.attributes.has_firmware_update }}"
+    #   friendly_name: "Shelly Kids bedroom blinds [E4CDAF] FW update"
+    #   icon_template: >-
+    #     {% if is_state_attr('cover.shelly_shsw_25_e4cdaf', 'has_firmware_update', True) %}
+    #       mdi:cloud-upload
+    #     {% elif is_state_attr('cover.shelly_shsw_25_e4cdaf', 'has_firmware_update', False) %}
+    #       mdi:cloud
+    #     {% else %}
+    #       mdi:cloud-question
+    #     {% endif %}
+    # shelly_e6292b_fw_update:
+    #   value_template: "{{ states.cover.shelly_shsw_25_e6292b.attributes.has_firmware_update }}"
+    #   friendly_name: "Shelly West Master bedroom blinds [E6292B] FW update"
+    #   icon_template: >-
+    #     {% if is_state_attr('cover.shelly_shsw_25_e6292b', 'has_firmware_update', True) %}
+    #       mdi:cloud-upload
+    #     {% elif is_state_attr('cover.shelly_shsw_25_e6292b', 'has_firmware_update', False) %}
+    #       mdi:cloud
+    #     {% else %}
+    #       mdi:cloud-question
+    #     {% endif %}
 

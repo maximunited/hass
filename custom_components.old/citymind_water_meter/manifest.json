@@ -1,0 +1,12 @@
+{
+  "domain": "citymind_water_meter",
+  "name": "CityMind Water Meter",
+  "codeowners": ["@maorcc", "@elad-bar"],
+  "config_flow": true,
+  "dependencies": ["http"],
+  "documentation": "https://github.com/maorcc/citymind_water_meter",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/maorcc/citymind_water_meter/issues",
+  "requirements": [],
+  "version": "3.0.9"
+}

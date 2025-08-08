@@ -1,0 +1,8 @@
+---
+
+# Variables integration
+# @link: https://github.com/snarky-snark/home-assistant-variables
+
+ha_version_notification:
+  friendly_name: "HA version notification"
+  icon: mdi:bell-off

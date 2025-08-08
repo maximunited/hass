@@ -1,0 +1,112 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up CityMind account",
+        "description": "Set up your CityMind credentials",
+        "data": {
+          "email": "Email",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_credentials": "Email and/or password are not valid",
+      "auth_general_error": "General failure, please try again",
+      "not_found": "URL not found"
+    }
+  },
+  "options": {
+    "step": {
+      "city_mind_additional_settings": {
+        "title": "Options for CityMind Water Meter.",
+        "description": "Set up options.",
+        "data": {
+          "email": "Email",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_credentials": "Email and/or password are not valid",
+      "auth_general_error": "General failure, please try again",
+      "not_found": "URL not found"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "alert_leak_email": {
+        "name": "Leak Alert (E-Mail)"
+      }
+    },
+    "number": {
+      "low_rate_cost": {
+        "name": "Low Rate Cost"
+      },
+      "high_rate_cost": {
+        "name": "High Rate Cost"
+      },
+      "sewage_cost": {
+        "name": "Sewage Cost"
+      },
+      "low_rate_consumption_threshold": {
+        "name": "Low Rate Consumption Threshold"
+      }
+    },
+    "switch": {
+      "alert_exceeded_threshold_sms": {
+        "name": "Daily Threshold Exceeded (SMS)"
+      },
+      "alert_exceeded_threshold_email": {
+        "name": "Daily Threshold Exceeded (E-Mail)"
+      },
+      "alert_leak_sms": {
+        "name": "Leak Alert (SMS)"
+      },
+      "alert_leak_while_away_sms": {
+        "name": "Consumption Alert While Away (SMS)"
+      },
+      "alert_leak_while_away_email": {
+        "name": "Consumption Alert While Away (E-Mail)"
+      },
+      "use_unique_device_name": {
+        "name": "Use unique device name"
+      }
+    },
+    "sensor": {
+      "consumption_forecast": {
+        "name": "Consumption Forecast"
+      },
+      "last_read": {
+        "name": "Last Read"
+      },
+      "monthly_consumption": {
+        "name": "Monthly Consumption"
+      },
+      "todays_consumption": {
+        "name": "Today's Consumption"
+      },
+      "yesterdays_consumption": {
+        "name": "Yesterday's Consumption"
+      },
+      "high_rate_consumption": {
+        "name": "High Rate Consumption"
+      },
+      "low_rate_consumption": {
+        "name": "Low Rate Consumption"
+      },
+      "alerts": {
+        "name": "Alert"
+      },
+      "low_rate_total_cost": {
+        "name": "Low Rate Cost"
+      },
+      "high_rate_total_cost": {
+        "name": "High Rate Cost"
+      },
+      "sewage_total_cost": {
+        "name": "Sewage Cost"
+      }
+    }
+  }
+}

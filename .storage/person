@@ -1,56 +1,84 @@
 {
-    "data": {
-        "persons": [
-            {
-                "device_trackers": [
-                    "device_tracker.samsung_galaxy_s7"
-                ],
-                "id": "581f7dcb2ca643b69da686a088d2b045",
-                "name": "Maxim",
-                "user_id": "f7d1fae94c1a42f0b35477e15799d42f"
-            },
-            {
-                "device_trackers": [
-                    "device_tracker.dd_phone"
-                ],
-                "id": "1d95ef9af7864d829f214330a6067dfd",
-                "name": "Dana",
-                "user_id": null
-            },
-            {
-                "device_trackers": [
-                    "device_tracker.guy_t_phone"
-                ],
-                "id": "1f9604b189f244c3a22bad57c4a8a1e4",
-                "name": "Guy T.",
-                "user_id": null
-            },
-            {
-                "device_trackers": [
-                    "device_tracker.kobbi_d_phone"
-                ],
-                "id": "8badcf4e02bc44b498febf600b0efc88",
-                "name": "Kobbi D.",
-                "user_id": null
-            },
-            {
-                "device_trackers": [
-                    "device_tracker.roy_d_phone"
-                ],
-                "id": "aef090370c1c46628f03ba541e7347a1",
-                "name": "Roy D.",
-                "user_id": null
-            },
-            {
-                "device_trackers": [
-                    "device_tracker.meir_work_laptop"
-                ],
-                "id": "bbc1cbd7e2024d3d996f6bed49d16daf",
-                "name": "Meir L.",
-                "user_id": null
-            }
-        ]
-    },
-    "key": "person",
-    "version": 1
+  "version": 2,
+  "minor_version": 1,
+  "key": "person",
+  "data": {
+    "items": [
+      {
+        "device_trackers": [
+          "device_tracker.miwifi_a4_c6_9a_7a_48_11"
+        ],
+        "id": "581f7dcb2ca643b69da686a088d2b045",
+        "name": "Maxim",
+        "user_id": "f7d1fae94c1a42f0b35477e15799d42f",
+        "picture": null
+      },
+      {
+        "device_trackers": [
+          "device_tracker.miwifi_66_3a_e7_db_6a_7d"
+        ],
+        "id": "1d95ef9af7864d829f214330a6067dfd",
+        "name": "Dana",
+        "user_id": "2326f6281030425c9544f8d5a95f79b7",
+        "picture": null
+      },
+      {
+        "device_trackers": [
+          "device_tracker.guy_t_phone"
+        ],
+        "id": "1f9604b189f244c3a22bad57c4a8a1e4",
+        "name": "Guy T.",
+        "user_id": null
+      },
+      {
+        "device_trackers": [
+          "device_tracker.kobbi_d_phone"
+        ],
+        "id": "8badcf4e02bc44b498febf600b0efc88",
+        "name": "Kobbi D.",
+        "user_id": null
+      },
+      {
+        "device_trackers": [
+          "device_tracker.roy_d_phone"
+        ],
+        "id": "aef090370c1c46628f03ba541e7347a1",
+        "name": "Roy D.",
+        "user_id": null
+      },
+      {
+        "device_trackers": [
+          "device_tracker.meir_work_laptop"
+        ],
+        "id": "bbc1cbd7e2024d3d996f6bed49d16daf",
+        "name": "Meir L.",
+        "user_id": null
+      },
+      {
+        "id": "michelle",
+        "name": "Michelle",
+        "device_trackers": [],
+        "user_id": null,
+        "picture": null
+      },
+      {
+        "id": "alwin_the_cleaner",
+        "name": "Alwin (The cleaner)",
+        "device_trackers": [
+          "device_tracker.miwifi_5a_4a_0c_09_4b_13"
+        ],
+        "user_id": null,
+        "picture": null
+      },
+      {
+        "id": "daniel_alter",
+        "name": "Daniel Alter",
+        "device_trackers": [
+          "device_tracker.miwifi_f4_d4_88_8a_ba_5b"
+        ],
+        "user_id": null,
+        "picture": null
+      }
+    ]
+  }
 }

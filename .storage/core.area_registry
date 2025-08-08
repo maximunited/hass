@@ -1,48 +1,193 @@
 {
-    "data": {
-        "areas": [
-            {
-                "id": "02a3a8d795b04cc98a2b2f36541df1ab",
-                "name": "Living Room"
-            },
-            {
-                "id": "201677eb13464e9fb1676b170e13e301",
-                "name": "Kitchen"
-            },
-            {
-                "id": "9b8a3bfa3c564b199f6dae6a8def02c4",
-                "name": "Master Bedroom"
-            },
-            {
-                "id": "f12d6ad311d843529c99ba1cfc879a6e",
-                "name": "Kids Bedroom"
-            },
-            {
-                "id": "185a9dacf5464a4bbc41230e42454e8c",
-                "name": "Shower"
-            },
-            {
-                "id": "825ba0d33f2347acb290b28d64ee1380",
-                "name": "Bathroom"
-            },
-            {
-                "id": "8e097acb5e0444a6b28c50fbaddf3a0a",
-                "name": "Balcony"
-            },
-            {
-                "id": "63e5827bf94343f59ea97981980a7410",
-                "name": "Storage"
-            },
-            {
-                "id": "9e4e92dae3ec4b898be01356b1bde721",
-                "name": "Wardrobe"
-            },
-            {
-                "id": "cb05ec77df534538a102c687dbd1ab04",
-                "name": "Mamad"
-            }
-        ]
-    },
-    "key": "core.area_registry",
-    "version": 1
+  "version": 1,
+  "minor_version": 8,
+  "key": "core.area_registry",
+  "data": {
+    "areas": [
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "02a3a8d795b04cc98a2b2f36541df1ab",
+        "labels": [],
+        "name": "Living Room",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "201677eb13464e9fb1676b170e13e301",
+        "labels": [],
+        "name": "Kitchen",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "9b8a3bfa3c564b199f6dae6a8def02c4",
+        "labels": [],
+        "name": "Master Bedroom",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "f12d6ad311d843529c99ba1cfc879a6e",
+        "labels": [],
+        "name": "Kids Bedroom",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "185a9dacf5464a4bbc41230e42454e8c",
+        "labels": [],
+        "name": "Shower",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "825ba0d33f2347acb290b28d64ee1380",
+        "labels": [],
+        "name": "Bathroom",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "8e097acb5e0444a6b28c50fbaddf3a0a",
+        "labels": [],
+        "name": "Balcony",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "63e5827bf94343f59ea97981980a7410",
+        "labels": [],
+        "name": "Storage",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "9e4e92dae3ec4b898be01356b1bde721",
+        "labels": [],
+        "name": "Wardrobe",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "cb05ec77df534538a102c687dbd1ab04",
+        "labels": [],
+        "name": "Mamad",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "bedroom",
+        "labels": [],
+        "name": "Bedroom",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": "mdi:garage-variant",
+        "id": "garage",
+        "labels": [
+          "outside"
+        ],
+        "name": "Garage",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": "phu:rooms-hallway",
+        "id": "hallway",
+        "labels": [],
+        "name": "Hallway",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      },
+      {
+        "aliases": [],
+        "floor_id": null,
+        "icon": null,
+        "id": "dining",
+        "labels": [],
+        "name": "Dining",
+        "picture": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "modified_at": "1970-01-01T00:00:00+00:00",
+        "humidity_entity_id": null,
+        "temperature_entity_id": null
+      }
+    ]
+  }
 }

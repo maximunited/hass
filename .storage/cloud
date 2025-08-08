@@ -1,13 +1,18 @@
 {
-    "data": {
-        "alexa_enabled": true,
-        "cloud_user": "8368fa6139db4e8caaa57390dba89bfb",
-        "cloudhooks": {},
-        "google_enabled": true,
-        "google_local_webhook_id": "9b0443394ca6016840eae170115210a3f3fc9a2514e8a113ce38af82cf1d5be2",
-        "google_secure_devices_pin": null,
-        "remote_enabled": false
-    },
-    "key": "cloud",
-    "version": 1
+  "version": 1,
+  "minor_version": 4,
+  "key": "cloud",
+  "data": {
+    "alexa_enabled": true,
+    "cloud_user": "8368fa6139db4e8caaa57390dba89bfb",
+    "cloudhooks": {},
+    "google_enabled": true,
+    "google_local_webhook_id": "9b0443394ca6016840eae170115210a3f3fc9a2514e8a113ce38af82cf1d5be2",
+    "google_secure_devices_pin": null,
+    "remote_enabled": true,
+    "alexa_settings_version": 1,
+    "google_settings_version": 1,
+    "google_connected": false,
+    "instance_id": "f16d8329f5c04e6187bf036b73a9d980"
+  }
 }

@@ -1,17 +1,12 @@
----
-
 ##########################################################
 ### @url: https://home-assistant.io/components/sensor/ ###
-### Setting template sensors of lights for floorplan   ###
+### Setting template sensors of lights for floorplan   ###
 ##########################################################
 
 ## Master Bedroom ##
 - platform: template
   sensors:
     master_bedroom_lights:
-      entity_id: 
-       - light.master_bedroom_hall_light
-       - light.DUMMY_master_bedroom_main_light
       value_template: >-
         {% if is_state('light.master_bedroom_hall_light', 'on') and
           is_state('light.DUMMY_master_bedroom_main_light', 'on') %}
@@ -31,10 +26,6 @@
 - platform: template
   sensors:
     bathroom_lights:
-      entity_id: 
-       - light.DUMMY_bath_mirror_light
-       - light.DUMMY_bath_wall_light
-       - light.DUMMY_bath_recess_light
       value_template: >-
         {% if is_state('light.DUMMY_bath_mirror_light', 'on') and
           is_state('light.DUMMY_bath_wall_light', 'on') and
@@ -71,10 +62,6 @@
 - platform: template
   sensors:
     shower_lights:
-      entity_id: 
-       - light.DUMMY_shower_mirror_light
-       - light.DUMMY_shower_wall_light
-       - light.DUMMY_shower_main_light
       value_template: >-
         {% if is_state('light.DUMMY_shower_mirror_light', 'on') and
           is_state('light.DUMMY_shower_wall_light', 'on') and
@@ -110,24 +97,17 @@
 - platform: template
   sensors:
     living_room_lights:
-      entity_id:
-        - light.cabinet_light
-        - light.stove_light
-        - light.peninsula_light
-        - light.curtain_light
-        - light.entry_light
-        - light.balcony_light
       value_template: >
         {% set lights = ["cabinet_light",
-                  "stove_light",
-                  "peninsula_light",
-                  "curtain_light",
-                  "entry_light",
-                  "balcony_light"]
+                         "stove_light",
+                         "peninsula_light",
+                         "curtain_light",
+                         "entry_light",
+                         "balcony_light"]
         %}
         {% for state in states.light|sort(attribute='name') -%}
           {% if is_state(state.entity_id,"on") -%} 
             {{ state.name | regex_replace('(Kitchen )?(.*)[Ll]ight', '\\2') | title if (state.entity_id.replace("light.","") 
-              in lights) else '' -}}
+               in lights) else '' -}}
           {% endif -%}
-        {% endfor -%} 
+        {% endfor -%}

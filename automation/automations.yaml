@@ -64,10 +64,10 @@
         after: '12:00:00'
         before: '23:00:00'
   action:
-    service: notify.notify_pushbullet
+    service: notify.pushbullet
     data:
-      message: "Boo's home!"
-      target: "device/Samsung SGS 7 Edge"
+      message: "Boo's home! She has been away since {{ as_timestamp(states.person.dana.last_changed) | timestamp_custom('%H:%M:%S') }}"
+      target: "device/Samsung S20 FE 5G (SM-G781B)"
 
 #####################
 #####################
@@ -109,34 +109,34 @@
         title: "Home Assistant update available"
         message: "Home Assistant docker tag changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}"
 
-- alias: 'Notify on shelly FW update'
-  initial_state: true
-  trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.shelly_73c9f8_fw_update
-        - binary_sensor.shelly_73fd26_fw_update
-        - binary_sensor.shelly_e4cdaf_fw_update
-        - binary_sensor.shelly_e6292b_fw_update
-      to: 'on'
-      for:
-        minutes: 30
-  action:
-    - service: persistent_notification.create
-      data_template:
-        title: "Shelly FW update available"
-        message: "{{ trigger.to_state.attributes.friendly_name }} has a FW update available"
-    - service: notify.notify_html5
-      data_template:
-        title: "Shelly FW update available"
-        message: "{{ trigger.to_state.attributes.friendly_name }} has a FW update available"
-      data:
-        data:
-          actions:
-            - action: update_shelly_fw
-              title: "Update FW on {{ trigger.to_state.attributes.friendly_name }}"
-            - action: dismiss_notification
-              title: "Dismiss"
+# - alias: 'Notify on shelly FW update'
+#   initial_state: true
+#   trigger:
+#     - platform: state
+#       entity_id:
+#         - binary_sensor.shelly_73c9f8_fw_update
+#         - binary_sensor.shelly_73fd26_fw_update
+#         - binary_sensor.shelly_e4cdaf_fw_update
+#         - binary_sensor.shelly_e6292b_fw_update
+#       to: 'on'
+#       for:
+#         minutes: 30
+#   action:
+#     - service: persistent_notification.create
+#       data_template:
+#         title: "Shelly FW update available"
+#         message: "{{ trigger.to_state.attributes.friendly_name }} has a FW update available"
+#     - service: notify.notify_html5
+#       data_template:
+#         title: "Shelly FW update available"
+#         message: "{{ trigger.to_state.attributes.friendly_name }} has a FW update available"
+#       data:
+#         data:
+#           actions:
+#             - action: update_shelly_fw
+#               title: "Update FW on {{ trigger.to_state.attributes.friendly_name }}"
+#             - action: dismiss_notification
+#               title: "Dismiss"
 
 - alias: 'Handle HTML5 notification action: Update FW'
   initial_state: true
@@ -258,23 +258,23 @@
 
 
 ### https://github.com/aFrankLion/hass-google_keep#home-assistant-service
-- alias: Low Battery Notification
-  trigger:
-    - platform: numeric_state
-      entity_id:
-        - sensor.basil_battery
-        - sensor.ananas_battery
-        - sensor.anthurium_battery
-        - sensor.kalanchoe_poseidon_pink_battery
-        - sensor.peppermint_battery
-        - sensor.portulacaria_afra_battery
-        - sensor.crassula_ovata_jade_plant_battery
-      below: 20
-  action:
-    service: google_keep.add_to_list
-    data:
-      title: 'Home Supplies'
-      things: 'Batteries for {{ trigger.to_state.name }}.'
+# - alias: Low Battery Notification
+#   trigger:
+#     - platform: numeric_state
+#       entity_id:
+#         - sensor.basil_battery
+#         - sensor.ananas_battery
+#         - sensor.anthurium_battery
+#         - sensor.kalanchoe_poseidon_pink_battery
+#         - sensor.peppermint_battery
+#         - sensor.portulacaria_afra_battery
+#         - sensor.crassula_ovata_jade_plant_battery
+#       below: 20
+#   action:
+#     service: google_keep.add_to_list
+#     data:
+#       title: 'Home Supplies'
+#       things: 'Batteries for {{ trigger.to_state.name }}.'
 
 ### https://www.reddit.com/r/pihole/comments/bbhd0h/loving_the_home_assistant_pihole_component/
 # - id: toggle Pihole switch
@@ -286,5 +286,316 @@
 #      to: 'on'
 #  action:
 #    - delay: '00:05:01'
-#    - service: switch.turn_off
+#    - switch.turn_off
 #      entity_id: switch.pihole_temp_disable
+
+#####################
+#####################
+#####################
+# AUTOMATIONS FROM ROOT automations.yaml
+#####################
+#####################
+#####################
+
+- id: '1673194520771'
+  alias: Notify - Home Assistant docker tag changed
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.latest_docker_version
+  - platform: homeassistant
+    event: start
+  condition:
+  - condition: template
+    value_template: '{{ states.sensor.latest_docker_version.state not in [states.var.ha_version_notification.state,
+      ''unavailable''] }}'
+  - condition: template
+    value_template: '{{ states.var.ha_version_notification.state != states.sensor.latest_docker_version.state}}'
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Home Assistant update available
+      message: "Home Assistant docker image tag changed {% if trigger.entity_id ==
+        'sensor.latest_docker_version' -%}\n  from {{ trigger.from_state.state }}
+        \n{%- endif %} to {{ states.sensor.latest_docker_version.state }}\n{% if states('sensor.latest_docker_version').split('.')[-1]
+        == '0' -%}\n  [Release notes](https://www.home-assistant.io/latest-release-notes/)
+        \n{% else -%}\n  [Release notes](https://github.com/home-assistant/core/releases/tag/{{
+        states('sensor.latest_docker_version') }})\n{% endif %}\n"
+  - service: notify.notify_html5
+    data:
+      title: Home Assistant update available
+      message: "Home Assistant docker image tag changed {% if trigger.entity_id ==
+        'sensor.latest_docker_version' -%}\n  from {{ trigger.from_state.state }}
+        \n{%- endif %} to {{ states.sensor.latest_docker_version.state }}\n{% if states('sensor.latest_docker_version').split('.')[-1]
+        == '0' -%}\n  [Release notes](https://www.home-assistant.io/latest-release-notes/)
+        \n{% else -%}\n  [Release notes](https://github.com/home-assistant/core/releases/tag/{{states('sensor.latest_docker_version')}})\n{%
+        endif %}\n"
+  - service: var.set
+    data:
+      entity_id: var.ha_version_notification
+      value: '{{ states.sensor.latest_docker_version.state }}'
+      icon: mdi:bell-sleep
+  mode: single
+
+- id: '1673194586071'
+  alias: Notify for new devices
+  description: Notify Telegram and persistent notification if a new device has been
+    discovered
+  trigger:
+  - platform: event
+    event_type: device_tracker_new_device
+  condition: []
+  action:
+  - service: persistent_notification.create
+    data:
+      title: 'Newly tracked: {{trigger.event.data.entity_id}}'
+      message: 'New device tracked: ({{trigger.event.data.entity_id}}) Host: {{trigger.event.data.host_name}}
+        MAC address: {{trigger.event.data.mac}} Data: {{trigger.event.data}}'
+  - service: notify.notify_html5
+    data:
+      message: 'New device: {{ trigger.event.data.host_name if trigger.event.data.host_name
+        is defined else "NA" }} ({{ trigger.event.data.entity_id if trigger.event.data.entity_id
+        is defined else "NA" }})'
+      title: New device
+  - service: notify.telegram_bot
+    data:
+      message: 'New device: {{trigger.event.data.host_name}} ({{trigger.event.data.entity_id}})
+        Mac: {{trigger.event.data.mac}}'
+      title: Home Assistant
+  mode: single
+
+- id: '1673194670911'
+  alias: Healtchecks HeartBeat
+  description: Send every 10 minutes a heartbeat ping to healthchecks.io
+  trigger:
+  - platform: time_pattern
+    minutes: /10
+  condition: []
+  action:
+  - service: shell_command.watchdog
+  mode: single
+
+- id: '1673194692622'
+  alias: Create a notification when something is added to HACS
+  description: ''
+  trigger:
+  - platform: event
+    event_type: hacs/repository
+    event_data:
+      action: registration
+  condition:
+  - condition: template
+    value_template: '{{ trigger.event.data.repository is defined }}'
+  action:
+  - service: persistent_notification.create
+    data:
+      title: New repository in HACS
+      message: '{% set repo = trigger.event.data.repository %} {% set id = trigger.event.data.repository_id
+        %} [{{ repo }}](/hacs/repository/{{ id }}) was just added to HACS.'
+  mode: single
+
+- id: '1673194710259'
+  alias: Create a notification when there is updates pending in HACS
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.hacs
+  condition:
+  - condition: template
+    value_template: '{{ states(trigger.entity_id) != ''unknown''}}'
+  - condition: template
+    value_template: '{{ (states(trigger.entity_id) | float) != 0}}'
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Updates pending in HACS
+      message: "{% for repo in state_attr(trigger.entity_id, 'repositories') %}\n
+        \ **{{ repo.display_name }}** _{{ repo[\"installed_version\"] }}_ => _{{ repo[\"available_version\"]
+        }}_\n{% endfor %}"
+  mode: single
+
+- id: '1673194726486'
+  alias: DuckDNS update script failed notification
+  description: Check if update duckdns script has failed
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.duckdns_update_problem
+    to: 'on'
+    for: 01:30:00
+  condition: []
+  action:
+  - service: notify.telegram_bot
+    data:
+      title: '*DuckDNS cron update is failing!*'
+      message: 'duck.sh update script is failing for 90m '
+  mode: single
+
+- id: notify_on_unknown_devices_home
+  alias: Notify when unknown devices are marked home
+  trigger:
+  - platform: state
+    entity_id:
+    - device_tracker.6c_c7_ec_da_ff_9f
+    to: home
+    from: not_home
+  action:
+  - service: notify.telegram_bot
+    data:
+      title: '*Unknown device is home*'
+      message: 'MAC: {{ trigger.to_state.attributes.friendly_name | upper | replace("_",
+        ":") }} Detected by: {{ trigger.to_state.attributes.source }}'
+  - service: persistent_notification.create
+    data:
+      title: '*Unknown device is home*'
+      message: 'MAC: {{ trigger.to_state.attributes.friendly_name | upper | replace("_",
+        ":") }} Detected by: {{ trigger.to_state.attributes.source }}'
+  mode: single
+
+- id: '1674238101964'
+  alias: Low battery level detection & notification for all battery sensors
+  description: 'Check all battery sensors and notify when battery is low'
+  trigger:
+    - platform: time_pattern
+      hours: 1
+  condition: []
+  action:
+    - service: persistent_notification.create
+      data_template:
+        title: "Low Battery Alert"
+        message: >
+          {% set low_battery_sensors = [] %}
+          {% for state in states.sensor %}
+            {% if 'battery' in state.entity_id.lower() and state.state != 'unavailable' and state.state != 'unknown' %}
+              {% set battery_level = state.state | float %}
+              {% if battery_level < 20 %}
+                {% set low_battery_sensors = low_battery_sensors + [state.entity_id + ' (' + state.state + '%)'] %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          {% if low_battery_sensors %}
+            The following sensors have low battery levels:
+            {% for sensor in low_battery_sensors %}
+            - {{ sensor }}
+            {% endfor %}
+          {% else %}
+            All battery sensors are at acceptable levels.
+          {% endif %}
+
+- id: notify_missing_sensors
+  alias: Notify Missing Sensors
+  description: ''
+  trigger:
+    platform: state
+    entity_id: input_boolean.notify_missing_sensors
+    to: 'on'
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Missing Sensors
+      message: "{% set threshold = now().timestamp() - (14 * 86400) %} {% set missing_sensors
+        = [] %} {% for state in states.sensor if state.state == 'unavailable' and
+        state.last_updated.timestamp() < threshold %}\n    {% set missing_sensors
+        = missing_sensors + [state.entity_id] %}\n  {% endfor %} {% if missing_sensors
+        %}\n  The following sensors have not reported data in the past 2 weeks:\n
+        \ {% for entity_id in missing_sensors %}\n    - {{ entity_id }}\n  {% endfor
+        %}\n{% else %}\n  All sensors are reporting data as expected.\n{% endif %}\n"
+
+- id: track_speedtest_maximum_download
+  alias: Track SpeedTest Maximum Download
+  description: ''
+  trigger:
+  - platform: time_pattern
+    hours: 1
+  condition:
+    condition: template
+    value_template: '{{ states(''sensor.speedtest_download'') | float > states(''input_number.max_download_speed'')
+      | float }}'
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.max_download_speed
+      value: '{{ states(''sensor.speedtest_download'') }}'
+  mode: single
+
+- id: '1679255905978'
+  alias: Notify when Maccabi scores
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.tt_maccabi_fc
+    attribute: team_score
+  condition:
+  - condition: template
+    value_template: '{{ trigger.to_state.attributes.team_score | int >
+
+      (trigger.from_state.attributes.team_score | int ) }}'
+  action:
+  - service: notify.persistent_notification
+    data:
+      title: Maccabi scored!
+      message: "The live score is:\n Maccabi: {{trigger.to_state.attributes.team_score
+        | int }}\n {{trigger.to_state.attributes.opponent_name}}: {{trigger.to_state.attributes.opponent_score
+        | int }}"
+  mode: single
+
+- id: '1691776669017'
+  alias: notify PB if noip hosts were renewed
+  description: Notify Pushbullet if the number of hosts renewed by docker noip_renew
+    is above 0
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.noip_hosts_renewed
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
+    above: 0
+  condition: []
+  action:
+  - service: notify.pushbullet
+    data:
+      title: Renewed No-IP hosts
+      message: '{{states.sensor.noip_hosts_renewed.state}} hosts renewed'
+  mode: single
+
+- id: '1751295858904'
+  alias: Low Battery Notifications & Actions
+  description: ''
+  use_blueprint:
+    path: Blackshome/low-battery-notifications-and-actions.yaml
+    input:
+      time: '21:00:00'
+      battery_level: 10
+      include_easy_notify: enable_easy_okay_notify
+      include_persistent_notification: enable_persistent_okay_notification
+
+- id: '1751295966130'
+  alias: Low Battery Notifications & Actions
+  description: ''
+  use_blueprint:
+    path: Blackshome/low-battery-notifications-and-actions.yaml
+    input:
+      include_time: time_enabled
+      time: '21:00:00'
+      battery_level: 10
+      include_easy_notify: enable_easy_okay_notify
+      include_persistent_notification: enable_persistent_okay_notification
+      notify_data:
+      - sticky
+
+- id: '1751296130414'
+  alias: Notify on low batteries
+  description: From blueprint
+  use_blueprint:
+    path: Blackshome/low-battery-notifications-and-actions.yaml
+    input:
+      include_time: time_enabled
+      time: '21:00:00'
+      battery_level: 10
+      include_persistent_notification: enable_persistent_okay_notification
+      include_easy_notify: enable_easy_okay_notify
+      notify_data:
+      - sticky

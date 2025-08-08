@@ -10,6 +10,8 @@ core
 .google_maps_location_sharing.cookies.*
 GOOGLE_SERVICE_ACCOUNT*.json
 html5_push_registrations\.conf
+*_OBSOLETE
+*.yaml.backup_*
 
 # You can whitelist files/folders with !, these will not be ignored
 !*.yaml
@@ -18,6 +20,7 @@ html5_push_registrations\.conf
 !sensors/*.yaml
 !automation/*.yaml
 !ui-lovelace.BACKUP
+!secrets.yaml.sample
 
 # Ignore folders
 .vscode
@@ -33,6 +36,7 @@ www/cards
 www/github
 www/google*.html
 extraconfig
+image
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak
 ip_bans.yaml

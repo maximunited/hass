@@ -8,35 +8,35 @@
 
 ---
 # https://home-assistant.io/components/sensor.systemmonitor/
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /config
-    - type: disk_use
-      arg: /config
-    - type: memory_use_percent
-    - type: processor_use
-    - type: load_1m
-    - type: load_5m
-    - type: load_15m
-    - type: network_in
-      arg: eth0
-    - type: network_out
-      arg: eth0
-      ### Replaced by local_ip integration
-      #    - type: ipv4_address
-      #      arg: eth0
-    - type: last_boot
-    # - type: process
-    #   arg: hass
+# - platform: systemmonitor
+#   resources:
+#     - type: disk_use_percent
+#       arg: /config
+#     - type: disk_use
+#       arg: /config
+#     - type: memory_use_percent
+#     - type: processor_use
+#     - type: load_1m
+#     - type: load_5m
+#     - type: load_15m
+#     - type: network_in
+#       arg: eth0
+#     - type: network_out
+#       arg: eth0
+#       ### Replaced by local_ip integration
+#       #    - type: ipv4_address
+#       #      arg: eth0
+#     - type: last_boot
+#     # - type: process
+#     #   arg: hass
 
-- platform: uptime
+# - platform: uptime
 
-- platform: command_line
-  name: "CPU Temperature"
-  command: "cat /sys/class/thermal/thermal_zone0/temp"
-  unit_of_measurement: "°C"
-  value_template: '{{ value | multiply(0.001) | round(1) }}'
+# - platform: command_line
+#   name: "CPU Temperature"
+#   command: "cat /sys/class/thermal/thermal_zone0/temp"
+#   unit_of_measurement: "°C"
+#   value_template: '{{ value | multiply(0.001) | round(1) }}'
 
 #
 # Version
@@ -49,26 +49,26 @@
 #   source: docker
 #   image: raspberrypi3
 #   beta: false
-- platform: version
-  name: version_current
+# - platform: version
+#   name: version_current
 
 # @link https://community.home-assistant.io/t/sensor-for-latest-docker-image-versions/48745/10
-- platform: rest
-  name: docker_version_available
-  resource: 'https://registry.hub.docker.com/v2/repositories/homeassistant/raspberrypi3-homeassistant/tags'
-  value_template: >-
-    {% set results = value_json.results %}
-    {%-set res-%}
-    {%-set pipe = joiner('|')-%}
-    {% for result in results if not result.name |regex_search("^[a-z]|dev|-1",ignorecase=TRUE) -%} 
-      {{ pipe()}}{{result.name}}      
-    {% else %}        
-      -1 
-    {% endfor -%}
-    {% endset -%}
-    {% set res = res.split('|')|list -%}
-    {{res[0]}}
-  scan_interval: 1800
+# - platform: rest
+#   name: docker_version_available
+#   resource: 'https://registry.hub.docker.com/v2/repositories/homeassistant/raspberrypi3-homeassistant/tags'
+#   value_template: >-
+#     {% set results = value_json.results %}
+#     {%-set res-%}
+#     {%-set pipe = joiner('|')-%}
+#     {% for result in results if not result.name |regex_search("^[a-z]|dev|-1",ignorecase=TRUE) -%} 
+#       {{ pipe()}}{{result.name}}      
+#     {% else %}        
+#       -1 
+#     {% endfor -%}
+#     {% endset -%}
+#     {% set res = res.split('|')|list -%}
+#     {{res[0]}}
+#   scan_interval: 1800
 
 #
 # Friendly version report
@@ -91,6 +91,12 @@
         {% if version != 'unknown' %}
           Update available: {{ version }}
         {% endif %}
+
+- platform: fail2ban
+  jails:
+    - sshd
+    - hass-iptables
+    - traefik-auth
 
 # - platform: hadockermon
 #   host: 127.0.0.1

@@ -20,8 +20,8 @@ homeassistant:
 
   auth_providers:
     - type: homeassistant
-    - type: legacy_api_password
-      api_password: !secret api_password
+    # - type: legacy_api_password
+    #   api_password: !secret api_password
 
 #frontend:
   #extra_html_url: ## Depricated
@@ -29,63 +29,70 @@ homeassistant:
   #  - /local/icons/fontawesome/hass-fontawesome-regular.html
   #  - /local/icons/fontawesome/hass-fontawesome-brands.html
   #javascript_version: latest
-
+frontend:
+  extra_module_url:
+    - /local/community/custom-brand-icons/custom-brand-icons.js
+    
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
 # Updater
-updater:
+# updater:
 
 # Recorder
-recorder: !include recorder.yaml
+# recorder: !include recorder.yaml
 
 # Logger
 logger: !include logger.yaml
 
 # History
-history: !include history.yaml
+# history: !include history.yaml
 
 # Logbook
 logbook: !include logbook.yaml
 
 # Panel iFrame
-panel_iframe: !include panel_iframe.yaml
+# panel_iframe: !include panel_iframe.yaml
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
-  server_port: 8123
+  #server_port: 8123
   #base_url: !secret http_base_url
   use_x_forwarded_for: true
   trusted_proxies:
-    - 127.21.0.2      # Traefik container IP
-    - 127.19.0.2      # Traefik container IP
-      #- 127.18.0.6      # node-red container IP
+    - 172.19.0.3      # Traefik container IP
     - 192.168.1.0/24  # Local network
-  ip_ban_enabled: true
-  login_attempts_threshold: 5
+  #ip_ban_enabled: true
+  #login_attempts_threshold: 5
+
+      #media_dirs:
+      #  movies: /data/media/completed/movies
+      #  tv: /data/media/completed/tv
+      #  music: /data/media/completed/music
+      #  pics: /data/media/completed/Pics
 
 # Discover some devices automatically
-discovery:
-  ignore:
-    - apple_tv
-    - belkin_wemo
-    - bluesound
-    - bose_soundtouch
-    - enigma2
-    - frontier_silicon
-    - harmony
-    - logitech_mediaserver
-    - netgear_router
-    - octoprint
-    - openhome
-    - philips_hue
-    - sabnzbd
-    - samsung_printer
-    - sonos
-    - songpal
-    - tellstick
-    - wink
-    - yamaha
+# discovery:
+#   ignore:
+#     - apple_tv
+#     - belkin_wemo
+#     - bluesound
+#     - bose_soundtouch
+#     - enigma2
+#     - frontier_silicon
+#     - harmony
+#     - logitech_mediaserver
+#     - netgear_router
+#     - octoprint
+#     - openhome
+#     - philips_hue
+#     - sabnzbd
+#     - samsung_printer
+#     - sonos
+#     - songpal
+#     - tellstick
+#     - wink
+#     - yamaha
 
 # Zones
 zone: !include zones.yaml
@@ -106,21 +113,21 @@ binary_sensor: !include binary_sensor.yaml
 tts:
   - platform: google_translate
     service_name: google_say
-    base_url: !secret internal_url
+    # base_url: !secret internal_url
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 shell_command: !include shell_command.yaml
-timer: !include timer.yaml
+# timer: !include timer.yaml
 scene: !include scenes.yaml
 
-google_assistant: !include google_assisstant.yaml
+google_assistant: !include google_assistant.yaml
 
-google_keep:
-  username: !secret google_username
-  password: !secret google_password
-  list_name: "Grocery list"
+# google_keep:
+#   username: !secret google_username
+#   password: !secret google_password
+#   list_name: "Grocery list"
 
 # If this then that
 ifttt:
@@ -128,15 +135,15 @@ ifttt:
 
 # Shelly.cloud
 # https://github.com/StyraHem/ShellyForHASS
-shelly:
-  discovery: true
-  version: true
-  sensors:
-    - all
-  settings:
-    current_consumption: { decimals: 2 }
-  cloud_auth_key: !secret shelly_cloud_auth_key
-  cloud_server: shelly-5-eu.shelly.cloud
+# shelly:
+#   discovery: true
+#   version: true
+#   sensors:
+#     - all
+#   settings:
+#     current_consumption: { decimals: 2 }
+#   cloud_auth_key: !secret shelly_cloud_auth_key
+#   cloud_server: shelly-5-eu.shelly.cloud
 
 # SmartIR
 # https://github.com/smartHomeHub/SmartIR
@@ -165,7 +172,7 @@ climate: !include climate.yaml
 #     country: 'IL'
 
 ### https://github.com/Armaell/home-assistant-custom-icons-loader
-custom_icons:
+# custom_icons:
 
 # https://github.com/Sanderhuisman/home-assistant-custom-components#docker_monitor
 # SEEMS BROKEN
@@ -174,6 +181,7 @@ custom_icons:
 # https://github.com/ualex73/monitor_docker
 monitor_docker:
   - name: Docker
+    url: tcp://socket-proxy:2375
     rename:
       mariadb: MariaDB
       hass: Home Assistant
@@ -183,11 +191,11 @@ monitor_docker:
       oauth: OAuth
 
 # Xiomi Gateway
-xiaomi_aqara:
-  gateways:
-    - mac: !secret xiaomi_gw_mac
-      key: !secret xiaomi_gw_key
-      host: 192.168.1.193
+# xiaomi_aqara:
+#   gateways:
+#     - mac: !secret xiaomi_gw_mac
+#       key: !secret xiaomi_gw_key
+#       host: 192.168.1.193
 
 ### Yeelight
 yeelight:
@@ -227,10 +235,10 @@ input_select: !include input_select.yaml
 #  keepalive: 60
 
 #
-weather:
-  - platform: darksky
-    api_key: !secret darksky_api_key
-    mode: daily
+# weather: !include sensors/weather.yaml
+  # - platform: darksky
+  #   api_key: !secret darksky_api_key
+  #   mode: daily
 
 # HEOS - moved to UI integration
 # heos:
@@ -240,9 +248,9 @@ weather:
 #system_health:
 
 # Speed tests
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
+# speedtestdotnet:
+#   scan_interval:
+#     minutes: 30
 
 # Tuya Smart Life - Depricated in yaml
 #tuya:
@@ -253,28 +261,28 @@ speedtestdotnet:
 
 # Switcher
 # @url: https://www.home-assistant.io/integrations/switcher_kis/
-switcher_kis:
-  phone_id: "0000"
-  device_id: "bc005f"
-  device_password: "00000000"
+# switcher_kis:
+#   phone_id: "0000"
+#   device_id: "bc005f"
+#   device_password: "00000000"
 
 # Plants
 plant: !include plants.yaml
 
 # Jewish Calendar
 # @url: https://www.home-assistant.io/integrations/jewish_calendar/
-jewish_calendar:
+# jewish_calendar:
 
 # @url: https://www.home-assistant.io/integrations/wake_on_lan/
 wake_on_lan:
 
-webostv:
-  host: 192.168.1.96
-  name: LG TV
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
-    data:
-      mac: "38:8C:50:82:51:F5"
+# webostv:
+#   host: 192.168.1.96
+#   name: LG TV
+#  turn_on_action:
+#    service: wake_on_lan.send_magic_packet
+#    data:
+#      mac: "38:8C:50:82:51:F5"
 #  customize:
 #    sources:
 #      - Marantz receiver
@@ -284,30 +292,43 @@ webostv:
 #      - makoTV
 
 # Telegram Bot - does not work together with dockerbot
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api_key
-    allowed_chat_ids:
-      - !secret telegram_allowed_chat_id
+# telegram_bot:
+#   - platform: polling
+#     api_key: !secret telegram_api_key
+#     allowed_chat_ids:
+#       - !secret telegram_allowed_chat_id
+
+notify: !include notify.yaml
+
+proxmoxve:
+  - host: !secret proxmox_ip
+    username: !secret proxmox_username
+    password: !secret proxmox_password
+    verify_ssl: false
+    nodes:
+      - node: secret proxmox_node
+        vms:
+          - 100
+
 
 # Notifications (require HTTPS)
-notify:
-    # @url: https://www.home-assistant.io/integrations/html5/
-  - platform: html5
-    name: notify_html5
-    vapid_pub_key: !secret vapid_pub_key
-    vapid_prv_key: !secret vapid_prv_key
-    vapid_email: !secret vapid_email
-
-  - platform: telegram
-    name: telegram_bot
-    chat_id: !secret telegram_allowed_chat_id
+# notify:
+#     # @url: https://www.home-assistant.io/integrations/html5/
+#   - platform: html5
+#     name: notify_html5
+#     vapid_pub_key: !secret vapid_pub_key
+#     vapid_prv_key: !secret vapid_prv_key
+#     vapid_email: !secret vapid_email
+# notify:
+  # - platform: telegram
+  #   name: telegram_bot
+  #   chat_id: !secret telegram_allowed_chat_id
 
   #- platform: webostv
   #  host: 192.168.1.96
   #  name: lg_tv
   #  filename: webostv.conf
 
-  - platform: pushbullet
-    name: notify_pushbullet
-    api_key: !secret pushbullet_token
+  # - platform: pushbullet
+  #   name: notify_pushbullet
+  #   api_key: !secret pushbullet_token

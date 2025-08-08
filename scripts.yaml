@@ -1,5 +1,3 @@
----
-
 notify_ifttt_ha_started:
   alias: Notify IFTTT HA started
   sequence:
@@ -8,68 +6,145 @@ notify_ifttt_ha_started:
       value1: RPI Home HA
       value2: Test
     service: ifttt.trigger
-
-
 google_say_indoor_temperature:
   alias: Google say indoor temperature
   sequence:
-    - service: tts.google_say
-      entity_id: media_player.living_google_home
-      data_template:
-        message: >
-          {% if (states("sensor.master_bedroom_temperature")|float - states("sensor.living_room_temperature")|float ) | abs <= 2.5  -%}
-            The indoor temperature is {{((states("sensor.living_room_temperature")|float + states("sensor.master_bedroom_temperature")|float) / 2 ) | round(1) }}
-          {%- else -%}
-            The temperature in the living room is {{states("sensor.living_room_temperature") | float | round(1)}}.
-            The temperature in the master bedroom is {{states("sensor.master_bedroom_temperature") | float | round(1)}}.
-          {%- endif %}
-        cache: false
-
+  - service: tts.google_say
+    entity_id: media_player.living_google_home
+    data_template:
+      message: "{% if (states(\"sensor.master_bedroom_temperature\")|float - states(\"sensor.living_room_temperature\")|float
+        ) | abs <= 2.5  -%}\n  The indoor temperature is {{((states(\"sensor.living_room_temperature\")|float
+        + states(\"sensor.master_bedroom_temperature\")|float) / 2 ) | round(1) }}\n{%-
+        else -%}\n  The temperature in the living room is {{states(\"sensor.living_room_temperature\")
+        | float | round(1)}}.\n  The temperature in the master bedroom is {{states(\"sensor.master_bedroom_temperature\")
+        | float | round(1)}}.\n{%- endif %}\n"
+      cache: false
 main_media_hot:
   alias: Main Media HOT
   sequence:
-    - service: media_player.turn_on
-      entity_id:
-        - media_player.marantz_nr1608
-    - service: media_player.turn_on
-      entity_id:
-        - media_player.lg_tv
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.marantz_nr1608
-        source: HOT
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.lg_tv
-        source: 'Marantz receiver'
-
+  - service: media_player.turn_on
+    target:
+      entity_id: media_player.marantz_nr1608
+  - service: media_player.select_source
+    target:
+      entity_id: media_player.marantz_nr1608
+    data:
+      source: HOT
+  - service: media_player.select_source
+    target:
+      entity_id: media_player.lg_tv
+    data:
+      source: Receiver
 main_media_chromecast:
   alias: Main Media Chromecast
   sequence:
-    - service: media_player.turn_on
-      entity_id:
-        - media_player.marantz_nr1608
-    - service: media_player.turn_on
-      entity_id:
-        - media_player.living_room_chromecast
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.marantz_nr1608
-        source: 'TV Audio'
-    - service: media_player.select_source
-      data:
-        entity_id: media_player.lg_tv
-        source: 'Chromecast'
-
+  - service: media_player.turn_on
+    target:
+      entity_id: media_player.marantz_nr1608
+  - service: media_player.turn_on
+    target:
+      entity_id: media_player.living_room_chromecast
+  - service: media_player.select_source
+    target:
+      entity_id: media_player.marantz_nr1608
+    data:
+      source: TV Audio
+  - service: media_player.select_source
+    target:
+      entity_id: media_player.lg_tv
+    data:
+      source: Chromecast
+main_media_playstation:
+  alias: Main Media Playstation
+  sequence:
+  - entity_id:
+    - media_player.marantz_nr1608
+    action: media_player.turn_on
+  - data:
+      source: PlayStation
+    action: media_player.select_source
+    target:
+      entity_id: media_player.marantz_nr1608
+  - data:
+      entity_id: media_player.lg_tv
+      source: Receiver
+    action: media_player.select_source
+main_media_plex:
+  alias: Main Media Plex
+  sequence:
+  - service: media_player.turn_on
+    entity_id:
+    - media_player.marantz_nr1608
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.marantz_nr1608
+      source: TV Audio
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.lg_tv
+      source: Plex
+main_media_jellyfin:
+  alias: Main Media Jellyfin
+  sequence:
+  - service: media_player.turn_on
+    entity_id:
+    - media_player.marantz_nr1608
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.marantz_nr1608
+      source: TV Audio
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.lg_tv
+      source: Jellyfin
 main_media_off:
   alias: Main Media Off
   sequence:
-    - service: media_player.turn_off
-      entity_id:
-        - media_player.marantz_nr1608
-    - service: media_player.turn_off
-      entity_id:
-        - media_player.living_room_chromecast
-
-  
-
+  - service: media_player.turn_off
+    entity_id:
+    - media_player.marantz_nr1608
+  - service: media_player.turn_off
+    entity_id:
+    - media_player.living_room_chromecast
+remount_share_restart_plex:
+  alias: Mount Share and restart Plex
+  description: Remount /mnt/Share on main host and restart Plex docker container
+  icon: mdi:plex
+  sequence:
+  - service: shell_command.mount_share
+  - service: switch.turn_off
+    target:
+      entity_id: switch.docker_plex
+  - wait_for_trigger:
+    - platform: state
+      entity_id: switch.docker_plex
+      to: 'off'
+  - service: switch.turn_on
+    target:
+      entity_id: switch.docker_plex
+  - service: notify.notify
+    data:
+      message: Share mounted and Plex restarted
+  mode: restart
+do_nothing:
+  alias: Do Nothing
+  sequence: []
+adguard_disable_protection_for_1_hour:
+  alias: 'AdGuard: Disable Protection for 1 Hour'
+  description: Turns off AdGuard protection and automatically turns it back on after
+    60 minutes.
+  icon: mdi:shield-off-outline
+  mode: single
+  sequence:
+  - target:
+      entity_id: switch.adguard_protection
+    data: {}
+    action: switch.turn_off
+  - delay:
+      hours: 1
+      minutes: 0
+      seconds: 0
+  - target:
+      entity_id: switch.adguard_protection
+    data: {}
+    action: switch.turn_on

@@ -1,11 +1,11 @@
 # https://home-assistant.io/components/device_tracker/
 
 ---
-- platform: xiaomi
-  host: 192.168.1.1
-  password: !secret router_pass
-  new_device_defaults:
-    track_new_devices: true
+# - platform: xiaomi
+#   host: 192.168.1.1
+#   password: !secret router_pass
+#   new_device_defaults:
+#     track_new_devices: true
 
 # - platform: bluetooth_le_tracker
 #   track_new_devices: true
@@ -16,9 +16,9 @@
 #   password: !secret google_maps_password
 #   max_gps_accuracy: 200
 
-- platform: ping
-  hosts:
-    miwifi_router: 192.168.1.1
+# - platform: ping
+#  hosts:
+#    miwifi_router: 192.168.1.1
 #     rmproplus: 192.168.1.15
 #     google_home: 192.168.1.47
 #     jbl_link: 192.168.1.48

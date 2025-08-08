@@ -16,6 +16,8 @@ default: warn
 logs:
   root: warn
   homeassistant.core: error
+  homeassistant.loader: debug
+  homeassistant.util.package: debug
   homeassistant.components.automation: debug
   homeassistant.components.binary_sensor: error
   homeassistant.components.device_tracker: error
@@ -25,4 +27,8 @@ logs:
   custom_components.hacs: warn
   yeelight: info
   switcher_kis: warn
-
+  custom_components.miwifi: debug
+  custom_components.iec: debug
+  iec_api: debug
+  google_assistant: debug
+  miwifi: debug

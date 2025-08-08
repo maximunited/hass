@@ -1,1095 +1,225 @@
 {
-    "data": {
-        "deleted_devices": [],
-        "devices": [
-            {
-                "area_id": "9b8a3bfa3c564b199f6dae6a8def02c4",
-                "config_entries": [
-                    "bd02fca5759948e98763affa7937425f"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "a8c4c00b458344ecbb215f60e0059486",
-                "identifiers": [
-                    [
-                        "cast",
-                        "e0a93a3d2602e4b46a07c8f86abf7ff4"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "JBL Link 10",
-                "name": "Master Bedroom speaker",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
-                "config_entries": [
-                    "bd02fca5759948e98763affa7937425f"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "33e49912cab048808ef313f8fc57d939",
-                "identifiers": [
-                    [
-                        "cast",
-                        "280965cb4e37e3c7ee08472256cba842"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Chromecast",
-                "name": "Living room Chromecast",
-                "name_by_user": "Living room Chromecast",
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
-                "config_entries": [
-                    "bd02fca5759948e98763affa7937425f"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "496d56ef1a2b4abd9b5c9567f30c0d12",
-                "identifiers": [
-                    [
-                        "cast",
-                        "3f0951a3b9ee1449104e8699446c1fa7"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Google Home",
-                "name": "Living Google home",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
-                "config_entries": [
-                    "f2fec5185af0435c81ab2c880b5762e9"
-                ],
-                "connections": [
-                    [
-                        "upnp",
-                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "5c0f6f1da42e4600b1addd003c45f368",
-                "identifiers": [
-                    [
-                        "upnp",
-                        "uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95"
-                    ]
-                ],
-                "manufacturer": "Xiaomi",
-                "model": "MiWiFi Router",
-                "name": "MiWiFi router",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": "cb05ec77df534538a102c687dbd1ab04",
-                "config_entries": [
-                    "bd02fca5759948e98763affa7937425f"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "c98002abfcb14ea5b080de28966d199c",
-                "identifiers": [
-                    [
-                        "cast",
-                        "bc676789499c2fbfa0f9b1173602988b"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Chromecast",
-                "name": "Bedroom Chromecast",
-                "name_by_user": "Bedroom Chromecast",
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "bd02fca5759948e98763affa7937425f"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "77d5acd7a6394cc5a22bb0478ac6bd6a",
-                "identifiers": [
-                    [
-                        "cast",
-                        "04f197c643f30999b21899770d9dae00"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Google Home Mini",
-                "name": "Living Room Google mini",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "49e35be373604abf9af09d4e9f93578a",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "73C9F8"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly 2.5",
-                "name": "Office - Office blinds",
-                "name_by_user": null,
-                "sw_version": "1.7.0 (200601)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "d4bf8f73a1954113b00ca790cf558945",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "73FD26"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly 2.5",
-                "name": "Master Bedroom - North blinds",
-                "name_by_user": null,
-                "sw_version": "1.7.0 (200601)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "9e72714885d346a7aeff46f1f1533c2a",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "E4CDAF"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly 2.5",
-                "name": "Kids bedroom - Kids blinds",
-                "name_by_user": null,
-                "sw_version": "1.7.0 (200601)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "5e6b101944414c7a8fc36834d270fb5a",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "E6292B"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly 2.5",
-                "name": "Master Bedroom - West blinds",
-                "name_by_user": null,
-                "sw_version": "1.7.0 (200601)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "82e9f110f821480cb184d2339db4b966",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "version"
-                    ]
-                ],
-                "manufacturer": "StyraHem.se",
-                "model": "0.1.9",
-                "name": "ShellyForHASS",
-                "name_by_user": null,
-                "sw_version": "0.1.9",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "ca9a78e955cd406d9d767d72bf3027b7",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "76B5AC"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly 1 PM",
-                "name": "Bathroom - Washing machine",
-                "name_by_user": null,
-                "sw_version": "1.7.0 (200601)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "fb18be2ee77b4613a79c214fe8c77106",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "76B745"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly 1 PM",
-                "name": "Bathroom - Dryer",
-                "name_by_user": null,
-                "sw_version": "1.7.0 (200601)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "b3aa6b039a26468eb9754bc44bdfc2da",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "DB3904"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly Dimmer",
-                "name": "Living Room - Balcony light",
-                "name_by_user": null,
-                "sw_version": "1.7.0 (200601)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "08c397aa657746a28c89fc0c1d2b4491"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "e121014bd4fe44f2aa63bab1dc28b1ba",
-                "identifiers": [
-                    [
-                        "tuya",
-                        "tuya.03783133cc50e31418c2"
-                    ]
-                ],
-                "manufacturer": "Smart Life",
-                "model": "switch",
-                "name": "media socket",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "08c397aa657746a28c89fc0c1d2b4491"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "250cdfb3ddf14bcab9edee9e93ab5bd7",
-                "identifiers": [
-                    [
-                        "tuya",
-                        "tuya.03783133cc50e314207d"
-                    ]
-                ],
-                "manufacturer": "Smart Life",
-                "model": "switch",
-                "name": "disconnected socket (prev. shower heater)",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": "02a3a8d795b04cc98a2b2f36541df1ab",
-                "config_entries": [
-                    "dc7a1af2b6fe4a3597d15ce97d519b02"
-                ],
-                "connections": [
-                    [
-                        "mac",
-                        "00:05:cd:ae:c1:bc"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "386f78cca45a4befbef2620bdabda389",
-                "identifiers": [
-                    [
-                        "denonavr",
-                        "Marantz NR1608-APR36180310433"
-                    ]
-                ],
-                "manufacturer": "Marantz",
-                "model": "Marantz NR1608-avr-x-2016",
-                "name": "Marantz NR1608",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "230e41b850e246c59365561b869c42d5",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "04:cf:8c:91:61:07"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "gateway",
-                "name": "Xiaomi Aqara Gateway",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00033ace24"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "eee2bdc3f21d4c7b8a0caa35590cd20f",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00033ace24"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_magnet.aq2",
-                "name": "sensor_magnet.aq2_158d00033ace24",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00033ab6fb"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "2cdf100036eb415db14721c4974453a3",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00033ab6fb"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_magnet.aq2",
-                "name": "sensor_magnet.aq2_158d00033ab6fb",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0003217f17"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "cec8bac2f5974b86886a6f87de5b6f4d",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0003217f17"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_magnet.aq2",
-                "name": "sensor_magnet.aq2_158d0003217f17",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00031e8cb9"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "1a131996f7e34488805e358101b1db85",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00031e8cb9"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_magnet.aq2",
-                "name": "sensor_magnet.aq2_158d00031e8cb9",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0002834d4a"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "7d70724216c74d9cbc8969be432aded3",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0002834d4a"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_wleak.aq1",
-                "name": "sensor_wleak.aq1_158d0002834d4a",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0002832a4f"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "da9b1345560545699bac4c7ce2362fab",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0002832a4f"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_wleak.aq1",
-                "name": "sensor_wleak.aq1_158d0002832a4f",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0002834251"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "9b355fe7df944864978e4350d229d33d",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0002834251"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_wleak.aq1",
-                "name": "sensor_wleak.aq1_158d0002834251",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00032c8220"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "313c7ac49b2f4b219b88ec3f94076849",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00032c8220"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "motion",
-                "name": "motion_158d00032c8220",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00032c72a3"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "5602382c32d64e1088a8a72c48b65869",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00032c72a3"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "motion",
-                "name": "motion_158d00032c72a3",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00032c942c"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "bf37a8dd9267459c8d7ce47ec96f7945",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00032c942c"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "motion",
-                "name": "motion_158d00032c942c",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0002b5f380"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "8dfff9fa9d5742dc9a0c1cdf9309df7f",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0002b5f380"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "vibration",
-                "name": "vibration_158d0002b5f380",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0003131afb"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "24934e8f20bc43a4a5f1cfc772ec59d3",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0003131afb"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "remote.b186acn01",
-                "name": "remote.b186acn01_158d0003131afb",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00032c9328"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "ee9f6ffeafc246d582ea0ba43db9053d",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00032c9328"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "motion",
-                "name": "motion_158d00032c9328",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d000397374d"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "c86ad82fd15a4307b691093f48c501db",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d000397374d"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_magnet.aq2",
-                "name": "sensor_magnet.aq2_158d000397374d",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0003eef105"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "0cc91b3eed154f378ec1190c312b2b77",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0003eef105"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_magnet.aq2",
-                "name": "sensor_magnet.aq2_158d0003eef105",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0003f1cf6f"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "472901c379314d0095f359dcd280df04",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0003f1cf6f"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_magnet.aq2",
-                "name": "sensor_magnet.aq2_158d0003f1cf6f",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00044ab446"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "8254eec6c418464aa0320ad272d11f22",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00044ab446"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_magnet.aq2",
-                "name": "sensor_magnet.aq2_158d00044ab446",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0004240a56"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "0a7612ae6a8a4e658498388cf7070b62",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0004240a56"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "sensor_magnet.aq2",
-                "name": "sensor_magnet.aq2_158d0004240a56",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0003230514"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "a32eb1076a5f4baa8a32418f2cfd2210",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0003230514"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "weather.v1",
-                "name": "weather.v1_158d0003230514",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d0003230480"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "7ca9a36ded264972a2ce6e2ebaed84fb",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d0003230480"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "weather.v1",
-                "name": "weather.v1_158d0003230480",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00036b2197"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "86500d149ea1464ab2c967a1ca1b6cb4",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00036b2197"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "weather.v1",
-                "name": "weather.v1_158d00036b2197",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "f106f76ecadf47368cca59ec80b0cc71"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "158d00034d1b50"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "ca38e075d09e4ab1b1aeec50c6c942d4",
-                "identifiers": [
-                    [
-                        "xiaomi_aqara",
-                        "158d00034d1b50"
-                    ]
-                ],
-                "manufacturer": "Xiaomi Aqara",
-                "model": "weather.v1",
-                "name": "weather.v1_158d00034d1b50",
-                "name_by_user": null,
-                "sw_version": "1.1.2",
-                "via_device_id": "230e41b850e246c59365561b869c42d5"
-            },
-            {
-                "area_id": "cb05ec77df534538a102c687dbd1ab04",
-                "config_entries": [
-                    "fede64859c2a42ea8527351cd5d61db1"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "fe189654d49b41b7a6b121b64d1b89b4",
-                "identifiers": [
-                    [
-                        "samsungtv",
-                        "0a21fe80-00aa-1000-a87f-0c891030e463"
-                    ]
-                ],
-                "manufacturer": "Samsung Electronics",
-                "model": "UA32F5300",
-                "name": "Samsung UA32F5300",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "6cbe0ffb112c4725b7bf5d470d613f64",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "A4CF12F3CA7F"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly 1 PM",
-                "name": "Shower - Shower heater",
-                "name_by_user": null,
-                "sw_version": "1.7.0 (200601)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "8a85cf262ec245659b3cc3f18756b90e",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "A4CF12F43AE7"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly 1 PM",
-                "name": "Kitchen - Dishwasher",
-                "name_by_user": null,
-                "sw_version": "1.7.0 (200601)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "019837556e7f4dc8a63612f7843a1cd3",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "E09806950FD2"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly Dimmer 2",
-                "name": "Living Room - Entry light",
-                "name_by_user": null,
-                "sw_version": "1.8.0 (200812)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "062352f4753947bd8e790408a1530907"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "105e077be7e54200b519d462221ab04b",
-                "identifiers": [
-                    [
-                        "shelly",
-                        "E09806950634"
-                    ]
-                ],
-                "manufacturer": "Allterco",
-                "model": "Shelly Dimmer 2",
-                "name": "Master Bedroom - Master bedroom hall light",
-                "name_by_user": null,
-                "sw_version": "1.7.6 (200716)",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "40c23009b5de4632ac10e6a02923f8cb"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "eba3c5a7ab1f4cd7abe5ca4f696f2f12",
-                "identifiers": [
-                    [
-                        "hacs",
-                        "0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd"
-                    ]
-                ],
-                "manufacturer": "hacs.xyz",
-                "model": "",
-                "name": "HACS",
-                "name_by_user": null,
-                "sw_version": "1.3.3",
-                "via_device_id": null
-            }
-        ]
-    },
-    "key": "core.device_registry",
-    "version": 1
+  "version": 1,
+  "minor_version": 10,
+  "key": "core.device_registry",
+  "data": {
+    "devices": [
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYMCXEGABCQM2XSY75QWA91Z"],"config_entries_subentries":{"01JYMCXEGABCQM2XSY75QWA91Z":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"209a574286af61d07d37fdb6dbb6e5c4","identifiers":[["webostv","79f364df-f381-ea19-73ee-e4c940bb9f5c"]],"labels":[],"manufacturer":"LG","model":"KEY0000003F","model_id":null,"modified_at":"2025-06-29T07:08:36.560387+00:00","name_by_user":null,"name":"LG webOS TV KEY0000003F","primary_config_entry":"01JYMCXEGABCQM2XSY75QWA91Z","serial_number":null,"sw_version":"04.06.75","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMEP2TNJYTVEX1YPBGYC0E2"],"config_entries_subentries":{"01JYMEP2TNJYTVEX1YPBGYC0E2":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"b21f20c91681ecf5569f8e6a4a8cffea","identifiers":[["sun","01JYMEP2TNJYTVEX1YPBGYC0E2"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:08:30.095254+00:00","name_by_user":null,"name":"Sun","primary_config_entry":"01JYMEP2TNJYTVEX1YPBGYC0E2","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYMD1ZHECCSKPZYCY1PRE9YS","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null],"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":null,"connections":[["mac","04:cf:8c:91:61:07"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"230e41b850e246c59365561b869c42d5","identifiers":[["xiaomi_aqara","04:cf:8c:91:61:07"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-04:CF:8C:91:61:07"]],"labels":[],"manufacturer":"XIAOMI Electronics,CO.,LTD","model":"gateway","model_id":null,"modified_at":"2025-08-06T19:34:29.152373+00:00","name_by_user":null,"name":"MIJIA Xiaomi Gateway","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00033ace24"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"eee2bdc3f21d4c7b8a0caa35590cd20f","identifiers":[["xiaomi_aqara","158d00033ace24"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.300302+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d00033ace24","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00033ab6fb"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"2cdf100036eb415db14721c4974453a3","identifiers":[["xiaomi_aqara","158d00033ab6fb"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.300844+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d00033ab6fb","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0003217f17"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"cec8bac2f5974b86886a6f87de5b6f4d","identifiers":[["xiaomi_aqara","158d0003217f17"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.301339+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d0003217f17","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00031e8cb9"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"1a131996f7e34488805e358101b1db85","identifiers":[["xiaomi_aqara","158d00031e8cb9"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.301909+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d00031e8cb9","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0004616c29"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"f7c10de8186017ebe71de5a09f59c4af","identifiers":[["xiaomi_aqara","158d0004616c29"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.302215+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d0004616c29","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0002834d4a"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"7d70724216c74d9cbc8969be432aded3","identifiers":[["xiaomi_aqara","158d0002834d4a"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_wleak.aq1","model_id":null,"modified_at":"2025-06-29T07:08:36.302602+00:00","name_by_user":null,"name":"sensor_wleak.aq1_158d0002834d4a","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0002832a4f"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"da9b1345560545699bac4c7ce2362fab","identifiers":[["xiaomi_aqara","158d0002832a4f"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_wleak.aq1","model_id":null,"modified_at":"2025-06-29T07:08:36.302996+00:00","name_by_user":null,"name":"sensor_wleak.aq1_158d0002832a4f","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0002834251"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"9b355fe7df944864978e4350d229d33d","identifiers":[["xiaomi_aqara","158d0002834251"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_wleak.aq1","model_id":null,"modified_at":"2025-06-29T07:08:36.303275+00:00","name_by_user":null,"name":"sensor_wleak.aq1_158d0002834251","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00032c8220"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"313c7ac49b2f4b219b88ec3f94076849","identifiers":[["xiaomi_aqara","158d00032c8220"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"motion","model_id":null,"modified_at":"2025-06-29T07:08:36.303909+00:00","name_by_user":null,"name":"motion_158d00032c8220","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00032c72a3"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"5602382c32d64e1088a8a72c48b65869","identifiers":[["xiaomi_aqara","158d00032c72a3"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"motion","model_id":null,"modified_at":"2025-06-29T07:08:36.304237+00:00","name_by_user":null,"name":"motion_158d00032c72a3","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00032c942c"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"bf37a8dd9267459c8d7ce47ec96f7945","identifiers":[["xiaomi_aqara","158d00032c942c"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"motion","model_id":null,"modified_at":"2025-06-29T07:08:36.304589+00:00","name_by_user":null,"name":"motion_158d00032c942c","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0002b5f380"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"8dfff9fa9d5742dc9a0c1cdf9309df7f","identifiers":[["xiaomi_aqara","158d0002b5f380"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"vibration","model_id":null,"modified_at":"2025-06-29T07:08:36.304949+00:00","name_by_user":null,"name":"vibration_158d0002b5f380","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0003131afb"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"24934e8f20bc43a4a5f1cfc772ec59d3","identifiers":[["xiaomi_aqara","158d0003131afb"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"remote.b186acn01","model_id":null,"modified_at":"2025-06-29T07:08:36.306010+00:00","name_by_user":null,"name":"remote.b186acn01_158d0003131afb","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00032c9328"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"ee9f6ffeafc246d582ea0ba43db9053d","identifiers":[["xiaomi_aqara","158d00032c9328"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"motion","model_id":null,"modified_at":"2025-06-29T07:08:36.306330+00:00","name_by_user":null,"name":"motion_158d00032c9328","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d000397374d"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"c86ad82fd15a4307b691093f48c501db","identifiers":[["xiaomi_aqara","158d000397374d"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.306718+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d000397374d","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0003eef105"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"0cc91b3eed154f378ec1190c312b2b77","identifiers":[["xiaomi_aqara","158d0003eef105"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.307036+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d0003eef105","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0003f1cf6f"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"472901c379314d0095f359dcd280df04","identifiers":[["xiaomi_aqara","158d0003f1cf6f"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.307330+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d0003f1cf6f","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":"825ba0d33f2347acb290b28d64ee1380","config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00044ab446"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"8254eec6c418464aa0320ad272d11f22","identifiers":[["xiaomi_aqara","158d00044ab446"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-07-05T12:40:08.792679+00:00","name_by_user":"Washing Machine door","name":"sensor_magnet.aq2_158d00044ab446","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0004240a56"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"0a7612ae6a8a4e658498388cf7070b62","identifiers":[["xiaomi_aqara","158d0004240a56"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.307945+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d0004240a56","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00044f5c5a"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"22425dfb1fdbe699d939094a7045a8ec","identifiers":[["xiaomi_aqara","158d00044f5c5a"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.308248+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d00044f5c5a","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":"201677eb13464e9fb1676b170e13e301","config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d000456ce96"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"008e31d4d24db6fb3e1cb6c4f142dcbf","identifiers":[["xiaomi_aqara","158d000456ce96"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-07-05T12:43:48.013276+00:00","name_by_user":"Dishwasher door","name":"sensor_magnet.aq2_158d000456ce96","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d000461d7b0"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"15e7430d2ee3728c88798f5a7564de8e","identifiers":[["xiaomi_aqara","158d000461d7b0"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_magnet.aq2","model_id":null,"modified_at":"2025-06-29T07:08:36.309698+00:00","name_by_user":null,"name":"sensor_magnet.aq2_158d000461d7b0","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0009e12ea4"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"4bd42c6c848339f248d2ef0398b04d88","identifiers":[["xiaomi_aqara","158d0009e12ea4"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_wleak.aq1","model_id":null,"modified_at":"2025-06-29T07:08:36.310018+00:00","name_by_user":null,"name":"sensor_wleak.aq1_158d0009e12ea4","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0009e177b0"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"54b225e3166815e8d8a63991952573b2","identifiers":[["xiaomi_aqara","158d0009e177b0"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_wleak.aq1","model_id":null,"modified_at":"2025-06-29T07:08:36.310338+00:00","name_by_user":null,"name":"sensor_wleak.aq1_158d0009e177b0","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0009e17dda"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"8ba4638d285d59b9dbbd5b0c47b82cfe","identifiers":[["xiaomi_aqara","158d0009e17dda"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"sensor_wleak.aq1","model_id":null,"modified_at":"2025-06-29T07:08:36.310835+00:00","name_by_user":null,"name":"sensor_wleak.aq1_158d0009e17dda","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0003230514"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"a32eb1076a5f4baa8a32418f2cfd2210","identifiers":[["xiaomi_aqara","158d0003230514"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"weather.v1","model_id":null,"modified_at":"2025-06-29T07:08:36.512316+00:00","name_by_user":null,"name":"weather.v1_158d0003230514","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d0003230480"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"7ca9a36ded264972a2ce6e2ebaed84fb","identifiers":[["xiaomi_aqara","158d0003230480"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"weather.v1","model_id":null,"modified_at":"2025-06-29T07:08:36.513252+00:00","name_by_user":null,"name":"weather.v1_158d0003230480","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMD1ZHECCSKPZYCY1PRE9YS"],"config_entries_subentries":{"01JYMD1ZHECCSKPZYCY1PRE9YS":[null]},"configuration_url":null,"connections":[["zigbee","158d00034d1b50"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"ca38e075d09e4ab1b1aeec50c6c942d4","identifiers":[["xiaomi_aqara","158d00034d1b50"]],"labels":[],"manufacturer":"Xiaomi Aqara","model":"weather.v1","model_id":null,"modified_at":"2025-06-29T07:08:36.514063+00:00","name_by_user":null,"name":"weather.v1_158d00034d1b50","primary_config_entry":"01JYMD1ZHECCSKPZYCY1PRE9YS","serial_number":null,"sw_version":"1.1.2","via_device_id":"230e41b850e246c59365561b869c42d5"},
+      {"area_id":null,"config_entries":["01JYMEP31217V12B2Y8BRQMDC5"],"config_entries_subentries":{"01JYMEP31217V12B2Y8BRQMDC5":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"6be59ba7775d81b2d9794c9971f90167","identifiers":[["yeelight","0x000000000456ac00"]],"labels":[],"manufacturer":"Yeelight","model":"stripe","model_id":null,"modified_at":"2025-08-06T19:33:33.282571+00:00","name_by_user":null,"name":"Peninsula light","primary_config_entry":"01JYMEP31217V12B2Y8BRQMDC5","serial_number":null,"sw_version":"50","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMEP2XPE5KHQ96JZ8GKE9C9"],"config_entries_subentries":{"01JYMEP2XPE5KHQ96JZ8GKE9C9":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"b15eba030db1a53efec6e1979cd7dc84","identifiers":[["yeelight","0x0000000007e72d81"]],"labels":[],"manufacturer":"Yeelight","model":"color","model_id":null,"modified_at":"2025-07-23T20:23:04.964717+00:00","name_by_user":null,"name":"Office light","primary_config_entry":"01JYMEP2XPE5KHQ96JZ8GKE9C9","serial_number":null,"sw_version":"65","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMEP2WKSF2106MMSV9Y38Q9"],"config_entries_subentries":{"01JYMEP2WKSF2106MMSV9Y38Q9":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"d2febe674ff97035bb7cd06b5bc3b10d","identifiers":[["yeelight","0x0000000007e7504b"]],"labels":[],"manufacturer":"Yeelight","model":"color","model_id":null,"modified_at":"2025-08-06T19:33:39.956643+00:00","name_by_user":null,"name":"Storage light","primary_config_entry":"01JYMEP2WKSF2106MMSV9Y38Q9","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMEP2ZG94QQWJNP86FA6E9F"],"config_entries_subentries":{"01JYMEP2ZG94QQWJNP86FA6E9F":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"2708d5bf6a2ae6e802a065b562e2b380","identifiers":[["yeelight","0x0000000005e30519"]],"labels":[],"manufacturer":"Yeelight","model":"stripe","model_id":null,"modified_at":"2025-08-06T09:24:03.891670+00:00","name_by_user":null,"name":"Stove light","primary_config_entry":"01JYMEP2ZG94QQWJNP86FA6E9F","serial_number":null,"sw_version":"50","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMEPF1KEQ3B2HV3953JBHSK"],"config_entries_subentries":{"01JYMEPF1KEQ3B2HV3953JBHSK":[null]},"configuration_url":"homeassistant://config/backup","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"d3b728f56dfb3a822899f2e8bcb876c4","identifiers":[["backup","backup_manager"]],"labels":[],"manufacturer":"Home Assistant","model":"Home Assistant Backup","model_id":null,"modified_at":"2025-07-29T15:16:54.504347+00:00","name_by_user":null,"name":"Backup","primary_config_entry":"01JYMEPF1KEQ3B2HV3953JBHSK","serial_number":null,"sw_version":"2025.7.4","via_device_id":null},
+      {"area_id":"825ba0d33f2347acb290b28d64ee1380","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYMERXED0PTCWZSF44KG2ZVN"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYMERXED0PTCWZSF44KG2ZVN":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":null,"connections":[["mac","dc:4f:22:60:d0:46"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"92749ddfeaac2e3caf89d633f77fe1ab","identifiers":[["switcher_kis","bc005f"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-DC:4F:22:60:D0:46"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Switcher Touch","model_id":null,"modified_at":"2025-08-06T19:34:29.131827+00:00","name_by_user":null,"name":"Switcher - Boiler","primary_config_entry":"01JYMERXED0PTCWZSF44KG2ZVN","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMEZ51AN9CZHD9TGDV0GZVV"],"config_entries_subentries":{"01JYMEZ51AN9CZHD9TGDV0GZVV":[null]},"configuration_url":"https://www.speedtest.net/","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"fc5a5e285d0700fa1cb12624f34c047c","identifiers":[["speedtestdotnet","01JYMEZ51AN9CZHD9TGDV0GZVV"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:08:34.059431+00:00","name_by_user":null,"name":"SpeedTest","primary_config_entry":"01JYMEZ51AN9CZHD9TGDV0GZVV","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMF6GPYED6MJBP90TW1BC0J"],"config_entries_subentries":{"01JYMF6GPYED6MJBP90TW1BC0J":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"b920d4b6f5be5ad182aff9e7ffe19750","identifiers":[["uptime","01JYMF6GPYED6MJBP90TW1BC0J"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:08:34.024023+00:00","name_by_user":null,"name":"Uptime","primary_config_entry":"01JYMF6GPYED6MJBP90TW1BC0J","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMFB7KGXADFTFNPZVDY95SY"],"config_entries_subentries":{"01JYMFB7KGXADFTFNPZVDY95SY":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"70bfd5dd0de5ad883a1115588cc58d21","identifiers":[["workday","01JYMFB7KGXADFTFNPZVDY95SY"]],"labels":[],"manufacturer":"python-holidays","model":"0.75","model_id":null,"modified_at":"2025-07-05T10:59:55.803125+00:00","name_by_user":null,"name":"Workday Sensor","primary_config_entry":"01JYMFB7KGXADFTFNPZVDY95SY","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYMFDK405WQ7E6YPVBGPN9T6"],"config_entries_subentries":{"01JYMFDK405WQ7E6YPVBGPN9T6":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":"user","entry_type":null,"hw_version":null,"id":"cbe42ff447653c4209a42785a0985e83","identifiers":[["heos","-1108368564"]],"labels":[],"manufacturer":"Marantz","model":"NR1608","model_id":null,"modified_at":"2025-07-05T10:59:54.033125+00:00","name_by_user":null,"name":"Marantz NR1608","primary_config_entry":"01JYMFDK405WQ7E6YPVBGPN9T6","serial_number":"APR36180310433","sw_version":"3.67.460","via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYMFGK3Z09Q4GDD2T56CNWY3"],"config_entries_subentries":{"01JYMFGK3Z09Q4GDD2T56CNWY3":[null]},"configuration_url":"http://192.168.1.3/","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"avr-x-2016","id":"386f78cca45a4befbef2620bdabda389","identifiers":[["denonavr","Marantz NR1608-APR36180310433"]],"labels":[],"manufacturer":"Marantz","model":"Marantz NR1608","model_id":null,"modified_at":"2025-06-29T07:08:34.066419+00:00","name_by_user":null,"name":"Marantz NR1608","primary_config_entry":"01JYMFGK3Z09Q4GDD2T56CNWY3","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYMFHCZHAPJR2RE7FFQ4M2C8"],"config_entries_subentries":{"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JYMFHCZHAPJR2RE7FFQ4M2C8":[null]},"configuration_url":null,"connections":[["upnp","uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95"],["mac","ec:41:18:03:08:e3"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"5c0f6f1da42e4600b1addd003c45f368","identifiers":[["upnp_host","192.168.1.1"],["upnp_serial_number","00000000"],["upnp","uuid:98383136-b13b-4ce3-bbc6-d51d0b29ff95::urn:schemas-upnp-org:device:InternetGatewayDevice:1"]],"labels":[],"manufacturer":"Xiaomi","model":"MiWiFi Router","model_id":null,"modified_at":"2025-08-06T19:33:30.953341+00:00","name_by_user":null,"name":"MiWiFi router","primary_config_entry":"01JYMFHCZHAPJR2RE7FFQ4M2C8","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMFSQHC914Q7GV0PHR7GZP1"],"config_entries_subentries":{"01JYMFSQHC914Q7GV0PHR7GZP1":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"72cd05cfdf00b05bce7b061fa8ff2f95","identifiers":[["systemmonitor","01JYMFSQHC914Q7GV0PHR7GZP1"]],"labels":[],"manufacturer":"System Monitor","model":null,"model_id":null,"modified_at":"2025-06-29T07:08:34.549871+00:00","name_by_user":null,"name":"System Monitor","primary_config_entry":"01JYMFSQHC914Q7GV0PHR7GZP1","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMFY0TDHZEVK3MSYXEFP3KC","01JYMFXDH48S1DGDB1CJPFC07N","01JYMFX5ZSX7EAR8M49HJXQ729"],"config_entries_subentries":{"01JYMFXDH48S1DGDB1CJPFC07N":[null],"01JYMFY0TDHZEVK3MSYXEFP3KC":[null],"01JYMFX5ZSX7EAR8M49HJXQ729":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"7cd7a9629cec0c0a3d15ce6ebe325a5d","identifiers":[["Home Assistant","version"]],"labels":[],"manufacturer":"Home Assistant","model":null,"model_id":null,"modified_at":"2025-06-29T07:08:34.047049+00:00","name_by_user":null,"name":"Home Assistant Version","primary_config_entry":"01JYMFXDH48S1DGDB1CJPFC07N","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"eba3c5a7ab1f4cd7abe5ca4f696f2f12","identifiers":[["hacs","0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd"]],"labels":[],"manufacturer":"hacs.xyz","model":"","model_id":null,"modified_at":"2025-06-29T07:08:36.547224+00:00","name_by_user":null,"name":"HACS","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":"2.0.5","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/223993584","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"0d8610d0034a2706bf24ae9527b98a93","identifiers":[["hacs","223993584"]],"labels":[],"manufacturer":"Ernst79, myhomeiot","model":"integration","model_id":null,"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"name":"Passive BLE monitor integration","primary_config_entry":null,"serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/366862031","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"636a86274f3db25d403d52df657859c0","identifiers":[["hacs","366862031"]],"labels":[],"manufacturer":"elax46","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:14:45.271201+00:00","name_by_user":null,"name":"Custom brand icons","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/272140589","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"02524c0d0d56b93f678fae6e17cd92c2","identifiers":[["hacs","272140589"]],"labels":[],"manufacturer":"ualex73","model":"integration","model_id":null,"modified_at":"2025-07-05T11:39:09.530791+00:00","name_by_user":null,"name":"Monitor Docker","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZKGW03XDGD2QPPVH42TG2M7","01JYMJ5KVE02S77KGRVYSJHCES"],"config_entries_subentries":{"01JYMJ5KVE02S77KGRVYSJHCES":[null],"01JZKGW03XDGD2QPPVH42TG2M7":[null]},"configuration_url":"https://www.waze.com","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"f7e913460f3917cab2006afc454e61f3","identifiers":[["waze_travel_time","waze_travel_time"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-07-07T22:45:19.041206+00:00","name_by_user":"Waze travel time","name":"Waze","primary_config_entry":"01JZKGW03XDGD2QPPVH42TG2M7","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYMJBFC5CRD8443HVBYYAHJD"],"config_entries_subentries":{"01JYMJBFC5CRD8443HVBYYAHJD":[null]},"configuration_url":null,"connections":[["ip","192.168.1.205"],["ip","192.168.1.206"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"52fb32ac68e48294826fa55c062b5bfa","identifiers":[["mqtt","78C881F5036A"]],"labels":[],"manufacturer":"Sony","model":"Playstation 5","model_id":null,"modified_at":"2025-07-31T07:47:06.018491+00:00","name_by_user":null,"name":"PS5-728","primary_config_entry":"01JYMJBFC5CRD8443HVBYYAHJD","serial_number":null,"sw_version":"11600005","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMJH7W6HJ07JXF8WAG0FB02"],"config_entries_subentries":{"01JYMJH7W6HJ07JXF8WAG0FB02":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"00d77a0be0f0adf7b1f6510bbc74db7c","identifiers":[["dnsip","myip.opendns.com"]],"labels":[],"manufacturer":"DNS","model":"3.5.0","model_id":null,"modified_at":"2025-07-05T10:59:54.204092+00:00","name_by_user":null,"name":"myip","primary_config_entry":"01JYMJH7W6HJ07JXF8WAG0FB02","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMJJ2N5X7JJ1XVH3GWC6KQ5"],"config_entries_subentries":{"01JYMJJ2N5X7JJ1XVH3GWC6KQ5":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"95a05c970d87b8290297c7bfbfe41f49","identifiers":[["dnsip","hass.malter.duckdns.org"]],"labels":[],"manufacturer":"DNS","model":"3.5.0","model_id":null,"modified_at":"2025-07-05T10:59:54.211752+00:00","name_by_user":null,"name":"hass.malter.duckdns.org","primary_config_entry":"01JYMJJ2N5X7JJ1XVH3GWC6KQ5","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMJRF5PXJ5KXR23KTKY9VVB"],"config_entries_subentries":{"01JYMJRF5PXJ5KXR23KTKY9VVB":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"32387c26d9a7af8ced152344cf8a7fd8","identifiers":[["pushbullet","ujvsGRVk4qa"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:08:34.795891+00:00","name_by_user":null,"name":"Pushbullet","primary_config_entry":"01JYMJRF5PXJ5KXR23KTKY9VVB","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYMJWB9RNNE3D1Q4DEGDG92B","01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JYMJWB9RNNE3D1Q4DEGDG92B":[null]},"configuration_url":null,"connections":[["mac","34:ea:34:42:d7:58"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"7a2e0dee71c8a4e791f6243cc7c792ae","identifiers":[["broadlink","34ea3442d758"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-34:EA:34:42:D7:58"]],"labels":[],"manufacturer":"HangZhou Gubei Electronics Technology Co.,Ltd","model":"RM pro+","model_id":null,"modified_at":"2025-08-06T19:34:29.115494+00:00","name_by_user":null,"name":"RMPROPLUS-42-d7-58","primary_config_entry":"01JYMJWB9RNNE3D1Q4DEGDG92B","serial_number":null,"sw_version":56,"via_device_id":null},
+      {"area_id":"9b8a3bfa3c564b199f6dae6a8def02c4","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYMJXDESBYHMMXKXAWKTT818","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYMJXDESBYHMMXKXAWKTT818":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":null,"connections":[["mac","c8:f7:42:f6:05:f6"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"609170d39f6a411102c9f4da13f91585","identifiers":[["broadlink","c8f742f605f6"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-C8:F7:42:F6:05:F6"]],"labels":[],"manufacturer":"HangZhou Gubei Electronics Technology Co.,Ltd","model":"RM mini 3","model_id":null,"modified_at":"2025-08-06T19:34:29.117019+00:00","name_by_user":null,"name":"RM MINI","primary_config_entry":"01JYMJXDESBYHMMXKXAWKTT818","serial_number":null,"sw_version":57,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYPN2Y7PS4RS63M5VDJPKMA6"],"config_entries_subentries":{"01JYPN2Y7PS4RS63M5VDJPKMA6":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"d5d38f810cea2fed700f58650e5492d7","identifiers":[["yeelight","0x0000000007c19607"]],"labels":[],"manufacturer":"Yeelight","model":"strip1","model_id":null,"modified_at":"2025-08-05T15:31:00.046316+00:00","name_by_user":null,"name":"Curtain light","primary_config_entry":"01JYPN2Y7PS4RS63M5VDJPKMA6","serial_number":null,"sw_version":"73","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYPP3A82MPD480VPNNQJRGAE"],"config_entries_subentries":{"01JYPP3A82MPD480VPNNQJRGAE":[null]},"configuration_url":"https://www.met.no/en","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"1024fcc394b8f42f48584957ea4e2816","identifiers":[["met","01JYPP3A82MPD480VPNNQJRGAE"]],"labels":[],"manufacturer":"Met.no","model":"Forecast","model_id":null,"modified_at":"2025-06-29T07:08:34.902667+00:00","name_by_user":null,"name":"Forecast","primary_config_entry":"01JYPP3A82MPD480VPNNQJRGAE","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/366713850","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"e5a6eeb0e7b7e37f74d5fd574163b8b9","identifiers":[["hacs","366713850"]],"labels":[],"manufacturer":"alexander0042","model":"integration","model_id":null,"modified_at":"2025-06-29T07:08:36.546848+00:00","name_by_user":null,"name":"Pirate Weather","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/720859016","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"274143e322ef8cf5ae49b2c50033cbcf","identifiers":[["hacs","720859016"]],"labels":[],"manufacturer":"watkins-matt","model":"integration","model_id":null,"modified_at":"2025-06-29T07:08:36.547398+00:00","name_by_user":null,"name":"Google Keep Sync","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYR2G24GEPD5WQJM89MR7AD8"],"config_entries_subentries":{"01JYR2G24GEPD5WQJM89MR7AD8":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"b065beafd102976f4ff4ef369b63a086","identifiers":[["healthchecksio","01JYR2G24GEPD5WQJM89MR7AD8"]],"labels":[],"manufacturer":"SIA Monkey See Monkey Do","model":null,"model_id":null,"modified_at":"2025-06-29T07:08:36.242207+00:00","name_by_user":null,"name":"Healthchecks.io","primary_config_entry":"01JYR2G24GEPD5WQJM89MR7AD8","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"hallway","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYR35K3Z3MJEV96D3ZTBM3ZC"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYR35K3Z3MJEV96D3ZTBM3ZC":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":"http://192.168.1.103:80","connections":[["mac","40:f5:20:2d:2d:a4"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"11b1b9d6d209188f2c4cb7812a4cd1b5","identifiers":[["shelly","40F5202D2DA4"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-40:F5:20:2D:2D:A4"]],"labels":[],"manufacturer":"Shelly","model":"Shelly 1","model_id":"SHSW-1","modified_at":"2025-08-07T04:44:50.030008+00:00","name_by_user":null,"name":"Hall light 1","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20230913-112003/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":"cb05ec77df534538a102c687dbd1ab04","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYR36ZF7SFSZHK8HREGZHKW0","01JZKGB5MVZRDAAH6BGH06CK6D","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYR36ZF7SFSZHK8HREGZHKW0":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JZKGB5MVZRDAAH6BGH06CK6D":[null]},"configuration_url":"http://192.168.1.102","connections":[["mac","8c:aa:b5:48:07:fb"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"f1b1dc8e96d53e09445b2d50bc8077c1","identifiers":[["shelly","8CAAB54807FB"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-8C:AA:B5:48:07:FB"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly 1","model_id":"SHSW-1","modified_at":"2025-08-06T19:35:24.458131+00:00","name_by_user":null,"name":"shelly1-8CAAB54807FB","primary_config_entry":"01JYR36ZF7SFSZHK8HREGZHKW0","serial_number":null,"sw_version":"20230913-112003/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JZKGGBASF0K6T3AW1BHF8NKM","01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYR37TKGZ9KF2FM0ZMS28CRD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYR37TKGZ9KF2FM0ZMS28CRD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JZKGGBASF0K6T3AW1BHF8NKM":[null]},"configuration_url":null,"connections":[["mac","8c:aa:b5:48:08:8f"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"e5b081df50078583a8d11785e3b5cad7","identifiers":[["shelly","8CAAB548088F"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-8C:AA:B5:48:08:8F"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly 1","model_id":"SHSW-1","modified_at":"2025-08-06T19:34:29.118463+00:00","name_by_user":null,"name":"shelly1-48088F (Living Sofa light)","primary_config_entry":"01JYR37TKGZ9KF2FM0ZMS28CRD","serial_number":null,"sw_version":"20230913-112003/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":"9b8a3bfa3c564b199f6dae6a8def02c4","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JZD98MQT5WB4VR8XC0NT4V6V"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JZD98MQT5WB4VR8XC0NT4V6V":[null]},"configuration_url":"http://192.168.1.84:80","connections":[["mac","34:94:54:7a:a8:a1"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"0931b911ad2f1d917713541e47e7509d","identifiers":[["shelly","3494547AA8A1"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-34:94:54:7A:A8:A1"]],"labels":[],"manufacturer":"Shelly","model":"Shelly 2.5","model_id":"SHSW-25","modified_at":"2025-08-06T19:38:59.725290+00:00","name_by_user":null,"name":"M. Bedroom West Blinds","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20230913-112234/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYR38D373AN44EMA9RH68VX5"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYR38D373AN44EMA9RH68VX5":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":"http://192.168.1.92","connections":[["mac","34:94:54:7a:a6:7b"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"f78d2d4fbf60ce4981969e0e2ca10391","identifiers":[["shelly","3494547AA67B"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-34:94:54:7A:A6:7B"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly 2.5","model_id":"SHSW-25","modified_at":"2025-08-06T19:35:24.444980+00:00","name_by_user":null,"name":"shellyswitch25-7AA67B (office)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20230913-112234/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":"201677eb13464e9fb1676b170e13e301","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYR38GD7DC7XRCX1AZ2VFHMN","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYR38GD7DC7XRCX1AZ2VFHMN":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":"http://192.168.1.98","connections":[["mac","e4:65:b8:f3:8f:e8"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen2","id":"333a03ff0ba27ac9a00a311b06eb133a","identifiers":[["shelly","E465B8F38FE8"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-E4:65:B8:F3:8F:E8"]],"labels":[],"manufacturer":null,"model":"Shelly Plus 2PM","model_id":"SNSW-102P16EU","modified_at":"2025-08-06T19:35:24.454113+00:00","name_by_user":"Kitchen lights","name":"shellyplus2pm-f38fe8 (kitchen lights)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20250520-083713/1.6.2-gc8a76e2","via_device_id":null},
+      {"area_id":"201677eb13464e9fb1676b170e13e301","config_entries":["01JYR38GD7DC7XRCX1AZ2VFHMN"],"config_entries_subentries":{"01JYR38GD7DC7XRCX1AZ2VFHMN":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"104aa3641ba0eb8a4c8de8fa25198e69","identifiers":[["shelly","E465B8F38FE8-switch:0"]],"labels":[],"manufacturer":"Shelly","model":null,"model_id":null,"modified_at":"2025-07-05T10:59:54.442423+00:00","name_by_user":null,"name":"Kitchen backsplash","primary_config_entry":"01JYR38GD7DC7XRCX1AZ2VFHMN","serial_number":null,"sw_version":null,"via_device_id":"333a03ff0ba27ac9a00a311b06eb133a"},
+      {"area_id":"201677eb13464e9fb1676b170e13e301","config_entries":["01JYR38GD7DC7XRCX1AZ2VFHMN"],"config_entries_subentries":{"01JYR38GD7DC7XRCX1AZ2VFHMN":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"5e11814ca9f3bdf99c5da24336fd564a","identifiers":[["shelly","E465B8F38FE8-switch:1"]],"labels":[],"manufacturer":"Shelly","model":null,"model_id":null,"modified_at":"2025-07-05T10:59:54.442761+00:00","name_by_user":null,"name":"Kitchen main","primary_config_entry":"01JYR38GD7DC7XRCX1AZ2VFHMN","serial_number":null,"sw_version":null,"via_device_id":"333a03ff0ba27ac9a00a311b06eb133a"},
+      {"area_id":"825ba0d33f2347acb290b28d64ee1380","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01K0811XBBV8WSNTZK7PQWCTJ1"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01K0811XBBV8WSNTZK7PQWCTJ1":[null]},"configuration_url":"http://192.168.1.96","connections":[["mac","d8:13:2a:d3:0a:08"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen2","id":"975c6668ef5bc1f6277dd21f94507d4d","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-D8:13:2A:D3:0A:08"],["shelly","D8132AD30A08"]],"labels":[],"manufacturer":null,"model":"Shelly Plus 2PM","model_id":"SNSW-102P16EU","modified_at":"2025-08-06T19:35:24.453564+00:00","name_by_user":"Bathroom lights","name":"shellyplus2pm-d30a08 (Bath lights)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20250730-063231/1.7.0-gbe7545d","via_device_id":null},
+      {"area_id":"185a9dacf5464a4bbc41230e42454e8c","config_entries":["01K10GDH8NZ936BYQHKPBTWK75","01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01K10GDH8NZ936BYQHKPBTWK75":[null]},"configuration_url":null,"connections":[["mac","b4:8a:0a:22:94:f0"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen2","id":"9cd6da5125f4975f646f73506eaa66ab","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-B4:8A:0A:22:94:F0"],["shelly","B48A0A2294F0"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly Plus 2PM","model_id":"SNSW-102P16EU","modified_at":"2025-07-28T15:15:00.278587+00:00","name_by_user":null,"name":"shellyplus2pm-2294f0 (shower lights)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20250520-083713/1.6.2-gc8a76e2","via_device_id":null},
+      {"area_id":"f12d6ad311d843529c99ba1cfc879a6e","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01K0812QXK25E7YPBEZNA53C79"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01K0812QXK25E7YPBEZNA53C79":[null]},"configuration_url":"http://192.168.1.91","connections":[["mac","2c:bc:bb:75:1c:44"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen2","id":"ca6f38cf0d55ff9a0c5160332b31ebfd","identifiers":[["shelly","2CBCBB751C44"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-2C:BC:BB:75:1C:44"]],"labels":[],"manufacturer":null,"model":"Shelly Plus 2PM","model_id":"SNSW-102P16EU","modified_at":"2025-08-06T19:35:24.454313+00:00","name_by_user":"Kids blinds","name":"shellyplus2pm-751c44 (Kids blinds)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20250730-063231/1.7.0-gbe7545d","via_device_id":null},
+      {"area_id":"9b8a3bfa3c564b199f6dae6a8def02c4","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01K0A724T1Z6KX9R1H3GF5N29S"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01K0A724T1Z6KX9R1H3GF5N29S":[null]},"configuration_url":"http://192.168.1.90","connections":[["mac","2c:bc:bb:3f:39:78"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen2","id":"ab681568cda33c7213f8a004a48b5e07","identifiers":[["shelly","2CBCBB3F3978"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-2C:BC:BB:3F:39:78"]],"labels":[],"manufacturer":null,"model":"Shelly Plus 2PM","model_id":"SNSW-102P16EU","modified_at":"2025-08-06T19:35:24.455024+00:00","name_by_user":"M. Bedroom North blinds","name":"shellyplus2pm-3f3978 (M.Bdrm North blinds)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20250730-063231/1.7.0-gbe7545d","via_device_id":null},
+      {"area_id":"825ba0d33f2347acb290b28d64ee1380","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYR39F3Z3CQMRD5MM7VGV7N6"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYR39F3Z3CQMRD5MM7VGV7N6":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":"http://192.168.1.111","connections":[["mac","d4:d4:da:7d:fa:78"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen2","id":"0861a3060cd91ea407b6a8b67a94a49d","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-D4:D4:DA:7D:FA:78"],["shelly","D4D4DA7DFA78"]],"labels":[],"manufacturer":null,"model":"Shelly Plus 1PM","model_id":"SNSW-001P16EU","modified_at":"2025-08-06T19:35:24.453876+00:00","name_by_user":"Dryer","name":"shellyplus1pm-7dfa78 (dryer)","primary_config_entry":"01JYR39F3Z3CQMRD5MM7VGV7N6","serial_number":null,"sw_version":"20250730-063236/1.7.0-gbe7545d","via_device_id":null},
+      {"area_id":"825ba0d33f2347acb290b28d64ee1380","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYR39K00BVMSD34MRTYF988V"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JYR39K00BVMSD34MRTYF988V":[null]},"configuration_url":"http://192.168.1.85","connections":[["mac","b8:d6:1a:8a:08:0c"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen2","id":"4e99a112f6565cd56c66146215fddf49","identifiers":[["shelly","B8D61A8A080C"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-B8:D6:1A:8A:08:0C"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly Plus 1PM","model_id":"SNSW-001P16EU","modified_at":"2025-08-06T19:35:24.448616+00:00","name_by_user":"Washing machine","name":"shellyplus1pm-8a080c (washing machine)","primary_config_entry":"01JYR39K00BVMSD34MRTYF988V","serial_number":null,"sw_version":"20250730-063236/1.7.0-gbe7545d","via_device_id":null},
+      {"area_id":"9b8a3bfa3c564b199f6dae6a8def02c4","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYR39WTRG9QSY5965HX7NN4D"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYR39WTRG9QSY5965HX7NN4D":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":"http://192.168.1.101:80","connections":[["mac","7c:87:ce:72:af:20"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen2","id":"94edfb13929463a117698ed9b4e7ed02","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-7C:87:CE:72:AF:20"],["shelly","7C87CE72AF20"]],"labels":[],"manufacturer":"Shelly","model":"Shelly Plus 1","model_id":"SNSW-001X16EU","modified_at":"2025-08-06T19:34:39.091757+00:00","name_by_user":"M. Bedroom main light","name":"shellyplus1-7c87ce72af20","primary_config_entry":"01JYR39WTRG9QSY5965HX7NN4D","serial_number":null,"sw_version":"20250730-063216/1.7.0-gbe7545d","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":null,"connections":[["mac","e0:98:06:95:0f:d2"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1 (SHDM-2)","id":"019837556e7f4dc8a63612f7843a1cd3","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-E0:98:06:95:0F:D2"],["shelly","E09806950FD2"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly Dimmer 2","model_id":null,"modified_at":"2025-07-05T11:58:33.344806+00:00","name_by_user":null,"name":"shellydimmer2-950fd2 (Entry light)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20230913-114008/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":"8e097acb5e0444a6b28c50fbaddf3a0a","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01K0812BV3JSMMCF2X3Q3P9ZW2"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01K0812BV3JSMMCF2X3Q3P9ZW2":[null]},"configuration_url":"http://192.168.1.82:80","connections":[["mac","e0:98:06:95:06:34"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"105e077be7e54200b519d462221ab04b","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-E0:98:06:95:06:34"],["shelly","E09806950634"]],"labels":[],"manufacturer":"Shelly","model":"Shelly Dimmer 2","model_id":"SHDM-2","modified_at":"2025-08-07T21:47:14.752047+00:00","name_by_user":"Balcony light","name":"Balcony light","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20230913-114008/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":"825ba0d33f2347acb290b28d64ee1380","config_entries":["01JYR3ARCRSRAE2BVBQHRXQ093","01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYR3ARCRSRAE2BVBQHRXQ093":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":"http://192.168.1.112","connections":[["mac","a0:85:e3:bd:35:a4"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen4","id":"21ac4199cf40df75a7c963b0a17148d7","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-A0:85:E3:BD:35:A4"],["shelly","A085E3BD35A4"]],"labels":[],"manufacturer":null,"model":"Shelly 1PM Gen4","model_id":"S4SW-001P16EU","modified_at":"2025-08-06T19:35:24.454711+00:00","name_by_user":"Bathroom heater","name":"shelly1pmg4-a085e3bd35a4 (bath heater)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20250520-083727/1.6.2-gc8a76e2","via_device_id":null},
+      {"area_id":"201677eb13464e9fb1676b170e13e301","config_entries":["01JYR3B1F12SPBC27B56MC6KFY","01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JYR3B1F12SPBC27B56MC6KFY":[null]},"configuration_url":"http://192.168.1.88","connections":[["mac","34:b7:da:cb:91:10"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen3","id":"e00d90e935745df0b0a9926ede1c4f69","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-34:B7:DA:CB:91:10"],["shelly","34B7DACB9110"]],"labels":[],"manufacturer":null,"model":"Shelly 1PM Gen3","model_id":"S3SW-001P16EU","modified_at":"2025-08-06T19:35:24.452617+00:00","name_by_user":"Dishwasher","name":"shelly1pmg3-cb9110 (Dishwasher)","primary_config_entry":"01JYR3B1F12SPBC27B56MC6KFY","serial_number":null,"sw_version":"20250730-063255/1.7.0-gbe7545d","via_device_id":null},
+      {"area_id":"hallway","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01K0811J3CWF8P2VS268ER3GRS"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01K0811J3CWF8P2VS268ER3GRS":[null]},"configuration_url":"http://192.168.1.89","connections":[["mac","34:b7:da:8b:df:7c"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen3","id":"f6ff110177329b1a086c0ec9878d8ee6","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-34:B7:DA:8B:DF:7C"],["shelly","34B7DA8BDF7C"]],"labels":[],"manufacturer":null,"model":"Shelly 1 Mini Gen3","model_id":"S3SW-001X8EU","modified_at":"2025-08-06T19:35:24.455222+00:00","name_by_user":"Hall light 2","name":"shelly1minig3-8bdf7c (Hall light 2)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20250730-063209/1.7.0-gbe7545d","via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYR3BDGRS4HKBF2Q2AYC9NSH","01JZKGF6BJJ5AGXNADJXZV4Q8J"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JYR3BDGRS4HKBF2Q2AYC9NSH":[null],"01JZKGF6BJJ5AGXNADJXZV4Q8J":[null]},"configuration_url":"http://192.168.1.107:80","connections":[["mac","84:cc:a8:ad:b3:25"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"d4152ef559ebd6fa810dd0fee0e10ce8","identifiers":[["shelly","84CCA8ADB325"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-84:CC:A8:AD:B3:25"]],"labels":[],"manufacturer":"Shelly","model":"Shelly 1L","model_id":"SHSW-L","modified_at":"2025-08-06T19:34:39.637936+00:00","name_by_user":null,"name":"TV Light","primary_config_entry":"01JYR3BDGRS4HKBF2Q2AYC9NSH","serial_number":null,"sw_version":"20230913-112054/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYR3BH41EW6AVZZKR8E2RNJG"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JYR3BH41EW6AVZZKR8E2RNJG":[null]},"configuration_url":"http://192.168.1.110","connections":[["mac","84:cc:a8:ac:ef:a2"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"ee2c2cc1e6a25a6ed758302438080abb","identifiers":[["shelly","84CCA8ACEFA2"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-84:CC:A8:AC:EF:A2"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly 1L","model_id":"SHSW-L","modified_at":"2025-08-06T19:35:24.446975+00:00","name_by_user":null,"name":"shelly1L-ACEFA2 (Living pendant light 1)","primary_config_entry":"01JYR3BH41EW6AVZZKR8E2RNJG","serial_number":null,"sw_version":"20230913-112054/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYR3BN1R5M6XSY2JXWZBKARZ","01JZKGH53HZNSWEJ6H31AXHQ3M","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYR3BN1R5M6XSY2JXWZBKARZ":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JZKGH53HZNSWEJ6H31AXHQ3M":[null]},"configuration_url":"http://192.168.1.109","connections":[["mac","84:cc:a8:ac:d1:55"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"708ad85948c64a63f91620d0baace078","identifiers":[["shelly","84CCA8ACD155"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-84:CC:A8:AC:D1:55"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly 1L","model_id":"SHSW-L","modified_at":"2025-08-06T19:35:24.456311+00:00","name_by_user":null,"name":"shelly1L-ACD155 (Kids light)","primary_config_entry":"01JYR3BN1R5M6XSY2JXWZBKARZ","serial_number":null,"sw_version":"20230913-112054/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":"9b8a3bfa3c564b199f6dae6a8def02c4","config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD","01JYR3BRDGFZ5WWBG6KCMXW2D4"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null],"01JYR3BRDGFZ5WWBG6KCMXW2D4":[null]},"configuration_url":"http://192.168.1.106","connections":[["mac","e8:db:84:d3:74:ce"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"9872e51fe14e282f953d3842a416e2ff","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-E8:DB:84:D3:74:CE"],["shelly","E8DB84D374CE"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly 1","model_id":"SHSW-1","modified_at":"2025-08-06T19:35:24.458652+00:00","name_by_user":null,"name":"shelly1-E8DB84D374CE","primary_config_entry":"01JYR3BRDGFZ5WWBG6KCMXW2D4","serial_number":null,"sw_version":"20230913-112003/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":"825ba0d33f2347acb290b28d64ee1380","config_entries":["01JYR3G3JDT5BD99AFEDB425B8"],"config_entries_subentries":{"01JYR3G3JDT5BD99AFEDB425B8":[null]},"configuration_url":null,"connections":[["bluetooth","A0:85:E3:BD:35:A6"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"afea5cbd1d80f66b83502c4c4d28e5af","identifiers":[],"labels":[],"manufacturer":"Espressif Inc. (shelly)","model":"S4SW-001P16EU","model_id":null,"modified_at":"2025-07-05T10:59:49.562141+00:00","name_by_user":null,"name":"Bathroom heater (A0:85:E3:BD:35:A6)","primary_config_entry":"01JYR3G3JDT5BD99AFEDB425B8","serial_number":null,"sw_version":null,"via_device_id":"21ac4199cf40df75a7c963b0a17148d7"},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/125677298","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"b163232bf2073b555feaaca6dac2847a","identifiers":[["hacs","125677298"]],"labels":[],"manufacturer":"aFrankLion","model":"integration","model_id":null,"modified_at":"2025-06-29T07:08:36.547631+00:00","name_by_user":null,"name":"Google Keep","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYR6JT1D3G7WS5467A37C3ZE"],"config_entries_subentries":{"01JYR6JT1D3G7WS5467A37C3ZE":[null]},"configuration_url":"https://172-19-0-1.097fd74d821d442ca1e226c3ed9e2b12.plex.direct:32400/web","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"c8681530797a1a83f94b5c64f8ec2376","identifiers":[["plex","5327bd55339c9e31083deac9a038cbed6503f25e"]],"labels":[],"manufacturer":"Plex","model":"Plex Media Server","model_id":null,"modified_at":"2025-07-15T18:12:10.114393+00:00","name_by_user":null,"name":"plex-hassvm","primary_config_entry":"01JYR6JT1D3G7WS5467A37C3ZE","serial_number":null,"sw_version":"1.41.9.9961-46083195d","via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYR6TVETS97VJM6JGX8BWJJB"],"config_entries_subentries":{"01JYR6TVETS97VJM6JGX8BWJJB":[null]},"configuration_url":"http://192.168.1.141:8053","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"38642a96eef244823f79b7e82e3c1697","identifiers":[["adguard","192.168.1.141",8053,"/control/"]],"labels":[],"manufacturer":"AdGuard Team","model":null,"model_id":null,"modified_at":"2025-07-29T15:27:37.052921+00:00","name_by_user":null,"name":"AdGuard Home","primary_config_entry":"01JYR6TVETS97VJM6JGX8BWJJB","serial_number":null,"sw_version":"v0.107.64","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYR74GCCFAFB52AYXY0GR5HF"],"config_entries_subentries":{"01JYR74GCCFAFB52AYXY0GR5HF":[null]},"configuration_url":"https://rym-pro.com","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"4e4b946898fbe88e186a90201785480c","identifiers":[["CityMind","מקסים אלטר 305847857"]],"labels":[],"manufacturer":"Read Your Meter Pro","model":"Account","model_id":null,"modified_at":"2025-06-29T07:09:33.105325+00:00","name_by_user":null,"name":"מקסים אלטר 305847857","primary_config_entry":"01JYR74GCCFAFB52AYXY0GR5HF","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYR74GCCFAFB52AYXY0GR5HF"],"config_entries_subentries":{"01JYR74GCCFAFB52AYXY0GR5HF":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"f43e30b4928723a457fcb869574287bb","identifiers":[["CityMind","water_meter_56677"]],"labels":[],"manufacturer":"רמת גן, נווה יהושע, 15","model":"Water meter","model_id":null,"modified_at":"2025-06-29T07:09:33.107920+00:00","name_by_user":null,"name":"רמת גן, נווה יהושע, 15 13829638","primary_config_entry":"01JYR74GCCFAFB52AYXY0GR5HF","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYS18ED3K63JM2Y4YABGHA63"],"config_entries_subentries":{"01JYS18ED3K63JM2Y4YABGHA63":[null]},"configuration_url":"http://172.19.0.13:8989/","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"0efe907e7a3ff9103fe1d115d10b25dc","identifiers":[["sonarr","01JYS18ED3K63JM2Y4YABGHA63"]],"labels":[],"manufacturer":"Sonarr","model":null,"model_id":null,"modified_at":"2025-08-06T19:33:31.587541+00:00","name_by_user":null,"name":"Sonarr","primary_config_entry":"01JYS18ED3K63JM2Y4YABGHA63","serial_number":null,"sw_version":"4.0.15.2941","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYS1JB3S5G9HW1CPZZQV7G13"],"config_entries_subentries":{"01JYS1JB3S5G9HW1CPZZQV7G13":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"34ea2d7bf0c561bc3919dae99e82988f","identifiers":[["cert_expiry","hass.malter.duckdns.org:443"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:09:36.945749+00:00","name_by_user":null,"name":"hass.malter.duckdns.org","primary_config_entry":"01JYS1JB3S5G9HW1CPZZQV7G13","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYS2GFMSYA61M8HD1E2FKE5P"],"config_entries_subentries":{"01JYS2GFMSYA61M8HD1E2FKE5P":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"b2aa13882c60f04dbb38414524384659","identifiers":[["qbittorrent","01JYS2GFMSYA61M8HD1E2FKE5P"]],"labels":[],"manufacturer":"QBittorrent","model":null,"model_id":null,"modified_at":"2025-06-29T07:08:34.895744+00:00","name_by_user":null,"name":"qBittorrent","primary_config_entry":"01JYS2GFMSYA61M8HD1E2FKE5P","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/944137087","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"ccd644c455ffd6d7bbcd90ece8b4dd7a","identifiers":[["hacs","944137087"]],"labels":[],"manufacturer":"JuanManuelRomeroGarcia","model":"integration","model_id":null,"modified_at":"2025-06-29T07:08:36.547027+00:00","name_by_user":null,"name":"MiWiFi (Xiaohack Edition)","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYS84YMQ3KDZ6GNV6QKVJZ44"],"config_entries_subentries":{"01JYS84YMQ3KDZ6GNV6QKVJZ44":[null]},"configuration_url":"https://open.spotify.com","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"cb679b1c66d2cc290579a7d856caa982","identifiers":[["spotify","pw2d0rr4wd10f6ytxbn2lo3cz"]],"labels":[],"manufacturer":"Spotify AB","model":"Spotify free","model_id":null,"modified_at":"2025-06-29T07:08:42.041044+00:00","name_by_user":null,"name":"Spotify Maxim","primary_config_entry":"01JYS84YMQ3KDZ6GNV6QKVJZ44","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYSTAGWAKB0YMPXD1N8WZS8G"],"config_entries_subentries":{"01JYSTAGWAKB0YMPXD1N8WZS8G":[null]},"configuration_url":null,"connections":[["bluetooth","44:01:BB:A1:43:2C"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"usb:v1D6Bp0246d0548","id":"d73fc505f7eda5a7f68af9e99c95f180","identifiers":[],"labels":[],"manufacturer":"Realtek","model":"Bluetooth Radio (0bda:8771)","model_id":null,"modified_at":"2025-07-30T12:25:35.158755+00:00","name_by_user":null,"name":"hci1 (44:01:BB:A1:43:2C)","primary_config_entry":"01JYSTAGWAKB0YMPXD1N8WZS8G","serial_number":null,"sw_version":"hassvm","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTWRJMQQ7PP29X88FS8WPH5"],"config_entries_subentries":{"01JYTWRJMQQ7PP29X88FS8WPH5":[null]},"configuration_url":null,"connections":[["bluetooth","98:84:E3:23:F4:4C"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"a549ec3e42903afa5519fdee9b01de87","identifiers":[["bluetooth","98:84:E3:23:F4:4C"]],"labels":[],"manufacturer":"Oral-B","model":"Smart Series 7000","model_id":null,"modified_at":"2025-06-29T07:09:01.407102+00:00","name_by_user":null,"name":"Smart Series 7000 F44C","primary_config_entry":"01JYTWRJMQQ7PP29X88FS8WPH5","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":"http://192.168.1.1/","connections":[["mac","ec:41:18:03:08:e4"],["ip_address","192.168.1.1"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"18123/30267620","id":"84989bc8e205a3bef1e4281bd538e9fa","identifiers":[["miwifi","EC:41:18:03:08:E4"]],"labels":[],"manufacturer":"Xiaomi","model":"R3P","model_id":null,"modified_at":"2025-06-29T07:09:29.348847+00:00","name_by_user":null,"name":"Mosad Van 5","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"2.16.29 (CN)","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","00:f6:20:45:2e:0a"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"bbc1a0b0e647a68e692ec22b4ee6c7bb","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-00:F6:20:45:2E:0A"]],"labels":[],"manufacturer":"Google, Inc.","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.354353+00:00","name_by_user":null,"name":"Google-Home-Mini","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","4c:82:a9:84:6b:73"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"3d2300118203eb1af7a053aa72403901","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-4C:82:A9:84:6B:73"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.355347+00:00","name_by_user":null,"name":"Maxim-MSI-Laptop (WiFi)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":"http://192.168.1.141","connections":[["mac","d2:ac:f8:1e:63:89"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"06f7c5429aefba1bb500ebd5f363b11a","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-D2:AC:F8:1E:63:89"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-08-06T19:35:24.445345+00:00","name_by_user":null,"name":"hass ubuntu","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","04:cf:8c:75:05:35"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"8c0ec49a35887345e9fd28e6f2d202ef","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-04:CF:8C:75:05:35"]],"labels":[],"manufacturer":"XIAOMI Electronics,CO.,LTD","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.358424+00:00","name_by_user":null,"name":"Yeelight strip - curtain","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"dining","config_entries":["01JYTYF9Z6NECA14GK6WRB47GD","43c604f36e8d79efbfd9f7669aaa47ed"],"config_entries_subentries":{"43c604f36e8d79efbfd9f7669aaa47ed":[null],"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":"http://192.168.1.95:80","connections":[["mac","d0:ef:76:c7:6d:8c"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen2","id":"668fa370fae291c6d2fdffb6b3a7b724","identifiers":[["shelly","D0EF76C76D8C"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-D0:EF:76:C7:6D:8C"]],"labels":[],"manufacturer":"Shelly","model":"Shelly Plus 2PM","model_id":"SNSW-102P16EU","modified_at":"2025-08-06T19:34:39.642675+00:00","name_by_user":null,"name":"shellyplus2pm-d0ef76c76d8c","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20250520-083713/1.6.2-gc8a76e2","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","8c:3b:4a:a8:e4:75"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"7e3bfa9a4fce429a2d567b371a6ff1b2","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-8C:3B:4A:A8:E4:75"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.364378+00:00","name_by_user":null,"name":"RH-PF5C8MBC (RedHat Lenovo P16v)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","a4:77:33:4c:3f:32"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"820079b14cbe04d11f06898bf4631686","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-A4:77:33:4C:3F:32"]],"labels":[],"manufacturer":"Google, Inc.","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.365921+00:00","name_by_user":null,"name":"Chromecast 2","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","7e:64:eb:61:43:b0"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"1505f7a089d19abfaa5321fa8fad0c63","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-7E:64:EB:61:43:B0"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.389922+00:00","name_by_user":null,"name":"Galaxy-A12","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":"http://192.168.1.3","connections":[["mac","00:05:cd:ae:c1:bc"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"c3c12c36ae3834250377ec6a4f47a38b","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-00:05:CD:AE:C1:BC"]],"labels":[],"manufacturer":"D&M Holdings Inc.","model":null,"model_id":null,"modified_at":"2025-08-06T19:35:24.447578+00:00","name_by_user":null,"name":"Marantz Reciever (NR1608)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","04:cf:8c:9a:bf:79"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"b1d53486c020069acc5ccc74334d6912","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-04:CF:8C:9A:BF:79"]],"labels":[],"manufacturer":"XIAOMI Electronics,CO.,LTD","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.368733+00:00","name_by_user":null,"name":"Yeelight bulb - Storage","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","ac:67:84:8a:82:74"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"573d5f76f8d84ac3a3ab1a39fe1382d9","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-AC:67:84:8A:82:74"]],"labels":[],"manufacturer":"Google, Inc.","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.370055+00:00","name_by_user":null,"name":"Google Nest Hub Max","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":"http://192.168.1.253","connections":[["mac","ec:41:18:0f:f5:e7"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"92f7e10d1e535b4088aef99a6c624803","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-EC:41:18:0F:F5:E7"]],"labels":[],"manufacturer":"XIAOMI Electronics,CO.,LTD","model":null,"model_id":null,"modified_at":"2025-08-06T19:35:24.458964+00:00","name_by_user":null,"name":"Secondary Xiaomi R3P Router","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","20:50:e7:97:d6:a6"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"ec5215d9ba11e0d6b2af88eab274f45a","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-20:50:E7:97:D6:A6"]],"labels":[],"manufacturer":"AMPAK Technology,Inc.","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.371123+00:00","name_by_user":null,"name":"Lenovo Smart Clock Essential","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","f4:f5:d8:df:01:4a"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"3a8b36d9f01d2a1c6f60f7aa85f35392","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-F4:F5:D8:DF:01:4A"]],"labels":[],"manufacturer":"Google, Inc.","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.372186+00:00","name_by_user":null,"name":"Google-Home","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","e2:e4:c4:84:d4:e8"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"e0059097c4f8227ae28701481d4a1dbf","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-E2:E4:C4:84:D4:E8"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.388832+00:00","name_by_user":null,"name":"BP Tablet","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","66:3a:e7:db:6a:7d"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"69d985b6353f0d91b653c1f3a3cbe04d","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-66:3A:E7:DB:6A:7D"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.377597+00:00","name_by_user":null,"name":"Dana-s-S25-Ultra","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","38:8c:50:82:51:f5"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"b7e8f87f4cf788b16d76feb25eed1127","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-38:8C:50:82:51:F5"]],"labels":[],"manufacturer":"LG Electronics","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.378217+00:00","name_by_user":null,"name":"LG Living room TV","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","a4:c6:9a:7a:48:11"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"64052c3ef5f42b7197f33ea6ee9bb9a3","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-A4:C6:9A:7A:48:11"]],"labels":[],"manufacturer":"Samsung Electronics Co.,Ltd","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.380137+00:00","name_by_user":null,"name":"Maxim Samsung S20 FE","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"185a9dacf5464a4bbc41230e42454e8c","config_entries":["61dd9cd5867547ff73d18df82ae72adc","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"61dd9cd5867547ff73d18df82ae72adc":[null]},"configuration_url":"http://192.168.1.87","connections":[["mac","dc:da:0c:e0:28:04"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen3","id":"c9dcccb7149bd83dae1efb215183a8f6","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-DC:DA:0C:E0:28:04"],["shelly","DCDA0CE02804"]],"labels":[],"manufacturer":null,"model":"Shelly 1PM Gen3","model_id":"S3SW-001P16EU","modified_at":"2025-08-06T19:35:24.455611+00:00","name_by_user":null,"name":"shelly1pmg3-e02804 (Shower heater)","primary_config_entry":"61dd9cd5867547ff73d18df82ae72adc","serial_number":null,"sw_version":"20250730-063255/1.7.0-gbe7545d","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","78:11:dc:68:6e:33"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"8b5c3c800d653cb2f2f2d489bab8c131","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-78:11:DC:68:6E:33"]],"labels":[],"manufacturer":"XIAOMI Electronics,CO.,LTD","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.382030+00:00","name_by_user":null,"name":"Yeelight strip - peninsula","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","6c:ad:f8:81:fc:54"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"77bec7ee9ab2c4bdc82868b47b735168","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-6C:AD:F8:81:FC:54"]],"labels":[],"manufacturer":"AzureWave Technology Inc.","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.384208+00:00","name_by_user":null,"name":"Chromecast","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","04:cf:8c:9a:9c:af"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"4ec3c58b83ed9bd80529d555a494bcd4","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-04:CF:8C:9A:9C:AF"]],"labels":[],"manufacturer":"XIAOMI Electronics,CO.,LTD","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.385306+00:00","name_by_user":null,"name":"Yeelight bulb - Office","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","7c:49:eb:ae:f2:fb"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"ac790bdf18d8e4cb0e8ab4c3aec7e9a2","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-7C:49:EB:AE:F2:FB"]],"labels":[],"manufacturer":"XIAOMI Electronics,CO.,LTD","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.384796+00:00","name_by_user":null,"name":"Yeelight strip - stove","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","1c:69:7a:07:76:46"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"55211ad47e1e382e42ea2b0729560dc5","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-1C:69:7A:07:76:46"]],"labels":[],"manufacturer":"EliteGroup Computer Systems Co., LTD","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.390428+00:00","name_by_user":null,"name":"NUC8i7BEH","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"2a4cd55383da3d02b1c0bd49e9bfc95a","identifiers":[["miwifi","miwifi_panel"]],"labels":[],"manufacturer":"Xiaomi","model":"Panel Frontend","model_id":null,"modified_at":"2025-06-29T07:09:29.391712+00:00","name_by_user":null,"name":"MiWiFi Panel","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","50:28:4a:ee:bb:0a"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"f3c95e9296de34eebaf4ffcfa0d88363","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-50:28:4A:EE:BB:0A"]],"labels":[],"manufacturer":"Intel Corporate","model":null,"model_id":null,"modified_at":"2025-06-29T07:09:29.372757+00:00","name_by_user":null,"name":"ILHQ-DANAA-L","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYR6JT1D3G7WS5467A37C3ZE"],"config_entries_subentries":{"01JYR6JT1D3G7WS5467A37C3ZE":[null]},"configuration_url":null,"connections":[],"created_at":"2025-06-29T18:36:23.047709+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"d4aa9a1f06b4074433eafd8103d47fca","identifiers":[["plex","3xvzjoym3xh0ihtj5wpgiq9y"]],"labels":[],"manufacturer":"webOS","model":"Plex for LG","model_id":null,"modified_at":"2025-06-29T18:36:23.048099+00:00","name_by_user":null,"name":"Plex (Plex for LG - webOS)","primary_config_entry":"01JYR6JT1D3G7WS5467A37C3ZE","serial_number":null,"sw_version":"3.13.28","via_device_id":"c8681530797a1a83f94b5c64f8ec2376"},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/148520838","connections":[],"created_at":"2025-06-30T15:13:25.317706+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"1211b8c773ea1e7a9856a50498dc245d","identifiers":[["hacs","148520838"]],"labels":[],"manufacturer":"kalkih","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:13:25.317768+00:00","name_by_user":null,"name":"Mini Media Player","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/679713495","connections":[],"created_at":"2025-06-30T15:16:03.081624+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"fd8018da3f8a7af08ce1efccd178eb68","identifiers":[["hacs","679713495"]],"labels":[],"manufacturer":"andrew-codechimp","model":"integration","model_id":null,"modified_at":"2025-06-30T15:16:03.081672+00:00","name_by_user":null,"name":"Battery Notes","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/151280062","connections":[],"created_at":"2025-06-30T15:17:36.498333+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"624139e67415d3522fad87a350423792","identifiers":[["hacs","151280062"]],"labels":[],"manufacturer":"kalkih","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:17:36.498377+00:00","name_by_user":null,"name":"mini-graph-card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/167744584","connections":[],"created_at":"2025-06-30T15:16:31.610119+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"661a8bac1db17b08b522ffc8a95103dd","identifiers":[["hacs","167744584"]],"labels":[],"manufacturer":"thomasloven","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:18:15.610398+00:00","name_by_user":null,"name":"auto-entities","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/156434866","connections":[],"created_at":"2025-06-30T15:18:38.825937+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"c94cb697467a4b147620a9a80b38e45b","identifiers":[["hacs","156434866"]],"labels":[],"manufacturer":"thomasloven","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:18:38.825981+00:00","name_by_user":null,"name":"layout-card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/256292682","connections":[],"created_at":"2025-06-30T15:19:08.148391+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"7fd1da79183aaedfe1f452a3ce5cff84","identifiers":[["hacs","256292682"]],"labels":[],"manufacturer":"maxwroc","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:19:08.148437+00:00","name_by_user":null,"name":"Battery State Card / Entity Row","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/144899700","connections":[],"created_at":"2025-06-30T15:19:36.013039+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"75e5a222f6e65ddccb380006c4402055","identifiers":[["hacs","144899700"]],"labels":[],"manufacturer":"thomasloven","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:19:36.013097+00:00","name_by_user":null,"name":"slider-entity-row","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/142051833","connections":[],"created_at":"2025-06-30T15:19:53.315840+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"6eb920bc1a56ef4bda008523260ce652","identifiers":[["hacs","142051833"]],"labels":[],"manufacturer":"ofekashery","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:19:53.315886+00:00","name_by_user":null,"name":"Vertical Stack In Card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/150781994","connections":[],"created_at":"2025-06-30T15:20:10.445218+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"135da3c3236e73e3ba64f19bef28ef46","identifiers":[["hacs","150781994"]],"labels":[],"manufacturer":"thomasloven","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:20:10.445282+00:00","name_by_user":null,"name":"fold-entity-row","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/190927524","connections":[],"created_at":"2025-06-30T15:20:35.265560+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"1648d8c19fa3919ab9e15c4139576849","identifiers":[["hacs","190927524"]],"labels":[],"manufacturer":"thomasloven","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:20:35.265615+00:00","name_by_user":null,"name":"card-mod","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/158756598","connections":[],"created_at":"2025-06-30T15:22:49.995238+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"e173fe6b64f6a58d76bdfdd056811ca7","identifiers":[["hacs","158756598"]],"labels":[],"manufacturer":"thomasloven","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:22:49.995280+00:00","name_by_user":null,"name":"state-switch","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/192732636","connections":[],"created_at":"2025-06-30T15:24:15.051249+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"b745a5d9cee9cc0ea881f38dd217118e","identifiers":[["hacs","192732636"]],"labels":[],"manufacturer":"bramkragten","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:24:15.051295+00:00","name_by_user":null,"name":"Weather Card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/146194325","connections":[],"created_at":"2025-06-30T15:31:59.771637+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"a981ee6ca3d7152fe66f88874526b873","identifiers":[["hacs","146194325"]],"labels":[],"manufacturer":"custom-cards","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:31:59.771677+00:00","name_by_user":null,"name":"button-card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/263901624","connections":[],"created_at":"2025-06-30T15:38:07.011607+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"39977a8f4c495d8b7c559ec6ba7cc0d6","identifiers":[["hacs","263901624"]],"labels":[],"manufacturer":"dimagoltsman","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:38:07.011651+00:00","name_by_user":null,"name":"Generic Remote Control Card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/197759180","connections":[],"created_at":"2025-06-30T15:41:02.854246+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"c53956b65b7e274bdae171bfe72972ab","identifiers":[["hacs","197759180"]],"labels":[],"manufacturer":"postlund","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:41:02.854292+00:00","name_by_user":null,"name":"search-card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/161403328","connections":[],"created_at":"2025-06-30T15:42:45.063548+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"039aa87ad85a21b2457feefb9c2068ae","identifiers":[["hacs","161403328"]],"labels":[],"manufacturer":"thomasloven","model":"plugin","model_id":null,"modified_at":"2025-06-30T15:42:45.063589+00:00","name_by_user":null,"name":"card-tools","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZ1ASB07R0QW0XSK5KQ2819R"],"config_entries_subentries":{"01JZ1ASB07R0QW0XSK5KQ2819R":[null]},"configuration_url":null,"connections":[],"created_at":"2025-06-30T21:09:45.607998+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"43e979e1eb6332eaa1d188da9f1d4067","identifiers":[["mobile_app","3f377964c4feac3b"]],"labels":[],"manufacturer":"samsung","model":"SM-G781B","model_id":null,"modified_at":"2025-06-30T21:09:45.608054+00:00","name_by_user":null,"name":"Samsung Galaxy S20 FE","primary_config_entry":"01JZ1ASB07R0QW0XSK5KQ2819R","serial_number":null,"sw_version":"33","via_device_id":null},
+      {"area_id":null,"config_entries":["01JZAEVSYQPJSV6S446WYCM1Z8"],"config_entries_subentries":{"01JZAEVSYQPJSV6S446WYCM1Z8":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"3cd2af36615c25d9abb6a6a3505165c1","identifiers":[["cast","06f8302143d9325313b95ab2897aaa0d"]],"labels":[],"manufacturer":"Lenovo","model":"Lenovo CD-4N341Y","model_id":null,"modified_at":"2025-07-04T10:14:10.897250+00:00","name_by_user":null,"name":"Master Bedroom clock","primary_config_entry":"01JZAEVSYQPJSV6S446WYCM1Z8","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZAEVSYQPJSV6S446WYCM1Z8"],"config_entries_subentries":{"01JZAEVSYQPJSV6S446WYCM1Z8":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"33e49912cab048808ef313f8fc57d939","identifiers":[["cast","280965cb4e37e3c7ee08472256cba842"]],"labels":[],"manufacturer":"Google Inc.","model":"Chromecast","model_id":null,"modified_at":"2025-07-04T10:14:10.920786+00:00","name_by_user":null,"name":"Living room Chromecast","primary_config_entry":"01JZAEVSYQPJSV6S446WYCM1Z8","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZAEVSYQPJSV6S446WYCM1Z8"],"config_entries_subentries":{"01JZAEVSYQPJSV6S446WYCM1Z8":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"c98002abfcb14ea5b080de28966d199c","identifiers":[["cast","bc676789499c2fbfa0f9b1173602988b"]],"labels":[],"manufacturer":"Google Inc.","model":"Chromecast","model_id":null,"modified_at":"2025-07-04T10:14:11.186201+00:00","name_by_user":null,"name":"Bedroom Chromecast","primary_config_entry":"01JZAEVSYQPJSV6S446WYCM1Z8","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZAEVSYQPJSV6S446WYCM1Z8"],"config_entries_subentries":{"01JZAEVSYQPJSV6S446WYCM1Z8":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"496d56ef1a2b4abd9b5c9567f30c0d12","identifiers":[["cast","3f0951a3b9ee1449104e8699446c1fa7"]],"labels":[],"manufacturer":"Google Inc.","model":"Google Home","model_id":null,"modified_at":"2025-07-04T10:14:11.190832+00:00","name_by_user":null,"name":"Living Google home","primary_config_entry":"01JZAEVSYQPJSV6S446WYCM1Z8","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZAEVSYQPJSV6S446WYCM1Z8"],"config_entries_subentries":{"01JZAEVSYQPJSV6S446WYCM1Z8":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"77d5acd7a6394cc5a22bb0478ac6bd6a","identifiers":[["cast","04f197c643f30999b21899770d9dae00"]],"labels":[],"manufacturer":"Google Inc.","model":"Google Home Mini","model_id":null,"modified_at":"2025-07-04T10:14:11.207814+00:00","name_by_user":null,"name":"Kids Google mini","primary_config_entry":"01JZAEVSYQPJSV6S446WYCM1Z8","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZAEVSYQPJSV6S446WYCM1Z8"],"config_entries_subentries":{"01JZAEVSYQPJSV6S446WYCM1Z8":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"c3d62417d9ed6da59f376fdbf7178a3c","identifiers":[["cast","c280e0966a323efb36c4fb028b480aad"]],"labels":[],"manufacturer":"Google Inc.","model":"Google Nest Hub Max","model_id":null,"modified_at":"2025-07-04T10:14:11.214473+00:00","name_by_user":null,"name":"Living Room display","primary_config_entry":"01JZAEVSYQPJSV6S446WYCM1Z8","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYSJDAFWNSQWD80HJ7HWQX09","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01JYSJDAFWNSQWD80HJ7HWQX09":[null]},"configuration_url":null,"connections":[["mac","00:db:df:3d:87:db"]],"created_at":"2025-07-04T17:01:35.480128+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"530403de558278987d481dc97dc4aac8","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-00:DB:DF:3D:87:DB"]],"labels":[],"manufacturer":"Intel Corporate","model":null,"model_id":null,"modified_at":"2025-07-04T17:02:15.625360+00:00","name_by_user":null,"name":"Dana-laptop WiFi","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":"http://192.168.1.32","connections":[["mac","b0:4e:26:5f:40:6d"]],"created_at":"2025-07-05T10:13:35.545204+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"e13eceb7e733c463b4800d81211de76e","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-B0:4E:26:5F:40:6D"]],"labels":[],"manufacturer":"TP-LINK TECHNOLOGIES CO.,LTD.","model":null,"model_id":null,"modified_at":"2025-08-04T17:20:14.590408+00:00","name_by_user":null,"name":"TL-SG108E-Comm","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":"http://192.168.1.31","connections":[["mac","b0:4e:26:ad:d2:3f"]],"created_at":"2025-07-05T10:13:35.546006+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"705472e4886218c6ade2ed65756754a8","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-B0:4E:26:AD:D2:3F"]],"labels":[],"manufacturer":"TP-LINK TECHNOLOGIES CO.,LTD.","model":null,"model_id":null,"modified_at":"2025-08-04T17:20:14.591430+00:00","name_by_user":null,"name":"TL-SG108E-Living","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"dining","config_entries":["43c604f36e8d79efbfd9f7669aaa47ed"],"config_entries_subentries":{"43c604f36e8d79efbfd9f7669aaa47ed":[null]},"configuration_url":null,"connections":[],"created_at":"2025-07-05T10:59:54.233486+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"f4ea6853b3ed72dc0e8d6161d151b0b4","identifiers":[["shelly","D0EF76C76D8C-switch:0"]],"labels":[],"manufacturer":"Shelly","model":null,"model_id":null,"modified_at":"2025-07-05T10:59:54.233525+00:00","name_by_user":null,"name":"Main Dining Light","primary_config_entry":"43c604f36e8d79efbfd9f7669aaa47ed","serial_number":null,"sw_version":null,"via_device_id":"668fa370fae291c6d2fdffb6b3a7b724"},
+      {"area_id":"dining","config_entries":["43c604f36e8d79efbfd9f7669aaa47ed"],"config_entries_subentries":{"43c604f36e8d79efbfd9f7669aaa47ed":[null]},"configuration_url":null,"connections":[],"created_at":"2025-07-05T10:59:54.233900+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"b064dc10dd409d20ba19d755c97fc252","identifiers":[["shelly","D0EF76C76D8C-switch:1"]],"labels":[],"manufacturer":"Shelly","model":null,"model_id":null,"modified_at":"2025-07-25T10:02:10.595765+00:00","name_by_user":"Dining spotlights","name":"shellyplus2pm-d0ef76c76d8c Switch 1","primary_config_entry":"43c604f36e8d79efbfd9f7669aaa47ed","serial_number":null,"sw_version":null,"via_device_id":"668fa370fae291c6d2fdffb6b3a7b724"},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/171121354","connections":[],"created_at":"2025-07-05T11:16:52.910052+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"8e8d0d1b7ef495fa9cd027cbf1b8434b","identifiers":[["hacs","171121354"]],"labels":[],"manufacturer":"smartHomeHub","model":"integration","model_id":null,"modified_at":"2025-07-05T11:16:52.910079+00:00","name_by_user":null,"name":"SmartIR","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/279102670","connections":[],"created_at":"2025-07-05T11:23:11.643500+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"244c36177041651900957e185046567c","identifiers":[["hacs","279102670"]],"labels":[],"manufacturer":"maorcc, elad-bar","model":"integration","model_id":null,"modified_at":"2025-07-05T11:23:11.643524+00:00","name_by_user":null,"name":"City-Mind Water Meter","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/201963665","connections":[],"created_at":"2025-07-05T11:26:24.906412+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"4767665dd2541590679a28d93ebb2e8c","identifiers":[["hacs","201963665"]],"labels":[],"manufacturer":"ludeeus","model":"integration","model_id":null,"modified_at":"2025-07-05T11:26:24.906437+00:00","name_by_user":null,"name":"Healthchecks.io","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JZD9DVZFTW3XF9849RXDJ4TM"],"config_entries_subentries":{"01JZD9DVZFTW3XF9849RXDJ4TM":[null]},"configuration_url":null,"connections":[],"created_at":"2025-07-05T12:36:57.312140+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"1853c144b6c438862b9550cfc088fc75","identifiers":[["playstation_network","1674712123870312064_PS5"]],"labels":[],"manufacturer":"Sony Interactive Entertainment","model":"PlayStation 5","model_id":null,"modified_at":"2025-07-05T12:45:25.830853+00:00","name_by_user":null,"name":"PlayStation 5","primary_config_entry":"01JZD9DVZFTW3XF9849RXDJ4TM","serial_number":null,"sw_version":null,"via_device_id":"42196676146f4ad6cd2457ad5042e3f0"},
+      {"area_id":null,"config_entries":["01JZD9DVZFTW3XF9849RXDJ4TM"],"config_entries_subentries":{"01JZD9DVZFTW3XF9849RXDJ4TM":[null]},"configuration_url":null,"connections":[],"created_at":"2025-07-05T12:36:57.318921+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"42196676146f4ad6cd2457ad5042e3f0","identifiers":[["playstation_network","1674712123870312064"]],"labels":[],"manufacturer":"Sony Interactive Entertainment","model":null,"model_id":null,"modified_at":"2025-07-05T12:36:57.318944+00:00","name_by_user":null,"name":"maxim_united","primary_config_entry":"01JZD9DVZFTW3XF9849RXDJ4TM","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/759368542","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"5a79d7879d56fe03430e5fbd90e17e4c","identifiers":[["hacs","759368542"]],"labels":[],"manufacturer":"guykh","model":"integration","model_id":null,"modified_at":"2025-07-05T12:53:48.609232+00:00","name_by_user":null,"name":"Israel Electric Corporation (IEC)","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZDC82PTDYB3HQMEB3QNM7K3"],"config_entries_subentries":{"01JZDC82PTDYB3HQMEB3QNM7K3":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"980f7509fcad9ae4721130c7cab80d42","identifiers":[["iec","Generic"]],"labels":[],"manufacturer":"Israel Electric Company","model":null,"model_id":null,"modified_at":"2025-07-05T13:26:52.886325+00:00","name_by_user":null,"name":"IEC","primary_config_entry":"01JZDC82PTDYB3HQMEB3QNM7K3","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZDC82PTDYB3HQMEB3QNM7K3"],"config_entries_subentries":{"01JZDC82PTDYB3HQMEB3QNM7K3":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"6e15846743158a2087f7c1e2c46cf990","identifiers":[["iec","345154726"]],"labels":[],"manufacturer":"Israel Electric Company","model":"Contract: 345154726","model_id":null,"modified_at":"2025-07-05T13:26:52.889420+00:00","name_by_user":null,"name":"IEC Contract [345154726]","primary_config_entry":"01JZDC82PTDYB3HQMEB3QNM7K3","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZDC82PTDYB3HQMEB3QNM7K3"],"config_entries_subentries":{"01JZDC82PTDYB3HQMEB3QNM7K3":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"03643c057baaccabb7437d2adca9489c","identifiers":[["iec","000345154726_24697164"]],"labels":[],"manufacturer":"Israel Electric Company","model":"Contract: 000345154726","model_id":null,"modified_at":"2025-07-05T13:26:52.890951+00:00","name_by_user":null,"name":"IEC Meter [24697164]","primary_config_entry":"01JZDC82PTDYB3HQMEB3QNM7K3","serial_number":"Meter ID: 24697164","sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/464220748","connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"6111a50df58668fb10c2299b92b8d140","identifiers":[["hacs","464220748"]],"labels":[],"manufacturer":"ShonP40","model":"integration","model_id":null,"modified_at":"2025-07-05T13:29:37.579469+00:00","name_by_user":null,"name":"Palgate","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"garage","config_entries":["01JZDCYF7STEFE764ZM04YGS0Z","01JZDD13KZ6ZR7Z38RC53F33GT","01JZDD021QWXF1V0VQXV7EF8WE"],"config_entries_subentries":{"01JZDCYF7STEFE764ZM04YGS0Z":[null],"01JZDD021QWXF1V0VQXV7EF8WE":[null],"01JZDD13KZ6ZR7Z38RC53F33GT":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"070dc46d8092c11ca9de1defbf896db2","identifiers":[["palgate","palgate"]],"labels":[],"manufacturer":"Palgate","model":"Palgate","model_id":null,"modified_at":"2025-07-05T13:39:59.525657+00:00","name_by_user":"Garage exit","name":"Palgate","primary_config_entry":"01JZDCYF7STEFE764ZM04YGS0Z","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/157618389","connections":[],"created_at":"2025-07-07T21:55:43.454655+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"d1ad44a38b0c9944b08d474acaa123d8","identifiers":[["hacs","157618389"]],"labels":[],"manufacturer":"thomasloven","model":"integration","model_id":null,"modified_at":"2025-07-07T21:55:43.454680+00:00","name_by_user":null,"name":"fontawesome","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/879861835","connections":[],"created_at":"2025-07-07T22:15:33.030365+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"d4286a1dc18b95c09634a6819e55557d","identifiers":[["hacs","879861835"]],"labels":[],"manufacturer":"marcelhoogantink","model":"plugin","model_id":null,"modified_at":"2025-07-07T22:15:33.030392+00:00","name_by_user":null,"name":"Enhanced Shutter Card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/141952963","connections":[],"created_at":"2025-07-07T22:22:47.915416+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"a074371388431bea7006b34bdfb16fcc","identifiers":[["hacs","141952963"]],"labels":[],"manufacturer":"custom-cards","model":"plugin","model_id":null,"modified_at":"2025-07-07T22:22:47.915441+00:00","name_by_user":null,"name":"Circle Sensor Card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/180464361","connections":[],"created_at":"2025-07-07T22:38:09.683039+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"cfce5f4ac352e4502f0cb4d4d8d7dbeb","identifiers":[["hacs","180464361"]],"labels":[],"manufacturer":"ljmerza","model":"plugin","model_id":null,"modified_at":"2025-07-07T22:38:09.683062+00:00","name_by_user":null,"name":"Travel Time Card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZKJ3ZG22A2QGK0Y2VKFTWWA"],"config_entries_subentries":{"01JZKJ3ZG22A2QGK0Y2VKFTWWA":[null]},"configuration_url":null,"connections":[],"created_at":"2025-07-07T23:04:14.087938+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"b7dd4675ed432a4d4abe8c91ce0d6d88","identifiers":[["sql","01JZKJ3ZG22A2QGK0Y2VKFTWWA"]],"labels":[],"manufacturer":"SQL","model":null,"model_id":null,"modified_at":"2025-07-07T23:04:14.088028+00:00","name_by_user":null,"name":"HASS DB size","primary_config_entry":"01JZKJ3ZG22A2QGK0Y2VKFTWWA","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JZKJ95X1GZ5T46CGNRF9QAB0"],"config_entries_subentries":{"01JZKJ95X1GZ5T46CGNRF9QAB0":[null]},"configuration_url":null,"connections":[],"created_at":"2025-07-07T23:07:04.482259+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"b716e5b73aa83eff929726410a308c94","identifiers":[["sql","01JZKJ95X1GZ5T46CGNRF9QAB0"]],"labels":[],"manufacturer":"SQL","model":null,"model_id":null,"modified_at":"2025-07-07T23:07:04.482285+00:00","name_by_user":null,"name":"HASS database events","primary_config_entry":"01JZKJ95X1GZ5T46CGNRF9QAB0","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"f12d6ad311d843529c99ba1cfc879a6e","config_entries":["01K0813MDA9V41AJE18N6H5G65","01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01K0813MDA9V41AJE18N6H5G65":[null]},"configuration_url":"http://192.168.1.240","connections":[["mac","f4:b7:e2:3d:c4:d4"]],"created_at":"2025-07-11T11:40:28.150258+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"f9b94a8cc090bf652580b0a82b91581c","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-F4:B7:E2:3D:C4:D4"],["brother","E70030C3F144852"]],"labels":[],"manufacturer":"Hon Hai Precision Ind. Co.,Ltd.","model":"MFC-J430W","model_id":null,"modified_at":"2025-08-06T19:35:24.459547+00:00","name_by_user":null,"name":"Brother MFC J430W Printer scanner","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":"E70030C3F144852","sw_version":"U1305070834VER.L","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","0a:11:48:28:92:52"]],"created_at":"2025-07-14T14:50:01.301860+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"5778ddd01087da22259936f04b225dea","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-0A:11:48:28:92:52"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-07-14T14:50:01.301998+00:00","name_by_user":null,"name":"Unknown","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","1a:fe:f5:78:75:80"]],"created_at":"2025-07-14T14:53:38.638208+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"75a54781a6588ca35479f6637de1b183","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-1A:FE:F5:78:75:80"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-07-14T14:53:38.638255+00:00","name_by_user":null,"name":"Unknown","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","f4:d4:88:8a:ba:5b"]],"created_at":"2025-07-14T16:13:30.622264+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"fe45b1cb0d9c4f3d9e35e5f18ff0a069","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-F4:D4:88:8A:BA:5B"]],"labels":[],"manufacturer":"Apple, Inc.","model":null,"model_id":null,"modified_at":"2025-07-14T16:13:30.622323+00:00","name_by_user":null,"name":"MacDaniel","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYR6JT1D3G7WS5467A37C3ZE"],"config_entries_subentries":{"01JYR6JT1D3G7WS5467A37C3ZE":[null]},"configuration_url":null,"connections":[],"created_at":"2025-07-15T14:02:54.198556+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"d04b3e05320ae7a9a533be430158f7ff","identifiers":[["plex","plex.tv-clients"]],"labels":[],"manufacturer":"Plex","model":"Plex Clients","model_id":null,"modified_at":"2025-07-15T14:02:54.198652+00:00","name_by_user":null,"name":"Plex Client Service","primary_config_entry":"01JYR6JT1D3G7WS5467A37C3ZE","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"f12d6ad311d843529c99ba1cfc879a6e","config_entries":["01K07MY63CET6GXE1ME77H5AZT"],"config_entries_subentries":{"01K07MY63CET6GXE1ME77H5AZT":[null]},"configuration_url":"http://BRNF4B7E23DC4D4.local./net/net/airprint.html","connections":[],"created_at":"2025-07-15T18:18:18.855679+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"b59af280593e4183f92b3aed4c1c4d49","identifiers":[["ipp","e3248000-80ce-11db-8000-f4b7e23dc4d4"]],"labels":[],"manufacturer":"Brother","model":"MFC-J430W","model_id":null,"modified_at":"2025-07-15T18:18:23.191205+00:00","name_by_user":null,"name":"Brother MFC-J430W","primary_config_entry":"01K07MY63CET6GXE1ME77H5AZT","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"825ba0d33f2347acb290b28d64ee1380","config_entries":["01K0811XBBV8WSNTZK7PQWCTJ1"],"config_entries_subentries":{"01K0811XBBV8WSNTZK7PQWCTJ1":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"fb524edc06d2d3fb7cd1d8bbe70f8994","identifiers":[["shelly","D8132AD30A08-switch:0"]],"labels":[],"manufacturer":"Shelly","model":null,"model_id":null,"modified_at":"2025-07-15T21:50:03.787172+00:00","name_by_user":null,"name":"Bath mirror light","primary_config_entry":"01K0811XBBV8WSNTZK7PQWCTJ1","serial_number":null,"sw_version":null,"via_device_id":"975c6668ef5bc1f6277dd21f94507d4d"},
+      {"area_id":"825ba0d33f2347acb290b28d64ee1380","config_entries":["01K0811XBBV8WSNTZK7PQWCTJ1"],"config_entries_subentries":{"01K0811XBBV8WSNTZK7PQWCTJ1":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"604393b454b71e27a90dfb18da29284d","identifiers":[["shelly","D8132AD30A08-switch:1"]],"labels":[],"manufacturer":"Shelly","model":null,"model_id":null,"modified_at":"2025-07-15T21:50:03.787596+00:00","name_by_user":null,"name":"Bath main light","primary_config_entry":"01K0811XBBV8WSNTZK7PQWCTJ1","serial_number":null,"sw_version":null,"via_device_id":"975c6668ef5bc1f6277dd21f94507d4d"},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/499270202","connections":[],"created_at":"2025-07-16T13:11:53.379343+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"db94d5dc5c7afaabf761d1bb7c1c3783","identifiers":[["hacs","499270202"]],"labels":[],"manufacturer":"decompil3d","model":"plugin","model_id":null,"modified_at":"2025-07-16T13:11:53.379373+00:00","name_by_user":null,"name":"Hourly Weather Card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/488086721","connections":[],"created_at":"2025-07-16T17:52:17.766175+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"1a93631e2cb4da2919db8d3b78aa0b60","identifiers":[["hacs","488086721"]],"labels":[],"manufacturer":"Makin-Things","model":"plugin","model_id":null,"modified_at":"2025-07-16T17:52:17.766681+00:00","name_by_user":null,"name":"Platinum Weather Card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/163363577","connections":[],"created_at":"2025-07-16T18:22:43.737142+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"2f8e51c7e4886c0d9700a6640fc5d0f2","identifiers":[["hacs","163363577"]],"labels":[],"manufacturer":"custom-cards","model":"plugin","model_id":null,"modified_at":"2025-07-16T18:22:43.737170+00:00","name_by_user":null,"name":"Bar Card","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"configuration_url":"homeassistant://hacs/repository/258012818","connections":[],"created_at":"2025-07-16T20:21:15.891878+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"34fe0ea12f7fa21a9ff2d0ab2d2a2cdf","identifiers":[["hacs","258012818"]],"labels":[],"manufacturer":"vigonotion","model":"integration","model_id":null,"modified_at":"2025-07-16T20:21:15.891914+00:00","name_by_user":null,"name":"simpleicons","primary_config_entry":"01JYMGS2635F25XPHFSAHB8A2B","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01K0BXBEBXDC6VSN4254Q5SM2Z"],"config_entries_subentries":{"01K0BXBEBXDC6VSN4254Q5SM2Z":[null]},"configuration_url":null,"connections":[],"created_at":"2025-07-17T10:02:19.389936+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"8802e1b03d9bcc855ac592df9f51ceb1","identifiers":[["google_assistant","malter-hass"]],"labels":[],"manufacturer":"Google","model":"Google Assistant","model_id":null,"modified_at":"2025-08-06T19:33:23.871886+00:00","name_by_user":null,"name":"Google Assistant","primary_config_entry":"01K0BXBEBXDC6VSN4254Q5SM2Z","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","78:11:dc:a2:27:99"]],"created_at":"2025-07-20T07:51:17.236114+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"dce20d5b9531bc9508f6e9c8efdb4e87","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-78:11:DC:A2:27:99"]],"labels":[],"manufacturer":"XIAOMI Electronics,CO.,LTD","model":null,"model_id":null,"modified_at":"2025-07-20T07:51:17.236148+00:00","name_by_user":null,"name":"Yeelight strip - kitchen cabinet","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01K0WF8B1GZV1HBNH9581J0PVN"],"config_entries_subentries":{"01K0WF8B1GZV1HBNH9581J0PVN":[null]},"configuration_url":null,"connections":[],"created_at":"2025-07-23T20:23:04.968307+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"04bdd6c14b2c77c2e93e3ae1699952c4","identifiers":[["yeelight","0x00000000049867e2"]],"labels":[],"manufacturer":"Yeelight","model":"stripe","model_id":null,"modified_at":"2025-08-06T19:33:33.279796+00:00","name_by_user":null,"name":"Kitchen Cabinet light","primary_config_entry":"01K0WF8B1GZV1HBNH9581J0PVN","serial_number":null,"sw_version":"50","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","5a:4a:0c:09:4b:13"]],"created_at":"2025-07-24T09:28:10.793931+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"53f32ad0652ed4ce83b54288942088c9","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-5A:4A:0C:09:4B:13"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-07-24T09:28:10.793981+00:00","name_by_user":null,"name":"Alwin-s-A34","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","94:f8:27:f1:bc:75"]],"created_at":"2025-07-24T13:14:02.836520+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"afe7a69f7fb49255e57f20c03592e85c","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-94:F8:27:F1:BC:75"]],"labels":[],"manufacturer":"Shanghai Imilab Technology Co.Ltd","model":null,"model_id":null,"modified_at":"2025-07-24T13:14:02.836574+00:00","name_by_user":null,"name":"Xiaomi Camera C200","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"185a9dacf5464a4bbc41230e42454e8c","config_entries":["01K10GDH8NZ936BYQHKPBTWK75"],"config_entries_subentries":{"01K10GDH8NZ936BYQHKPBTWK75":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"25f0bdad3e6f194b0c9ae16303673ae1","identifiers":[["shelly","B48A0A2294F0-switch:0"]],"labels":[],"manufacturer":"Shelly","model":null,"model_id":null,"modified_at":"2025-07-25T10:00:37.954863+00:00","name_by_user":"Shower main light","name":"shellyplus2pm-b48a0a2294f0 Switch 0","primary_config_entry":"01K10GDH8NZ936BYQHKPBTWK75","serial_number":null,"sw_version":null,"via_device_id":"9cd6da5125f4975f646f73506eaa66ab"},
+      {"area_id":"185a9dacf5464a4bbc41230e42454e8c","config_entries":["01K10GDH8NZ936BYQHKPBTWK75"],"config_entries_subentries":{"01K10GDH8NZ936BYQHKPBTWK75":[null]},"configuration_url":null,"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"8b47a00c241b9bc35fb7612bb3f005ee","identifiers":[["shelly","B48A0A2294F0-switch:1"]],"labels":[],"manufacturer":"Shelly","model":null,"model_id":null,"modified_at":"2025-07-25T10:00:37.955026+00:00","name_by_user":"Shower mirror light","name":"shellyplus2pm-b48a0a2294f0 Switch 1","primary_config_entry":"01K10GDH8NZ936BYQHKPBTWK75","serial_number":null,"sw_version":null,"via_device_id":"9cd6da5125f4975f646f73506eaa66ab"},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","24:62:ab:00:41:a0"]],"created_at":"2025-07-28T15:15:00.276705+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"4a78fafbfd0c628b0de3926773093abb","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-24:62:AB:00:41:A0"]],"labels":[],"manufacturer":"Espressif Inc.","model":null,"model_id":null,"modified_at":"2025-08-04T11:08:12.987859+00:00","name_by_user":null,"name":"shellyswitch25-0041A0 (Balcony blinds)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYTYF9Z6NECA14GK6WRB47GD","01K18T42H9TRPCR93P7DTKKBW9"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null],"01K18T42H9TRPCR93P7DTKKBW9":[null]},"configuration_url":null,"connections":[["mac","84:cc:a8:ad:05:58"]],"created_at":"2025-07-28T15:15:55.245373+00:00","disabled_by":null,"entry_type":null,"hw_version":"gen1","id":"be5e062fc55d67c0cdcfae495e81d871","identifiers":[["shelly","84CCA8AD0558"],["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-84:CC:A8:AD:05:58"]],"labels":[],"manufacturer":"Espressif Inc.","model":"Shelly 1L","model_id":"SHSW-L","modified_at":"2025-08-06T19:34:29.147612+00:00","name_by_user":null,"name":"shelly1L-AD0558 (Entry light)","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":"20230913-112054/v1.14.0-gcb84623","via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","78:c8:81:f5:03:6a"]],"created_at":"2025-07-31T07:47:58.216970+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"36c157e8e29c7b6d882c5f6cfbfdbe6a","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-78:C8:81:F5:03:6A"]],"labels":[],"manufacturer":"Sony Interactive Entertainment Inc.","model":null,"model_id":null,"modified_at":"2025-07-31T07:47:58.216999+00:00","name_by_user":null,"name":"Playstation 5 LAN","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01JYTYF9Z6NECA14GK6WRB47GD"],"config_entries_subentries":{"01JYTYF9Z6NECA14GK6WRB47GD":[null]},"configuration_url":null,"connections":[["mac","a0:a3:b3:b9:c4:e4"]],"created_at":"2025-08-02T16:52:42.276166+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"6a8a124a56750e9e22b423e880d68220","identifiers":[["miwifi","miwifi-01JYTYF9Z6NECA14GK6WRB47GD-A0:A3:B3:B9:C4:E4"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-08-02T16:52:42.276200+00:00","name_by_user":null,"name":"shellyplussmoke-a0a3b3b9c4e4","primary_config_entry":"01JYTYF9Z6NECA14GK6WRB47GD","serial_number":null,"sw_version":null,"via_device_id":null}
+    ],
+    "deleted_devices": [
+      {"area_id":null,"config_entries":["bd02fca5759948e98763affa7937425f"],"config_entries_subentries":{"bd02fca5759948e98763affa7937425f":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["cast","e0a93a3d2602e4b46a07c8f86abf7ff4"]],"id":"a8c4c00b458344ecbb215f60e0059486","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","73C9F8"]],"id":"49e35be373604abf9af09d4e9f93578a","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","73FD26"]],"id":"d4bf8f73a1954113b00ca790cf558945","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","E4CDAF"]],"id":"9e72714885d346a7aeff46f1f1533c2a","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","E6292B"]],"id":"5e6b101944414c7a8fc36834d270fb5a","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","version"]],"id":"82e9f110f821480cb184d2339db4b966","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","76B5AC"]],"id":"ca9a78e955cd406d9d767d72bf3027b7","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","76B745"]],"id":"fb18be2ee77b4613a79c214fe8c77106","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","DB3904"]],"id":"b3aa6b039a26468eb9754bc44bdfc2da","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["08c397aa657746a28c89fc0c1d2b4491"],"config_entries_subentries":{"08c397aa657746a28c89fc0c1d2b4491":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["tuya","tuya.03783133cc50e31418c2"]],"id":"e121014bd4fe44f2aa63bab1dc28b1ba","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["08c397aa657746a28c89fc0c1d2b4491"],"config_entries_subentries":{"08c397aa657746a28c89fc0c1d2b4491":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["tuya","tuya.03783133cc50e314207d"]],"id":"250cdfb3ddf14bcab9edee9e93ab5bd7","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["f106f76ecadf47368cca59ec80b0cc71"],"config_entries_subentries":{"f106f76ecadf47368cca59ec80b0cc71":[null]},"connections":[["zigbee","158d00036b2197"]],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["xiaomi_aqara","158d00036b2197"]],"id":"86500d149ea1464ab2c967a1ca1b6cb4","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["fede64859c2a42ea8527351cd5d61db1"],"config_entries_subentries":{"fede64859c2a42ea8527351cd5d61db1":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["samsungtv","0a21fe80-00aa-1000-a87f-0c891030e463"]],"id":"fe189654d49b41b7a6b121b64d1b89b4","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","A4CF12F3CA7F"]],"id":"6cbe0ffb112c4725b7bf5d470d613f64","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["062352f4753947bd8e790408a1530907"],"config_entries_subentries":{"062352f4753947bd8e790408a1530907":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["shelly","A4CF12F43AE7"]],"id":"8a85cf262ec245659b3cc3f18756b90e","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["hacs","199549304"]],"id":"7ed28f1ea3abd3268e62129175fda696","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["hacs","346329169"]],"id":"e1f5a69758826d6e950697e9d256f89d","labels":[],"modified_at":"1970-01-01T00:00:00+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":"02a3a8d795b04cc98a2b2f36541df1ab","config_entries":["01JYMFDK405WQ7E6YPVBGPN9T6"],"config_entries_subentries":{"01JYMFDK405WQ7E6YPVBGPN9T6":[null]},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["heos",-1108368564]],"id":"c4ce370aae4c0a1f4d002a8a59c5eeb2","labels":[],"modified_at":"2025-07-05T10:59:51.207547+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":["01JYMGS2635F25XPHFSAHB8A2B"],"config_entries_subentries":{"01JYMGS2635F25XPHFSAHB8A2B":[null]},"connections":[],"created_at":"2025-06-30T15:22:17.011432+00:00","disabled_by":null,"identifiers":[["hacs","330644825"]],"id":"deafb1dc7956e7e23ebcb9fbdf4f6577","labels":[],"modified_at":"2025-07-05T12:03:31.076075+00:00","name_by_user":null,"orphaned_timestamp":null},
+      {"area_id":null,"config_entries":[],"config_entries_subentries":{},"connections":[],"created_at":"1970-01-01T00:00:00+00:00","disabled_by":null,"identifiers":[["google_assistant","home-assistant-233522"]],"id":"e53c79d77ca3a43ad8ba3020b3302cb9","labels":[],"modified_at":"2025-07-17T10:02:19.392937+00:00","name_by_user":null,"orphaned_timestamp":1752746539.3929138}
+    ]
+  }
 }

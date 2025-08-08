@@ -1,0 +1,57 @@
+Metadata-Version: 2.3
+Name: iec-api
+Version: 0.4.11
+Summary: A Python wrapper for Israel Electric Company API
+License: MIT
+Keywords: python,poetry,api,iec,israel,electric
+Author: GuyKh
+Maintainer: Guy Khmelnitsky
+Maintainer-email: guykhmel@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: aiofiles (>=23.2.1,<25.0.0)
+Requires-Dist: aiohttp (>=3.9.1,<4.0.0)
+Requires-Dist: mashumaro (>=3.13,<4.0)
+Requires-Dist: pkce (>=1.0.3,<2.0.0)
+Requires-Dist: pyjwt (>=2.8.0,<3.0.0)
+Requires-Dist: pytz (>=2024.1,<2025.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Project-URL: Repository, https://github.com/GuyKh/py-iec-api
+Description-Content-Type: text/markdown
+
+# iec-api
+
+A python wrapper for Israel Electric Company API
+
+## Module Usage
+
+```python
+from iec_api import iec_client as iec
+
+client = iec.IecClient("123456789")
+try:
+    await client.manual_login()  # login with user inputs
+except iec.exceptions.IECError as err:
+    logger.error(f"Failed Login: (Code {err.code}): {err.error}")
+    raise
+
+customer = await client.get_customer()
+print(customer)
+
+contracts = await client.get_contracts()
+for contract in contracts:
+    print(contract)
+
+reading = await client.get_last_meter_reading(customer.bp_number, contracts[0].contract_id)
+print(reading)
+
+```
+
+
+## Postman
+To use the API manually through Postman - read [Postman Collection Guide](POSTMAN.md)

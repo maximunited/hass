@@ -1,0 +1,122 @@
+Fatal Python error: Segmentation fault
+
+Thread 0x000072434ee7fb30 (most recent call first):
+  <no Python frame>
+
+Thread 0x0000724350278b30 (most recent call first):
+  <no Python frame>
+
+Thread 0x00007243497ffb30 (most recent call first):
+  File "/usr/local/lib/python3.13/site-packages/pycares/__init__.py", line 353 in _run_safe_shutdown_loop
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x00007243502c6b30 (most recent call first):
+  <no Python frame>
+
+Thread 0x00007243706fbb38 (most recent call first):
+  <no Python frame>
+
+Thread 0x00007243504feb30 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/src/homeassistant/homeassistant/components/recorder/executor.py", line 22 in _worker_with_shutdown_hook
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x000072436a07fb38 (most recent call first):
+  File "/usr/local/lib/python3.13/threading.py", line 359 in wait
+  File "/usr/local/lib/python3.13/concurrent/futures/_base.py", line 451 in result
+  File "/usr/src/homeassistant/homeassistant/components/recorder/core.py", line 678 in _wait_startup_or_shutdown
+  File "/usr/src/homeassistant/homeassistant/components/recorder/core.py", line 778 in _run
+  File "/usr/src/homeassistant/homeassistant/components/recorder/core.py", line 690 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x000072436b9ffb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x000072436bfffb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x000072436c5ffb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x000072436cbffb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x000072436f37bb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x000072436f47fb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x00007243701ffb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x00007243707ffb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x0000724370dffb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x00007243713ffb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x0000724372bffb38 (most recent call first):
+  File "/usr/local/lib/python3.13/logging/handlers.py", line 1539 in dequeue
+  File "/usr/local/lib/python3.13/logging/handlers.py", line 1590 in _monitor
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Thread 0x000072437312fb38 (most recent call first):
+  File "/usr/local/lib/python3.13/concurrent/futures/thread.py", line 90 in _worker
+  File "/usr/local/lib/python3.13/threading.py", line 992 in run
+  File "/usr/local/lib/python3.13/threading.py", line 1041 in _bootstrap_inner
+  File "/usr/local/lib/python3.13/threading.py", line 1012 in _bootstrap
+
+Current thread 0x000072437dcc4b28 (most recent call first):
+  File "/usr/local/lib/python3.13/asyncio/selector_events.py", line 1243 in _read_ready
+  File "/usr/local/lib/python3.13/asyncio/events.py", line 89 in _run
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 2034 in _run_once
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 677 in run_forever
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 706 in run_until_complete
+  File "/usr/src/homeassistant/homeassistant/runner.py", line 154 in run
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 213 in main
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 227 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 198 in _run_module_as_main
+
+Extension modules: _cffi_backend, ciso8601, yaml._yaml, propcache._helpers_c, ulid_transform._ulid_impl, multidict._multidict, yarl._quoting_c, markupsafe._speedups, _brotli, aiohttp._http_writer, aiohttp._http_parser, aiohttp._websocket.mask, aiohttp._websocket.reader_c, frozenlist._frozenlist, annotatedyaml.reference, annotatedyaml.constructors, _awscrt, charset_normalizer.md, simplejson._speedups, requests.packages.charset_normalizer.md, requests.packages.chardet.md, dbus_fast.signature, dbus_fast._private.marshaller, dbus_fast.message, dbus_fast.service, dbus_fast._private.address, dbus_fast.unpack, dbus_fast.message_bus, dbus_fast._private.unmarshaller, dbus_fast.aio.message_reader, habluetooth.models, habluetooth.advertisement_tracker, bluetooth_data_tools.gap, bluetooth_data_tools._time_impl, bluetooth_data_tools._utils_impl, bluetooth_data_tools.utils, habluetooth.manager, habluetooth.base_scanner, habluetooth.scanner, zeroconf._utils.time, zeroconf._dns, zeroconf._protocol.outgoing, zeroconf._protocol.incoming, zeroconf._cache, zeroconf._record_update, zeroconf._history, zeroconf._updates, zeroconf._services, zeroconf._utils.ipaddress, zeroconf._services.info, zeroconf._services.registry, zeroconf._handlers.answers, zeroconf._handlers.multicast_outgoing_queue, zeroconf._handlers.query_handler, zeroconf._handlers.record_manager, zeroconf._listener, zeroconf._services.browser, sqlalchemy.cyextension.collections, sqlalchemy.cyextension.immutabledict, sqlalchemy.cyextension.processors, sqlalchemy.cyextension.resultproxy, sqlalchemy.cyextension.util, greenlet._greenlet, fnv_hash_fast._fnv_impl, PIL._imaging, isal.igzip_lib, isal.isal_zlib, MySQLdb._mysql, cached_ipaddress.ipaddress, numpy._core._multiarray_umath, numpy.linalg._umath_linalg, audioop._audioop, av._core, av.logging, av.bytesource, av.buffer, av.audio.format, av.enum, av.error, av.utils, av.option, av.descriptor, av.container.pyio, av.dictionary, av.format, av.stream, av.container.streams, av.sidedata.motionvectors, av.sidedata.sidedata, av.opaque, av.packet, av.container.input, av.container.output, av.container.core, av.codec.context, av.video.format, av.video.reformatter, av.plane, av.video.plane, av.video.frame, av.video.stream, av.codec.codec, av.frame, av.audio.layout, av.audio.plane, av.audio.frame, av.audio.stream, av.filter.pad, av.filter.link, av.filter.context, av.filter.graph, av.filter.filter, av.audio.resampler, av.audio.codeccontext, av.audio.fifo, av.bitstream, av.video.codeccontext, psutil._psutil_linux, psutil._psutil_posix, netifaces (total: 120)
