@@ -20,6 +20,9 @@ SERVICE_ACCOUNT.json
 *.yaml.backup_*
 .ha_run.lock
 imou_life/snapshot_*.jpg
+www/imou_life/snapshot_*.jpg
+www/miwifi/router.js
+www/miwifi/dialogs.js
 
 # You can whitelist files/folders with !, these will not be ignored
 !*.yaml
@@ -47,6 +50,12 @@ www/github
 www/google*.html
 extraconfig
 image
+www/miwifi/components
+www/miwifi/exports
+www/miwifi/pages
+www/miwifi/translations
+www/miwifi/assets
+backups
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak
 ip_bans.yaml
