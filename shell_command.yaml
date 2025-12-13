@@ -2,5 +2,8 @@
 restart_ha: docker restart hass
 docker_ps: docker ps -a ; date > /tmp/ha_docker_out.txt
 
+# Healthcheck heartbeat ping to healthchecks.io
+watchdog: curl -m 10 --retry 5 --fail --silent --show-error https://hc-ping.com/{{ secrets.healthchecks_io_ping_token }} || true
+
 # TODO:
 # maxim_finder: curl -X POST https://maker.ifttt.com/trigger/{find_phone_maxim}/with/key/ABC123ABC123
