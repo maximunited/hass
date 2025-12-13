@@ -1,10 +1,10 @@
-import { loadTranslations, localize } from "./translations/localize.js?v=1.3.9";
-import { navigate, goBack } from "./router.js?v=1.3.9";
-import { logToBackend } from "./pages/utils.js?v=1.3.9";
+import { loadTranslations, localize } from "./translations/localize.js?v=2025.8.27";
+import { navigate, goBack } from "./router.js?v=2025.8.27";
+import { logToBackend } from "./pages/utils.js?v=2025.8.27";
 import { html, css, LitElement } from "https://unpkg.com/lit@2.7.5/index.js?module";
 import { until } from "https://unpkg.com/lit-html@2.7.5/directives/until.js?module";
 
-const MIWIFI_VERSION = "1.3.9";
+const MIWIFI_VERSION = "2025.8.27";
 class MiWiFiPanel extends LitElement {
 
   static properties = {
@@ -26,7 +26,8 @@ class MiWiFiPanel extends LitElement {
     this._translationsLoaded = false;
     this._startAutoRefresh();
     window.addEventListener("miwifi-apply-settings", () => this._applySettings());
-    logToBackend(this.hass, "info", "🚀 [panel-frontend.js] MiWiFi panel loaded.");
+    const lvl = this.hass?.states?.["sensor.miwifi_config"]?.attributes?.log_level || "info";
+    logToBackend(this.hass, lvl, "🚀 [panel-frontend.js] MiWiFi panel loaded.");
 
   }
 
@@ -93,8 +94,7 @@ class MiWiFiPanel extends LitElement {
       log_level: logLevel,
     }).then(() => {
       this._showToast(localize("settings.success"));
-      logToBackend(this.hass, "info", "✅ [panel-frontend.js] Settings applied successfully.");
-
+      logToBackend(this.hass, logLevel, "✅ [panel-frontend.js] Settings applied successfully.");
       setTimeout(() => {
         this._loadPage("/settings");
       }, 4000);
@@ -306,6 +306,167 @@ _startAutoRefresh() {
     gap: 10px; 
     padding-left: 16px;
     padding-top: 10px;
+  }
+
+  .row{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap:12px;
+  }
+
+  .switchline{ 
+    display:flex; 
+    align-items:center; 
+    gap:10px;
+    min-width:0;
+  }
+ 
+  .right { 
+    display:flex; 
+    gap:8px; 
+    justify-content:flex-end; 
+  }
+
+  .hidden { 
+    display:none; 
+  }
+  
+  mw-input{ 
+    display:flex; 
+    flex-direction:column; 
+    gap:6px;
+    min-width:0;
+  }
+       
+  mw-input label{ 
+    font-size:12px; 
+    opacity:.8 
+  }
+  
+  mw-input input, mw-input select{ 
+    padding:8px; 
+    border:1px solid var(--divider-color); 
+    border-radius:8px; 
+    color:var(--primary-text-color); 
+    width:100%; 
+    box-sizing:border-box;
+  }
+
+  mw-input > div{ display:flex; align-items:center; gap:8px; }
+  mw-input > div > input{ flex:1 1 auto; min-width:0; width:auto; }
+  mw-input > div > .miwifi-button{ flex:0 0 auto; }
+
+  mw-input .miwifi-button{
+    min-width: auto;
+    width: auto;
+    padding: 6px 10px;
+    border-radius: 12px;
+  }
+
+  .wifi-block { 
+    border:1px solid var(--divider-color); 
+    border-radius:12px; 
+    margin-bottom:12px; 
+  }
+  
+  .wifi-block .header{
+    padding:10px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  
+  .wifi-block .body { 
+    border-top:1px solid var(--divider-color); 
+    padding:10px; 
+  }
+  
+  .wifi-card { 
+    display:grid; 
+    grid-template-columns: repeat(2, minmax(140px,1fr)); 
+    gap:6px; 
+  }
+  
+  .wifi-title { 
+    font-weight:600; 
+    margin-bottom:6px; 
+    grid-column: 1 / -1; 
+  }
+
+  .wifi-row b { 
+    opacity:.8; 
+    margin-right:6px; 
+  }
+
+  .hint { 
+    opacity:.7; 
+    font-size:12px; 
+  }
+
+  .dialog-backdrop{ 
+    position:fixed;
+    inset:0; 
+    background:rgba(0,0,0,.35);
+    display:flex; 
+    justify-content:center; 
+    align-items:center; 
+    z-index:1000; 
+  }
+
+  .dialog{ 
+    background:var(--card-background-color); 
+    padding:16px; 
+    border-radius:12px; 
+    max-width:520px; 
+    width:95%; 
+  }
+
+  .dump-grid{ 
+    display:grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap:10px; 
+    margin-top:8px; 
+  }
+
+  .dump-check{ 
+    display:flex; 
+    align-items:center; 
+    gap:8px; 
+  }
+
+  .note{ 
+    font-size:12px; 
+    opacity:.7; 
+  }
+
+  .select-grid{ 
+    display:grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap:12px; 
+  }
+
+  .select-block{ 
+    display:flex; 
+    flex-direction:column; 
+    gap:6px; 
+  }
+
+  .miwifi-issue { 
+    margin-top:12px; 
+    border-top:1px dashed var(--divider-color); 
+    padding-top:8px; 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+  }
+
+  .miwifi-issue-link { 
+    text-decoration:none; 
+    border:1px solid var(--divider-color); 
+    border-radius:8px; 
+    padding:6px 10px; 
   }
 
   .miwifi-button-group {
@@ -687,6 +848,25 @@ _startAutoRefresh() {
     margin-right: 6px;
     filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
   }
+  
+  .miwifi-dump-modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  }
+  .miwifi-dump-modal-window {
+    background: #1a73e8;
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s ease;
+  }
 
   .version-badge {
     background: #1a73e8;
@@ -706,7 +886,6 @@ _startAutoRefresh() {
     padding: 0 16px;
   }
 
-
   .mesh-card {
     background: #2366d1;
     padding: 16px;
@@ -718,7 +897,6 @@ _startAutoRefresh() {
     width: auto; 
     max-width: 100%;
   }
-
 
   .mesh-card:hover {
     transform: scale(1.01);
@@ -738,76 +916,24 @@ _startAutoRefresh() {
   }
 
   .miwifi-issue-link {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 8px 16px;
-      color: white;
-      background-color: #1a73e8;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 16px;
+    color: white;
+    background-color: #1a73e8;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+  }
 
-    .miwifi-issue-link:hover {
-      background-color: #155ab6;
-    }
+  .miwifi-issue-link:hover {
+    background-color: #155ab6;
+  }
 
-  @media (max-width: 768px) {
-    .miwifi-mesh-group {
-      grid-template-columns: 1fr !important;
-      padding: 0;
-      gap: 16px;
-      margin: 0;
-    }
+  /* ====== Responsivo ====== */
 
-    .section {
-      padding: 12px;
-      margin: 20px 0;
-    }
-
-    .select-grid {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .select-block {
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .status-grid,
-    .device-grid {
-      grid-template-columns: 1fr !important;
-      padding: 8px;
-    }
-
-    .status-card,
-    .device-card {
-      width: auto;
-    }
-
-    .miwifi-button-group {
-      gap: 8px;
-      flex-direction: row;
-    }
-
-    .miwifi-button {
-      min-width: unset;
-      width: 90%;
-      padding: 10px;
-      font-size: 15px;
-    }
-
-    .config-header h2 {
-      font-size: 18px;
-    }
-
-    .disabled-message {
-      padding: 2rem;
-      text-align: center;
-      color: red;
-      font-size: 1.2rem;
-    }
+  @media (max-width: 1024px) {
+    .row{ grid-template-columns: repeat(2, minmax(160px, 1fr)); }
   }
 
   @media (max-width: 849px) {
@@ -823,15 +949,75 @@ _startAutoRefresh() {
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
 
-    .content {
-      padding-top: 82px; /* Space for fixed header */
-    }
-    
+    .content { padding-top: 82px; }
   }
 
-`;
+  @media (max-width: 768px) {
+    .miwifi-mesh-group {
+      grid-template-columns: 1fr !important;
+      padding: 0;
+      gap: 16px;
+      margin: 0;
+    }
 
-  
+    .section { padding: 12px; margin: 20px 0; }
+
+    .select-grid { flex-direction: column; align-items: stretch; }
+
+    .select-block { max-width: 100%; width: 100%; }
+
+    .status-grid, .device-grid { grid-template-columns: 1fr !important; padding: 8px; }
+    .status-card, .device-card { width: auto; }
+
+    .miwifi-button-group { gap: 8px; flex-direction: row; }
+
+    .config-header h2 { font-size: 18px; }
+
+    .disabled-message {
+      padding: 2rem;
+      text-align: center;
+      color: red;
+      font-size: 1.2rem;
+    }
+
+    /* Botones grandes SOLO en zonas de acciones */
+    .miwifi-button-group .miwifi-button,
+    .right .miwifi-button,
+    button.reboot-btn{
+      min-width: unset;
+      width: 90%;
+      padding: 10px;
+      font-size: 15px;
+    }
+
+    /* Botón del ojo siempre compacto */
+    mw-input .miwifi-button{
+      width: auto !important;
+      min-width: auto !important;
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .row{ grid-template-columns: 1fr; }
+    .wifi-card{ grid-template-columns: 1fr; }
+
+    /* Botones grandes SOLO en zonas de acciones */
+    .miwifi-button-group .miwifi-button,
+    .right .miwifi-button,
+    button.reboot-btn{ width:100%; }
+
+    /* Botón del ojo compacto */
+    mw-input .miwifi-button{
+      width:auto !important;
+      min-width:auto !important;
+    }
+
+    .wifi-block .header{ gap:6px; }
+    mw-input input, mw-input select{ font-size:16px; }
+  }
+`;
 }
 
 if (!customElements.get("miwifi-panel")) {

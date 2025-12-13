@@ -1,5 +1,5 @@
-import { localize } from "./translations/localize.js?v=1.3.9";
-import { logToBackend } from "./pages/utils.js?v=1.3.9";
+import { localize } from "./translations/localize.js?v=2025.8.27";
+import { logToBackend } from "./pages/utils.js?v=2025.8.27";
 
 /**
  * Get current main router MAC from sensor
@@ -45,15 +45,16 @@ export async function showDialog(hass, { title, options, onSelect }) {
       try {
         await hass.callService("miwifi", "select_main_router", { mac: selectedMac });
 
+
+        const lvl = hass?.states?.["sensor.miwifi_config"]?.attributes?.log_level || "info";
         await hass.callService("miwifi", "log_panel", {
-          level: "info",
+          level: lvl,
           message: `🖱️ User selected router: ${selectedMac || "none (cleared)"}`,
         });
-
-        await logToBackend(hass, "info", `🖱️ Manual router ${selectedMac || "cleared"} selected from UI (dialogs.js)`);
+        await logToBackend(hass, lvl, `🖱️ Manual router ${selectedMac || "cleared"} selected from UI (dialogs.js)`);
 
       } catch (err) {
-        console.error("🛑 Error al llamar al servicio select_main_router:", err);
+        console.error("🛑 Error calling the select_main_router service:", err);
         await logToBackend(hass, "error", `❌ Failed to call select_main_router: ${err}`);
       }
 

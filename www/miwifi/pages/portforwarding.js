@@ -1,19 +1,19 @@
 import { html } from "https://unpkg.com/lit@2.7.5/index.js?module";
-import { logToBackend } from "./utils.js?v=1.3.9";
-import { localize } from "../translations/localize.js?v=1.3.9";
-import "../components/miwifi-portforwarding.js?v=1.3.9";
+import { logToBackend } from "./utils.js?v=2025.8.27";
+import { localize } from "../translations/localize.js?v=2025.8.27";
+import "../components/miwifi-portforwarding.js?v=2025.8.27";
 
 export const renderPortForwarding = (hass) => {
   try {
     if (!hass) {
-      logToBackend(null, "warning", "[MiWiFi] ⚠️ No se recibió el objeto hass al renderizar el panel");
+      logToBackend(null, "warning", "[MiWiFi] ⚠️ Hass object not received while rendering panel");
       return html`
         <div style="color: red;">
-          ⚠️ ${localize("panel.error_no_hass") || "No se puede cargar el panel: hass no definido."}
+          ⚠️ ${localize("panel.error_no_hass") || "Cannot load panel: hass not defined."}
         </div>`;
     }
 
-    logToBackend(hass, "info", "[panel-portforwarding.js] Renderizando panel de reenvío de puertos");
+    logToBackend(hass, "info", "[panel-portforwarding.js] Rendering port forwarding panel");
 
     return html`<miwifi-portforwarding .hass=${hass}></miwifi-portforwarding>`;
 
@@ -21,7 +21,7 @@ export const renderPortForwarding = (hass) => {
     logToBackend(hass, "error", `[panel-portforwarding.js] Error: ${err.message}`);
     return html`
       <div style="color: red; text-align: center;">
-        ⚠️ ${localize("panel.error_portforwarding") || "Error al cargar el panel de puertos."}
+        ⚠️ ${localize("panel.error_portforwarding") || "Error loading port forwarding panel."}
       </div>`;
   }
 };

@@ -1,0 +1,152 @@
+---
+##########################################################
+### Template sensors for Xiaomi Gateway              ###
+##########################################################
+
+- sensor:
+  - name: vibration_living_room_ac
+    state: '{{ states.binary_sensor.vibration_living_room_ac.attributes["last_action"] }}'
+
+  - name: front_door
+    state: >-
+      {% if states.binary_sensor.front_door.state == 'on' %}
+        Open
+      {% elif states.binary_sensor.front_door.state == 'off' %}
+        Closed
+      {% else %}
+        n/a
+      {% endif %}
+    icon: >-
+      {% if states.binary_sensor.front_door.state == 'on' %}
+        mdi:door-open
+      {% elif states.binary_sensor.front_door.state == 'off' %}
+        mdi:door-closed
+      {% else %}
+        mdi:help
+      {% endif %}
+
+  - name: balcony_door
+    state: >-
+      {% if states.binary_sensor.balcony_door.state == 'on' %}
+        Open
+      {% elif states.binary_sensor.balcony_door.state == 'off' %}
+        Closed
+      {% else %}
+        n/a
+      {% endif %}
+    icon: >-
+      {% if states.binary_sensor.balcony_door.state == 'on' %}
+        mdi:door-open
+      {% elif states.binary_sensor.balcony_door.state == 'off' %}
+        mdi:door-closed
+      {% else %}
+        mdi:help
+      {% endif %}
+
+  - name: master_bedroom_door
+    state: >-
+      {% if states.binary_sensor.master_bedroom_door.state == 'on' %}
+        Open
+      {% elif states.binary_sensor.master_bedroom_door.state == 'off' %}
+        Closed
+      {% else %}
+        n/a
+      {% endif %}
+    icon: >-
+      {% if states.binary_sensor.master_bedroom_door.state == 'on' %}
+        mdi:door-open
+      {% elif states.binary_sensor.master_bedroom_door.state == 'off' %}
+        mdi:door-closed
+      {% else %}
+        mdi:help
+      {% endif %}
+
+  - name: shower_window
+    state: >-
+      {% if states.binary_sensor.shower_window.state == 'on' %}
+        Open
+      {% elif states.binary_sensor.shower_window.state == 'off' %}
+        Closed
+      {% else %}
+        n/a
+      {% endif %}
+    icon: >-
+      {% if states.binary_sensor.shower_window.state == 'on' %}
+        mdi:window-open
+      {% elif states.binary_sensor.shower_window.state == 'off' %}
+        mdi:window-closed
+      {% else %}
+        mdi:help
+      {% endif %}
+
+  - name: bathroom_window
+    state: >-
+      {% if states.binary_sensor.bathroom_window.state == 'on' %}
+        Open
+      {% elif states.binary_sensor.bathroom_window.state == 'off' %}
+        Closed
+      {% else %}
+        n/a
+      {% endif %}
+    icon: >-
+      {% if states.binary_sensor.bathroom_window.state == 'on' %}
+        mdi:window-open
+      {% elif states.binary_sensor.bathroom_window.state == 'off' %}
+        mdi:window-closed
+      {% else %}
+        mdi:help
+      {% endif %}
+
+  - name: bathroom_door
+    state: >-
+      {% if states.binary_sensor.bathroom_door.state == 'on' %}
+        Open
+      {% elif states.binary_sensor.bathroom_door.state == 'off' %}
+        Closed
+      {% else %}
+        n/a
+      {% endif %}
+    icon: >-
+      {% if states.binary_sensor.bathroom_door.state == 'on' %}
+        mdi:door-open
+      {% elif states.binary_sensor.bathroom_door.state == 'off' %}
+        mdi:door-closed
+      {% else %}
+        mdi:help
+      {% endif %}
+
+  - name: vault
+    state: >-
+      {% if states.binary_sensor.vault.state == 'on' %}
+        Open
+      {% elif states.binary_sensor.vault.state == 'off' %}
+        Closed
+      {% else %}
+        n/a
+      {% endif %}
+    icon: >-
+      {% if states.binary_sensor.vault.state == 'on' %}
+        mdi:window-open
+      {% elif states.binary_sensor.vault.state == 'off' %}
+        mdi:window-closed
+      {% else %}
+        mdi:help
+      {% endif %}
+
+  - name: master_bedroom_ac_vent
+    state: >-
+      {% if states.binary_sensor.master_bedroom_ac_vent.state == 'on' %}
+        Open
+      {% elif states.binary_sensor.master_bedroom_ac_vent.state == 'off' %}
+        Closed
+      {% else %}
+        n/a
+      {% endif %}
+    icon: >-
+      {% if states.binary_sensor.master_bedroom_ac_vent.state == 'on' %}
+        mdi:window-open
+      {% elif states.binary_sensor.master_bedroom_ac_vent.state == 'off' %}
+        mdi:window-closed
+      {% else %}
+        mdi:help
+      {% endif %}

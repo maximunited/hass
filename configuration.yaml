@@ -106,6 +106,9 @@ media_player: !include media_player.yaml
 # Sensors
 sensor: !include_dir_merge_list sensors/
 
+# Templates
+template: !include_dir_merge_list templates/
+
 # Binary Sensors
 binary_sensor: !include binary_sensor.yaml
 

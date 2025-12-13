@@ -1,0 +1,13 @@
+---
+##########################################################
+### Template sensors for system monitor              ###
+##########################################################
+
+- sensor:
+  - name: update_available
+    icon: mdi:update
+    state: >-
+      {% set version = states('updater.updater') %}
+      {% if version != 'unknown' %}
+        Update available: {{ version }}
+      {% endif %}

@@ -1,0 +1,10 @@
+---
+##########################################################
+### Template sensors for weather                      ###
+##########################################################
+
+- sensor:
+  # Template Sensor for Sun Angle
+  - name: solar_angle
+    unit_of_measurement: '°'
+    state: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"

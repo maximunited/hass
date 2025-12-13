@@ -4,14 +4,18 @@
 .*.swp
 core
 *.log
+*.log.*
 *.db*
 .uuid
 *.BACKUP
 .google_maps_location_sharing.cookies.*
 GOOGLE_SERVICE_ACCOUNT*.json
 html5_push_registrations\.conf
+SERVICE_ACCOUNT.json
 *_OBSOLETE
 *.yaml.backup_*
+.ha_run.lock
+imou_life/snapshot_*.jpg
 
 # You can whitelist files/folders with !, these will not be ignored
 !*.yaml

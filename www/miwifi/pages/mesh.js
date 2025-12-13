@@ -1,8 +1,8 @@
 import { html } from "https://unpkg.com/lit@2.7.5/index.js?module";
-import { renderToggle, renderSelects } from "./utils.js?v=1.3.9";
-import { localize } from "../translations/localize.js?v=1.3.9";
-import { logToBackend } from "./utils.js?v=1.3.9";
-import "../components/miwifi-device-node-card.js?v=1.3.9";
+import { renderToggle, renderSelects } from "./utils.js?v=2025.8.27";
+import { localize } from "../translations/localize.js?v=2025.8.27";
+import { logToBackend } from "./utils.js?v=2025.8.27";
+import "../components/miwifi-device-node-card.js?v=2025.8.27";
 
 const REPOSITORY = "JuanManuelRomeroGarcia/hass-miwifi";
 const REPOSITORY_PANEL = "JuanManuelRomeroGarcia/miwifi-panel-frontend";

@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "https://unpkg.com/lit@2.7.5/index.js?module";
-import { localize } from "../translations/localize.js?v=1.3.9";
+import { localize } from "../translations/localize.js?v=2025.8.27";
 
 class MiWiFiNodeDeviceCard extends LitElement {
   static properties = {

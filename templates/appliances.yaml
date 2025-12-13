@@ -1,0 +1,21 @@
+---
+##########################################################
+### Template sensors for appliances                   ###
+##########################################################
+
+- sensor:
+  ## Washing Machine Status
+  - name: washing_machine_status
+    state: '{{ states.input_select.washing_machine_status.state }}'
+
+  ## Tumble Dryer Status
+  - name: dryer_status
+    state: '{{ states.input_select.dryer_status.state }}'
+
+  ## Dishwasher Status
+  - name: dishwasher_status
+    state: '{{ states.input_select.dishwasher_status.state }}'
+
+  ## Shower Heater Status
+  - name: shower_heater_status
+    state: '{{ states.input_select.shower_heater_status.state }}'

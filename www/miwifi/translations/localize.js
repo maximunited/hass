@@ -1,4 +1,4 @@
-const version = "1.3.9";
+const version = "2025.8.27";
 
 let translations = {};
 let currentLang = "en";

@@ -7,6 +7,13 @@
 ####################################################
 
 ---
+
+- platform: fail2ban
+  jails:
+    - sshd
+    - hass-iptables
+    - traefik-auth
+
 # https://home-assistant.io/components/sensor.systemmonitor/
 # - platform: systemmonitor
 #   resources:
@@ -72,31 +79,9 @@
 
 #
 # Friendly version report
+# Note: Template sensor has been moved to templates/system_monitor.yaml
 #
-- platform: template
-  sensors:
-    # version_friendly:
-    #   friendly_name: Home Assistant Version
-    #   icon_template: mdi:update
-    #   value_template: >-
-    #     {% set version = states('sensor.version_current') %}
-    #     Home Assistant {% if version != 'unknown' -%}
-    #       {{ version }}
-    #     {%- endif %}
-    update_available:
-      friendly_name: Update Available
-      icon_template: mdi:update
-      value_template: >-
-        {% set version = states('updater.updater') %}
-        {% if version != 'unknown' %}
-          Update available: {{ version }}
-        {% endif %}
 
-- platform: fail2ban
-  jails:
-    - sshd
-    - hass-iptables
-    - traefik-auth
 
 # - platform: hadockermon
 #   host: 127.0.0.1

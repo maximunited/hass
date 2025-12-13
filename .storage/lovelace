@@ -1090,6 +1090,51 @@
               ],
               "title": "Zones",
               "style": "ha-card {\n  border-radius: 8px;\n  box-shadow: 2px 2px rgba(0,0,0,0.3);\n}\n"
+            },
+            {
+              "type": "grid",
+              "square": false,
+              "columns": 1,
+              "cards": [
+                {
+                  "type": "entities",
+                  "entities": [
+                    {
+                      "entity": "binary_sensor.garage_camera_online",
+                      "name": "Online",
+                      "secondary_info": "last-changed"
+                    },
+                    {
+                      "entity": "sensor.garage_camera_status",
+                      "name": "Status",
+                      "secondary_info": "none"
+                    },
+                    {
+                      "entity": "sensor.garage_camera_battery",
+                      "name": "Battery"
+                    },
+                    {
+                      "entity": "switch.garage_camera_closecamera",
+                      "name": "Close garage camera"
+                    }
+                  ],
+                  "title": "Garage Camera"
+                },
+                {
+                  "show_state": true,
+                  "show_name": false,
+                  "camera_view": "auto",
+                  "fit_mode": "cover",
+                  "type": "picture-entity",
+                  "entity": "camera.garage_camera_hd",
+                  "double_tap_action": {
+                    "double_tap_action": {
+                      "action": "call-service",
+                      "service": "script.take_snapshot_and_notify"
+                    }
+                  }
+                }
+              ]
             }
           ]
         },

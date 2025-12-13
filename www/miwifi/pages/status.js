@@ -1,7 +1,7 @@
 import { html } from "https://unpkg.com/lit@2.7.5/index.js?module";
-import { getMainRouterMac, formatSignal, logToBackend } from "./utils.js?v=1.3.9";
-import { localize } from "../translations/localize.js?v=1.3.9";
-import { showDialog } from "../dialogs.js?v=1.3.9";
+import { getMainRouterMac, formatSignal, logToBackend } from "./utils.js?v=2025.8.27";
+import { localize } from "../translations/localize.js?v=2025.8.27";
+import { showDialog } from "../dialogs.js?v=2025.8.27";
 
 
 async function findMainTopoSensor(hass, retries = 3, delay = 500) {

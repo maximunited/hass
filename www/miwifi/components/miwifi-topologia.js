@@ -1,7 +1,7 @@
 // ✅ miwifi-topologia.js actualizado con conteo desde sensores
 import { LitElement, html, css } from "https://unpkg.com/lit@2.7.5/index.js?module";
-import { localize } from "../translations/localize.js?v=1.3.9";
-import { navigate } from "../router.js?v=1.3.9";
+import { localize } from "../translations/localize.js?v=2025.8.27";
+import { navigate } from "../router.js?v=2025.8.27";
 
 const REPOSITORY = "JuanManuelRomeroGarcia/hass-miwifi";
 const REPOSITORY_PANEL = "JuanManuelRomeroGarcia/miwifi-panel-frontend";

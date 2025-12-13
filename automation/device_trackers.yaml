@@ -1,7 +1,7 @@
 ---
 
 ####
-- id: notify_on_unknown_devices_home
+- id: 1643194515554
   alias: 'Notify when unknown devices are marked home'
   trigger:
     - platform: state

@@ -148,3 +148,21 @@ adguard_disable_protection_for_1_hour:
       entity_id: switch.adguard_protection
     data: {}
     action: switch.turn_on
+take_camera_snapshot_and_notify:
+  sequence:
+  - data:
+      filename: /config/www/imou_life/snapshot_{{ now().strftime('%Y-%m-%d_%H-%M-%S')
+        }}.jpg
+      response_variable: snapshot_info
+    action: camera.snapshot
+    target:
+      entity_id: camera.garage_camera_hd
+  - data:
+      title: Snapshot Saved!
+      notification_id: snapshot_{{ now().isoformat() }}
+      message: Snapshot saved. [Click here to view]({{ snapshot_info.filepath | replace('/config/www',
+        '/local') }})
+    action: persistent_notification.create
+  alias: Take camera snapshot and notify
+  description: ''
+  icon: mdi:camera-plus-outline

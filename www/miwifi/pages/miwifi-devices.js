@@ -1,6 +1,6 @@
 import { html } from "https://unpkg.com/lit@2.7.5/index.js?module";
-import "../components/miwifi-device-cards.js?v=1.3.9";
-import { logToBackend } from "./utils.js?v=1.3.9";
+import "../components/miwifi-device-cards.js?v=2025.8.27";
+import { logToBackend } from "./utils.js?v=2025.8.27";
 
 
 export function renderDevicesCards(hass) {
