@@ -34,6 +34,44 @@ This repository contains the configuration files, custom components, and resourc
 4. Place custom resources in `custom_components/` and `www/` as needed.
 5. Start Home Assistant (Docker, venv, or supervised).
 
+## Pre-commit Hooks
+
+This repository includes pre-commit hooks to validate and format YAML files before commits.
+
+### Installation
+
+1. Install pre-commit and dependencies:
+   ```sh
+   pip install -r requirements-dev.txt
+   # Or install individually:
+   pip install pre-commit yamllint
+   ```
+
+2. Install the git hooks:
+   ```sh
+   pre-commit install
+   ```
+
+### Usage
+
+Pre-commit hooks will automatically run on `git commit`. They will:
+- Check YAML syntax
+- Lint YAML files for style issues
+- Remove trailing whitespace
+- Ensure files end with newlines
+- Validate Home Assistant configuration (if `hass` command is available)
+- Check for merge conflicts and private keys
+
+To run hooks manually on all files:
+```sh
+pre-commit run --all-files
+```
+
+To skip hooks for a specific commit:
+```sh
+git commit --no-verify
+```
+
 ## Contributing
 Pull requests are welcome! Please:
 - Follow the existing file structure and naming conventions

@@ -1,0 +1,39 @@
+# Pre-commit hooks for Home Assistant configuration
+# Install with: pip install pre-commit
+# Then run: pre-commit install
+
+repos:
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args: [--unsafe]  # Allow custom YAML tags like !secret, !include
+      - id: check-added-large-files
+        args: [--maxkb=1000]
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: detect-private-key
+
+  # YAML linting
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.33.0
+    hooks:
+      - id: yamllint
+        args: [-c=.yamllint]
+
+  # Home Assistant configuration validation
+  - repo: local
+    hooks:
+      - id: homeassistant-validate
+        name: Home Assistant Configuration Validation
+        entry: ./.pre-commit-hass-validate.sh
+        language: system
+        pass_filenames: false
+        always_run: true
+        files: '\.(yaml|yml)$'
+
