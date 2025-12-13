@@ -32,6 +32,7 @@ imou_life/snapshot_*.jpg
 .storage/core.config_entries
 custom_components
 .cloud
+.local
 .git
 tts
 deps
