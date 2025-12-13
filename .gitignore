@@ -8,6 +8,10 @@ core
 *.db*
 .uuid
 *.BACKUP
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 .google_maps_location_sharing.cookies.*
 GOOGLE_SERVICE_ACCOUNT*.json
 html5_push_registrations\.conf
@@ -31,6 +35,7 @@ imou_life/snapshot_*.jpg
 .storage
 .storage/core.config_entries
 custom_components
+custom_components.old
 .cloud
 .local
 .git
