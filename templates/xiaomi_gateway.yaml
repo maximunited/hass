@@ -5,7 +5,12 @@
 
 - sensor:
   - name: vibration_living_room_ac
-    state: '{{ states.binary_sensor.vibration_living_room_ac.attributes["last_action"] }}'
+    state: >-
+      {% if states.binary_sensor.vibration_living_room_ac is not none and states.binary_sensor.vibration_living_room_ac.attributes is defined %}
+        {{ states.binary_sensor.vibration_living_room_ac.attributes.get("last_action", "unknown") }}
+      {% else %}
+        unknown
+      {% endif %}
 
   - name: front_door
     state: >-

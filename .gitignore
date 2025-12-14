@@ -24,6 +24,8 @@ www/imou_life/snapshot_*.jpg
 www/miwifi/router.js
 www/miwifi/dialogs.js
 
+custom_icons/iconify-icon-sets-master.zip
+
 # You can whitelist files/folders with !, these will not be ignored
 !*.yaml
 !.gitignore
