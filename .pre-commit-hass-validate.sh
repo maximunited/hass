@@ -7,4 +7,3 @@ else
     echo "Warning: hass command not found. Install Home Assistant to validate config."
     exit 0
 fi
-

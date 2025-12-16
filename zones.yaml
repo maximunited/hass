@@ -1,3 +1,5 @@
+---
+
 - name: MyHome
   latitude: !secret home_latitude
   longitude: !secret home_longitude

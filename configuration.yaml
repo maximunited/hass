@@ -23,16 +23,16 @@ homeassistant:
     # - type: legacy_api_password
     #   api_password: !secret api_password
 
-#frontend:
-  #extra_html_url: ## Depricated
-  #  - /local/icons/fontawesome/hass-fontawesome-solid.html
-  #  - /local/icons/fontawesome/hass-fontawesome-regular.html
-  #  - /local/icons/fontawesome/hass-fontawesome-brands.html
-  #javascript_version: latest
+# frontend:
+# extra_html_url: ## Depricated
+#  - /local/icons/fontawesome/hass-fontawesome-solid.html
+#  - /local/icons/fontawesome/hass-fontawesome-regular.html
+#  - /local/icons/fontawesome/hass-fontawesome-brands.html
+# javascript_version: latest
 frontend:
   extra_module_url:
     - /local/community/custom-brand-icons/custom-brand-icons.js
-    
+
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
@@ -56,20 +56,20 @@ logbook: !include logbook.yaml
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
-  #server_port: 8123
-  #base_url: !secret http_base_url
+  # server_port: 8123
+  # base_url: !secret http_base_url
   use_x_forwarded_for: true
   trusted_proxies:
     - 172.19.0.3      # Traefik container IP
     - 192.168.1.0/24  # Local network
-  #ip_ban_enabled: true
-  #login_attempts_threshold: 5
+# ip_ban_enabled: true
+# login_attempts_threshold: 5
 
-      #media_dirs:
-      #  movies: /data/media/completed/movies
-      #  tv: /data/media/completed/tv
-      #  music: /data/media/completed/music
-      #  pics: /data/media/completed/Pics
+# media_dirs:
+#  movies: /data/media/completed/movies
+#  tv: /data/media/completed/tv
+#  music: /data/media/completed/music
+#  pics: /data/media/completed/Pics
 
 # Discover some devices automatically
 # discovery:
@@ -157,7 +157,7 @@ climate: !include climate.yaml
 
 # REPLACED BY HACS
 # https://custom-components.github.io/custom_updater/Installation
-#custom_updater:
+# custom_updater:
 #  track:
 #    - cards
 #    - components

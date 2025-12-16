@@ -1,6 +1,7 @@
 # https://www.home-assistant.io/components/input_boolean/
 
 ---
+
 # Unused
 maxim_home:
   name: Set Maxim Home/Away state
