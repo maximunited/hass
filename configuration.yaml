@@ -98,7 +98,8 @@ http:
 zone: !include zones.yaml
 
 # Switches
-switch: !include switches.yaml
+# OBSOLETE - moved to templates/
+#switch: !include switches.yaml
 
 # Media Players
 media_player: !include media_player.yaml
@@ -119,7 +120,8 @@ tts:
     # base_url: !secret internal_url
 
 group: !include groups.yaml
-automation: !include_dir_merge_list automation
+#automation: !include_dir_merge_list automation
+automation: !include automations.yaml
 script: !include scripts.yaml
 shell_command: !include shell_command.yaml
 # timer: !include timer.yaml
@@ -303,16 +305,15 @@ wake_on_lan:
 
 notify: !include notify.yaml
 
-proxmoxve:
-  - host: !secret proxmox_ip
-    username: !secret proxmox_username
-    password: !secret proxmox_password
-    verify_ssl: false
-    nodes:
-      - node: secret proxmox_node
-        vms:
-          - 100
-
+# proxmoxve:
+#   - host: !secret proxmox_ip
+#     username: !secret proxmox_username
+#     password: !secret proxmox_password
+#     verify_ssl: false
+#     nodes:
+#       - node: secret proxmox_node
+#         vms:
+#           - 100
 
 # Notifications (require HTTPS)
 # notify:
@@ -335,3 +336,22 @@ proxmoxve:
   # - platform: pushbullet
   #   name: notify_pushbullet
   #   api_key: !secret pushbullet_token
+
+# https://github.com/mampfes/hacs_waste_collection_schedule/blob/master/doc/source/static.md
+waste_collection_schedule:
+  sources:
+    - name: static
+      args:
+        type: Scrap and debis
+        weekdays: TU
+        frequency: WEEKLY
+    - name: static
+      args:
+        type: Green trash
+        weekdays: { SU, TU, TH }
+        frequency: WEEKLY
+    - name: static
+      args:
+        type: Orange trash
+        weekdays: SU
+        frequency: WEEKLY

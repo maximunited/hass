@@ -58,6 +58,7 @@ www/miwifi/pages
 www/miwifi/translations
 www/miwifi/assets
 backups
+.cache
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak
 ip_bans.yaml

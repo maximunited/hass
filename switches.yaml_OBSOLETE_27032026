@@ -1,3 +1,4 @@
+---
 # --- switches.yaml ---
 #
 # This file defines switches using the Template platform. This is the modern method for
@@ -6,75 +7,77 @@
 # For momentary switches, the 'turn_off' action calls an empty script named 'script.do_nothing'.
 #
 
+#- platform: template
+#  switches:
+#    ################################################
+#    #                   LG TV                      #
+#    ################################################
+#    tv_lg_power:
+#      friendly_name: "LG TV Power"
+#      value_template: "{{ 'unavailable' }}" # This switch is a toggle, its state is unknown.
+#      turn_on:
+#        service: broadlink.send
+#        data:
+#          host: 192.168.1.15
+#          packet: 'JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='
+#      turn_off:
+#        service: broadlink.send
+#        data:
+#          host: 192.168.1.15
+#          packet: 'JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='
+#
+#    tv_lg_hdmi1:
+#      friendly_name: "LG TV HDMI1"
+#      value_template: "{{ 'off' }}"
+#      turn_on:
+#        service: broadlink.send
+#        data:
+#          host: 192.168.1.15
+#          packet: 'JgBIAAABIZMRExITEjYSExMRERURExEUEDkRNxEUEjYSNhM3ETcSNxITETgSNhI2ExMQExE4ETYSNxIUERMSExE4ETcRFBETEQANBQ=='
+#      turn_off:
+#        service: script.do_nothing # Call the empty script to satisfy validation.
+#
+#    tv_lg_hdmi1_hdmi2:
+#      friendly_name: "LG TV HDMI1 HDMI2"
+#      value_template: "{{ 'unavailable' }}"
+#      turn_on:
+#        service: broadlink.send
+#        data:
+#          host: 192.168.1.15
+#          packet: 'JgBIAAABIZMRExITEjYSExMRERURExEUEDkRNxEUEjYSNhM3ETcSNxITETgSNhI2ExMQExE4ETYSNxIUERMSExE4ETcRFBETEQANBQ=='
+#      turn_off:
+#        service: broadlink.send
+#        data:
+#          host: 192.168.1.15
+#          packet: 'JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA='
+#
+#    tv_lg_chromecast_marantz:
+#      friendly_name: "LG TV Chromecast/Marantz"
+#      value_template: "{{ 'unavailable' }}"
+#      turn_on:
+#        service: broadlink.send
+#        data:
+#          host: 192.168.1.15
+#          packet: 'JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA='
+#      turn_off:
+#        service: broadlink.send
+#        data:
+#          host: 192.168.1.15
+#          packet: 'JgBIAAABIZMSFBISETgRExEUERQQFBETEjcTNhMSETgRNxE3EjcROBM2ERMSFBE4ERMSNxM2EjUSFBE2ETgRExM2ExITEhATEwANBQ=='
+
+#    tv_lg_hdmi3:
+#      friendly_name: "LG TV HDMI3"
+#      value_template: "{{ 'off' }}"
+#      turn_on:
+#        service: broadlink.send
+#        data:
+#          host: 192.168.1.15
+#          packet: 'JgBIAAABIZMSFBISETgRExEUERQQFBETEjcTNhMSETgRNxE3EjcROBM2ERMSFBE4ERMSNxM2EjUSFBE2ETgRExM2ExITEhATEwANBQ=='
+#      turn_off:
+#        service: script.do_nothing # Call the empty script to satisfy validation.
+
 - platform: template
   switches:
-    ################################################
-    #                   LG TV                      #
-    ################################################
-    tv_lg_power:
-      friendly_name: "LG TV Power"
-      value_template: "{{ 'unavailable' }}" # This switch is a toggle, its state is unknown.
-      turn_on:
-        service: broadlink.send
-        data:
-          host: 192.168.1.15
-          packet: 'JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='
-      turn_off:
-        service: broadlink.send
-        data:
-          host: 192.168.1.15
-          packet: 'JgBYAAABIJISExETETcSEhISEhQQFBETETcROBESEjcRNhM1EjcTNRMTERISNxEUERMSExE2EjYSNhM2EhIROBE3ETcREhITEgAFGwABH0oSAAwzAAEfShEADQU='
-
-    tv_lg_hdmi1:
-      friendly_name: "LG TV HDMI1"
-      value_template: "{{ 'off' }}"
-      turn_on:
-        service: broadlink.send
-        data:
-          host: 192.168.1.15
-          packet: 'JgBIAAABIZMRExITEjYSExMRERURExEUEDkRNxEUEjYSNhM3ETcSNxITETgSNhI2ExMQExE4ETYSNxIUERMSExE4ETcRFBETEQANBQ=='
-      turn_off:
-        service: script.do_nothing # Call the empty script to satisfy validation.
-
-    tv_lg_hdmi1_hdmi2:
-      friendly_name: "LG TV HDMI1 HDMI2"
-      value_template: "{{ 'unavailable' }}"
-      turn_on:
-        service: broadlink.send
-        data:
-          host: 192.168.1.15
-          packet: 'JgBIAAABIZMRExITEjYSExMRERURExEUEDkRNxEUEjYSNhM3ETcSNxITETgSNhI2ExMQExE4ETYSNxIUERMSExE4ETcRFBETEQANBQ=='
-      turn_off:
-        service: broadlink.send
-        data:
-          host: 192.168.1.15
-          packet: 'JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA='
-
-    tv_lg_chromecast_marantz:
-      friendly_name: "LG TV Chromecast/Marantz"
-      value_template: "{{ 'unavailable' }}"
-      turn_on:
-        service: broadlink.send
-        data:
-          host: 192.168.1.15
-          packet: 'JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA='
-      turn_off:
-        service: broadlink.send
-        data:
-          host: 192.168.1.15
-          packet: 'JgBIAAABIZMSFBISETgRExEUERQQFBETEjcTNhMSETgRNxE3EjcROBM2ERMSFBE4ERMSNxM2EjUSFBE2ETgRExM2ExITEhATEwANBQ=='
-
-    tv_lg_hdmi3:
-      friendly_name: "LG TV HDMI3"
-      value_template: "{{ 'off' }}"
-      turn_on:
-        service: broadlink.send
-        data:
-          host: 192.168.1.15
-          packet: 'JgBIAAABIZMSFBISETgRExEUERQQFBETEjcTNhMSETgRNxE3EjcROBM2ERMSFBE4ERMSNxM2EjUSFBE2ETgRExM2ExITEhATEwANBQ=='
-      turn_off:
-        service: script.do_nothing # Call the empty script to satisfy validation.
-
     ################################################
     #                 TV Box                       #
     ################################################

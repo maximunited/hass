@@ -15,8 +15,12 @@ exposed_domains:
   - sensor
   - script
 entity_config:
+  light.gateway_light_04cf8c916107:
+    name: Gateway light
+    expose: true
   script.main_media_chromecast:
     name: Script Chromecast
+    expose: true
     aliases:
       - Switch chromecast
       - Switch main chromecast
@@ -24,6 +28,7 @@ entity_config:
     # room: Living Room
   script.main_media_hot:
     name: Script Cable
+    expose: true
     aliases:
       - Script Hot
       - Script Main hot
@@ -31,13 +36,22 @@ entity_config:
     # room: Living Room
   script.main_media_plex:
     name: Script Plex
+    expose: true
     aliases:
       - Script plex
       - Script Main plex
       - Script main plex
     # room: Living Room
+  script.main_media_jellyfin:
+    name: Script Jellyfin
+    expose: true
+    aliases:
+      - Script Jellyfin
+      - Script Main Jellyfin
+      - Script main Jellyfin
   script.main_media_playstation:
     name: Script Playstation
+    expose: true
     aliases:
       - Script playstation
       - Script Main playstation
@@ -47,22 +61,29 @@ entity_config:
   #   name: Dockerbot
   switch.docker_hass:
     name: Home Assisstant
+    expose: true
     aliases:
       - hass
   switch.docker_mariadb:
     name: MariaDB
+    expose: true
   switch.docker_mosquitto:
     name: Mosquitto
+    expose: true
   switch.docker_node_red:
     name: Node-RED
+    expose: true
     aliases:
       - Node red
   switch.docker_oauth:
     name: OAuth
+    expose: true
   switch.docker_portainer:
     name: Portainer
+    expose: true
   switch.docker_traefik:
     name: Traefik
+    expose: true
     aliases:
       - Traffic
 

@@ -1,37 +1,183 @@
----
-  # @link: https://www.home-assistant.io/components/scene/
-  # Scenes
-  
-  - name: Ambient full
-    id: ambient_led_strips_on
-    entities:
-      light.stove_light:
-        state: "on"
-        #      brightness: 255
-        #color_temp: 588
-        #hs_color: 0,0
-        #rgb_color: 255,255,255
-        xy_color: [0.493, 0.389]
-      light.peninsula_light:
-        state: "on"
-        #      brightness: 255
-        #color_temp: 588
-        #hs_color: 0,0
-        #rgb_color: 255,255,255
-        xy_color: [0.493, 0.389]
-      light.curtain_light:
-        state: "on"
-        #      brightness: 255
-        #color_temp: 588
-        #hs_color: 0,0
-        #rgb_color: 255,255,255
-        xy_color: [0.493, 0.389]
-  #- name: Movies
-  #  entities:
-  #    light.tv_back_light:
-  #      state: "on"
-  #      brightness: 100
-  #    light.ceiling: false
-  #    media_player.sony_bravia_tv:
-  #      source: HDMI 1
-  
+- name: Ambient full
+  id: ambient_led_strips_on
+  entities:
+    light.stove_light:
+      state: 'on'
+      xy_color:
+      - 0.493
+      - 0.389
+    light.peninsula_light:
+      state: 'on'
+      xy_color:
+      - 0.493
+      - 0.389
+    light.curtain_light:
+      state: 'on'
+      xy_color:
+      - 0.493
+      - 0.389
+- id: alert_pikud
+  name: Alert pikud
+  entities:
+    light.curtain_light:
+      effect: Alarm
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 0
+      - 100
+      flowing: true
+      state: 'on'
+    light.peninsula_light:
+      effect: Alarm
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 0
+      - 100
+      flowing: true
+      state: 'on'
+    light.stove_light:
+      effect: Alarm
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 0
+      - 100
+      flowing: true
+      state: 'on'
+    light.gateway_light_04cf8c916107:
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 0
+      - 100
+      state: 'on'
+    light.cabinet_light:
+      effect: Alarm
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 0
+      - 100
+      flowing: true
+      state: 'on'
+  metadata:
+    light.curtain_light:
+      entity_only: true
+    light.peninsula_light:
+      entity_only: true
+    light.stove_light:
+      entity_only: true
+    light.gateway_light_04cf8c916107:
+      entity_only: true
+    light.cabinet_light:
+      entity_only: true
+- id: safe_pikud
+  name: Safe pikud
+  entities:
+    light.curtain_light:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      state: 'on'
+    light.peninsula_light:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      state: 'on'
+    light.stove_light:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      state: 'on'
+    light.gateway_light_04cf8c916107:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      state: 'on'
+    light.cabinet_light:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      state: 'on'
+  metadata:
+    light.curtain_light:
+      entity_only: true
+    light.peninsula_light:
+      entity_only: true
+    light.stove_light:
+      entity_only: true
+    light.gateway_light_04cf8c916107:
+      entity_only: true
+    light.cabinet_light:
+      entity_only: true
+- id: '1773074917074'
+  name: Pre-Alert pikud
+  entities:
+    light.curtain_light:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 255
+      - 95
+      - 31
+      state: 'on'
+    light.peninsula_light:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 255
+      - 95
+      - 31
+      state: 'on'
+    light.stove_light:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 255
+      - 95
+      - 31
+      state: 'on'
+    light.gateway_light_04cf8c916107:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 255
+      - 95
+      - 31
+      state: 'on'
+    light.cabinet_light:
+      color_mode: rgb
+      brightness: 255
+      rgb_color:
+      - 255
+      - 95
+      - 31
+      state: 'on'
+  metadata:
+    light.curtain_light:
+      entity_only: true
+    light.peninsula_light:
+      entity_only: true
+    light.stove_light:
+      entity_only: true
+    light.gateway_light_04cf8c916107:
+      entity_only: true
+    light.cabinet_light:
+      entity_only: true

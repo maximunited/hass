@@ -22,19 +22,23 @@ google_say_indoor_temperature:
 main_media_hot:
   alias: Main Media HOT
   sequence:
-  - service: media_player.turn_on
-    target:
-      entity_id: media_player.marantz_nr1608
-  - service: media_player.select_source
-    target:
-      entity_id: media_player.marantz_nr1608
-    data:
-      source: HOT
-  - service: media_player.select_source
-    target:
-      entity_id: media_player.lg_tv
-    data:
-      source: Receiver
+  - parallel:
+    - sequence:
+      - target:
+          entity_id: media_player.marantz_nr1608
+        action: media_player.turn_on
+        data: {}
+      - target:
+          entity_id: media_player.marantz_nr1608
+        data:
+          source: HOT
+        action: media_player.select_source
+    - target:
+        entity_id:
+        - media_player.85c855_television
+      data:
+        source: Cable
+      action: media_player.select_source
 main_media_chromecast:
   alias: Main Media Chromecast
   sequence:
@@ -72,31 +76,51 @@ main_media_playstation:
 main_media_plex:
   alias: Main Media Plex
   sequence:
-  - service: media_player.turn_on
-    entity_id:
-    - media_player.marantz_nr1608
-  - service: media_player.select_source
-    data:
-      entity_id: media_player.marantz_nr1608
-      source: TV Audio
-  - service: media_player.select_source
-    data:
-      entity_id: media_player.lg_tv
-      source: Plex
+  - parallel:
+    - action: media_player.turn_on
+      metadata: {}
+      target:
+        entity_id: media_player.marantz_nr1608
+      data: {}
+    - action: media_player.turn_on
+      target:
+        entity_id: media_player.smart_tv_pro
+  - parallel:
+    - action: media_player.select_source
+      metadata: {}
+      target:
+        entity_id: media_player.marantz_nr1608
+      data:
+        source: TV Audio
+    - action: remote.turn_on
+      target:
+        entity_id: remote.tcl_tv
+      data:
+        activity: com.plexapp.android
 main_media_jellyfin:
   alias: Main Media Jellyfin
   sequence:
-  - service: media_player.turn_on
-    entity_id:
-    - media_player.marantz_nr1608
-  - service: media_player.select_source
-    data:
-      entity_id: media_player.marantz_nr1608
-      source: TV Audio
-  - service: media_player.select_source
-    data:
-      entity_id: media_player.lg_tv
-      source: Jellyfin
+  - parallel:
+    - action: media_player.turn_on
+      metadata: {}
+      target:
+        entity_id: media_player.marantz_nr1608
+      data: {}
+    - action: media_player.turn_on
+      target:
+        entity_id: media_player.tcl_tv
+  - parallel:
+    - action: media_player.select_source
+      metadata: {}
+      target:
+        entity_id: media_player.marantz_nr1608
+      data:
+        source: TV Audio
+    - action: remote.turn_on
+      target:
+        entity_id: remote.tcl_tv
+      data:
+        activity: org.jellyfin.androidtv
 main_media_off:
   alias: Main Media Off
   sequence:
@@ -136,18 +160,20 @@ adguard_disable_protection_for_1_hour:
   icon: mdi:shield-off-outline
   mode: single
   sequence:
-  - target:
-      entity_id: switch.adguard_protection
+  - action: switch.turn_off
+    metadata: {}
+    target:
+      entity_id: switch.adguard_home_filtering
     data: {}
-    action: switch.turn_off
   - delay:
       hours: 1
       minutes: 0
       seconds: 0
-  - target:
-      entity_id: switch.adguard_protection
+  - action: switch.turn_on
+    metadata: {}
+    target:
+      entity_id: switch.adguard_home_filtering
     data: {}
-    action: switch.turn_on
 take_camera_snapshot_and_notify:
   sequence:
   - data:

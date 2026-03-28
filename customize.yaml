@@ -1,4 +1,9 @@
 ---
+# Scenes
+scene.pikud_original_lights:
+  friendly_name: "[AUTO] [Snapshot] Pikud – Original lights"
+  icon: mdi:camera-auto
+
 # Scripts
 script.main_media_chromecast:
   friendly_name: Main Media Chromecast
