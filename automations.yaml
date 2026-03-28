@@ -1,0 +1,1307 @@
+# =============================================================================
+# automations.yaml
+# Grouped by domain for easier navigation. Automation ids are unchanged.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Pikud Haoref (Oref) — alert states, lighting scenes, timers, ntfy/Pushbullet
+# -----------------------------------------------------------------------------
+- id: pikud_pre_alert_start
+  alias: Pikud Oref - Enter pre-alert state
+  description: 'When Oref changes to pre_alert, snapshot current lighting if no Pikud
+    scene is active, activate the Pre-Alert scene and enforce a 20-minute cap.'
+  triggers:
+  - entity_id: sensor.oref_alert
+    to: pre_alert
+    trigger: state
+  actions:
+  - if:
+    - condition: state
+      entity_id: input_boolean.pikud_scene_active
+      state: 'off'
+    then:
+    - data:
+        scene_id: pikud_original_lights
+        snapshot_entities:
+        - light.curtain_light
+        - light.peninsula_light
+        - light.stove_light
+        - light.gateway_light_04cf8c916107
+        - light.cabinet_light
+      action: scene.create
+  - target:
+      entity_id: input_boolean.pikud_scene_active
+    action: input_boolean.turn_on
+  - data:
+      entity_id: timer.pikud_scene_timeout
+      duration: 00:20:00
+    action: timer.start
+  - sequence:
+    - target:
+        entity_id: scene.pre_alert_pikud
+      action: scene.turn_on
+    - action: ntfy.publish
+      metadata: {}
+      data:
+        message: Pre-alert for {{ trigger.to_state.attributes.area | default('your
+          area') }}. Prepare to enter a sheltered area and follow official instructions.
+        title: 'Oref: Pre-Alert'
+        priority: '5'
+      target:
+        entity_id: notify.pikud_oref
+    - action: notify.pushbullet
+      data:
+        title: 'Oref: Pre-Alert'
+        message: 'Pre-alert for {{ trigger.to_state.attributes.area | default(''your
+          area'') }}. Prepare to enter a sheltered area and follow official instructions.'
+  mode: restart
+- id: pikud_alert_start
+  alias: Pikud Oref - Enter alert state
+  description: 'When Oref changes to alert, snapshot original lights only if no Pikud
+    scene is active yet, then activate the Alert scene.'
+  triggers:
+  - entity_id: sensor.oref_alert
+    to: alert
+    trigger: state
+  actions:
+  - if:
+    - condition: state
+      entity_id: input_boolean.pikud_scene_active
+      state: 'off'
+    then:
+    - data:
+        scene_id: pikud_original_lights
+        snapshot_entities:
+        - light.curtain_light
+        - light.peninsula_light
+        - light.stove_light
+        - light.gateway_light_04cf8c916107
+        - light.cabinet_light
+      action: scene.create
+  - target:
+      entity_id: input_boolean.pikud_scene_active
+    action: input_boolean.turn_on
+  - parallel:
+    - target:
+        entity_id: scene.alert_pikud
+      action: scene.turn_on
+    - action: ntfy.publish
+      metadata: {}
+      data:
+        message: 'ALERT for {{ trigger.to_state.attributes.area | default(''your area'')
+          }}.  Move to a protected area immediately. Time to reach shelter: {{ state_attr(''sensor.oref_alert_time_to_shelter'',
+          ''time_to_shelter'') | default(''?'', true) }} {{ state_attr(''sensor.oref_alert_time_to_shelter'',
+          ''unit_of_measurement'') | default(''s'', true) }}. Stay in shelter for
+          at least 10 minutes, or until an official “Safe to leave” notice.'
+        priority: '5'
+        title: 'Oref: ALERT !!! פקע"ר'
+      target:
+        entity_id: notify.pikud_oref
+    - action: notify.pushbullet
+      metadata: {}
+      data:
+        message: 'ALERT for {{ trigger.to_state.attributes.area | default(''your area'')
+          }}.  Move to a protected area immediately. Time to reach shelter: {{ state_attr(''sensor.oref_alert_time_to_shelter'',
+          ''time_to_shelter'') | default(''?'', true) }} {{ state_attr(''sensor.oref_alert_time_to_shelter'',
+          ''unit_of_measurement'') | default(''s'', true) }}. Stay in shelter for
+          at least 10 minutes, or until an official “Safe to leave” notice.'
+        title: 'Oref: ALERT !!!'
+  mode: restart
+- id: pikud_safe_start
+  alias: Pikud Oref - Enter safe state
+  description: 'When Oref changes to ok, activate the Safe scene and enforce a 5-minute
+    cap, after which original lighting is restored.'
+  triggers:
+  - entity_id: sensor.oref_alert
+    to: ok
+    trigger: state
+  actions:
+  - target:
+      entity_id: scene.safe_pikud
+    action: scene.turn_on
+  - target:
+      entity_id: input_boolean.pikud_scene_active
+    action: input_boolean.turn_on
+  - data:
+      duration:
+        hours: 0
+        minutes: 3
+        seconds: 30
+    action: timer.start
+    target:
+      entity_id: timer.pikud_scene_timeout
+  - parallel:
+    - action: ntfy.publish
+      metadata: {}
+      data:
+        priority: '4'
+        title: 'Oref: Safe to exit: פקע"ר'
+        message: 'Safe to leave shelter for {{ trigger.to_state.attributes.area |
+          default(''your area'') }}.
+
+          Unless instructed otherwise, you may exit protected areas carefully.'
+      target:
+        entity_id: notify.pikud_oref
+    - action: notify.pushbullet
+      metadata: {}
+      data:
+        message: 'Safe to leave shelter for {{ trigger.to_state.attributes.area |
+          default(''your area'') }}.
+
+          Unless instructed otherwise, you may exit protected areas carefully.'
+        title: 'Oref: Safe to exit: פקע"ר'
+  mode: restart
+- id: pikud_timeout_restore_original
+  alias: Pikud Oref - Restore original lights on timeout
+  triggers:
+  - event_type: timer.finished
+    event_data:
+      entity_id: timer.pikud_scene_timeout
+    trigger: event
+  actions:
+  - if:
+    - condition: template
+      value_template: '{{ states.scene.pikud_original_lights is defined }}'
+    then:
+    - target:
+        entity_id: scene.pikud_original_lights
+      action: scene.turn_on
+  - target:
+      entity_id: input_boolean.pikud_scene_active
+    action: input_boolean.turn_off
+  - if:
+    - condition: state
+      entity_id: input_boolean.pikud_ambient_pending
+      state: 'on'
+    - condition: state
+      entity_id: group.household
+      state: home
+    then:
+    - target:
+        entity_id: scene.ambient_full
+      action: scene.turn_on
+    - target:
+        entity_id: input_boolean.pikud_ambient_pending
+      action: input_boolean.turn_off
+  mode: single
+
+# -----------------------------------------------------------------------------
+# Lighting — ambient scenes (respects Pikud-active / pending flags)
+# -----------------------------------------------------------------------------
+- id: ambient_lights_sunset_household_home
+  alias: Ambient lights on if someone is home
+  description: Turn on ambient scene 30 minutes before sunset when anyone is home.
+  triggers:
+  - event: sunset
+    offset: -00:30:00
+    trigger: sun
+  conditions:
+  - condition: state
+    entity_id: group.household
+    state: home
+  actions:
+  - if:
+    - condition: state
+      entity_id: input_boolean.pikud_scene_active
+      state: 'off'
+    then:
+    - target:
+        entity_id: scene.ambient_full
+      action: scene.turn_on
+    - target:
+        entity_id: input_boolean.pikud_ambient_pending
+      action: input_boolean.turn_off
+    else:
+    - target:
+        entity_id: input_boolean.pikud_ambient_pending
+      action: input_boolean.turn_on
+  mode: single
+
+# -----------------------------------------------------------------------------
+# Presence — notifications when household members arrive
+# -----------------------------------------------------------------------------
+- id: boos_home_notify_pushbullet
+  alias: Boo's home
+  description: Notify Maxim on Pushbullet when Dana arrives home and Maxim is away.
+  triggers:
+  - entity_id: person.dana
+    from: not_home
+    to: home
+    trigger: state
+  conditions:
+  - condition: state
+    entity_id: person.maxim
+    state: not_home
+  - condition: time
+    after: '12:00:00'
+    before: '23:00:00'
+  actions:
+  - data:
+      target: device/Samsung S20 FE 5G (SM-G781B)
+      message: 'Boo''s home! She has been away since {{ as_timestamp(states.person.dana.last_changed)
+        | timestamp_custom(''%H:%M:%S'') }}'
+    action: notify.pushbullet
+  - action: ntfy.publish
+    metadata: {}
+    data:
+      message: Boo's home! She has been away since {{ as_timestamp(states.person.dana.last_changed)
+        | timestamp_custom('%H:%M:%S') }}
+
+# -----------------------------------------------------------------------------
+# Climate — bedroom AC (openings) & living room AC (vibration + timer)
+# -----------------------------------------------------------------------------
+- id: bedroom_ac_notify_on_openings
+  alias: Bedroom AC - Notify if doors or window open
+  description: 'If bedroom AC vent has been on for 5 minutes and any relevant door/window
+    is open, send a Telegram notification to avoid wasting electricity.'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_ac_vent
+    to: 'on'
+    for: 00:05:00
+  - platform: state
+    entity_id: binary_sensor.shower_door
+    to: 'on'
+    for: 00:05:00
+  - platform: state
+    entity_id: binary_sensor.shower_window
+    to: 'on'
+    for: 00:05:00
+  - platform: state
+    entity_id: binary_sensor.master_bedroom_door
+    to: 'on'
+    for: 00:05:00
+  condition:
+  - condition: state
+    entity_id: binary_sensor.master_bedroom_ac_vent
+    state: 'on'
+  - condition: not
+    conditions:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.master_bedroom_door
+        state: 'off'
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.shower_door
+          state: 'off'
+        - condition: state
+          entity_id: binary_sensor.shower_window
+          state: 'off'
+  action:
+  - service: notify.telegram_bot
+    data:
+      title: '*You''re wasting electricity!*'
+      message: "Master bedroom AC is on! {%- if is_state(\"binary_sensor.master_bedroom_door\",
+        \"on\") %}\n  {{- \"Please close master bedroom door\" }}\n  {%- if is_state(\"binary_sensor.shower_door\",
+        \"on\")\n      and is_state(\"binary_sensor.shower_window\", \"on\") -%}\n
+        \     {{ \" and close either the shower door or window\" }}\n  {%- endif %}\n{%-
+        elif is_state(\"binary_sensor.shower_door\", \"on\")\n       and is_state(\"binary_sensor.shower_window\",
+        \"on\") %}\n  {{- \" Please close the shower door or window\" }}\n{%- else
+        %}\n  State combination unexpected.\n{%- endif %}\n"
+  mode: single
+- id: living_ac_activated
+  alias: Living room AC - vibration detected
+  description: Start 5-minute timer and mark living AC boolean when unit vibrates.
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.movement
+    event_data:
+      entity_id: binary_sensor.vibration_living_room_ac
+      movement_type: vibrate
+  action:
+  - service: timer.start
+    target:
+      entity_id: timer.living_ac_5min
+  - service: input_boolean.turn_on
+    target:
+      entity_id: input_boolean.living_ac
+  mode: single
+- id: living_ac_stopped
+  alias: Living room AC - stopped after timer
+  description: Clear living AC boolean when timer finishes.
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.living_ac_5min
+  condition:
+  - condition: state
+    entity_id: input_boolean.living_ac
+    state: 'on'
+  action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.living_ac
+  mode: single
+
+# -----------------------------------------------------------------------------
+# Shower heater — derive input_select from power / switch (Shelly-style states)
+# -----------------------------------------------------------------------------
+- id: shower_heater_max_power
+  alias: Set shower heater max power state
+  description: Mark shower heater as Max Power when consumption exceeds 2000 W.
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shower_heater_power
+    above: 2000
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Idle
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Power Off
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Low Power
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Light Only
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.shower_heater_status
+      option: Max Power
+- id: shower_heater_low_power
+  alias: Set shower heater low power state
+  description: Mark shower heater as Low Power between 1000 W and 2000 W.
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shower_heater_power
+    above: 1000
+    below: 2000
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Idle
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Power Off
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Max Power
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Light Only
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.shower_heater_status
+      option: Low Power
+- id: shower_heater_light_only
+  alias: Set shower heater light only state
+  description: Mark shower heater as Light Only when minimal power is drawn.
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shower_heater_power
+    above: 0.5
+    below: 5
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Idle
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Power Off
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Low Power
+    - condition: state
+      entity_id: sensor.shower_heater_status
+      state: Max Power
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.shower_heater_status
+      option: Light Only
+- id: shower_heater_power_off
+  alias: Set shower heater off state
+  description: Mark shower heater as Power Off when switch is turned off.
+  trigger:
+  - platform: state
+    entity_id: switch.shower_heater
+    to: 'off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.shower_heater_status
+      option: Power Off
+- id: shower_heater_idle
+  alias: Set shower heater idle state
+  description: Mark shower heater as Idle when power is near zero but switch is on.
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shower_heater_power
+    below: 0.1
+    for:
+      minutes: 1
+  condition:
+  - condition: state
+    entity_id: switch.shower_heater
+    state: 'on'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.shower_heater_status
+      option: Idle
+
+# -----------------------------------------------------------------------------
+# Washing machine — Shelly PM state machine + clean-cycle notifications
+# -----------------------------------------------------------------------------
+- id: washingmachine_switchedoff
+  alias: Washing Machine - Change State Switched Off
+  description: Set washing machine status to Switched Off when Shelly outlet is off.
+  trigger:
+  - platform: state
+    entity_id: switch.shellyplus1pm_b8d61a8a080c_washing_machine
+    to: 'off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
+      option: Switched Off
+- id: washingmachine_powereddown
+  alias: Washing Machine - Change State Powered Down
+  description: 'When outlet is on but current is 0, mark washing machine as Powered
+    Down.
+
+    '
+  trigger:
+  - platform: state
+    entity_id: switch.shellyplus1pm_b8d61a8a080c_washing_machine
+    to: 'on'
+  - platform: template
+    value_template: "{{ (states('sensor.shellyplus1pm_b8d61a8a080c_washing_machine_current')\n
+      \   | float(0) | round(0)) == 0 }}\n"
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
+      option: Powered Down
+- id: washingmachine_idle
+  alias: Washing Machine - Change State Idle
+  description: When a small amount of power is drawn, mark washing machine as Idle.
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shellyplus1pm_b8d61a8a080c_washing_machine_current
+    above: 0
+    below: 1.5
+    for: 00:00:30
+  condition:
+  - condition: state
+    entity_id: switch.shellyplus1pm_b8d61a8a080c_washing_machine
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: Powered Down
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: Switched Off
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.door_window_sensor_158d00044ab446
+        state: 'on'
+      - condition: state
+        entity_id: input_select.washing_machine_status
+        state: Clean
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
+      option: Idle
+- id: washingmachine_wash
+  alias: Washing Machine - Change State Wash
+  description: 'When current draw is high and door is closed, mark washing machine
+    as Wash.'
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shellyplus1pm_b8d61a8a080c_washing_machine_current
+    above: 11
+    for: 00:01:00
+  condition:
+  - condition: state
+    entity_id: switch.shellyplus1pm_b8d61a8a080c_washing_machine
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.door_window_sensor_158d00044ab446
+    state: 'off'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: Powered Down
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: Idle
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: Clean
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
+      option: Wash
+- id: washingmachine_clean
+  alias: Washing Machine - Change State Clean
+  description: 'When current drops and machine was in Wash, mark clothes as Clean.
+
+    '
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shellyplus1pm_b8d61a8a080c_washing_machine_current
+    below: 8
+    for: 00:04:00
+  condition:
+  - condition: state
+    entity_id: switch.shellyplus1pm_b8d61a8a080c_washing_machine
+    state: 'on'
+  - condition: state
+    entity_id: binary_sensor.door_window_sensor_158d00044ab446
+    state: 'off'
+  - condition: state
+    entity_id: input_select.washing_machine_status
+    state: Wash
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
+      option: Clean
+- id: washingmachine_notify_clean
+  alias: Washing Machine - Send alerts when clothes are clean
+  description: Notify via Telegram when washing machine finished and someone is home.
+  trigger:
+  - platform: state
+    entity_id: input_select.washing_machine_status
+    to: Clean
+    for:
+      minutes: 1
+  - platform: state
+    entity_id: person.maxim
+    to: home
+    for:
+      minutes: 2
+  - platform: state
+    entity_id: person.dana
+    to: home
+    for:
+      minutes: 2
+  - platform: time
+    at: '10:00:00'
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      after: '10:00:00'
+      before: '23:00:00'
+    - condition: state
+      entity_id: group.household
+      state: home
+    - condition: state
+      entity_id: input_select.washing_machine_status
+      state: Clean
+    - condition: state
+      entity_id: input_boolean.disable_washing_machine_notification
+      state: 'off'
+    - condition: template
+      value_template: "{% set last = states.automation.washing_machine_send_alerts_when_clothes_are_clean.attributes.last_triggered
+        %} {% if last is not none %}\n  {{ (as_timestamp(now()) | int - as_timestamp(last)
+        | int) > 1800 }}\n{% else %}\n  false\n{% endif %}\n"
+  action:
+  - service: notify.telegram_bot
+    data:
+      title: '*Clothes are clean!*'
+      message: "{{ [\n  \"Time to hang them\",\n  \"Please empty the washing machine\"\n]
+        | random }}\n"
+
+# -----------------------------------------------------------------------------
+# Dishwasher — Shelly PM state machine + ntfy when clean
+# -----------------------------------------------------------------------------
+- id: dishwasher_switchedoff
+  alias: Dishwasher - Change State Switched Off
+  description: Set dishwasher status to Switched Off when Shelly outlet is off.
+  trigger:
+  - platform: state
+    entity_id: switch.shelly1pmg3_34b7dacb9110_dishwasher
+    to: 'off'
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.dishwasher_status
+      option: Switched Off
+- id: dishwasher_powereddown
+  alias: Dishwasher - Change State Powered Down
+  description: 'When outlet is on but current is 0, mark dishwasher as Powered Down.'
+  trigger:
+  - platform: state
+    entity_id: switch.shelly1pmg3_34b7dacb9110_dishwasher
+    to: 'on'
+  - platform: template
+    value_template: "{{ (states('sensor.shelly1pmg3_34b7dacb9110_dishwasher_current')\n
+      \   | float(0) | round(0)) == 0 }}\n"
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.dishwasher_status
+      option: Powered Down
+- id: dishwasher_idle
+  alias: Dishwasher - Change State Idle
+  description: When a small amount of power is drawn, mark dishwasher as Idle.
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shelly1pmg3_34b7dacb9110_dishwasher_current
+    above: 0
+    below: 2
+    for: 00:00:30
+  condition:
+  - condition: state
+    entity_id: switch.shelly1pmg3_34b7dacb9110_dishwasher
+    state: 'on'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.dishwasher_status
+      state: Powered Down
+    - condition: state
+      entity_id: input_select.dishwasher_status
+      state: Switched Off
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.dishwasher_status
+      option: Idle
+- id: dishwasher_wash
+  alias: Dishwasher - Change State Wash
+  description: When current draw is above threshold, mark dishwasher as Washing.
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly1pmg3_34b7dacb9110_dishwasher_current
+      above: 4
+      for: "00:00:30"
+  condition:
+    - condition: state
+      entity_id: switch.shelly1pmg3_34b7dacb9110_dishwasher
+      state: "on"
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Powered Down
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Idle
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Clean
+    - condition: state
+      entity_id: binary_sensor.door_window_sensor_158d000456ce96
+      state: "off"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Washing
+  mode: single
+- id: dishwasher_clean
+  alias: Dishwasher - Change State Clean
+  description: 'When current drops and dishwasher was Washing, mark dishes as Clean.'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.shelly1pmg3_34b7dacb9110_dishwasher_current
+      below: 4
+      for: "00:01:00"
+  condition:
+    - condition: state
+      entity_id: switch.shelly1pmg3_34b7dacb9110_dishwasher
+      state: "on"
+    - condition: state
+      entity_id: input_select.dishwasher_status
+      state: Washing
+    - condition: state
+      entity_id: binary_sensor.door_window_sensor_158d000456ce96
+      state: "off"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.dishwasher_status
+        option: Clean
+  mode: single
+
+- id: dishwasher_notify_clean_ntfy
+  alias: Dishwasher - Notify Clean via ntfy
+  description: Send ntfy.sh alert when dishes clean, someone home, not disabled
+  triggers:
+    - platform: state
+      entity_id: input_select.dishwasher_status
+      to: Clean
+      for: "00:01:00"
+    - platform: state
+      entity_id: group.household
+      to: home
+      for: "00:02:00"
+  condition:
+    - condition: time
+      after: "10:00:00"
+      before: "23:00:00"
+    - condition: state
+      entity_id: input_boolean.disable_dishwasher_notification
+      state: "off"
+    - condition: state
+      entity_id: input_select.dishwasher_status
+      state: Clean
+    - condition: state
+      entity_id: group.household
+      state: home
+    - condition: template
+      value_template: >
+        {% set last = states.automation.dishwasher_notify_clean.attributes.last_triggered %}
+        {{ last is none or (as_timestamp(now()) - as_timestamp(last)) > 1800 }}
+  action:
+    - action: ntfy.publish
+      data:
+        message: "Dishes are clean! Please empty the dishwasher."
+        title: "Dishwasher Finished"
+        priority: 4
+        target: notify.pikudoref  # Reuse your Pikud ntfy; adjust if separate
+  mode: single
+
+# Legacy Telegram “dishes clean” automation (disabled; ntfy variant above is active).
+# - id: dishwasher_notify_clean
+#   alias: Dishwasher - Send alerts when dishes are clean
+#   description: Notify via Telegram and ntfy.sh when dishwasher finished and someone is home.
+#   trigger:
+#   - platform: state
+#     entity_id: input_select.dishwasher_status
+#     to: Clean
+#     for:
+#       minutes: 1
+#   - platform: state
+#     entity_id: person.maxim
+#     to: home
+#     for:
+#       minutes: 2
+#   - platform: state
+#     entity_id: person.dana
+#     to: home
+#     for:
+#       minutes: 2
+#   - platform: time
+#     at: '10:00:00'
+#   condition:
+#     condition: and
+#     conditions:
+#     - condition: time
+#       after: '10:00:00'
+#       before: '23:00:00'
+#     - condition: state
+#       entity_id: group.household
+#       state: home
+#     - condition: state
+#       entity_id: input_select.dishwasher_status
+#       state: Clean
+#     - condition: state
+#       entity_id: input_boolean.disable_dishwasher_notification
+#       state: 'off'
+#     - condition: template
+#       value_template: "{% set last = states.automation.dishwasher_send_alerts_when_dishes_are_clean.attributes.last_triggered
+#         %} {% if last is not none %}\n  {{ (as_timestamp(now()) | int - as_timestamp(last)
+#         | int) > 1800 }}\n{% else %}\n  false\n{% endif %}\n"
+#   action:
+#   - service: notify.telegram_bot
+#     data:
+#       title: '*Dishes are clean!*'
+#       message: "{{ [\n  \"Time to remove them\",\n  \"Please empty the dishwasher\"\n]
+#         | random }}\n"
+
+# -----------------------------------------------------------------------------
+# Network — unknown / new device_tracker discovery alerts
+# -----------------------------------------------------------------------------
+- id: notify_on_unknown_devices_home
+  alias: Notify when unknown devices are marked home
+  description: Notify when a specific unknown MAC appears as home on network.
+  trigger:
+  - platform: state
+    entity_id:
+    - device_tracker.6c_c7_ec_da_ff_9f
+    to: home
+    from: not_home
+  action:
+  - service: notify.telegram_bot
+    data:
+      title: '*Unknown device is home*'
+      message: 'MAC: {{ trigger.to_state.attributes.friendly_name | upper | replace("_",
+        ":") }} Detected by: {{ trigger.to_state.attributes.source }}'
+  - service: persistent_notification.create
+    data:
+      title: '*Unknown device is home*'
+      message: 'MAC: {{ trigger.to_state.attributes.friendly_name | upper | replace("_",
+        ":") }} Detected by: {{ trigger.to_state.attributes.source }}'
+  mode: single
+- id: notify_new_devices
+  alias: Notify for new devices
+  description: Notify on any newly discovered device_tracker entity.
+  trigger:
+  - platform: event
+    event_type: device_tracker_new_device
+  action:
+  - service: persistent_notification.create
+    data:
+      title: 'Newly tracked: {{ trigger.event.data.entity_id }}'
+      message: 'New device tracked: ({{ trigger.event.data.entity_id }}) Host: {{
+        trigger.event.data.host_name }} Mac-address: {{ trigger.event.data.mac }}
+        Data: {{ trigger.event.data }}'
+  - service: notify.notify_html5
+    data:
+      title: New device
+      message: 'New device: {{ trigger.event.data.host_name }} ({{ trigger.event.data.entity_id}})'
+  - service: notify.telegram_bot
+    data:
+      title: Home Assistant
+      message: 'New device: {{ trigger.event.data.host_name }} ({{ trigger.event.data.entity_id}}) Mac: {{ trigger.event.data.mac }}'
+
+# -----------------------------------------------------------------------------
+# Legacy — numeric automation id (stable entity_id; overlaps notify_new_devices)
+# -----------------------------------------------------------------------------
+- id: '1673194586071'
+  alias: Notify for new devices (old variant)
+  description: Legacy new-device notification kept for compatibility.
+  trigger:
+  - platform: event
+    event_type: device_tracker_new_device
+  condition: []
+  action:
+  - service: persistent_notification.create
+    data:
+      title: 'Newly tracked: {{ trigger.event.data.entity_id }}'
+      message: 'New device tracked: ({{ trigger.event.data.entity_id }}) Host: {{
+        trigger.event.data.host_name }} MAC address: {{ trigger.event.data.mac }}
+        Data: {{ trigger.event.data }}'
+  - service: notify.notify_html5
+    data:
+      title: New device
+      message: 'New device: {{ trigger.event.data.host_name if trigger.event.data.host_name
+        is defined else "NA" }} ({{ trigger.event.data.entity_id if trigger.event.data.entity_id
+        is defined else "NA" }})'
+  - service: notify.telegram_bot
+    data:
+      title: Home Assistant
+      message: 'New device: {{ trigger.event.data.host_name }} ({{ trigger.event.data.entity_id
+        }}) Mac: {{ trigger.event.data.mac }}
+
+        '
+  mode: single
+
+# -----------------------------------------------------------------------------
+# Uptime — Healthchecks.io heartbeat (shell_command.watchdog)
+# -----------------------------------------------------------------------------
+- id: '1673194670911'
+  alias: Healthchecks HeartBeat
+  description: Send every 10 minutes a heartbeat ping to healthchecks.io.
+  trigger:
+  - platform: time_pattern
+    minutes: /10
+  condition: []
+  action:
+  - service: shell_command.watchdog
+  mode: single
+
+# -----------------------------------------------------------------------------
+# Google — Keep grocery list & speaker broadcast (input_text helpers)
+# -----------------------------------------------------------------------------
+- id: google_keep_add_from_input_text
+  alias: Google Keep - Add from text box
+  description: Add items typed into input_text.add_to_grocery_list to Google Keep.
+  trigger:
+  - platform: state
+    entity_id: input_text.add_to_grocery_list
+  action:
+  - service: google_keep.add_to_list
+    data:
+      title: Grocery list
+      things: '{{ states(''input_text.add_to_grocery_list'') }}'
+- id: google_broadcast_from_input_text
+  alias: Google broadcast
+  description: Broadcast arbitrary text to all Google speakers using TTS.
+  trigger:
+  - platform: state
+    entity_id: input_text.google_broadcast
+  action:
+  - service: tts.google_say
+    data:
+      entity_id: group.google_speakers
+      message: '{{ states(''input_text.google_broadcast'') }}'
+
+# -----------------------------------------------------------------------------
+# IFTTT — webhooks (generic service forwarders + living AC toggle)
+# -----------------------------------------------------------------------------
+- id: ifttt_toggle_living_ac_boolean
+  alias: Turn ON or OFF input_boolean.living_ac from IFTTT
+  description: Allow IFTTT webhook to control living_ac boolean or other entities.
+  trigger:
+  - platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: call_service
+  condition:
+  - condition: template
+    value_template: '{% if trigger.event.data.title is not defined %}True{% else %}False{%
+      endif %}
+
+      '
+  - condition: template
+    value_template: '{% if trigger.event.data.entity_id is defined %}True{% else %}False{%
+      endif %}
+
+      '
+  action:
+  - service: '{{ trigger.event.data.service | lower }}'
+    data:
+      entity_id: '{{ trigger.event.data.entity_id | lower }}'
+- id: ifttt_report_indoor_temperature
+  alias: Report indoor temperature from IFTTT (Google Home)
+  description: Generic IFTTT service forwarder for indoor temperature queries.
+  trigger:
+  - platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: call_service
+  condition:
+  - condition: template
+    value_template: '{% if trigger.event.data.title is not defined %}True{% else %}False{%
+      endif %}
+
+      '
+  - condition: template
+    value_template: '{% if trigger.event.data.entity_id is not defined %}True{% else
+      %}False{% endif %}
+
+      '
+  action:
+  - service: '{{ trigger.event.data.service | lower }}'
+
+# -----------------------------------------------------------------------------
+# Home Assistant — startup, updater, Docker image tag change notifications
+# -----------------------------------------------------------------------------
+- id: ha_startup_notification_ifttt
+  alias: Startup Notification
+  description: Send IFTTT event when Home Assistant starts.
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - service: ifttt.trigger
+    data:
+      event: HA event
+      value1: Home Assistant started
+- id: ha_update_available_html5
+  alias: Update Available Notifications
+  description: Send HTML5 notification when core update is available.
+  trigger:
+  - platform: state
+    entity_id: updater.updater
+  action:
+  - service: notify.notify_html5
+    data:
+      title: Home Assistant
+      message: Update for HA is available.
+- id: ha_docker_tag_changed_simple
+  alias: Notify - Home Assistant docker tag changed (simple)
+  description: Notify when tracked Docker tag (sensor.docker_version_available) changes.
+  trigger:
+  - platform: state
+    entity_id: sensor.docker_version_available
+  condition:
+  - condition: template
+    value_template: '{{ trigger.to_state.state not in [trigger.from_state.state, ''unavailable'']
+      }}
+
+      '
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Home Assistant update available
+      message: 'Home Assistant docker tag changed from {{ trigger.from_state.state
+        }} to {{ trigger.to_state.state }}
+
+        '
+  - service: notify.notify_html5
+    data:
+      title: Home Assistant update available
+      message: 'Home Assistant docker tag changed from {{ trigger.from_state.state
+        }} to {{ trigger.to_state.state }}
+
+        '
+- id: ha_docker_tag_changed_var
+  alias: Notify - Home Assistant docker tag changed (var-based)
+  description: 'Compare latest_docker_version with var.ha_version_notification and
+    notify when an update is available, also writing release links.
+
+    '
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.latest_docker_version
+  - platform: homeassistant
+    event: start
+  condition:
+  - condition: template
+    value_template: "{{ states.sensor.latest_docker_version.state not in\n   [states.var.ha_version_notification.state,
+      'unavailable'] }}\n"
+  - condition: template
+    value_template: "{{ states.var.ha_version_notification.state !=\n   states.sensor.latest_docker_version.state
+      }}\n"
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Home Assistant update available
+      message: "Home Assistant docker image tag changed {% if trigger.entity_id ==
+        'sensor.latest_docker_version' -%}\n  \\n  from {{ trigger.from_state.state
+        }}\n{% endif -%} \\n  to {{ states.sensor.latest_docker_version.state }} \\n{%
+        if states('sensor.latest_docker_version').split('.')[-1] == '0' -%} \\n  [Release
+        notes](https://www.home-assistant.io/latest-release-notes/) \\n{% else -%}
+        \\n  [Release notes](https://github.com/home-assistant/core/releases/tag/{{
+        states('sensor.latest_docker_version') }}) \\n{% endif %}\n"
+  - service: notify.notify_html5
+    data:
+      title: Home Assistant update available
+      message: "Home Assistant docker image tag changed {% if trigger.entity_id ==
+        'sensor.latest_docker_version' -%}\n  \\n  from {{ trigger.from_state.state
+        }}\n{% endif -%} \\n  to {{ states.sensor.latest_docker_version.state }} \\n{%
+        if states('sensor.latest_docker_version').split('.')[-1] == '0' -%} \\n  [Release
+        notes](https://www.home-assistant.io/latest-release-notes/) \\n{% else -%}
+        \\n  [Release notes](https://github.com/home-assistant/core/releases/tag/{{
+        states('sensor.latest_docker_version') }}) \\n{% endif %}\n"
+  - service: var.set
+    data:
+      entity_id: var.ha_version_notification
+      value: '{{ states.sensor.latest_docker_version.state }}'
+      icon: mdi:bell-sleep
+  mode: single
+
+# -----------------------------------------------------------------------------
+# HACS — new repos and pending integration updates
+# -----------------------------------------------------------------------------
+- id: hacs_notify_new_repo
+  alias: Create a notification when something is added to HACS
+  description: Persistent notification when a new HACS repository is registered.
+  trigger:
+  - platform: event
+    event_type: hacs/repository
+    event_data:
+      action: registration
+  condition:
+  - condition: template
+    value_template: '{{ trigger.event.data.repository is defined }}'
+  action:
+  - service: persistent_notification.create
+    data:
+      title: New repository in HACS
+      message: '{% set repo = trigger.event.data.repository %} {% set id = trigger.event.data.repository_id
+        %} [{{ repo }}](/hacs/repository/{{ id }}) was just added to HACS.
+
+        '
+  mode: single
+- id: hacs_notify_updates
+  alias: Create a notification when there is updates pending in HACS
+  description: Notify when HACS sensor indicates pending updates.
+  trigger:
+  - platform: state
+    entity_id: sensor.hacs
+  condition:
+  - condition: template
+    value_template: '{{ states(trigger.entity_id) != ''unknown'' }}'
+  - condition: template
+    value_template: '{{ (states(trigger.entity_id) | float) != 0 }}'
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Updates pending in HACS
+      message: "{% for repo in state_attr(trigger.entity_id, 'repositories') %}\n
+        \ **{{ repo.display_name }}** _{{ repo[\"installed_version\"] }}_\n  => _{{
+        repo[\"available_version\"] }}_\n{% endfor %}\n"
+  mode: single
+
+# -----------------------------------------------------------------------------
+# DDNS & HTML5 — DuckDNS failure alerts; notification action logging (Shelly FW)
+# -----------------------------------------------------------------------------
+- id: duckdns_update_failed
+  alias: DuckDNS update script failed notification
+  description: Check if duckdns update script has been failing for 90 minutes.
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.duckdns_update_problem
+    to: 'on'
+    for: 01:30:00
+  condition: []
+  action:
+  - service: notify.telegram_bot
+    data:
+      title: '*DuckDNS cron update is failing!*'
+      message: 'duck.sh update script is failing for 90m '
+  mode: single
+- id: html5_notification_clicked_update_fw
+  alias: 'Handle HTML5 notification action: Update FW'
+  description: Log when a Shelly firmware update notification action is clicked.
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: html5_notification.clicked
+    event_data:
+      action: update_shelly_fw
+  action:
+  - service: system_log.write
+    data:
+      message: Clicked {{ trigger.event.data }}
+      level: info
+
+# -----------------------------------------------------------------------------
+# Sensor health — periodic battery audit, missing sensors, speedtest peak tracking
+# -----------------------------------------------------------------------------
+- id: low_battery_check_all_sensors
+  alias: Low battery level detection & notification for all battery sensors
+  description: Check all battery sensors hourly and create a low battery summary.
+  trigger:
+  - platform: time_pattern
+    hours: 1
+  condition: []
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Low Battery Alert
+      message: "{% set low_battery_sensors = [] %} {% for state in states.sensor %}\n
+        \ {% if \"battery\" in state.entity_id.lower()\n        and state.state !=
+        \"unavailable\"\n        and state.state != \"unknown\" %}\n    {% set battery_level
+        = state.state | float %}\n    {% if battery_level < 20 %}\n      {% set low_battery_sensors
+        =\n           low_battery_sensors + [state.entity_id ~ \" (\" ~ state.state
+        ~ \"%)\"] %}\n    {% endif %}\n  {% endif %}\n{% endfor %} {% if low_battery_sensors
+        %}\n  The following sensors have low battery levels:\n  {% for sensor in low_battery_sensors
+        %}\n  - {{ sensor }}\n  {% endfor %}\n{% else %}\n  All battery sensors are
+        at acceptable levels.\n{% endif %}\n"
+- id: notify_missing_sensors
+  alias: Notify Missing Sensors
+  description: List sensors that have been unavailable for more than 2 weeks.
+  trigger:
+  - platform: state
+    entity_id: input_boolean.notify_missing_sensors
+    to: 'on'
+  action:
+  - service: persistent_notification.create
+    data:
+      title: Missing Sensors
+      message: "{% set threshold = now().timestamp() - (14 * 86400) %} {% set missing_sensors
+        = [] %} {% for state in states.sensor\n     if state.state == \"unavailable\"\n
+        \    and state.last_updated.timestamp() < threshold %}\n  {% set missing_sensors
+        = missing_sensors + [state.entity_id] %}\n{% endfor %} {% if missing_sensors
+        %}\n  The following sensors have not reported data in the past 2 weeks:\n
+        \ {% for entity_id in missing_sensors %}\n  - {{ entity_id }}\n  {% endfor
+        %}\n{% else %}\n  All sensors are reporting data as expected.\n{% endif %}\n"
+- id: track_speedtest_maximum_download
+  alias: Track SpeedTest Maximum Download
+  description: Update max_download_speed input_number when speedtest_download beats
+    it.
+  trigger:
+  - platform: time_pattern
+    hours: 1
+  condition:
+  - condition: template
+    value_template: "{{ states('sensor.speedtest_download') | float >\n   states('input_number.max_download_speed')
+      | float }}\n"
+  action:
+  - service: input_number.set_value
+    data:
+      entity_id: input_number.max_download_speed
+      value: '{{ states(''sensor.speedtest_download'') }}'
+  mode: single
+
+# -----------------------------------------------------------------------------
+# Misc notifications — sports scores, No-IP renewal counter
+# -----------------------------------------------------------------------------
+- id: notify_maccabi_scores
+  alias: Notify when Maccabi scores
+  description: Notify when Maccabi team_score increases on tt_maccabi_fc sensor.
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.tt_maccabi_fc
+    attribute: team_score
+  condition:
+  - condition: template
+    value_template: "{{ trigger.to_state.attributes.team_score | int >\n   (trigger.from_state.attributes.team_score
+      | int) }}\n"
+  action:
+  - service: notify.persistent_notification
+    data:
+      title: Maccabi scored!
+      message: 'The live score is: \n Maccabi: {{ trigger.to_state.attributes.team_score
+        | int }} \n {{ trigger.to_state.attributes.opponent_name }}: {{ trigger.to_state.attributes.opponent_score
+        | int }}
+
+        '
+  mode: single
+- id: notify_noip_hosts_renewed
+  alias: notify PB if noip hosts were renewed
+  description: Notify Pushbullet when Docker noip_renew renewed any hosts.
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.noip_hosts_renewed
+    above: 0
+    for:
+      seconds: 30
+  condition: []
+  action:
+  - service: notify.pushbullet
+    data:
+      title: Renewed No-IP hosts
+      message: '{{ states(''sensor.noip_hosts_renewed'') }} hosts renewed'
+  mode: single
+
+# -----------------------------------------------------------------------------
+# Blueprints — Blackshome low-battery notifications & actions
+# -----------------------------------------------------------------------------
+- id: low_battery_notifications_actions1
+  alias: Low Battery Notifications & Actions (blueprint 1)
+  description: Low battery notifications using Blackshome blueprint - basic config.
+  use_blueprint:
+    path: Blackshome/low-battery-notifications-and-actions.yaml
+    input:
+      time: '21:00:00'
+      battery_level: 10
+      include_easy_notify: enable_easy_okay_notify
+      include_persistent_notification: enable_persistent_okay_notification
+- id: low_battery_notifications_actions2
+  alias: Low Battery Notifications & Actions (blueprint 2)
+  description: Low battery notifications using Blackshome blueprint with sticky flag.
+  use_blueprint:
+    path: Blackshome/low-battery-notifications-and-actions.yaml
+    input:
+      include_time: time_enabled
+      time: '21:00:00'
+      battery_level: 10
+      include_easy_notify: enable_easy_okay_notify
+      include_persistent_notification: enable_persistent_okay_notification
+      notify_data:
+      - sticky
+- id: notify_on_low_batteries_blueprint
+  alias: Notify on low batteries
+  description: Low battery notifications from Blackshome blueprint.
+  use_blueprint:
+    path: Blackshome/low-battery-notifications-and-actions.yaml
+    input:
+      include_time: time_enabled
+      time: '21:00:00'
+      battery_level: 10
+      include_persistent_notification: enable_persistent_okay_notification
+      include_easy_notify: enable_easy_okay_notify
+      notify_data:
+      - sticky
