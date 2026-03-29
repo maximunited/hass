@@ -50,12 +50,6 @@ rules:
     quote-type: any
     required: false
   
-  # Allow flow sequences
-  flow-sequence: enable
-  
-  # Allow flow mappings
-  flow-mapping: enable
-  
   # Don't require key ordering
   key-ordering: disable
   

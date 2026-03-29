@@ -16,7 +16,7 @@ __pycache__/
 GOOGLE_SERVICE_ACCOUNT*.json
 html5_push_registrations\.conf
 SERVICE_ACCOUNT.json
-*_OBSOLETE
+*_OBSOLETE*
 *.yaml.backup_*
 .ha_run.lock
 imou_life/snapshot_*.jpg
@@ -25,6 +25,8 @@ www/miwifi/router.js
 www/miwifi/dialogs.js
 
 custom_icons/iconify-icon-sets-master.zip
+1
+switches.yaml_OBSOLETE_27032026
 
 # You can whitelist files/folders with !, these will not be ignored
 !*.yaml

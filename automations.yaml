@@ -47,6 +47,7 @@
           area') }}. Prepare to enter a sheltered area and follow official instructions.
         title: 'Oref: Pre-Alert'
         priority: '5'
+        icon: https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f7e0.png
       target:
         entity_id: notify.pikud_oref
     - action: notify.pushbullet
@@ -90,11 +91,12 @@
       data:
         message: 'ALERT for {{ trigger.to_state.attributes.area | default(''your area'')
           }}.  Move to a protected area immediately. Time to reach shelter: {{ state_attr(''sensor.oref_alert_time_to_shelter'',
-          ''time_to_shelter'') | default(''?'', true) }} {{ state_attr(''sensor.oref_alert_time_to_shelter'',
+          ''time_to_shelter'') | default(''?'', true) }}{{ state_attr(''sensor.oref_alert_time_to_shelter'',
           ''unit_of_measurement'') | default(''s'', true) }}. Stay in shelter for
           at least 10 minutes, or until an official “Safe to leave” notice.'
         priority: '5'
         title: 'Oref: ALERT !!! פקע"ר'
+        icon: https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f534.png
       target:
         entity_id: notify.pikud_oref
     - action: notify.pushbullet
@@ -135,18 +137,17 @@
       metadata: {}
       data:
         priority: '4'
-        title: 'Oref: Safe to exit: פקע"ר'
-        message: 'Safe to leave shelter for {{ trigger.to_state.attributes.area |
-          default(''your area'') }}.
+        title: 'SAFE TO LEAVE: פקע"ר'
+        message: 'Safe to leave shelter for {{ trigger.to_state.attributes.area | default(''your area'') }}.
 
           Unless instructed otherwise, you may exit protected areas carefully.'
+        icon: https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f7e2.png
       target:
         entity_id: notify.pikud_oref
     - action: notify.pushbullet
       metadata: {}
       data:
-        message: 'Safe to leave shelter for {{ trigger.to_state.attributes.area |
-          default(''your area'') }}.
+        message: 'Safe to leave shelter for {{ trigger.to_state.attributes.area | default(''your area'') }}.
 
           Unless instructed otherwise, you may exit protected areas carefully.'
         title: 'Oref: Safe to exit: פקע"ר'
@@ -161,7 +162,7 @@
   actions:
   - if:
     - condition: template
-      value_template: '{{ states.scene.pikud_original_lights is defined }}'
+      value_template: "{{ states('scene.pikud_original_lights') not in ['unknown', 'unavailable'] }}"
     then:
     - target:
         entity_id: scene.pikud_original_lights
@@ -1023,10 +1024,7 @@
     entity_id: sensor.docker_version_available
   condition:
   - condition: template
-    value_template: '{{ trigger.to_state.state not in [trigger.from_state.state, ''unavailable'']
-      }}
-
-      '
+    value_template: "{{ trigger.to_state.state not in [trigger.from_state.state, 'unavailable'] }}"
   action:
   - service: persistent_notification.create
     data:
