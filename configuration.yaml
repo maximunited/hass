@@ -17,6 +17,7 @@ homeassistant:
   temperature_unit: C
   external_url: !secret external_url
   internal_url: !secret internal_url
+  allowlist_external_dirs: /config/noip-shared
 
   auth_providers:
     - type: homeassistant
@@ -55,6 +56,7 @@ logbook: !include logbook.yaml
 # panel_iframe: !include panel_iframe.yaml
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# Invalid /auth/token from LAN (e.g. 192.168.1.1): a client has a stale HA token; harmless.
 http:
   # server_port: 8123
   # base_url: !secret http_base_url
@@ -305,13 +307,16 @@ wake_on_lan:
 
 notify: !include notify.yaml
 
+# Proxmox VE: prefer Settings → Devices (UI). If sensors show KeyError cpu/mem/disk, the
+# configured resource is not a cluster node — use the exact node name from Datacenter → Nodes
+# (often "pve"), or add VMs/LXCs as QEMU/LXC devices, not as a node named after the host.
 # proxmoxve:
 #   - host: !secret proxmox_ip
 #     username: !secret proxmox_username
 #     password: !secret proxmox_password
 #     verify_ssl: false
 #     nodes:
-#       - node: secret proxmox_node
+#       - node: !secret proxmox_node
 #         vms:
 #           - 100
 

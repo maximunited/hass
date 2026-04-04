@@ -6,6 +6,7 @@
 - sensor:
   ## Washing Machine Status
   - name: washing_machine_status
+    unique_id: washing_machine_status
     state: '{{ states.input_select.washing_machine_status.state }}'
 
   ## Tumble Dryer Status
@@ -19,3 +20,11 @@
   ## Shower Heater Status
   - name: shower_heater_status
     state: '{{ states.input_select.shower_heater_status.state }}'
+
+  # ## Power draw from Shelly 1PM (F3CA7F) — stable alias for automations
+  # - name: shower_heater_power
+  #   unique_id: shower_heater_power_w
+  #   unit_of_measurement: "W"
+  #   device_class: power
+  #   state_class: measurement
+  #   state: "{{ states('sensor.shelly1pm_f3ca7f_power') | float(0) }}"

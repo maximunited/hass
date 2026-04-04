@@ -1,5 +1,8 @@
 ---
 
+# device_code 6900 is not published in smartHomeHub/SmartIR codes/media_player (404).
+# Add custom_components/smartir/codes/media_player/6900.json locally or change device_code
+# to an existing file from https://github.com/smartHomeHub/SmartIR/tree/master/codes/media_player
 - platform: smartir
   name: Living Room HOT
   unique_id: living_room_HOT

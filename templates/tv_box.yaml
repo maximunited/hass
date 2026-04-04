@@ -12,7 +12,7 @@
           data:
             host: 192.168.1.15
             packet: "JgBgAAABJ5MTExMSEjgTEhMSExITEhMSFDcTNxMSEjgUNhQ2FDcSOBI4ExITEhM3EhMTExITEhMTEhI4FDYUERM3FDcTNxM3EwAFFQABJ0oTAAxUAAEnShIADFUAASZKFAANBQAAAAAAAAAA"
-      state: "{{ 'unavailable' }}"
+      state: "{{ 'off' }}"
 
     - name: "TV Box OK"
       unique_id: tv_box_ok
@@ -36,7 +36,7 @@
           data:
             host: 192.168.1.15
             packet: "JgCQAAABJZUSExMWDxMSFBA6ETgSExIUERQSExEUEhMROhA5EhQSExE5ERQSExE6EBUQFRITEBURFBI3EzgRFRE4EToSOBA6EAAFrAABJpYSExISEBcREhI6EDoRFBEUEBURFBEUEhISOBI6EBUQFRE5ERMTExE5EBYRFBETERURExI4EzgRFBE5EToQORI5EQANBQAAAAAAAAAA"
-      state: "{{ 'unavailable' }}"
+      state: "{{ 'off' }}"
 
     - name: "TV Box Up/Down"
       unique_id: tv_box_up_down
@@ -50,7 +50,7 @@
           data:
             host: 192.168.1.15
             packet: "JgBQAAABKJAVEBURFBAUEBU1FDUVERQQFBAVEBcQFBAVNBU2Fg8VDxQ1Fg8VEBYQEzcTEBUQFRAVDxQ1FjUUNRURFDUWNRM1FQAFrwABKUYVAA0FAAAAAAAAAAA="
-      state: "{{ 'unavailable' }}"
+      state: "{{ 'off' }}"
 
     - name: "TV Box Right/Left"
       unique_id: tv_box_right_left
@@ -64,7 +64,7 @@
           data:
             host: 192.168.1.15
             packet: "JgBQAAABKpESEhYOFhAUERQ2FTMUEhMSFBAUEBQTExAVNRQ0FhEUEBUQFDUWDxUQFjUSEhMRFRAWNBQRFTQVNRUPFjUUNhM0FgAFrwABKEgUAA0FAAAAAAAAAAA="
-      state: "{{ 'unavailable' }}"
+      state: "{{ 'off' }}"
 
     - name: "TV Box 1"
       unique_id: tv_box_1
