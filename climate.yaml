@@ -26,4 +26,3 @@
 #   temperature_sensor: sensor.master_bedroom_temperature
 #   humidity_sensor: sensor.master_bedroom_humidity
 #   power_sensor: binary_sensor.master_bedroom_ac_vent
-

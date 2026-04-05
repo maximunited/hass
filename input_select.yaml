@@ -110,7 +110,7 @@ storage_lights:
     - 'All On'
     - 'All Off'
   initial: 'All Off'
-  
+
 closet_lights:
   name: Closet Lights
   options:

@@ -71,4 +71,3 @@
       state_class: measurement
       state: >
         {{ state_attr('sensor.oref_pre_alert_stats_3d', 'mean') | int(0) }}
-

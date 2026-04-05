@@ -1097,13 +1097,14 @@
       title: Low Battery Alert
       message: "{% set low_battery_sensors = [] %} {% for state in states.sensor %}\n
         \ {% if \"battery\" in state.entity_id.lower()\n        and state.state !=
-        \"unavailable\"\n        and state.state != \"unknown\" %}\n    {% set battery_level
-        = state.state | float %}\n    {% if battery_level < 20 %}\n      {% set low_battery_sensors
-        =\n           low_battery_sensors + [state.entity_id ~ \" (\" ~ state.state
-        ~ \"%)\"] %}\n    {% endif %}\n  {% endif %}\n{% endfor %} {% if low_battery_sensors
-        %}\n  The following sensors have low battery levels:\n  {% for sensor in low_battery_sensors
-        %}\n  - {{ sensor }}\n  {% endfor %}\n{% else %}\n  All battery sensors are
-        at acceptable levels.\n{% endif %}\n"
+        \"unavailable\"\n        and state.state != \"unknown\"\n        and state.state
+        | is_number %}\n    {% set battery_level = state.state | float %}\n    {%
+        if battery_level < 20 and battery_level >= 0 and battery_level <= 100 %}\n
+        \     {% set low_battery_sensors =\n           low_battery_sensors + [state.entity_id
+        ~ \" (\" ~ state.state ~ \"%)\"] %}\n    {% endif %}\n  {% endif %}\n{% endfor
+        %} {% if low_battery_sensors %}\n  The following sensors have low battery levels:\n
+        \ {% for sensor in low_battery_sensors %}\n  - {{ sensor }}\n  {% endfor %}\n{%
+        else %}\n  All battery sensors are at acceptable levels.\n{% endif %}\n"
 - id: notify_missing_sensors
   alias: Notify Missing Sensors
   description: List sensors that have been unavailable for more than 2 weeks.

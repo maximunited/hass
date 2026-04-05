@@ -308,9 +308,11 @@ wake_on_lan:
 
 notify: !include notify.yaml
 
-# Proxmox VE: prefer Settings → Devices (UI). If sensors show KeyError cpu/mem/disk, the
-# configured resource is not a cluster node — use the exact node name from Datacenter → Nodes
-# (often "pve"), or add VMs/LXCs as QEMU/LXC devices, not as a node named after the host.
+# Proxmox VE (UI: Settings → Devices & services → Proxmox VE → Configure):
+# If logs show KeyError cpu/mem/disk or "Task exception was never retrieved" from proxmoxve,
+# the node name must match Proxmox exactly (Datacenter → Nodes; often "pve" not the host
+# nickname). Ensure the API user/role can read node status. Add VMs/LXCs as QEMU/LXC, not
+# as a mislabeled node.
 # proxmoxve:
 #   - host: !secret proxmox_ip
 #     username: !secret proxmox_username

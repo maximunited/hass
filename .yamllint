@@ -2,60 +2,61 @@
 # YAML Lint configuration for Home Assistant
 extends: default
 
+# Third-party / vendored / obsolete (do not lint)
+ignore: |
+  custom_components/
+  automation_OBSOLETE/
+
 rules:
   # Allow long lines (Home Assistant configs can be verbose)
   line-length:
     max: 200
     level: warning
-  
+
   # Allow document start (---) but don't require it
   document-start: disable
-  
+
   # Allow empty values (Home Assistant uses null/empty values)
   empty-values:
     forbid-in-block-mappings: false
     forbid-in-flow-mappings: false
-  
+
   # Allow comments
   comments: enable
-  
-  # Allow indentation with 2 spaces (Home Assistant standard)
-  indentation:
-    spaces: 2
-    indent-sequences: true
-    check-multi-line-strings: false
-  
+
+  # Indentation: HA mixes list styles (UI export, hand-edited); strict checks are noisy.
+  indentation: disable
+
   # Allow truthy values (yes, no, on, off, etc.)
   truthy:
     allowed-values: ['true', 'false', 'on', 'off', 'yes', 'no']
     check-keys: false
-  
+
   # Allow colons in unquoted strings (common in Home Assistant)
   colons:
     max-spaces-before: 0
     max-spaces-after: 1
-  
+
   # Allow brackets in unquoted strings (for entity IDs like sensor.temperature)
   brackets:
     max-spaces-inside: 1
     max-spaces-inside-empty: 0
-  
+
   # Allow braces in unquoted strings (for templates)
   braces:
     max-spaces-inside: 1
     max-spaces-inside-empty: 0
-  
+
   # Don't require quotes for entity IDs and other common patterns
   quoted-strings:
     quote-type: any
     required: false
-  
+
   # Don't require key ordering
   key-ordering: disable
-  
+
   # Allow octal values
   octal-values: disable
-  
+
   # Allow trailing spaces in some contexts (templates can be multi-line)
   trailing-spaces: enable
-

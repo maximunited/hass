@@ -100,8 +100,8 @@
                         "balcony_light"]
       %}
       {% for state in states.light|sort(attribute='name') -%}
-        {% if is_state(state.entity_id,"on") -%} 
-          {{ state.name | regex_replace('(Kitchen )?(.*)[Ll]ight', '\\2') | title if (state.entity_id.replace("light.","") 
+        {% if is_state(state.entity_id,"on") -%}
+          {{ state.name | regex_replace('(Kitchen )?(.*)[Ll]ight', '\\2') | title if (state.entity_id.replace("light.","")
               in lights) else '' -}}
         {% endif -%}
       {% endfor -%}

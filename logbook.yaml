@@ -10,4 +10,3 @@ exclude:
     - sensor.last_boot
     - sensor.date
     - sensor.time
-

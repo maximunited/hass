@@ -9,6 +9,7 @@ core
 .uuid
 *.BACKUP
 __pycache__/
+.venv/
 *.pyc
 *.pyo
 *.pyd
