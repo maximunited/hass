@@ -10,3 +10,10 @@ add_to_grocery_list:
 google_broadcast:
   name: Google Home broadcast
   initial: "<Say something>"
+
+# Last docker image tag we already notified about (see automation ha_docker_tag_changed_var)
+ha_version_notification:
+  name: HA version last notified
+  initial: ""
+  mode: text
+  max: 64

@@ -67,10 +67,10 @@
 #     {% set results = value_json.results %}
 #     {%-set res-%}
 #     {%-set pipe = joiner('|')-%}
-#     {% for result in results if not result.name |regex_search("^[a-z]|dev|-1",ignorecase=TRUE) -%} 
-#       {{ pipe()}}{{result.name}}      
-#     {% else %}        
-#       -1 
+#     {% for result in results if not result.name |regex_search("^[a-z]|dev|-1",ignorecase=TRUE) -%}
+#       {{ pipe()}}{{result.name}}
+#     {% else %}
+#       -1
 #     {% endfor -%}
 #     {% endset -%}
 #     {% set res = res.split('|')|list -%}
@@ -81,7 +81,6 @@
 # Friendly version report
 # Note: Template sensor has been moved to templates/system_monitor.yaml
 #
-
 
 # - platform: hadockermon
 #   host: 127.0.0.1

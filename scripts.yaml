@@ -39,25 +39,37 @@ main_media_hot:
       data:
         source: Cable
       action: media_player.select_source
+  - action: input_select.select_option
+    metadata: {}
+    target:
+      entity_id: input_select.main_media
+    data:
+      option: HOT
 main_media_chromecast:
   alias: Main Media Chromecast
   sequence:
-  - service: media_player.turn_on
-    target:
+  - target:
       entity_id: media_player.marantz_nr1608
-  - service: media_player.turn_on
-    target:
+    action: media_player.turn_on
+  - target:
       entity_id: media_player.living_room_chromecast
-  - service: media_player.select_source
-    target:
+    action: media_player.turn_on
+  - target:
       entity_id: media_player.marantz_nr1608
     data:
       source: TV Audio
-  - service: media_player.select_source
-    target:
+    action: media_player.select_source
+  - target:
       entity_id: media_player.lg_tv
     data:
       source: Chromecast
+    action: media_player.select_source
+  - action: input_select.select_option
+    metadata: {}
+    target:
+      entity_id: input_select.main_media
+    data:
+      option: Chromecast
 main_media_playstation:
   alias: Main Media Playstation
   sequence:
@@ -73,6 +85,12 @@ main_media_playstation:
       entity_id: media_player.lg_tv
       source: Receiver
     action: media_player.select_source
+  - action: input_select.select_option
+    metadata: {}
+    target:
+      entity_id: input_select.main_media
+    data:
+      option: Playstation
 main_media_plex:
   alias: Main Media Plex
   sequence:
@@ -97,6 +115,12 @@ main_media_plex:
         entity_id: remote.tcl_tv
       data:
         activity: com.plexapp.android
+  - action: input_select.select_option
+    metadata: {}
+    target:
+      entity_id: input_select.main_media
+    data:
+      option: Plex
 main_media_jellyfin:
   alias: Main Media Jellyfin
   sequence:
@@ -121,15 +145,29 @@ main_media_jellyfin:
         entity_id: remote.tcl_tv
       data:
         activity: org.jellyfin.androidtv
+  - action: input_select.select_option
+    metadata: {}
+    target:
+      entity_id: input_select.main_media
+    data:
+      option: Jellyfin
 main_media_off:
   alias: Main Media Off
   sequence:
-  - service: media_player.turn_off
-    entity_id:
-    - media_player.marantz_nr1608
-  - service: media_player.turn_off
-    entity_id:
+  - entity_id:
     - media_player.living_room_chromecast
+    action: media_player.turn_off
+  - action: media_player.turn_off
+    metadata: {}
+    target:
+      entity_id: media_player.marantz_nr1608
+    data: {}
+  - action: input_select.select_option
+    metadata: {}
+    target:
+      entity_id: input_select.main_media
+    data:
+      option: 'Off'
 remount_share_restart_plex:
   alias: Mount Share and restart Plex
   description: Remount /mnt/Share on main host and restart Plex docker container

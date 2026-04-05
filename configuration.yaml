@@ -126,6 +126,7 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 shell_command: !include shell_command.yaml
+command_line: !include command_line.yaml
 # timer: !include timer.yaml
 scene: !include scenes.yaml
 

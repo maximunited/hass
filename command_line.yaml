@@ -1,0 +1,17 @@
+---
+# Parses /shared/duck.log: last line that is exactly OK or NOTOK (script output; supports append or overwrite).
+- binary_sensor:
+    name: duckdns_update_problem
+    unique_id: duckdns_update_problem
+    device_class: problem
+    command: >-
+      awk '{
+        gsub(/\r/, "");
+        if ($0 == "OK" || $0 == "NOTOK") lr = $0
+      } END {
+        if (lr == "NOTOK") print "ON";
+        else print "OFF"
+      }' /shared/duck.log 2>/dev/null || echo OFF
+    payload_on: 'ON'
+    payload_off: 'OFF'
+    scan_interval: 300

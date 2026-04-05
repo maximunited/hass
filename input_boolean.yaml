@@ -29,3 +29,9 @@ disable_dishwasher_notification:
   name: Disable Dishwasher Notification
   initial: off
   icon: mdi:dishwasher
+
+# Toggle on to run Notify Missing Sensors automation
+notify_missing_sensors:
+  name: Check Missing Sensors (run notification)
+  initial: off
+  icon: mdi:sensor-alert
