@@ -1,0 +1,26 @@
+---
+description: Run yamllint and markdownlint after editing YAML or Markdown
+globs: "**/*.yaml,**/*.yml,**/*.md"
+alwaysApply: false
+---
+
+# Lint YAML and Markdown before finishing
+
+When you **edit, add, or refactor** files under this repo that match **`*.yaml`**, **`*.yml`**, or **`*.md`**:
+
+1. **Run linters** from the repository root (fix issues or adjust `.yamllint` / `.markdownlint.yaml` if a change is intentional). On PEP 668 systems use the project venv: `.venv/bin/pre-commit …` (see README Setup).
+   - **All touched files in one go:**  
+     `pre-commit run yamllint markdownlint --files <path1> [path2 ...]`
+   - **YAML only:**  
+     `yamllint -c .yamllint <paths>`  
+     or `pre-commit run yamllint --files <paths>`
+   - **Markdown only:**  
+     `pre-commit run markdownlint --files <paths>`
+
+2. If `pre-commit` is not installed, say so and use **`yamllint -c .yamllint`** for YAML; for Markdown use **`npx --yes markdownlint-cli --config .markdownlint.yaml <paths>`** (or ask the user to run `pre-commit run --all-files`).
+
+3. Do **not** mark the task complete while **yamllint** or **markdownlint** still report errors on files you changed.
+
+4. For **`custom_components/`**, **`www/community/`**, and other **third-party** paths: follow **`.cursor/rules/third-party-no-touch.mdc`** — report lint output, do **not** patch those files unless the user explicitly confirmed.
+
+Hooks are defined in **`.pre-commit-config.yaml`**; Markdown rules live in **`.markdownlint.yaml`**.
