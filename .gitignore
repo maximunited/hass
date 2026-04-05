@@ -67,3 +67,6 @@ ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 hass_vscode.code-workspace
+
+# No-IP renewal state (runtime; do not commit)
+noip-shared/noip-hosts-renewed.txt
