@@ -1,0 +1,29 @@
+---
+description: Do not modify third-party / vendored paths without explicit user confirmation
+alwaysApply: true
+---
+
+# Third-party and vendored content
+
+Do **not** change, reformat, “fix,” or clean up **third-party** trees **by default**, even if linters, pre-commit, or “best practices” suggest it.
+
+## Treat as third-party unless the user clearly targets them
+
+- `custom_components/` (HACS and other integrations)
+- `www/community/` (community Lovelace resources)
+- Other obvious vendored drops (e.g. unpacked zips, upstream card bundles)
+
+**Blueprints** under `blueprints/` from Home Assistant or the community: treat as **upstream-style** — do not mass-edit or “normalize” without confirmation.
+
+## What to do instead
+
+- You may **report** issues (paths, tool output) and **ask** whether to fix inside those directories.
+- **Wait for explicit confirmation** (e.g. “yes, fix `custom_components/foo`” or “run pre-commit only on my YAML, not `www/`”) before editing there.
+- Prefer fixing **first-party** config: `configuration.yaml`, `automations.yaml`, `scripts.yaml`, `templates/`, `repo-docs/`, etc.
+
+## When editing third-party is allowed without asking again
+
+- The user **named** the path or integration and asked to change it, or
+- The user replied **yes** / **go ahead** to a prior question about that scope.
+
+If unsure whether something is third-party, **ask** before editing.
