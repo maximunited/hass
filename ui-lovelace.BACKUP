@@ -1762,4 +1762,3 @@ views:
         type: 'custom:auto-entities'
     icon: 'mdi:bug'
     title: Debug
-

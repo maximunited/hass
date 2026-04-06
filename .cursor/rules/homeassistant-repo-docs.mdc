@@ -1,0 +1,24 @@
+---
+description: Read repo diagnostics notes for HA config, integrations, and troubleshooting
+alwaysApply: true
+---
+
+# Home Assistant repository context
+
+This project is a **Home Assistant configuration** git repo (YAML, automations, integrations).
+
+## When to load `repo-docs/`
+
+At the **start** of a turn, if the task involves any of the following, **read** `repo-docs/HA_DIAGNOSTICS.md` from the workspace root (read tool) **before** proposing fixes, unless the user attached it or the file is already in context:
+
+- Integrations, entities, logs, or errors (`home-assistant.log`, MCP `get_error_log`, etc.)
+- Proxmox VE, Jellyfin, Imou, IEC, or similar integrations mentioned in that doc
+- “Why is X broken?” / diagnostics / health of this HA instance
+
+## If not applicable
+
+Skip the read for purely mechanical edits (typo, rename, unrelated file) with no HA troubleshooting angle.
+
+## After reading
+
+Prefer updating `repo-docs/HA_DIAGNOSTICS.md` when you discover new durable findings (symptoms, MCP counts, fixes applied, operational steps).

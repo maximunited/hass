@@ -1,0 +1,5 @@
+# markdownlint config (markdownlint-cli / pre-commit)
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+default: true
+# Long bullets/URLs are common in this repo; MD022/MD032/MD031 matter more.
+MD013: false
