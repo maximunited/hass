@@ -125,27 +125,30 @@
   mode: restart
 - id: pikud_safe_start
   alias: Pikud Oref - Enter safe state
-  description: When Oref changes to ok, activate the Safe scene and enforce a 5-minute
-    cap, after which original lighting is restored.
+  description: When Oref changes to ok, cancel the pre-alert timeout timer (so it cannot
+    fire later and override the safe scene), apply the Safe scene, clear any snapshot
+    reference, and turn off Pikud scene control so ambient and other lighting can resume.
+    Original lights are restored only by the pre-alert timer path (once per event), not
+    after safe.
   triggers:
   - entity_id: sensor.oref_alert
     to: ok
     trigger: state
   actions:
   - target:
+      entity_id: timer.pikud_scene_timeout
+    action: timer.cancel
+  - target:
       entity_id: scene.safe_pikud
     action: scene.turn_on
+  - action: input_text.set_value
+    target:
+      entity_id: input_text.pikud_original_snapshot_scene
+    data:
+      value: ''
   - target:
       entity_id: input_boolean.pikud_scene_active
-    action: input_boolean.turn_on
-  - data:
-      duration:
-        hours: 0
-        minutes: 3
-        seconds: 30
-    action: timer.start
-    target:
-      entity_id: timer.pikud_scene_timeout
+    action: input_boolean.turn_off
   - parallel:
     - action: ntfy.publish
       metadata: {}

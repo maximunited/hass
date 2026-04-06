@@ -81,10 +81,19 @@ Persistent notes from log analysis and live-instance checks. **Update this file*
 
 ---
 
+## Pikud Oref lighting (2026-04-06)
+
+**Symptom:** After pre-alert → timeout restore → safe (`sensor.oref_alert` ok), a second `timer.pikud_scene_timeout` run did not restore lights because `input_text.pikud_original_snapshot_scene` was already cleared on the first timeout; safe state had restarted the same timer with nothing to restore.
+
+**Fix in repo:** `pikud_safe_start` no longer starts `timer.pikud_scene_timeout`. On safe it **cancels** that timer (so a long pre-alert countdown cannot fire after safe), applies `scene.safe_pikud`, clears the snapshot text, and turns **off** `input_boolean.pikud_scene_active` so ambient / pending logic can run. Only the pre-alert path still drives the 20-minute cap and `pikud_timeout_restore_original`.
+
+---
+
 ## Changelog
 
 | Date | Change |
 | ---- | ------ |
+| 2026-04-06 | Pikud: decouple safe state from `timer.pikud_scene_timeout` / restore automation (see section above). |
 | 2026-04-05 | Initial doc: log + MCP findings; battery template fix; config comments; IEC deferred. |
 | 2026-04-05 | Moved from repo root to `docs/HA_DIAGNOSTICS.md`; added discovery note for AI tools. |
 | 2026-04-05 | Renamed folder `docs/` → `repo-docs/` to avoid confusion with official HA documentation. |
