@@ -28,6 +28,9 @@ phones:
   entities:
     - device_tracker.samsung_galaxy_s7
     - device_tracker.dd_phone
+    - device_tracker.samsung_galaxy_s20_fe
+    - device_tracker.dd_phone_bt
+    - device_tracker.lidia_phone_galaxy_a12
 
 google_speakers:
   name: "All Google home speakers"
@@ -49,6 +52,10 @@ tvs:
   entities:
     - device_tracker.lg_tv
     - device_tracker.samsung_tv
+    - device_tracker.85c855_television
+    - device_tracker.tcl_tv
+    - device_tracker.tcl_tv_2
+
 
 ambient_lights:
   name: Ambient lights

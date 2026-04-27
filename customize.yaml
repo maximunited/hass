@@ -165,6 +165,9 @@ plant.sweet_alyssum:
 plant.avocado:
   friendly_name: Avocado
   entity_picture: /local/images/plants/avocado.jpg
+plant.tall_lucky_bamboo:
+  friendly_name: Tall Lucky Bamboo
+  entity_picture: /local/images/plants/lucky_bamboo.jpg
 
 # People
 person.maxim:

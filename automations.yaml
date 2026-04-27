@@ -1,16 +1,21 @@
 - id: pikud_pre_alert_start
   alias: Pikud Oref - Enter pre-alert state
-  description: When Oref changes to pre_alert, snapshot current lighting if no Pikud
-    scene is active, activate the Pre-Alert scene and enforce a 20-minute cap.
+  description: When Oref changes to pre_alert, cancel any post-safe restore delay
+    timer, snapshot current lighting if Pikud was not active or we are re-arming from
+    ok (after safe), activate the Pre-Alert scene, and start the 20-minute timer only
+    if input_boolean.pikud_timeout_restore is on.
   triggers:
   - entity_id: sensor.oref_alert
     to: pre_alert
     trigger: state
   actions:
+  - target:
+      entity_id: timer.pikud_safe_post_restore
+    action: timer.cancel
   - if:
-    - condition: state
-      entity_id: input_boolean.pikud_scene_active
-      state: 'off'
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.pikud_scene_active'', ''off'')
+        or trigger.from_state.state == ''ok'' }}'
     then:
     - data:
         scene_id: pikud_original_lights
@@ -23,21 +28,26 @@
       action: scene.create
     - if:
       - condition: template
-        value_template: '{{ states(''scene'' ~ ''.'' ~ ''pikud_original_lights'') not in
-          [''unknown'', ''unavailable''] }}'
+        value_template: '{{ states(''scene'' ~ ''.'' ~ ''pikud_original_lights'')
+          not in [''unknown'', ''unavailable''] }}'
       then:
       - action: input_text.set_value
         target:
           entity_id: input_text.pikud_original_snapshot_scene
         data:
-          value: "{{ 'scene' ~ '.' ~ 'pikud_original_lights' }}"
+          value: '{{ ''scene'' ~ ''.'' ~ ''pikud_original_lights'' }}'
   - target:
       entity_id: input_boolean.pikud_scene_active
     action: input_boolean.turn_on
-  - data:
-      entity_id: timer.pikud_scene_timeout
-      duration: 00:20:00
-    action: timer.start
+  - if:
+    - condition: state
+      entity_id: input_boolean.pikud_timeout_restore
+      state: 'on'
+    then:
+    - data:
+        entity_id: timer.pikud_scene_timeout
+        duration: 00:20:00
+      action: timer.start
   - sequence:
     - target:
         entity_id: scene.pre_alert_pikud
@@ -61,13 +71,17 @@
   mode: restart
 - id: pikud_alert_start
   alias: Pikud Oref - Enter alert state
-  description: When Oref changes to alert, snapshot original lights only if no Pikud
-    scene is active yet, then activate the Alert scene.
+  description: When Oref changes to alert, cancel any post-safe restore delay timer,
+    snapshot original lights only if no Pikud scene is active yet, then activate the
+    Alert scene.
   triggers:
   - entity_id: sensor.oref_alert
     to: alert
     trigger: state
   actions:
+  - target:
+      entity_id: timer.pikud_safe_post_restore
+    action: timer.cancel
   - if:
     - condition: state
       entity_id: input_boolean.pikud_scene_active
@@ -84,14 +98,14 @@
       action: scene.create
     - if:
       - condition: template
-        value_template: '{{ states(''scene'' ~ ''.'' ~ ''pikud_original_lights'') not in
-          [''unknown'', ''unavailable''] }}'
+        value_template: '{{ states(''scene'' ~ ''.'' ~ ''pikud_original_lights'')
+          not in [''unknown'', ''unavailable''] }}'
       then:
       - action: input_text.set_value
         target:
           entity_id: input_text.pikud_original_snapshot_scene
         data:
-          value: "{{ 'scene' ~ '.' ~ 'pikud_original_lights' }}"
+          value: '{{ ''scene'' ~ ''.'' ~ ''pikud_original_lights'' }}'
   - target:
       entity_id: input_boolean.pikud_scene_active
     action: input_boolean.turn_on
@@ -125,11 +139,10 @@
   mode: restart
 - id: pikud_safe_start
   alias: Pikud Oref - Enter safe state
-  description: When Oref changes to ok, cancel the pre-alert timeout timer (so it cannot
-    fire later and override the safe scene), apply the Safe scene, clear any snapshot
-    reference, and turn off Pikud scene control so ambient and other lighting can resume.
-    Original lights are restored only by the pre-alert timer path (once per event), not
-    after safe.
+  description: When Oref changes to ok, cancel the pre-alert 20m timer and any prior
+    post-safe delay, apply the Safe scene and notify, keep snapshot text and input_boolean.pikud_scene_active
+    until timer.pikud_safe_post_restore (3m30s) finishes — then Pikud Oref - Post-safe
+    restore applies pre-Pikud lights and cleanup.
   triggers:
   - entity_id: sensor.oref_alert
     to: ok
@@ -139,16 +152,15 @@
       entity_id: timer.pikud_scene_timeout
     action: timer.cancel
   - target:
+      entity_id: timer.pikud_safe_post_restore
+    action: timer.cancel
+  - target:
       entity_id: scene.safe_pikud
     action: scene.turn_on
-  - action: input_text.set_value
-    target:
-      entity_id: input_text.pikud_original_snapshot_scene
-    data:
-      value: ''
-  - target:
-      entity_id: input_boolean.pikud_scene_active
-    action: input_boolean.turn_off
+  - data:
+      entity_id: timer.pikud_safe_post_restore
+      duration: 00:03:30
+    action: timer.start
   - parallel:
     - action: ntfy.publish
       metadata: {}
@@ -172,24 +184,79 @@
         title: 'Oref: Safe to exit: פקע"ר'
       enabled: false
   mode: restart
-- id: pikud_timeout_restore_original
-  alias: Pikud Oref - Restore original lights on timeout
+- id: pikud_post_safe_restore_original
+  alias: Pikud Oref - Post-safe restore original lights
+  description: When timer.pikud_safe_post_restore finishes after ok, restore the snapshot
+    taken before pre-alert/alert (pre-Pikud lighting), clear snapshot text, turn off
+    Pikud scene control, and apply pending ambient when applicable.
   triggers:
   - event_type: timer.finished
     event_data:
-      entity_id: timer.pikud_scene_timeout
+      entity_id: timer.pikud_safe_post_restore
     trigger: event
   actions:
   - variables:
       pikud_snap_scene: '{{ states(''input_text.pikud_original_snapshot_scene'') }}'
   - if:
     - condition: template
-      value_template: '{{ pikud_snap_scene | length > 0 and states(pikud_snap_scene) not
-        in [''unknown'', ''unavailable''] }}'
+      value_template: '{{ pikud_snap_scene | length > 0 and states(pikud_snap_scene)
+        not in [''unknown'', ''unavailable''] }}'
     then:
     - target:
         entity_id: '{{ pikud_snap_scene }}'
       action: scene.turn_on
+  - action: input_text.set_value
+    target:
+      entity_id: input_text.pikud_original_snapshot_scene
+    data:
+      value: ''
+  - target:
+      entity_id: input_boolean.pikud_scene_active
+    action: input_boolean.turn_off
+  - if:
+    - condition: state
+      entity_id: input_boolean.pikud_ambient_pending
+      state: 'on'
+    - condition: state
+      entity_id: group.household
+      state: home
+    then:
+    - target:
+        entity_id: scene.ambient_full
+      action: scene.turn_on
+    - target:
+        entity_id: input_boolean.pikud_ambient_pending
+      action: input_boolean.turn_off
+  mode: single
+- id: pikud_timeout_restore_original
+  alias: Pikud Oref - Restore original lights on timeout
+  description: On timer.pikud_scene_timeout finished, restore snapshot lights only
+    if input_boolean.pikud_timeout_restore is on; always clear snapshot and release
+    Pikud scene control (and pending ambient when applicable).
+  triggers:
+  - event_type: timer.finished
+    event_data:
+      entity_id: timer.pikud_scene_timeout
+    trigger: event
+  actions:
+  - target:
+      entity_id: timer.pikud_safe_post_restore
+    action: timer.cancel
+  - variables:
+      pikud_snap_scene: '{{ states(''input_text.pikud_original_snapshot_scene'') }}'
+  - if:
+    - condition: state
+      entity_id: input_boolean.pikud_timeout_restore
+      state: 'on'
+    then:
+    - if:
+      - condition: template
+        value_template: '{{ pikud_snap_scene | length > 0 and states(pikud_snap_scene)
+          not in [''unknown'', ''unavailable''] }}'
+      then:
+      - target:
+          entity_id: '{{ pikud_snap_scene }}'
+        action: scene.turn_on
   - action: input_text.set_value
     target:
       entity_id: input_text.pikud_original_snapshot_scene
@@ -942,43 +1009,44 @@
 - id: ha_update_available_html5
   alias: Update Available Notifications
   description: Send HTML5 notification when core update is available.
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.docker_hub_update_available
-  action:
-  - service: notify.notify_html5
+  triggers:
+  - entity_id: binary_sensor.docker_hub_update_available
+    trigger: state
+  actions:
+  - action: notify.html5
     data:
-      title: Home Assistant
       message: Update for HA is available.
+      title: Home Assistant
 - id: ha_docker_tag_changed_simple
   alias: Notify - Home Assistant docker tag changed (simple)
-  description: Notify when tracked Docker tag (binary_sensor.docker_hub_update_available) changes.
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.docker_hub_update_available
-  condition:
+  description: Notify when tracked Docker tag (binary_sensor.docker_hub_update_available)
+    changes.
+  triggers:
+  - entity_id: binary_sensor.docker_hub_update_available
+    trigger: state
+  conditions:
   - condition: template
     value_template: '{{ trigger.to_state.state not in [trigger.from_state.state, ''unavailable'']
       }}'
-  action:
-  - service: persistent_notification.create
-    data:
+  actions:
+  - data:
       title: Home Assistant update available
       message: 'Home Assistant docker tag changed from {{ trigger.from_state.state
         }} to {{ trigger.to_state.state }}
 
         '
-  - service: notify.notify_html5
-    data:
+    action: persistent_notification.create
+  - data:
       title: Home Assistant update available
       message: 'Home Assistant docker tag changed from {{ trigger.from_state.state
         }} to {{ trigger.to_state.state }}
 
         '
+    action: notify.html5
 - id: ha_docker_tag_changed_var
   alias: Notify - Home Assistant docker tag changed (tracked)
-  description: 'Compare latest_docker_version with input_text.ha_version_notification
-    and notify when an update is available, also writing release links.'
+  description: Compare latest_docker_version with input_text.ha_version_notification
+    and notify when an update is available, also writing release links.
   trigger:
   - platform: state
     entity_id:
@@ -1017,7 +1085,7 @@
     target:
       entity_id: input_text.ha_version_notification
     data:
-      value: "{{ states('sensor.latest_docker_version') }}"
+      value: '{{ states(''sensor.latest_docker_version'') }}'
   mode: single
 - id: hacs_notify_new_repo
   alias: Create a notification when something is added to HACS
@@ -1105,9 +1173,10 @@
         if battery_level < 20 and battery_level >= 0 and battery_level <= 100 %}\n
         \     {% set low_battery_sensors =\n           low_battery_sensors + [state.entity_id
         ~ \" (\" ~ state.state ~ \"%)\"] %}\n    {% endif %}\n  {% endif %}\n{% endfor
-        %} {% if low_battery_sensors %}\n  The following sensors have low battery levels:\n
-        \ {% for sensor in low_battery_sensors %}\n  - {{ sensor }}\n  {% endfor %}\n{%
-        else %}\n  All battery sensors are at acceptable levels.\n{% endif %}\n"
+        %} {% if low_battery_sensors %}\n  The following sensors have low battery
+        levels:\n  {% for sensor in low_battery_sensors %}\n  - {{ sensor }}\n  {%
+        endfor %}\n{% else %}\n  All battery sensors are at acceptable levels.\n{%
+        endif %}\n"
 - id: notify_missing_sensors
   alias: Notify Missing Sensors
   description: List sensors that have been unavailable for more than 2 weeks.
@@ -1217,6 +1286,9 @@
       include_easy_notify: enable_easy_okay_notify
       notify_data:
       - sticky
+      exclude_sensors:
+        entity_id: []
+        label_id: broken
 - id: '1774986352971'
   alias: Main Media - Run script from helper
   triggers:
@@ -1364,3 +1436,45 @@
       data:
         option: '{{ detected_after_wait }}'
   mode: restart
+- id: ha_show_release_notes_once_after_update_install
+  alias: "HA - show release notes once after update install"
+  description: "Show HA release notes only once after the real HA update is installed."
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.home_assistant_website_update_available
+      from: "on"
+      to: "off"
+
+  condition:
+    - condition: template
+      value_template: >
+        {{ state_attr('sensor.home_assistant_website', 'installed_version') is not none }}
+    - condition: template
+      value_template: >
+        {{ state_attr('sensor.home_assistant_website', 'installed_version')
+           != states('input_text.ha_release_notes_version_shown') }}
+
+  action:
+    - variables:
+        version: "{{ state_attr('sensor.home_assistant_website', 'installed_version') }}"
+        title: "{{ state_attr('sensor.home_assistant_website', 'release_title') or 'Home Assistant updated' }}"
+        notes: "{{ state_attr('sensor.home_assistant_website', 'release_description') }}"
+        url: "{{ state_attr('sensor.home_assistant_website', 'release_notes') }}"
+
+    - service: persistent_notification.create
+      data:
+        notification_id: ha_release_notes_once
+        title: "{{ title }} ({{ version }})"
+        message: >-
+          {{ notes }}
+          {% if url %}
+          
+          [Release notes]({{ url }})
+          {% endif %}
+
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.ha_release_notes_version_shown
+      data:
+        value: "{{ version }}"

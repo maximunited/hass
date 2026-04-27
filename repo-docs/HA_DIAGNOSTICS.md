@@ -81,11 +81,21 @@ Persistent notes from log analysis and live-instance checks. **Update this file*
 
 ---
 
-## Pikud Oref lighting (2026-04-06)
+## Pikud Oref lighting (2026-04-06, updated 2026-04-07)
 
-**Symptom:** After pre-alert → timeout restore → safe (`sensor.oref_alert` ok), a second `timer.pikud_scene_timeout` run did not restore lights because `input_text.pikud_original_snapshot_scene` was already cleared on the first timeout; safe state had restarted the same timer with nothing to restore.
+**Symptom (first fix):** After pre-alert → timeout restore → safe (`sensor.oref_alert` ok), a second `timer.pikud_scene_timeout` run did not restore lights because `input_text.pikud_original_snapshot_scene` was already cleared on the first timeout; safe had restarted the same timer with nothing to restore.
 
-**Fix in repo:** `pikud_safe_start` no longer starts `timer.pikud_scene_timeout`. On safe it **cancels** that timer (so a long pre-alert countdown cannot fire after safe), applies `scene.safe_pikud`, clears the snapshot text, and turns **off** `input_boolean.pikud_scene_active` so ambient / pending logic can run. Only the pre-alert path still drives the 20-minute cap and `pikud_timeout_restore_original`.
+**Fix:** `pikud_safe_start` no longer starts `timer.pikud_scene_timeout`. On safe it **cancels** that timer so a late `timer.finished` cannot fire after safe.
+
+**Symptom (2026-04-07):** Cancel alone meant **no** `timer.finished` event if ok arrived before the 20-minute timer completed, so `pikud_timeout_restore_original` never ran and lights were not restored (snapshot was cleared without `scene.turn_on`).
+
+**Fix:** `pikud_safe_start` now mirrors the timeout restore automation after cancel: if the snapshot entity id is non-empty and valid, `scene.turn_on` that snapshot; clear `input_text.pikud_original_snapshot_scene`; turn **off** `input_boolean.pikud_scene_active`; run the same `pikud_ambient_pending` + `group.household` home branch as the timer automation; then `scene.safe_pikud`. The timer-based automation remains for pre-alert windows that **expire** without ok.
+
+**MCP / recorder check (2026-04-07):** `user-hass-mcp` has no automation trace API; use `list_automations` (`last_triggered`), `get_history`, `get_entity`. For one real event (pre-alert ~15:37 UTC, alert ~15:41, ok ~15:52): **Pikud Oref - Restore original lights on timeout** did not run (`last_triggered` still previous day) because **timer was cancelled** before 20 minutes. `input_text.pikud_original_snapshot_scene` held `scene.pikud_original_lights` until safe cleared it; **`scene.pikud_original_lights` `last_changed` at the same second as safe** indicates `scene.turn_on` for the snapshot ran, then **`scene.safe_pikud` immediately replaces** those levels/colors with the green “safe” scene — so “originals” are not what you see after safe unless you drop or delay `scene.safe_pikud`.
+
+**`input_boolean.pikud_timeout_restore` (2026-04-08):** When **off**, pre-alert does **not** start `timer.pikud_scene_timeout`, and the timeout automation does **not** call `scene.turn_on` on the snapshot (it still clears the snapshot text and turns off `input_boolean.pikud_scene_active`). **Enter safe** still cancels the 20m timer; pre-Pikud restore after ok is handled by **post-safe** delay, not this toggle. Default **on** preserves 20m timeout behavior.
+
+**Post-safe delay (2026-04-08):** After **ok**, **Enter safe** applies `scene.safe_pikud` and starts **`timer.pikud_safe_post_restore`** (3m30s); **`pikud_post_safe_restore_original`** then restores the pre-Pikud snapshot and runs ambient cleanup. Pre-alert **from `ok`** re-snapshots even if `pikud_scene_active` is still on. See [`repo-docs/automations-pikud-oref.md`](automations-pikud-oref.md).
 
 ---
 
@@ -93,6 +103,10 @@ Persistent notes from log analysis and live-instance checks. **Update this file*
 
 | Date | Change |
 | ---- | ------ |
+| 2026-04-08 | Pikud: post-safe `timer.pikud_safe_post_restore` (3m30s) + `pikud_post_safe_restore_original`; `timer.yaml` + pre-alert from-ok snapshot. |
+| 2026-04-08 | Pikud: `input_boolean.pikud_timeout_restore` gates 20 min timer start and timeout scene restore. |
+| 2026-04-07 | Pikud: MCP/recorder note — timeout automation idle when ok early; safe restores snapshot then `safe_pikud` overwrites visually. |
+| 2026-04-07 | Pikud safe: after `timer.cancel`, run same restore/cleanup/ambient logic as timeout automation, then `scene.safe_pikud`. |
 | 2026-04-06 | Pikud: decouple safe state from `timer.pikud_scene_timeout` / restore automation (see section above). |
 | 2026-04-05 | Initial doc: log + MCP findings; battery template fix; config comments; IEC deferred. |
 | 2026-04-05 | Moved from repo root to `docs/HA_DIAGNOSTICS.md`; added discovery note for AI tools. |

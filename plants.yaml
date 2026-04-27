@@ -136,3 +136,18 @@ Avocado:
   max_brightness: 35000
   min_temperature: 15
   max_temperature: 32
+Tall Lucky Bamboo:
+  sensors:
+    moisture: sensor.lucky_bamboo_tall_moisture
+    brightness: sensor.lucky_bamboo_tall_illuminance
+    temperature: sensor.lucky_bamboo_tall_temperature
+    conductivity: sensor.lucky_bamboo_tall_conductivity
+    battery: sensor.lucky_bamboo_tall_battery
+  min_moisture: 15
+  max_moisture: 60
+  min_temperature: 10
+  max_temperature: 32
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 800      # alert if long periods below this
+  max_brightness: 25000    # consider this "strong direct sun"

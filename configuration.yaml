@@ -225,7 +225,7 @@ yeelight:
 
 
 # Device Tracker
-device_tracker: !include device_tracker.yaml
+# device_tracker: !include device_tracker.yaml
 
 # Input Boolean
 input_boolean: !include input_boolean.yaml

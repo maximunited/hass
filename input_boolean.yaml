@@ -17,21 +17,28 @@ living_ac:
 # For appliances cycle finish notifications (Clean/Dry)
 disable_washing_machine_notification:
   name: Disable Washing Machine Notification
-  initial: off
+  initial: false
   icon: mdi:washing-machine
 
 disable_dryer_notification:
   name: Disable Dryer Notification
-  initial: off
+  initial: false
   icon: mdi:tumble-dryer
 
 disable_dishwasher_notification:
   name: Disable Dishwasher Notification
-  initial: off
+  initial: false
   icon: mdi:dishwasher
 
 # Toggle on to run Notify Missing Sensors automation
 notify_missing_sensors:
   name: Check Missing Sensors (run notification)
-  initial: off
+  initial: false
   icon: mdi:sensor-alert
+
+# Pikud Oref: when on, pre-alert starts the 20 min timer and timer.finished can restore
+# snapshot lights. When off, that timer is not started and timeout ignores scene restore.
+pikud_timeout_restore:
+  name: Pikud Oref – 20 minute auto-restore lights
+  initial: false
+  icon: mdi:timer-outline

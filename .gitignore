@@ -27,6 +27,8 @@ www/miwifi/dialogs.js
 
 custom_icons/iconify-icon-sets-master.zip
 switches.yaml_OBSOLETE_27032026
+.OBSOLETE/
+.DEBUG/
 
 # You can whitelist files/folders with !, these will not be ignored
 !*.yaml
