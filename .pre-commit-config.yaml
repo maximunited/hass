@@ -5,7 +5,7 @@
 repos:
   # General file checks
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
@@ -21,7 +21,7 @@ repos:
 
   # YAML linting
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.33.0
+    rev: v1.38.0
     hooks:
       - id: yamllint
         args: [-c=.yamllint]
@@ -29,7 +29,7 @@ repos:
   # Markdown linting (same idea as yamllint — style/consistency)
   # Pin: v0.41.x runs on Node 18; v0.48+ requires Node 20+.
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.41.0
+    rev: v0.49.0
     hooks:
       - id: markdownlint
         args: [--config, .markdownlint.yaml]

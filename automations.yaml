@@ -1469,7 +1469,7 @@
         message: >-
           {{ notes }}
           {% if url %}
-          
+
           [Release notes]({{ url }})
           {% endif %}
 
