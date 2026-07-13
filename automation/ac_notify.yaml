@@ -55,7 +55,7 @@
               and is_state("binary_sensor.shower_window", "on") -%}
                 {{ " and close either the shower door or window" }}
             {% endif %}
-          {%- elif is_state("binary_sensor.showre_door", "on")
+          {%- elif is_state("binary_sensor.shower_door", "on")
              and is_state("binary_sensor.shower_window", "on") %}
             {{- " Please close the shower door or window" }}
           {%- else %}

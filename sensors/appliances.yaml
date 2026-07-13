@@ -16,6 +16,13 @@
       value_template: '{{ states.input_select.dryer_status.state}}'
       friendly_name: 'Dryer Status'
 
+## Dishwasher Status
+    dishwasher_status:
+      entity_id:
+        - input_select.dishwasher_status
+      value_template: '{{ states.input_select.dishwasher_status.state}}'
+      friendly_name: 'Dishwasher Status'
+
 ## Shower Heater Status
     shower_heater_status:
       entity_id:

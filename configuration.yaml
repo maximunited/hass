@@ -311,3 +311,5 @@ notify:
   - platform: pushbullet
     name: notify_pushbullet
     api_key: !secret pushbullet_token
+
+    # This is a comment
