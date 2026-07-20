@@ -29,7 +29,7 @@ repos:
   # Markdown linting (same idea as yamllint — style/consistency)
   # Pin: v0.41.x runs on Node 18; v0.48+ requires Node 20+.
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.49.0
+    rev: v0.49.1
     hooks:
       - id: markdownlint
         args: [--config, .markdownlint.yaml]
