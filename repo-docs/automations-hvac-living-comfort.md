@@ -24,7 +24,7 @@ IFTTT automations live in [automations-google-ifttt.md](automations-google-ifttt
 
 **Conditions:** Vent must still be **on**, and the automation only fires when you are **wasting** energy: bedroom door **open**, **or** both shower door **and** shower window open (logic matches the Jinja message in YAML).
 
-**Action:** `notify.telegram_bot` with a title and a message that picks which openings to mention.
+**Action:** `notify.send_message` → `notify.telegram_bot_1357375595_1168033187` with a title and a message that picks which openings to mention.
 
 ```mermaid
 flowchart TD

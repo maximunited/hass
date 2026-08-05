@@ -1,15 +1,3 @@
----
-
-- platform: telegram
-  name: telegram_bot
-  chat_id: !secret telegram_allowed_chat_id
-
-# - platform: pushbullet
-#   name: notify_pushbullet
-#   api_key: !secret pushbullet_token
-
-# - platform: html5
-#   name: notify_html5
-#   vapid_pub_key: !secret vapid_pub_key
-#   vapid_prv_key: !secret vapid_prv_key
-#   vapid_email: !secret vapid_email
+# Legacy YAML notify platforms removed (Telegram migrate_notify, 2026.8).
+# Telegram: notify.send_message → notify.telegram_bot_1357375595_1168033187
+[]

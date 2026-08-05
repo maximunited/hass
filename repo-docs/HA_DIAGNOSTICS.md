@@ -99,10 +99,43 @@ Persistent notes from log analysis and live-instance checks. **Update this file*
 
 ---
 
+## Snapshot: 2026-08-05 (repairs + current log)
+
+Current `home-assistant.log` (~since restart 19:45): **~84 ERROR**, **~40 WARNING**. Dominant ERROR source is **CityMind water meter** API **HTTP 429** (~57 lines), not the UI repairs.
+
+### UI repairs (4)
+
+| Repair | Severity | Meaning / action |
+| ------ | -------- | ---------------- |
+| PlayStation Network `maxim_united` | Error | Auth expired — re-auth in Settings → Devices & services → PlayStation Network (or remove entry). Logged at startup as auth failure. |
+| Tuya `gg-100686459991970018445` | Error | Auth expired — re-auth Tuya (or remove). YAML `tuya:` already commented; live entry is UI. |
+| Battery Notes `shellyplussmoke-a0a3b3b9c4e4` | Issue | Device link missing for smoke alarm battery note. Device exists live (`sensor.shellyplussmoke_…_battery` = 100%). Open repair → select/link device. |
+| HTTP YAML ignored after migration | Warning | **Fixed 2026-08-06:** `.storage/http` stable already had `use_x_forwarded_for=true` and `trusted_proxies=[172.19.0.0/16, 192.168.1.0/24]`; removed YAML `http:` block from `configuration.yaml` and restarted. |
+
+### Other log issues (not in Repairs UI)
+
+| Issue | Priority | Note |
+| ----- | -------- | ---- |
+| CityMind water meter 429 | High noise | Continuous rate-limit; poll quieter or disable until API cools. |
+| Script `remove_completed_duplicates_from_todo_list` | Medium | ~20 errors: stale todo item uids (“Unable to find to-do list item”). |
+| Shelly “Sofa light” fetch errors | Low | Intermittent; `light.sofa_light` / `switch.sofa_light` currently **off** (reachable). |
+| MQTT connection refused (startup) | Check | One ERROR at boot; no further MQTT errors in this log window — confirm broker came up after HA. |
+| Palgate relay mode 400 | Low | `device not found` for serial `0549847494`. |
+| DLNA SSDP / TCL TV | Noise | One-shot callback exception at discovery. |
+| Pushbullet sensors attribute size | Warning | `sensor.pushbullet_*` attrs >16KB — not stored in DB. |
+| HACS `custom-cards/bar-card` removed | Warning | Unmaintained; consider uninstall. |
+
+Proxmox/Jellyfin noise from Apr snapshot **not** dominant in this log window.
+
+---
+
 ## Changelog
 
 | Date | Change |
 | ---- | ------ |
+| 2026-08-06 | Telegram `migrate_notify`: removed YAML `notify` telegram platform; automations now use `notify.send_message` → `notify.telegram_bot_1357375595_1168033187`. bar-card: HACS installed + resource loaded, not used in any dashboard. |
+| 2026-08-06 | HTTP migration complete: verified UI/storage proxies match YAML; removed `http:` from `configuration.yaml`; HA restart. Tuya: only VT002 (Mamad) + 5 sensors, all unavailable pending re-auth. |
+| 2026-08-05 | Repairs triage (PSN, Tuya, Battery Notes smoke, HTTP YAML migrate) + log snapshot (CityMind 429 dominant). |
 | 2026-04-08 | Pikud: post-safe `timer.pikud_safe_post_restore` (3m30s) + `pikud_post_safe_restore_original`; `timer.yaml` + pre-alert from-ok snapshot. |
 | 2026-04-08 | Pikud: `input_boolean.pikud_timeout_restore` gates 20 min timer start and timeout scene restore. |
 | 2026-04-07 | Pikud: MCP/recorder note — timeout automation idle when ok early; safe restores snapshot then `safe_pikud` overwrites visually. |

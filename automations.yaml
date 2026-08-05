@@ -376,7 +376,9 @@
           entity_id: binary_sensor.shower_window
           state: 'off'
   action:
-  - service: notify.telegram_bot
+  - action: notify.send_message
+    target:
+      entity_id: notify.telegram_bot_1357375595_1168033187
     data:
       title: '*You''re wasting electricity!*'
       message: "Master bedroom AC is on! {%- if is_state(\"binary_sensor.master_bedroom_door\",
@@ -696,7 +698,9 @@
         %} {% if last is not none %}\n  {{ (as_timestamp(now()) | int - as_timestamp(last)
         | int) > 1800 }}\n{% else %}\n  false\n{% endif %}\n"
   action:
-  - service: notify.telegram_bot
+  - action: notify.send_message
+    target:
+      entity_id: notify.telegram_bot_1357375595_1168033187
     data:
       title: '*Clothes are clean!*'
       message: "{{ [\n  \"Time to hang them\",\n  \"Please empty the washing machine\"\n]
@@ -858,7 +862,9 @@
     to: home
     from: not_home
   action:
-  - service: notify.telegram_bot
+  - action: notify.send_message
+    target:
+      entity_id: notify.telegram_bot_1357375595_1168033187
     data:
       title: '*Unknown device is home*'
       message: 'MAC: {{ trigger.to_state.attributes.friendly_name | upper | replace("_",
@@ -886,7 +892,9 @@
     data:
       title: New device
       message: 'New device: {{ trigger.event.data.host_name }} ({{ trigger.event.data.entity_id}})'
-  - service: notify.telegram_bot
+  - action: notify.send_message
+    target:
+      entity_id: notify.telegram_bot_1357375595_1168033187
     data:
       title: Home Assistant
       message: 'New device: {{ trigger.event.data.host_name }} ({{ trigger.event.data.entity_id}})
@@ -911,7 +919,9 @@
       message: 'New device: {{ trigger.event.data.host_name if trigger.event.data.host_name
         is defined else "NA" }} ({{ trigger.event.data.entity_id if trigger.event.data.entity_id
         is defined else "NA" }})'
-  - service: notify.telegram_bot
+  - action: notify.send_message
+    target:
+      entity_id: notify.telegram_bot_1357375595_1168033187
     data:
       title: Home Assistant
       message: 'New device: {{ trigger.event.data.host_name }} ({{ trigger.event.data.entity_id
@@ -1136,7 +1146,9 @@
     for: 01:30:00
   condition: []
   action:
-  - service: notify.telegram_bot
+  - action: notify.send_message
+    target:
+      entity_id: notify.telegram_bot_1357375595_1168033187
     data:
       title: '*DuckDNS cron update is failing!*'
       message: 'duck.sh update script is failing for 90m '
