@@ -1,0 +1,26 @@
+binary_sensor:
+  - name: Undervoltage
+    unique_id: rpi_undervoltage
+    state_topic: rpi/system/undervoltage
+    payload_on: "1"
+    payload_off: "0"
+    device_class: problem
+    device:
+      identifiers:
+        - rpi_system
+      name: rpi
+      manufacturer: Raspberry Pi
+
+sensor:
+  - name: Core Voltage
+    unique_id: rpi_voltage_core
+    state_topic: rpi/system/voltage_core
+    unit_of_measurement: V
+    device_class: voltage
+    state_class: measurement
+    suggested_display_precision: 3
+    device:
+      identifiers:
+        - rpi_system
+      name: rpi
+      manufacturer: Raspberry Pi

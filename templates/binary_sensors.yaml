@@ -1,0 +1,9 @@
+---
+##########################################################
+### Template binary sensors                            ###
+##########################################################
+
+- binary_sensor:
+    - name: living_ac
+      unique_id: living_ac_template
+      state: "{{ states('input_boolean.living_ac') }}"

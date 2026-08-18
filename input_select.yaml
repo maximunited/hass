@@ -118,6 +118,17 @@ closet_lights:
     - 'All Off'
   initial: 'All Off'
 
+m5stick_pikud_test_mode:
+  name: M5Stick Pikud test mode
+  options:
+    - live
+    - clock
+    - pre_alert
+    - alert
+    - ok
+  initial: live
+  icon: mdi:cellphone-dock
+
 living_room_lights:
   name: Living Room Lights
   options:

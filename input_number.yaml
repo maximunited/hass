@@ -1,0 +1,8 @@
+m5stick_pikud_sync:
+  name: M5Stick Pikud sync
+  min: 0
+  max: 9999
+  step: 1
+  mode: box
+  initial: 0
+  icon: mdi:counter

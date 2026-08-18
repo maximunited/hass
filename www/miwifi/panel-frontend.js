@@ -1,10 +1,10 @@
-import { loadTranslations, localize } from "./translations/localize.js?v=2026.02";
-import { navigate, goBack } from "./router.js?v=2026.02";
-import { logToBackend } from "./pages/utils.js?v=2026.02";
+import { loadTranslations, localize } from "./translations/localize.js?v=2026.05";
+import { navigate, goBack } from "./router.js?v=2026.05";
+import { logToBackend } from "./pages/utils.js?v=2026.05";
 import { html, css, LitElement } from "https://unpkg.com/lit@2.7.5/index.js?module";
 import { until } from "https://unpkg.com/lit-html@2.7.5/directives/until.js?module";
 
-const MIWIFI_VERSION = "2026.02";
+const MIWIFI_VERSION = "2026.05";
 class MiWiFiPanel extends LitElement {
 
   static properties = {

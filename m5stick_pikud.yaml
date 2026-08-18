@@ -1,0 +1,20 @@
+# M5Stick Pikud display driver — decoupled from scene automations.
+# ESPHome reads sensor.m5stick_pikud_display_state (not sensor.oref_alert directly).
+# Non-live modes use a test_ prefix so live ok does not collide with test states.
+# The sync suffix forces HA to publish on every test script run even when the base state repeats.
+
+- sensor:
+    - name: M5Stick Pikud Display State
+      unique_id: m5stick_pikud_display_state
+      icon: mdi:cellphone-message
+      state: >
+        {% set mode = states('input_select.m5stick_pikud_test_mode') %}
+        {% set sync = states('input_number.m5stick_pikud_sync') | int(0) %}
+        {% if mode == 'live' %}
+          {% set base = states('sensor.oref_alert') %}
+        {% elif mode == 'ok' %}
+          {% set base = 'test_ok' %}
+        {% else %}
+          {% set base = 'test_' ~ mode %}
+        {% endif %}
+        {{ base }}|{{ sync }}

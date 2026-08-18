@@ -4,7 +4,7 @@
   name: Living room AC
   unique_id: living_room_ac
   device_code: 2808
-  controller_data: 192.168.1.15
+  controller_data: remote.rmproplus_42_d7_58
   temperature_sensor: sensor.living_room_temperature
   humidity_sensor: sensor.living_room_humidity
   power_sensor: input_boolean.living_ac
@@ -13,7 +13,7 @@
   name: Master bedroom AC
   unique_id: master_bedroom_ac
   device_code: 2808
-  controller_data: 192.168.1.14
+  controller_data: remote.rm_mini_3
   temperature_sensor: sensor.master_bedroom_temperature
   humidity_sensor: sensor.master_bedroom_humidity
   power_sensor: binary_sensor.master_bedroom_ac_vent

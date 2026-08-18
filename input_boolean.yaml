@@ -42,3 +42,9 @@ pikud_timeout_restore:
   name: Pikud Oref – 20 minute auto-restore lights
   initial: false
   icon: mdi:timer-outline
+
+# Set while sync automation writes input_select.main_media (blocks run-script re-trigger).
+main_media_sync_guard:
+  name: Main Media sync guard
+  initial: false
+  icon: mdi:sync-off

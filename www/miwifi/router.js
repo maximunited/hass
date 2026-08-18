@@ -1,6 +1,6 @@
-import { logToBackend } from "./pages/utils.js?v=2026.02";
+import { logToBackend } from "./pages/utils.js?v=2026.05";
 
-const MIWIFI_VERSION = "2026.02";
+const MIWIFI_VERSION = "2026.05";
 
 async function loadPage(module) {
   return (await import(`./pages/${module}.js?v=${MIWIFI_VERSION}`));

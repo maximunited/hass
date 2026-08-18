@@ -1,0 +1,46 @@
+---
+##########################################################
+### Main media activity (best-guess)                   ###
+##########################################################
+# Keep last known activity when signals are ambiguous (no Unknown).
+# Apps win over HDMI; AVR HOT wins over a generic live-TV app.
+
+- sensor:
+    - name: Main Media Detected
+      unique_id: main_media_detected
+      icon: mdi:television-classic
+      state: >
+        {% set avr = states('media_player.marantz_nr1608') %}
+        {% set avr_source = state_attr('media_player.marantz_nr1608', 'source') | default('', true) | string %}
+        {% set tv = states('media_player.tcl_tv') %}
+        {% set app = (
+          state_attr('media_player.tcl_tv', 'app_id') | default('', true) | string ~ ' ' ~
+          state_attr('media_player.tcl_tv', 'app_name') | default('', true) | string
+        ) | lower %}
+        {% set hdmi_state = states('media_player.85c855_television') %}
+        {% set hdmi = state_attr('media_player.85c855_television', 'source') | default('', true) | string | lower %}
+        {% set hdmi_ok = hdmi_state not in ['unavailable', 'unknown'] %}
+        {% set prev = this.state if this.state not in ['unknown', 'unavailable', 'none', ''] else 'Off' %}
+        {% if avr == 'off' and tv in ['off', 'unavailable', 'unknown'] %}
+          Off
+        {% elif 'jellyfin' in app %}
+          Jellyfin
+        {% elif 'plex' in app %}
+          Plex
+        {% elif 'netflix' in app %}
+          Netflix
+        {% elif 'youtube' in app %}
+          YouTube
+        {% elif 'stremio' in app %}
+          Stremio
+        {% elif 'chromecast' in app %}
+          Chromecast
+        {% elif hdmi_ok and ('playstation' in hdmi or 'ps5' in hdmi) %}
+          Playstation
+        {% elif avr_source == 'HOT' %}
+          HOT
+        {% elif hdmi_ok and 'cable' in hdmi and avr_source != 'TV Audio' %}
+          HOT
+        {% else %}
+          {{ prev }}
+        {% endif %}

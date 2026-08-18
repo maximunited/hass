@@ -129,10 +129,81 @@ Proxmox/Jellyfin noise from Apr snapshot **not** dominant in this log window.
 
 ---
 
+## Main media scripts / IR (2026-08-15)
+
+**Symptom:** `input_select.main_media` does not match the living-room stack. Helper restored as **Jellyfin**; Marantz `source` is **HOT**; TCL Android TV Remote app is `com.tcl.tv`. Sync automation `main_media_sync_helper_from_devices` last ran ~12:53 local and logged `Invalid option: Unknown`.
+
+**Detection bugs:**
+
+- HOT is inferred when AVR `HOT` **or** HomeKit `media_player.85c855_television` source `Cable`.
+- `media_player.tcl_tv_2` is a **Jellyfin client session**, not a second TV. `media_player.tcl_tv` was already taken by Android TV Remote, so HA appended `_2`. Jellyfin players go unavailable when the app is idle — do not use them for activity.
+- Unmatched states write option **Unknown**, which is not in the helper. Best-guess should accept AVR `HOT` alone as cable.
+- Scripts still target missing `media_player.lg_tv`. Playstation script selects AVR source **PlayStation** — PS5 is **TV HDMI 1**; AVR should stay **TV Audio** except HOT (TV HDMI 4 Cable).
+
+**IR:** SmartIR `6900.json` (HOT MagicHD on Broadlink `192.168.1.15`) has power and digits; `script.main_media_hot` never calls `media_player.living_room_hot`. `irCommands.json` is mostly unused (old LG TV, duplicate keys, TV Box Up packet ≠ `templates/tv_box.yaml`). No Netflix / YouTube / Stremio scripts. PS5 entity `media_player.playstation_5` has `supported_features: 0` (not used by scripts).
+
+**Improve:** WoL for PS5; hide duplicate Cast/DLNA/`tcl_tv_2` players.
+
+**YAML leftover:** `input_select.main_media_status` unquoted `Off` → live option **False**. Real helper is UI `input_select.main_media` (not in git).
+
+**Loop:** Sync (if it succeeded) and script-end `input_select.select_option` would re-trigger `Main Media - Run script from helper`.
+
+**Fix applied (2026-08-15):** `script.main_media_set` (AVR TV Audio except HOT; HDMI Cable/Playstation via HomeKit when available; SmartIR HOT box; PS5 WoL). `sensor.main_media_detected` best-guess, never Unknown. Sync copies the sensor and skips while the switcher runs. Run-script ignores `parent_id` writes. Helper options include Stremio / Netflix / YouTube.
+
+**HOT box re-trigger bug (2026-08-15 evening):** After a failed streaming test, HomeKit **Cable** kept `sensor.main_media_detected` at **HOT** while AVR was **TV Audio** and the HOT box was off. Sync wrote **HOT** onto the helper; run-script could re-run the HOT branch. **Fix:** `input_boolean.main_media_sync_guard` wraps sync writes; run-script requires guard off and blocks **streaming → HOT** transitions. **Sensor fix (~18:15):** ignore HomeKit Cable when AVR is **TV Audio**.
+
+**Chaotic Jellyfin test (~18:10):** Old 6-step shared fallback re-ran `play_media`/`turn_on` with `market://` and app URLs across activities; stale katniss query **“funny shows”** (not in repo) ran when `SEARCH` opened without clearing; wrong apps (YouTube/Netflix) from URL fallbacks or search results. **Fix (~18:20):** removed all search/text fallback; Apps-row DPAD navigation with `app_dpad_down` / `app_dpad_right` calibration fields.
+
+**Live test + follow-up (2026-08-15 evening):**
+
+- **Android TV Remote:** `HOME` exits HDMI (`com.tcl.tv` → launcher). **URL `play_media` works** (`https://www.youtube.com`, `https://www.netflix.com/title`); **app package `play_media` fails silently** on TCL Google TV. Package apps use Apps-row **DPAD** fallback only (no katniss search — voice input incompatible with `text:`).
+- **Netflix (2026-08-15 ~18:24):** **PASS** — user confirmed Netflix on TV via URL launch (`https://www.netflix.com/title`). No script changes needed.
+- **HOT box SmartIR toggle (2026-08-15 ~18:24):** Streaming path had **duplicate** `turn_off` on `media_player.living_room_hot` (IR toggle could flash box on when already off). **Fix:** single conditional `turn_off` only when state `on`; HOT path `turn_on` only when state `off`.
+- **Jellyfin test (2026-08-15 ~18:24):** Ran `script.main_media_jellyfin` once with `app_dpad_down: 2`, `app_dpad_right: 0` (ALL_APPS row). MCP after run: AVR **TV Audio**, HOT **off**, TCL **on** (`app_id` launcher — package `play_media` silent, DPAD fallback expected). Helper briefly **Jellyfin** then sync wrote **Netflix** (stale `sensor.main_media_detected` from prior Netflix test). **Pending user visual:** ALL_APPS drawer opened? Jellyfin launched? HOT stayed off?
+- **Plex test (2026-08-15 ~18:28):** User on Plex manually; baseline `app_id` **com.plexapp.android**. HOME → launcher OK. Restore: package `play_media`, `remote.turn_on` (package + URL), URL `play_media` — all **silent fail** on launcher. `script.main_media_plex` (DPAD down:1 right:0) — still launcher. Manual ALL_APPS + DOWN×2 + ENTER → **com.tcl.tv** (wrong tile). HOT **off** throughout. Plex URL does **not** work (unlike Netflix/YouTube). Full snapshot: [PLEX_DEBUG_SNAPSHOT_2026-08-15.md](PLEX_DEBUG_SNAPSHOT_2026-08-15.md). **Pending:** DPAD tile calibration + user visual.
+- **Plex DPAD focus reset (2026-08-15 ~18:35):** Google TV home **remembers** last selector position; DPAD fallback must reset focus before DOWN/RIGHT or wrong app opens (e.g. `com.tcl.tv`). **Superseded (~18:40):** `DPAD_UP`×5 + `DPAD_LEFT`×5 did not reliably reset focus. **New reset:** after package `play_media` fails, `HOME` → 300ms → `HOME` → 300ms → `DPAD_DOWN`×`app_dpad_down` → `DPAD_RIGHT`×`app_dpad_right` → `ENTER` (300ms between each press). Initial streaming path: `HOME` + 1s before `play_media`, then 2s wait before fallback. Wrapper defaults: Plex `down:2 right:1`; Jellyfin `down:2 right:2`; Stremio `down:2 right:3`.
+- **Jellyfin DPAD timing (2026-08-15 ~18:45):** User saw HOME×2 but no visible DOWN/RIGHT/ENTER — old 1s/2s gaps between HOME presses and 500ms DPAD delays were too slow; TCL needs **300ms** between each press. **Fix:** all DPAD fallback delays → 300ms; package wait 4s→2s; initial HOME wait 3s→1s.
+- **Jellyfin vs Plex DPAD (2026-08-15 ~18:50):** Plex DPAD worked; Jellyfin showed HOME×2 then nothing. **Root cause:** YAML blocks were identical — not structure. When helper changed **Plex → Jellyfin**, `input_select` update re-fired **Main Media - Run script from helper**, which **restarted** `script.main_media_set` (`mode: restart`) with only `media_activity` (no `app_dpad_down`). Repeat template then threw `UndefinedError: 'app_dpad_down' is undefined` after HOME×2 — no DOWN/RIGHT/ENTER. Plex test worked because helper was **already Plex** (no helper transition → no automation restart). **Fix:** sync guard on at script start / off at end; `dpad_down` / `dpad_right` variables with per-app defaults; automation passes DPAD counts; fallback `if` uses `app_id != app_pkg`. MCP retest: `script.main_media_jellyfin` → `org.jellyfin.androidtv`; `script.main_media_plex` → `com.plexapp.android`.
+- **Jellyfin test (2026-08-15 ~18:45, 300ms timing):** Reloaded scripts; ran `script.main_media_jellyfin` once. MCP after ~18s: AVR **TV Audio**, HOT **off**, TCL **on**, `app_id` **com.google.android.apps.tv.launcherx** (launcher — Jellyfin **not** detected). Helper briefly **Jellyfin** then sync wrote **Plex**. **Pending user visual:** full DPAD sequence (HOME×2 + DOWN×2 + RIGHT×2 + ENTER) visible? Jellyfin launched?
+- **Plex/Jellyfin confirmed (2026-08-15 ~18:55):** User confirmed Plex and Jellyfin work well with 300ms DPAD timing.
+- **DPAD timing tweak (2026-08-15 ~19:00):** Reduced all DPAD fallback gaps **300ms → 200ms** (`00:00:00.200`); initial HOME wait before `play_media` **1s → 800ms** (`00:00:00.800`). Package wait stays **2s**.
+- **Stremio test (2026-08-15 ~19:00, 200ms timing):** User confirmed Stremio opens reliably at 200ms.
+- **DPAD timing tweak (2026-08-15 ~19:10):** Reduced all DPAD fallback gaps **100ms → 75ms** (`00:00:00.075`).
+- **Stremio test (2026-08-15 ~19:10, 75ms timing):** Ran `script.main_media_stremio` **2×**. MCP: `app_id` **com.stremio.one** (2/2 pass). **Pending user visual.**
+- **DPAD fallback HOME count (2026-08-15 ~19:00):** MCP A/B from launcher with wrong grid focus: **zero** fallback `HOME` → Apple TV / launcher (fail); **one** fallback `HOME` + 200ms → **com.plexapp.android** (pass); second fallback `HOME` redundant. Initial script `HOME` exits app; one fallback `HOME` resets grid focus. No native reset in `androidtv_remote` (`HOME` only; `MOVE_HOME` not in HA docs). **Fix:** fallback `HOME`×2 → `HOME`×1 in `scripts.yaml` (Plex/Jellyfin/Stremio).
+- **AVR volume:** `script.main_media_youtube_michelle` sets Marantz to **35%** (`volume_level: 0.35`). No prior HOT volume-restore pattern in repo. **HOT** branch now sets AVR to **50%** (`volume_level: 0.5`) after source switch so Michelle/YouTube sessions do not leave cable at 35%.
+- **HomeKit TCL TV (re-paired 2026-08-15 ~17:37):** **Working.** New config entry `01M02XPGWTRY8RX32GXQS91ED6` (title **85C855**), pairing id `85:74:DE:04:36:BF`, **AccessoryPort 35483** at `192.168.1.212` (old entry `01K4R2FJCTMXB1H7GDCBDN4YQ3` / port **35099** removed). Live entities: `media_player.85c855_television` (**on**, source **Home**), `switch.85c855_mute` (**off**), `button.85c855_identify` (**unknown** — normal for button). `source_list` includes **Cable** and **Playstation** (plus Home, AirPlay, PS5, etc.). Port **35483** accepts TCP; **35099** refused. `media_player.select_source` → **Cable** verified, then reverted to **Home**. **Entity registry cleanup (2026-08-15 ~17:44):** `_2` suffix removed via websocket API; YAML/docs reverted to canonical names. One log WARNING when old accessory was deleted without remote unpair (expected during re-pair).
+- **SmartIR:** `controller_data` must be `remote.rmproplus_42_d7_58` (not IP `192.168.1.15`) — fixed in `media_player.yaml` and `climate.yaml`.
+- **Google Assistant:** new script aliases need **HA restart** (`google_assistant.reload` returned 400).
+- **automations.yaml:** restored truncated `ha_show_release_notes_once_after_update_install` at end of file.
+
+See [automations-main-media.md](automations-main-media.md).
+
+**YouTube Michelle (2026-08-15):** New standalone `script.main_media_youtube_michelle` — TV + AVR TV Audio, volume **35** (`volume_level: 0.35`), YouTube via `https://www.youtube.com`, DPAD profile pick (`profile_dpad_right`, default 1). No deep link for named Kids profile. Google Assistant **Script YouTube Michelle** — restart HA to sync GA after config change.
+
+---
+
 ## Changelog
 
 | Date | Change |
 | ---- | ------ |
+| 2026-08-15 | DPAD fallback timing: 75ms between all presses; Stremio 2/2 MCP pass. |
+| 2026-08-15 | DPAD fallback timing: 200ms between all presses; package wait 2s; initial HOME wait 800ms (TCL calibration). |
+| 2026-08-15 | DPAD fallback timing: 300ms between all presses; package wait 2s; initial HOME wait 1s (TCL calibration). |
+| 2026-08-15 | Plex DPAD: home-grid focus reset (UP×5 LEFT×5), no ALL_APPS; wrapper down:2 right:1. |
+| 2026-08-15 | Plex debug: package com.plexapp.android confirmed; URL launch fails; DPAD calibration needed; snapshot in PLEX_DEBUG_SNAPSHOT_2026-08-15.md. |
+| 2026-08-15 | Netflix URL launch PASS (user TV confirm); HOT box conditional IR (no duplicate turn_off); Jellyfin DPAD test run pending visual. |
+| 2026-08-15 | Main media: DPAD Apps-row launch for Plex/Jellyfin/Stremio; removed katniss search/text fallback (voice search incompatible). |
+| 2026-08-15 | Main media: per-app launch (no shared URL/market chain); katniss stale-query clear; sensor Cable→HOT only when AVR ≠ TV Audio. |
+| 2026-08-15 | Jellyfin launch: URL-first for Netflix/YouTube/Plex; multi-fallback chain + `app_search_name`; HOT turn_off sequential. MCP: packages fail, URLs work. |
+| 2026-08-15 | Main media: sync guard + streaming→HOT block stops HOT box re-trigger; app launch via `play_media` package. |
+| 2026-08-15 | Main media live-test fixes: HOME delay 4s, app verify 30s, sequential URL/`market://` fallbacks; HOT AVR volume 50%. |
+| 2026-08-15 | HomeKit TCL 85C855 re-paired: new entry `01M02XPGWTRY8RX32GXQS91ED6`, HAP port **35483**, entities `*_2` available; Cable select_source OK; main_media YAML still points at old entity ids. |
+| 2026-08-15 | HomeKit TCL 85C855 automated re-check: TV online, HAP/mDNS absent, port 35099 refused; reload_config_entry + identify attempted; re-pair steps unchanged. |
+| 2026-08-15 | `script.main_media_youtube_michelle`: AVR vol 35, YouTube Kids profile Michelle (DPAD best-effort); GA exposure. |
+| 2026-08-15 | Main media: SmartIR remote entity fix; app URL launches; HomeKit HAP down on TCL (TV settings); HDMI remote fallbacks; HA restart for Google Assistant. |
+| 2026-08-15 | Main media switcher + best-guess sensor; AVR TV Audio except HOT; PS = TV HDMI 1; no Unknown; loop break. |
+| 2026-08-07 | Cleared stale Telegram repair `migrate_chat_ids_in_target_call_service_send_message` (origin `call_service`, not YAML). No `telegram_bot.send_message`+`target` left in config; automations already use notify entity. |
 | 2026-08-06 | Telegram `migrate_notify`: removed YAML `notify` telegram platform; automations now use `notify.send_message` → `notify.telegram_bot_1357375595_1168033187`. bar-card: HACS installed + resource loaded, not used in any dashboard. |
 | 2026-08-06 | HTTP migration complete: verified UI/storage proxies match YAML; removed `http:` from `configuration.yaml`; HA restart. Tuya: only VT002 (Mamad) + 5 sensors, all unavailable pending re-auth. |
 | 2026-08-05 | Repairs triage (PSN, Tuya, Battery Notes smoke, HTTP YAML migrate) + log snapshot (CityMind 429 dominant). |

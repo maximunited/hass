@@ -8,12 +8,33 @@ scene.pikud_original_lights:
 script.main_media_chromecast:
   friendly_name: Main Media Chromecast
   icon: mdi:google-chrome
+script.main_media_plex:
+  friendly_name: Main Media Plex
+  icon: mdi:plex
+script.main_media_jellyfin:
+  friendly_name: Main Media Jellyfin
+  icon: mdi:filmstrip
+script.main_media_playstation:
+  friendly_name: Main Media Playstation
+  icon: mdi:sony-playstation
 script.main_media_hot:
   friendly_name: Main Media HOT
   icon: mdi:set-top-box
 script.main_media_off:
   friendly_name: Main Media Off
   icon: mdi:television-classic-off
+script.main_media_stremio:
+  friendly_name: Main Media Stremio
+  icon: mdi:play-box
+script.main_media_netflix:
+  friendly_name: Main Media Netflix
+  icon: mdi:netflix
+script.main_media_youtube:
+  friendly_name: Main Media YouTube
+  icon: mdi:youtube
+script.main_media_youtube_michelle:
+  friendly_name: Main Media YouTube Michelle
+  icon: mdi:account-child
 
 # Speedtest
 sensor.speedtest_download:

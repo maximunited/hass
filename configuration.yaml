@@ -55,10 +55,17 @@ logbook: !include logbook.yaml
 # Panel iFrame
 # panel_iframe: !include panel_iframe.yaml
 
-# HTTP server settings live in UI (Settings → System → Network) after 2026.8 migration.
-# Confirmed in .storage/http stable: use_x_forwarded_for=true,
-# trusted_proxies=[172.19.0.0/16, 192.168.1.0/24], server_port=8123.
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # Invalid /auth/token from LAN (e.g. 192.168.1.1): a client has a stale HA token; harmless.
+http:
+  # server_port: 8123
+  # base_url: !secret http_base_url
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.19.0.3      # Traefik container IP
+    - 192.168.1.0/24  # Local network
+# ip_ban_enabled: true
+# login_attempts_threshold: 5
 
 # media_dirs:
 #  movies: /data/media/completed/movies
@@ -228,6 +235,8 @@ input_text: !include input_text.yaml
 
 # Input Select
 input_select: !include input_select.yaml
+
+input_number: !include input_number.yaml
 
 # MQTT Broker
 #mqtt:

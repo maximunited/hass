@@ -111,6 +111,7 @@ Pre-commit hooks will automatically run on `git commit`. They will:
 - Check YAML syntax
 - Lint YAML files for style issues (`yamllint`)
 - Lint Markdown files (`markdownlint` via `markdownlint-cli`)
+- Scan for new secrets with `detect-secrets` (baseline: `.secrets.baseline`, same as CI Secrets Checkup)
 - Remove trailing whitespace
 - Ensure files end with newlines
 - Validate Home Assistant configuration (if `hass` command is available)

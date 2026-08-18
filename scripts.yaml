@@ -212,6 +212,77 @@ adguard_disable_protection_for_1_hour:
     target:
       entity_id: switch.adguard_home_filtering
     data: {}
+m5stick_pikud_bump_sync:
+  alias: M5Stick Pikud bump sync counter
+  description: Forces sensor.m5stick_pikud_display_state to republish for ESPHome.
+  mode: queued
+  sequence:
+    - action: input_number.set_value
+      target:
+        entity_id: input_number.m5stick_pikud_sync
+      data:
+        value: "{{ ((states('input_number.m5stick_pikud_sync') | int(0)) + 1) % 10000 }}"
+
+m5stick_pikud_test_clock:
+  alias: M5Stick Pikud test — clock
+  description: Show clock on M5Stick only (no Pikud scene automations).
+  icon: mdi:clock-outline
+  sequence:
+    - action: input_select.select_option
+      target:
+        entity_id: input_select.m5stick_pikud_test_mode
+      data:
+        option: clock
+    - action: script.m5stick_pikud_bump_sync
+
+m5stick_pikud_test_pre_alert:
+  alias: M5Stick Pikud test — pre-alert
+  description: Orange pre-alert loop on M5Stick only (no Pikud scene automations).
+  icon: mdi:alert-outline
+  sequence:
+    - action: input_select.select_option
+      target:
+        entity_id: input_select.m5stick_pikud_test_mode
+      data:
+        option: pre_alert
+    - action: script.m5stick_pikud_bump_sync
+
+m5stick_pikud_test_alert:
+  alias: M5Stick Pikud test — alert
+  description: Red alert loop on M5Stick only (no Pikud scene automations).
+  icon: mdi:alert-octagon
+  sequence:
+    - action: input_select.select_option
+      target:
+        entity_id: input_select.m5stick_pikud_test_mode
+      data:
+        option: alert
+    - action: script.m5stick_pikud_bump_sync
+
+m5stick_pikud_test_safe:
+  alias: M5Stick Pikud test — safe
+  description: Green safe loop on M5Stick (5 min max on device), no Pikud scene automations.
+  icon: mdi:shield-check
+  sequence:
+    - action: input_select.select_option
+      target:
+        entity_id: input_select.m5stick_pikud_test_mode
+      data:
+        option: ok
+    - action: script.m5stick_pikud_bump_sync
+
+m5stick_pikud_test_live:
+  alias: M5Stick Pikud test — follow live Oref
+  description: M5Stick mirrors sensor.oref_alert again; clears test override.
+  icon: mdi:transmission-tower
+  sequence:
+    - action: input_select.select_option
+      target:
+        entity_id: input_select.m5stick_pikud_test_mode
+      data:
+        option: live
+    - action: script.m5stick_pikud_bump_sync
+
 take_camera_snapshot_and_notify:
   sequence:
   - data:

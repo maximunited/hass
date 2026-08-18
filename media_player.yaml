@@ -7,7 +7,8 @@
   name: Living Room HOT
   unique_id: living_room_HOT
   device_code: 6900
-  controller_data: 192.168.1.15
+  # SmartIR Broadlink controller must be a remote entity_id (IP is rejected).
+  controller_data: remote.rmproplus_42_d7_58
   # power_sensor: binary_sensor.tv_power
 
 # - platform: denonavr

@@ -20,6 +20,7 @@ SERVICE_ACCOUNT.json
 *_OBSOLETE*
 *.yaml.backup_*
 .ha_run.lock
+.ssh/
 imou_life/snapshot_*.jpg
 www/imou_life/snapshot_*.jpg
 www/miwifi/router.js

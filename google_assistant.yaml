@@ -19,44 +19,88 @@ entity_config:
     name: Gateway light
     expose: true
   script.main_media_chromecast:
-    name: Script Chromecast
+    name: Chromecast
     expose: true
+    room: Living Room
     aliases:
+      - Switch to Chromecast
       - Switch chromecast
-      - Switch main chromecast
-      - Script main chromecast
-    # room: Living Room
+      - Script Chromecast
+      - Main media Chromecast
   script.main_media_hot:
-    name: Script Cable
+    name: Cable
     expose: true
+    room: Living Room
     aliases:
+      - Switch to cable
+      - Switch to HOT
+      - Switch cable
       - Script Hot
-      - Script Main hot
-      - Script main cable
-    # room: Living Room
+      - Main media cable
   script.main_media_plex:
-    name: Script Plex
+    name: Plex
     expose: true
+    room: Living Room
     aliases:
-      - Script plex
-      - Script Main plex
-      - Script main plex
-    # room: Living Room
+      - Switch to Plex
+      - Switch plex
+      - Script Plex
+      - Main media Plex
   script.main_media_jellyfin:
-    name: Script Jellyfin
+    name: Jellyfin
     expose: true
+    room: Living Room
     aliases:
+      - Switch to Jellyfin
+      - Switch jellyfin
       - Script Jellyfin
-      - Script Main Jellyfin
-      - Script main Jellyfin
-  script.main_media_playstation:
-    name: Script Playstation
+      - Main media Jellyfin
+  script.main_media_stremio:
+    name: Stremio
     expose: true
+    room: Living Room
     aliases:
-      - Script playstation
-      - Script Main playstation
-      - Script main playstation
-    # room: Living Room
+      - Switch to Stremio
+      - Switch stremio
+      - Script Stremio
+      - Main media Stremio
+  script.main_media_netflix:
+    name: Netflix
+    expose: true
+    room: Living Room
+    aliases:
+      - Switch to Netflix
+      - Switch netflix
+      - Script Netflix
+      - Main media Netflix
+  script.main_media_youtube:
+    name: YouTube
+    expose: true
+    room: Living Room
+    aliases:
+      - Switch to YouTube
+      - Switch youtube
+      - Script YouTube
+      - Main media YouTube
+  script.main_media_youtube_michelle:
+    name: YouTube Michelle
+    expose: true
+    room: Living Room
+    aliases:
+      - Switch to YouTube Michelle
+      - YouTube Kids Michelle
+      - Script YouTube Michelle
+      - Main media YouTube Michelle
+  script.main_media_playstation:
+    name: Playstation
+    expose: true
+    room: Living Room
+    aliases:
+      - Switch to Playstation
+      - Switch playstation
+      - Switch to PS5
+      - Script Playstation
+      - Main media Playstation
   # switch.docker_dockerbot:
   #   name: Dockerbot
   switch.docker_hass:
