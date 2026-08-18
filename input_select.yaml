@@ -46,20 +46,8 @@ shower_heater_status:
     - Power Off
   initial: Power Off
 
-main_media:
-  name: Main Media
-  options:
-    - 'Off'
-    - HOT
-    - Plex
-    - Jellyfin
-    - Stremio
-    - Netflix
-    - YouTube
-    - Chromecast
-    - Playstation
-  initial: 'Off'
-  icon: mdi:television-classic
+# Main Media helper is UI-managed (.storage/input_select, id: main_media).
+# Options are kept in sync by automation main_media_ensure_options in automations.yaml.
 
 master_bedroom_lights:
   name: Master Bedroom Lights

@@ -187,6 +187,7 @@ See [automations-main-media.md](automations-main-media.md).
 
 | Date | Change |
 | ---- | ------ |
+| 2026-08-19 | `input_select.main_media` duplicate ID ERROR: removed YAML definition from `input_select.yaml` (UI helper in `.storage/input_select` is canonical; options synced by `main_media_ensure_options`). |
 | 2026-08-15 | DPAD fallback timing: 75ms between all presses; Stremio 2/2 MCP pass. |
 | 2026-08-15 | DPAD fallback timing: 200ms between all presses; package wait 2s; initial HOME wait 800ms (TCL calibration). |
 | 2026-08-15 | DPAD fallback timing: 300ms between all presses; package wait 2s; initial HOME wait 1s (TCL calibration). |
