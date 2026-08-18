@@ -238,11 +238,8 @@ input_select: !include input_select.yaml
 
 input_number: !include input_number.yaml
 
-# MQTT Broker
-#mqtt:
-#  broker: 127.0.0.1
-#  client_id: home-assistant
-#  keepalive: 60
+# MQTT entities (broker configured via UI integration)
+mqtt: !include mqtt.yaml
 
 #
 # weather: !include sensors/weather.yaml

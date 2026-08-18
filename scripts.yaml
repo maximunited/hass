@@ -19,155 +19,615 @@ google_say_indoor_temperature:
         | float | round(1)}}.\n  The temperature in the master bedroom is {{states(\"sensor.master_bedroom_temperature\")
         | float | round(1)}}.\n{%- endif %}\n"
       cache: false
+# Living-room activity switcher. AVR is TV Audio except HOT (MagicHD).
+# HDMI: Cable = HDMI 4, Playstation = HDMI 1 (HomeKit 85c855 when available).
+# Wrappers exist for Google Assistant; they call this script.
+main_media_set:
+  alias: Main Media Set
+  description: Switch living-room TV/AVR/HOT box to one activity
+  icon: mdi:television-classic
+  mode: restart
+  fields:
+    media_activity:
+      name: Activity
+      required: true
+      example: Jellyfin
+      selector:
+        select:
+          options:
+            - 'Off'
+            - HOT
+            - Plex
+            - Jellyfin
+            - Stremio
+            - Netflix
+            - YouTube
+            - Chromecast
+            - Playstation
+    app_dpad_down:
+      name: Apps row DPAD_DOWN presses
+      default: 2
+      selector:
+        number:
+          min: 0
+          max: 6
+          step: 1
+          mode: box
+    app_dpad_right:
+      name: App tile DPAD_RIGHT presses
+      default: 0
+      selector:
+        number:
+          min: 0
+          max: 12
+          step: 1
+          mode: box
+  sequence:
+    - action: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.main_media_sync_guard
+    - variables:
+        want: '{{ media_activity }}'
+        dpad_down: >-
+          {% if app_dpad_down is defined %}
+            {{ app_dpad_down | int }}
+          {% elif want in ['Plex', 'Jellyfin', 'Stremio'] %}
+            2
+          {% else %}
+            1
+          {% endif %}
+        dpad_right: >-
+          {% if app_dpad_right is defined %}
+            {{ app_dpad_right | int }}
+          {% elif want == 'Plex' %}
+            1
+          {% elif want == 'Jellyfin' %}
+            2
+          {% elif want == 'Stremio' %}
+            3
+          {% else %}
+            0
+          {% endif %}
+    - if:
+        - condition: template
+          value_template: '{{ want in state_attr(''input_select.main_media'', ''options'')
+            }}'
+      then:
+        - action: input_select.select_option
+          target:
+            entity_id: input_select.main_media
+          data:
+            option: '{{ want }}'
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: '{{ want == ''Off'' }}'
+          sequence:
+            - parallel:
+                - action: media_player.turn_off
+                  target:
+                    entity_id: media_player.marantz_nr1608
+                - action: media_player.turn_off
+                  target:
+                    entity_id: media_player.tcl_tv
+                - continue_on_error: true
+                  action: media_player.turn_off
+                  target:
+                    entity_id: media_player.living_room_hot
+        - conditions:
+            - condition: template
+              value_template: '{{ want == ''HOT'' }}'
+          sequence:
+            - parallel:
+                - action: media_player.turn_on
+                  target:
+                    entity_id: media_player.marantz_nr1608
+                - action: media_player.turn_on
+                  target:
+                    entity_id: media_player.tcl_tv
+                - if:
+                    - condition: template
+                      value_template: '{{ states(''media_player.living_room_hot'') == ''off'' }}'
+                  then:
+                    - continue_on_error: true
+                      action: media_player.turn_on
+                      target:
+                        entity_id: media_player.living_room_hot
+            - action: media_player.select_source
+              target:
+                entity_id: media_player.marantz_nr1608
+              data:
+                source: HOT
+            - action: media_player.volume_set
+              target:
+                entity_id: media_player.marantz_nr1608
+              data:
+                volume_level: 0.5
+            - wait_template: '{{ states(''media_player.tcl_tv'') not in [''off'', ''unavailable'',
+                ''unknown''] }}'
+              timeout: 00:00:10
+              continue_on_timeout: true
+            - if:
+                - condition: template
+                  value_template: '{{ states(''media_player.85c855_television'') not in
+                    [''unavailable'', ''unknown''] }}'
+              then:
+                - continue_on_error: true
+                  action: media_player.select_source
+                  target:
+                    entity_id: media_player.85c855_television
+                  data:
+                    source: Cable
+              else:
+                - continue_on_error: true
+                  action: remote.turn_on
+                  target:
+                    entity_id: remote.tcl_tv
+                  data:
+                    activity: com.tcl.tv
+            - wait_template: '{{ state_attr(''media_player.marantz_nr1608'', ''source'')
+                == ''HOT'' }}'
+              timeout: 00:00:15
+              continue_on_timeout: true
+        - conditions:
+            - condition: template
+              value_template: '{{ want in [''Plex'', ''Jellyfin'', ''Stremio'', ''Netflix'',
+                ''YouTube'', ''Chromecast'', ''Playstation''] }}'
+          sequence:
+            - parallel:
+                - action: media_player.turn_on
+                  target:
+                    entity_id: media_player.marantz_nr1608
+                - action: media_player.turn_on
+                  target:
+                    entity_id: media_player.tcl_tv
+                - continue_on_error: true
+                  action: media_player.turn_off
+                  target:
+                    entity_id: media_player.living_room_hot
+            - action: media_player.select_source
+              target:
+                entity_id: media_player.marantz_nr1608
+              data:
+                source: TV Audio
+            - wait_template: '{{ states(''media_player.tcl_tv'') not in [''off'', ''unavailable'',
+                ''unknown''] }}'
+              timeout: 00:00:10
+              continue_on_timeout: true
+            - if:
+                - condition: template
+                  value_template: '{{ want != ''Playstation'' }}'
+              then:
+                - continue_on_error: true
+                  action: remote.send_command
+                  target:
+                    entity_id: remote.tcl_tv
+                  data:
+                    command: HOME
+                - delay: 00:00:00.800
+            - choose:
+                - conditions:
+                    - condition: template
+                      value_template: '{{ want == ''Playstation'' }}'
+                  sequence:
+                    - if:
+                        - condition: template
+                          value_template: '{{ states(''media_player.85c855_television'')
+                            not in [''unavailable'', ''unknown''] }}'
+                      then:
+                        - continue_on_error: true
+                          action: media_player.select_source
+                          target:
+                            entity_id: media_player.85c855_television
+                          data:
+                            source: Playstation
+                      else:
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            command: F3
+                        - delay: 00:00:01
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            num_repeats: 5
+                            command: DPAD_LEFT
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            command: DPAD_RIGHT
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            command: ENTER
+                    - continue_on_error: true
+                      action: wake_on_lan.send_magic_packet
+                      data:
+                        mac: 78:C8:81:F5:03:6A
+                        broadcast_address: 192.168.1.255
+                - conditions:
+                    - condition: template
+                      value_template: '{{ want == ''YouTube'' }}'
+                  sequence:
+                    - continue_on_error: true
+                      action: media_player.play_media
+                      target:
+                        entity_id: media_player.tcl_tv
+                      data:
+                        media:
+                          media_content_type: url
+                          media_content_id: https://www.youtube.com
+                          metadata: {}
+                - conditions:
+                    - condition: template
+                      value_template: '{{ want == ''Netflix'' }}'
+                  sequence:
+                    - continue_on_error: true
+                      action: media_player.play_media
+                      target:
+                        entity_id: media_player.tcl_tv
+                      data:
+                        media:
+                          media_content_type: url
+                          media_content_id: https://www.netflix.com/title
+                          metadata: {}
+                - conditions:
+                    - condition: template
+                      value_template: '{{ want == ''Plex'' }}'
+                  sequence:
+                    - variables:
+                        app_pkg: com.plexapp.android
+                    - continue_on_error: true
+                      action: media_player.play_media
+                      target:
+                        entity_id: media_player.tcl_tv
+                      data:
+                        media:
+                          media_content_type: app
+                          media_content_id: '{{ app_pkg }}'
+                          metadata: {}
+                    - delay: 00:00:02
+                    - if:
+                        - condition: template
+                          value_template: >-
+                            {{ state_attr('media_player.tcl_tv', 'app_id') | default('', true) != app_pkg }}
+                      then:
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            command: HOME
+                        - delay: 00:00:00.075
+                        - repeat:
+                            count: '{{ dpad_down }}'
+                            sequence:
+                              - continue_on_error: true
+                                action: remote.send_command
+                                target:
+                                  entity_id: remote.tcl_tv
+                                data:
+                                  command: DPAD_DOWN
+                              - delay: 00:00:00.075
+                        - repeat:
+                            count: '{{ dpad_right }}'
+                            sequence:
+                              - continue_on_error: true
+                                action: remote.send_command
+                                target:
+                                  entity_id: remote.tcl_tv
+                                data:
+                                  command: DPAD_RIGHT
+                              - delay: 00:00:00.075
+                        - delay: 00:00:00.075
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            command: ENTER
+                - conditions:
+                    - condition: template
+                      value_template: '{{ want == ''Jellyfin'' }}'
+                  sequence:
+                    - variables:
+                        app_pkg: org.jellyfin.androidtv
+                    - continue_on_error: true
+                      action: media_player.play_media
+                      target:
+                        entity_id: media_player.tcl_tv
+                      data:
+                        media:
+                          media_content_type: app
+                          media_content_id: '{{ app_pkg }}'
+                          metadata: {}
+                    - delay: 00:00:02
+                    - if:
+                        - condition: template
+                          value_template: >-
+                            {{ state_attr('media_player.tcl_tv', 'app_id') | default('', true) != app_pkg }}
+                      then:
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            command: HOME
+                        - delay: 00:00:00.075
+                        - repeat:
+                            count: '{{ dpad_down }}'
+                            sequence:
+                              - continue_on_error: true
+                                action: remote.send_command
+                                target:
+                                  entity_id: remote.tcl_tv
+                                data:
+                                  command: DPAD_DOWN
+                              - delay: 00:00:00.075
+                        - repeat:
+                            count: '{{ dpad_right }}'
+                            sequence:
+                              - continue_on_error: true
+                                action: remote.send_command
+                                target:
+                                  entity_id: remote.tcl_tv
+                                data:
+                                  command: DPAD_RIGHT
+                              - delay: 00:00:00.075
+                        - delay: 00:00:00.075
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            command: ENTER
+                - conditions:
+                    - condition: template
+                      value_template: '{{ want == ''Stremio'' }}'
+                  sequence:
+                    - variables:
+                        app_pkg: com.stremio.one
+                    - continue_on_error: true
+                      action: media_player.play_media
+                      target:
+                        entity_id: media_player.tcl_tv
+                      data:
+                        media:
+                          media_content_type: app
+                          media_content_id: '{{ app_pkg }}'
+                          metadata: {}
+                    - delay: 00:00:02
+                    - if:
+                        - condition: template
+                          value_template: >-
+                            {{ state_attr('media_player.tcl_tv', 'app_id') | default('', true) != app_pkg }}
+                      then:
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            command: HOME
+                        - delay: 00:00:00.075
+                        - repeat:
+                            count: '{{ dpad_down }}'
+                            sequence:
+                              - continue_on_error: true
+                                action: remote.send_command
+                                target:
+                                  entity_id: remote.tcl_tv
+                                data:
+                                  command: DPAD_DOWN
+                              - delay: 00:00:00.075
+                        - repeat:
+                            count: '{{ dpad_right }}'
+                            sequence:
+                              - continue_on_error: true
+                                action: remote.send_command
+                                target:
+                                  entity_id: remote.tcl_tv
+                                data:
+                                  command: DPAD_RIGHT
+                              - delay: 00:00:00.075
+                        - delay: 00:00:00.075
+                        - continue_on_error: true
+                          action: remote.send_command
+                          target:
+                            entity_id: remote.tcl_tv
+                          data:
+                            command: ENTER
+            - wait_template: "{% set app = (
+  state_attr('media_player.tcl_tv', 'app_id')
+                | default('', true) | string ~ ' ' ~
+  state_attr('media_player.tcl_tv',
+                'app_name') | default('', true) | string
+) | lower %}
+{% set hdmi
+                = state_attr('media_player.85c855_television', 'source') | default('',
+                true) | string | lower %}
+{% if want == 'Plex' %}
+  {{ 'plex' in app
+                }}
+{% elif want == 'Jellyfin' %}
+  {{ 'jellyfin' in app }}
+{% elif
+                want == 'Stremio' %}
+  {{ 'stremio' in app }}
+{% elif want == 'Netflix'
+                %}
+  {{ 'netflix' in app }}
+{% elif want == 'YouTube' %}
+  {{ 'youtube'
+                in app }}
+{% elif want == 'Playstation' %}
+  {{ 'playstation' in hdmi
+                or 'ps5' in hdmi or state_attr('media_player.marantz_nr1608', 'source')
+                == 'TV Audio' }}
+{% else %}
+  {{ state_attr('media_player.marantz_nr1608',
+                'source') == 'TV Audio' }}
+{% endif %}"
+              timeout: 00:00:30
+              continue_on_timeout: true
+    - action: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.main_media_sync_guard
+
 main_media_hot:
   alias: Main Media HOT
+  icon: mdi:set-top-box
   sequence:
-  - parallel:
-    - sequence:
-      - target:
-          entity_id: media_player.marantz_nr1608
-        action: media_player.turn_on
-        data: {}
-      - target:
-          entity_id: media_player.marantz_nr1608
-        data:
-          source: HOT
-        action: media_player.select_source
-    - target:
-        entity_id:
-        - media_player.85c855_television
+    - action: script.main_media_set
       data:
-        source: Cable
-      action: media_player.select_source
-  - action: input_select.select_option
-    metadata: {}
-    target:
-      entity_id: input_select.main_media
-    data:
-      option: HOT
+        media_activity: HOT
 main_media_chromecast:
   alias: Main Media Chromecast
+  icon: mdi:google-chrome
   sequence:
-  - target:
-      entity_id: media_player.marantz_nr1608
-    action: media_player.turn_on
-  - target:
-      entity_id: media_player.living_room_chromecast
-    action: media_player.turn_on
-  - target:
-      entity_id: media_player.marantz_nr1608
-    data:
-      source: TV Audio
-    action: media_player.select_source
-  - target:
-      entity_id: media_player.lg_tv
-    data:
-      source: Chromecast
-    action: media_player.select_source
-  - action: input_select.select_option
-    metadata: {}
-    target:
-      entity_id: input_select.main_media
-    data:
-      option: Chromecast
+    - action: script.main_media_set
+      data:
+        media_activity: Chromecast
 main_media_playstation:
   alias: Main Media Playstation
+  icon: phu:playstation
   sequence:
-  - entity_id:
-    - media_player.marantz_nr1608
-    action: media_player.turn_on
-  - data:
-      source: PlayStation
-    action: media_player.select_source
-    target:
-      entity_id: media_player.marantz_nr1608
-  - data:
-      entity_id: media_player.lg_tv
-      source: Receiver
-    action: media_player.select_source
-  - action: input_select.select_option
-    metadata: {}
-    target:
-      entity_id: input_select.main_media
-    data:
-      option: Playstation
+    - action: script.main_media_set
+      data:
+        media_activity: Playstation
 main_media_plex:
   alias: Main Media Plex
+  icon: phu:plex
   sequence:
-  - parallel:
-    - action: media_player.turn_on
-      metadata: {}
-      target:
-        entity_id: media_player.marantz_nr1608
-      data: {}
-    - action: media_player.turn_on
-      target:
-        entity_id: media_player.smart_tv_pro
-  - parallel:
-    - action: media_player.select_source
-      metadata: {}
-      target:
-        entity_id: media_player.marantz_nr1608
+    - action: script.main_media_set
       data:
-        source: TV Audio
-    - action: remote.turn_on
-      target:
-        entity_id: remote.tcl_tv
-      data:
-        activity: com.plexapp.android
-  - action: input_select.select_option
-    metadata: {}
-    target:
-      entity_id: input_select.main_media
-    data:
-      option: Plex
+        media_activity: Plex
+        app_dpad_down: 2
+        app_dpad_right: 1
 main_media_jellyfin:
   alias: Main Media Jellyfin
+  icon: phu:jellyfin
   sequence:
-  - parallel:
-    - action: media_player.turn_on
-      metadata: {}
-      target:
-        entity_id: media_player.marantz_nr1608
-      data: {}
-    - action: media_player.turn_on
-      target:
-        entity_id: media_player.tcl_tv
-  - parallel:
+    - action: script.main_media_set
+      data:
+        media_activity: Jellyfin
+        app_dpad_down: 2
+        app_dpad_right: 2
+main_media_stremio:
+  alias: Main Media Stremio
+  icon: mdi:play-box
+  sequence:
+    - action: script.main_media_set
+      data:
+        media_activity: Stremio
+        app_dpad_down: 2
+        app_dpad_right: 3
+main_media_netflix:
+  alias: Main Media Netflix
+  icon: mdi:netflix
+  sequence:
+    - action: script.main_media_set
+      data:
+        media_activity: Netflix
+main_media_youtube:
+  alias: Main Media YouTube
+  icon: mdi:youtube
+  sequence:
+    - action: script.main_media_set
+      data:
+        media_activity: YouTube
+main_media_youtube_michelle:
+  alias: Main Media YouTube Michelle
+  description: TV on, AVR TV Audio at 35, YouTube with Michelle Kids profile
+  icon: mdi:account-child
+  mode: single
+  fields:
+    profile_dpad_right:
+      name: Profile DPAD_RIGHT presses
+      description: >-
+        On Who's Watching, focus starts on the first profile; increase if Michelle
+        is further right on the row.
+      default: 1
+      selector:
+        number:
+          min: 0
+          max: 6
+          step: 1
+          mode: box
+  sequence:
+    - parallel:
+        - action: media_player.turn_on
+          target:
+            entity_id: media_player.marantz_nr1608
+        - action: media_player.turn_on
+          target:
+            entity_id: media_player.tcl_tv
+        - continue_on_error: true
+          action: media_player.turn_off
+          target:
+            entity_id: media_player.living_room_hot
     - action: media_player.select_source
-      metadata: {}
       target:
         entity_id: media_player.marantz_nr1608
       data:
         source: TV Audio
-    - action: remote.turn_on
+    - action: media_player.volume_set
+      target:
+        entity_id: media_player.marantz_nr1608
+      data:
+        volume_level: 0.35
+    - wait_template: '{{ states(''media_player.tcl_tv'') not in [''off'', ''unavailable'',
+        ''unknown''] }}'
+      timeout: 00:00:10
+      continue_on_timeout: true
+    - continue_on_error: true
+      action: remote.send_command
       target:
         entity_id: remote.tcl_tv
       data:
-        activity: org.jellyfin.androidtv
-  - action: input_select.select_option
-    metadata: {}
-    target:
-      entity_id: input_select.main_media
-    data:
-      option: Jellyfin
+        command: HOME
+    - delay: 00:00:02
+    - continue_on_error: true
+      action: media_player.play_media
+      target:
+        entity_id: media_player.tcl_tv
+      data:
+        media:
+          media_content_type: url
+          media_content_id: https://www.youtube.com
+          metadata: {}
+    - delay: 00:00:08
+    - repeat:
+        count: '{{ profile_dpad_right | int(1) }}'
+        sequence:
+          - continue_on_error: true
+            action: remote.send_command
+            target:
+              entity_id: remote.tcl_tv
+            data:
+              command: DPAD_RIGHT
+          - delay: 00:00:00.400
+    - continue_on_error: true
+      action: remote.send_command
+      target:
+        entity_id: remote.tcl_tv
+      data:
+        command: ENTER
+
 main_media_off:
   alias: Main Media Off
+  icon: mdi:television-classic-off
   sequence:
-  - entity_id:
-    - media_player.living_room_chromecast
-    action: media_player.turn_off
-  - action: media_player.turn_off
-    metadata: {}
-    target:
-      entity_id: media_player.marantz_nr1608
-    data: {}
-  - action: input_select.select_option
-    metadata: {}
-    target:
-      entity_id: input_select.main_media
-    data:
-      option: 'Off'
+    - action: script.main_media_set
+      data:
+        media_activity: 'Off'
 remount_share_restart_plex:
   alias: Mount Share and restart Plex
   description: Remount /mnt/Share on main host and restart Plex docker container

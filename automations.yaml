@@ -78,9 +78,9 @@
       entity_id: timer.pikud_safe_post_restore
     action: timer.cancel
   - if:
-    - condition: state
-      entity_id: input_boolean.pikud_scene_active
-      state: 'off'
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.pikud_scene_active'', ''off'')
+        or trigger.from_state.state == ''ok'' }}'
     then:
     - data:
         scene_id: pikud_original_lights

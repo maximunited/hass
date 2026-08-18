@@ -46,14 +46,20 @@ shower_heater_status:
     - Power Off
   initial: Power Off
 
-main_media_status:
-  name: Main Media Status
+main_media:
+  name: Main Media
   options:
-    - Off
+    - 'Off'
     - HOT
+    - Plex
+    - Jellyfin
+    - Stremio
+    - Netflix
+    - YouTube
     - Chromecast
-  initial: Off
-  icon: mdi:television
+    - Playstation
+  initial: 'Off'
+  icon: mdi:television-classic
 
 master_bedroom_lights:
   name: Master Bedroom Lights
