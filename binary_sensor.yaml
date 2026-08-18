@@ -7,12 +7,7 @@
 
 ---
 
-- platform: template
-  sensors:
-    ## Shower Heater Status
-    living_ac:
-      value_template: '{{ states.input_boolean.living_ac.state}}'
-      friendly_name: 'Shower Heater Status'
+# living_ac template binary sensor moved to templates/binary_sensors.yaml
 
 ### https://github.com/custom-components/sensor.rpi_power
 ### Moved from sensor to binary_sensor

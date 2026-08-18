@@ -112,8 +112,8 @@ sensor: !include_dir_merge_list sensors/
 # Templates
 template: !include_dir_merge_list templates/
 
-# Binary Sensors
-binary_sensor: !include binary_sensor.yaml
+# Binary Sensors (legacy YAML; active template sensors in templates/)
+# binary_sensor: !include binary_sensor.yaml
 
 # Text to speech
 tts:
