@@ -48,9 +48,13 @@ Persistent notes from log analysis and live-instance checks. **Update this file*
 
 ### Low battery automation
 
-**Symptom:** `Template error: float got invalid input 'Rechargeable'` — entity_ids containing `battery` included **non-numeric** sensors (e.g. battery technology).
+**Symptom (2026-04-05):** `Template error: float got invalid input 'Rechargeable'` — entity_ids containing `battery` included **non-numeric** sensors (e.g. battery technology).
 
-**Fix applied in repo:** Automation `low_battery_check_all_sensors` in `automations.yaml` — require `state.state | is_number` and only treat **0–100** as percentage before comparing to 20.
+**Fix applied in repo:** Automation `low_battery_check_all_sensors` — require numeric 0–100 before comparing to 20.
+
+**Symptom (2026-08-27):** Duplicate 21:00 persistent notifications from two Blackshome blueprint automations; “Low Battery Alert” with body “All battery sensors are at acceptable levels” from the hourly job (Jinja list append without `namespace` always empty); noisy entity names (`Battery+`, `Battery_158d…`, `Battery low is low!`) and unknown/unavailable rows.
+
+**Fix applied in repo:** One daily 21:00 automation. Battery Notes `*_battery_plus` rows with canonical device name, %, and battery type. No all-OK notification. Blueprints `low_battery_notifications_actions1/2` and `notify_on_low_batteries_blueprint` removed.
 
 ### Jellyfin
 
@@ -187,6 +191,7 @@ See [automations-main-media.md](automations-main-media.md).
 
 | Date | Change |
 | ---- | ------ |
+| 2026-08-27 | Low battery: single daily summary (device name, %, type); removed duplicate Blackshome blueprint automations; no all-OK “Low Battery Alert”. |
 | 2026-08-19 | `input_select.main_media` duplicate ID ERROR: removed YAML definition from `input_select.yaml` (UI helper in `.storage/input_select` is canonical; options synced by `main_media_ensure_options`). |
 | 2026-08-15 | DPAD fallback timing: 75ms between all presses; Stremio 2/2 MCP pass. |
 | 2026-08-15 | DPAD fallback timing: 200ms between all presses; package wait 2s; initial HOME wait 800ms (TCL calibration). |
