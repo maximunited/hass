@@ -3,6 +3,9 @@
 scene.pikud_original_lights:
   friendly_name: "[AUTO] [Snapshot] Pikud – Original lights"
   icon: mdi:camera-auto
+scene.maccabi_goal_lights_snapshot:
+  friendly_name: "[AUTO] [Snapshot] Maccabi goal lights"
+  icon: mdi:camera-auto
 
 # Scripts
 script.main_media_chromecast:

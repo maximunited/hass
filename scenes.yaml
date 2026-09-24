@@ -181,3 +181,21 @@
       entity_only: true
     light.cabinet_light:
       entity_only: true
+# Placeholder so automation UI resolves scene.maccabi_goal_lights_snapshot before
+# the first goal. Runtime scene.create with the same scene_id overwrites states.
+- id: maccabi_goal_lights_snapshot
+  name: Maccabi goal lights snapshot
+  entities:
+    light.curtain_light:
+      state: 'off'
+    light.peninsula_light:
+      state: 'off'
+    light.stove_light:
+      state: 'off'
+  metadata:
+    light.curtain_light:
+      entity_only: true
+    light.peninsula_light:
+      entity_only: true
+    light.stove_light:
+      entity_only: true

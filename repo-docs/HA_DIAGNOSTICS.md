@@ -253,7 +253,7 @@ HA **2026.8.2**, restarted **2026-08-18 ~21:28 UTC** (~00:28 local). Since resta
 
 ---
 
-## FotMob Maccabi TLV goal lights (2026-09-24)
+## FotMob Maccabi TLV goal lights (2026-09-24, updated 2026-09-25)
 
 **Symptom:** Automation `maccabi_tlv_goal_lights` showed **Unknown entity** for `sensor.fotmob_maccabi_goals` and `binary_sensor.fotmob_maccabi_match_live`. `scene.maccabi_goal_lights_snapshot` also unknown in the UI (expected until first `scene.create` at runtime).
 
@@ -261,10 +261,11 @@ HA **2026.8.2**, restarted **2026-08-18 ~21:28 UTC** (~00:28 local). Since resta
 
 1. `rest: !include rest.yaml` was added after the last HA boot (~20:33). Only **automations** were reloaded (~23:46); REST never set up, so entities did not exist.
 2. After restart, goals sensor still failed setup: `state_class: measurement` + `unit_of_measurement: goals` require a **numeric** state, but the template returned the string `unknown` when team 7855 had no match that day → `ValueError` / entity not added.
+3. **Activate scene → Entity not found (2026-09-25):** Restore hardcodes `scene.maccabi_goal_lights_snapshot`. Unlike Pikud (which stores the snapshot id in `input_text` and never hardcodes it in the editor), that entity id only existed after the first runtime `scene.create`, so the UI always showed **Entity not found** until then. Match-live condition was already `state: 'on'`; UI label **Running** comes from `device_class: running` (not a YAML bug).
 
-**Fix:** Full HA restart to load `rest`; change `rest.yaml` so no-match uses `availability_template` (entity **unavailable**) and `value_template` always returns a number. Then `rest.reload` (after REST is already loaded). Live check: `sensor.fotmob_maccabi_goals` **unavailable**, `binary_sensor.fotmob_maccabi_match_live` **off** on a non-match day. FotMob API OK.
+**Fix:** Full HA restart to load `rest`; change `rest.yaml` so no-match uses `availability_template` (entity **unavailable**) and `value_template` always returns a number. Then `rest.reload` (after REST is already loaded). Live check: `sensor.fotmob_maccabi_goals` **unavailable**, `binary_sensor.fotmob_maccabi_match_live` **off** on a non-match day. FotMob API OK. **Placeholder** `scene.maccabi_goal_lights_snapshot` in `scenes.yaml` (entities off) so the automation editor resolves the entity; goal-time `scene.create` overwrites the same `scene_id`.
 
-**Note:** New top-level `rest:` needs a restart once; later YAML edits can use **Developer tools → YAML → REST entities** / `rest.reload`.
+**Note:** New top-level `rest:` needs a restart once; later YAML edits can use **Developer tools → YAML → REST entities** / `rest.reload`. After changing `scenes.yaml`, reload **Scenes** (or restart).
 
 ---
 
@@ -272,6 +273,7 @@ HA **2026.8.2**, restarted **2026-08-18 ~21:28 UTC** (~00:28 local). Since resta
 
 | Date | Change |
 | ---- | ------ |
+| 2026-09-25 | FotMob goal lights: placeholder `scene.maccabi_goal_lights_snapshot` in `scenes.yaml` so Activate scene UI resolves; condition already `on`. |
 | 2026-09-24 | FotMob: Unknown entity = no restart + goals template `unknown` vs measurement; fix availability + restart/`rest.reload`. |
 | 2026-09-24 | FotMob Maccabi TLV (team 7855): `rest.yaml` → goals + match-live sensors; automation `maccabi_tlv_goal_lights` flashes ambient Yeelights on score increase while live. |
 | 2026-09-24 | Ambient off after 2am: also trigger on `pikud_scene_active` off and ambient strip on (Pikud restore left lights on when FP2 already clear). |
