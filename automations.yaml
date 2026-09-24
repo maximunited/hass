@@ -879,9 +879,15 @@
         trigger.event.data.host_name }} Mac-address: {{ trigger.event.data.mac }}
         Data: {{ trigger.event.data }}'
     action: persistent_notification.create
+  - action: html5.send_message
+    target:
+      entity_id: notify.msi_chrome
+    data:
+      message: 'New device: {{ trigger.event.data.host_name }} ({{ trigger.event.data.entity_id}})
+        Mac: {{ trigger.event.data.mac }}'
+      title: 'Newly tracked: {{ trigger.event.data.entity_id }}'
   - action: notify.send_message
     target:
-      device_id: 98fc5aac6bef4cd87edee1b908edfab0
       entity_id:
       - notify.home_automation
       - notify.telegram_bot_1357375595_1168033187
@@ -900,6 +906,7 @@
 - id: '1673194586071'
   alias: Notify for new devices (old variant)
   description: Legacy new-device notification kept for compatibility.
+  enabled: false
   trigger:
   - platform: event
     event_type: device_tracker_new_device
@@ -911,7 +918,9 @@
       message: 'New device tracked: ({{ trigger.event.data.entity_id }}) Host: {{
         trigger.event.data.host_name }} MAC address: {{ trigger.event.data.mac }}
         Data: {{ trigger.event.data }}'
-  - service: notify.notify_html5
+  - action: notify.send_message
+    target:
+      entity_id: notify.msi_chrome
     data:
       title: New device
       message: 'New device: {{ trigger.event.data.host_name if trigger.event.data.host_name
@@ -1009,6 +1018,8 @@
   - condition: template
     value_template: "{{ (trigger.event.data.service | lower).startswith('notify.')
       or (trigger.event.data.service | lower).startswith('tts.') }}"
+  - condition: template
+    value_template: "{{ trigger.event.data.service | lower not in ['notify.html5', 'html5.dismiss'] }}"
   action:
   - service: '{{ trigger.event.data.service | lower }}'
 - id: ha_startup_notification_ifttt
@@ -1029,9 +1040,14 @@
   - entity_id: binary_sensor.docker_hub_update_available
     trigger: state
   actions:
+  - action: html5.send_message
+    target:
+      entity_id: notify.msi_chrome
+    data:
+      message: Update for HA is available
+      title: Home Assistant
   - action: notify.send_message
     target:
-      device_id: 98fc5aac6bef4cd87edee1b908edfab0
       entity_id: notify.home_automation
     data:
       message: Update for HA is available
@@ -1055,14 +1071,14 @@
 
         '
     action: persistent_notification.create
-  - action: notify.send_message
+  - action: html5.send_message
     metadata: {}
+    target:
+      entity_id: notify.msi_chrome
     data:
       message: Home Assistant docker tag changed from {{ trigger.from_state.state
         }} to {{ trigger.to_state.state }}
       title: Home Assistant update available
-    target:
-      device_id: 98fc5aac6bef4cd87edee1b908edfab0
 - id: ha_docker_tag_changed_var
   alias: Notify - Home Assistant docker tag changed (tracked)
   description: Compare latest_docker_version with input_text.ha_version_notification
@@ -1091,9 +1107,9 @@
         \\n  [Release notes](https://github.com/home-assistant/core/releases/tag/{{
         states('sensor.latest_docker_version') }}) \\n{% endif %}\n"
     action: persistent_notification.create
-  - action: notify.send_message
+  - action: html5.send_message
     target:
-      device_id: 98fc5aac6bef4cd87edee1b908edfab0
+      entity_id: notify.msi_chrome
     data:
       message: "Home Assistant docker image tag changed {% if trigger.entity_id ==
         'sensor.latest_docker_version' -%}\n  \\n  from {{ trigger.from_state.state
@@ -1169,15 +1185,21 @@
   alias: 'Handle HTML5 notification action: Update FW'
   description: Log when a Shelly firmware update notification action is clicked.
   initial_state: true
-  trigger:
-  - platform: event
-    event_type: html5_notification.clicked
-    event_data:
-      action: update_shelly_fw
-  action:
-  - service: system_log.write
+  triggers:
+  - trigger: event.received
+    target:
+      entity_id: event.msi_chrome
+    options:
+      event_type:
+      - clicked
+  conditions:
+  - condition: template
+    value_template: '{{ trigger.to_state.attributes.get(''action'') == ''update_shelly_fw''
+      }}'
+  actions:
+  - action: system_log.write
     data:
-      message: Clicked {{ trigger.event.data }}
+      message: Clicked {{ trigger.to_state.attributes }}
       level: info
 - id: low_battery_check_all_sensors
   alias: Low battery level detection & notification for all battery sensors

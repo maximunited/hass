@@ -644,8 +644,11 @@ remount_share_restart_plex:
   - service: switch.turn_on
     target:
       entity_id: switch.docker_plex
-  - service: notify.notify
+  - action: notify.send_message
+    target:
+      entity_id: notify.home_automation
     data:
+      title: Plex
       message: Share mounted and Plex restarted
   mode: restart
 do_nothing:
