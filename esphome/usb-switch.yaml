@@ -1,0 +1,7 @@
+# First Sinilink XY-WFUSB. Use usb-switch-1.yaml.
+substitutions:
+  name: usb-switch-1
+  friendly_name: USB Switch 1
+
+packages:
+  usb_switch: !include packages/usb_switch.yaml

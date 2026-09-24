@@ -1,0 +1,7 @@
+# First Sinilink XY-WFUSB. Flash: esphome run usb-switch-1.yaml --device /dev/ttyUSB0
+substitutions:
+  name: usb-switch-1
+  friendly_name: USB Switch 1
+
+packages:
+  usb_switch: !include packages/usb_switch.yaml
