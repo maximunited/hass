@@ -12,19 +12,31 @@
       unique_id: fotmob_maccabi_tlv_goals
       unit_of_measurement: goals
       state_class: measurement
-      value_template: >-
+      # measurement + unit require a numeric state; no match → unavailable
+      availability_template: >-
         {% set tid = 7855 %}
-        {% set ns = namespace(score=none) %}
+        {% set ns = namespace(found=false) %}
         {% for league in value_json.leagues | default([]) %}
           {% for m in league.matches | default([]) %}
-            {% if m.home.id == tid %}
-              {% set ns.score = m.home.score %}
-            {% elif m.away.id == tid %}
-              {% set ns.score = m.away.score %}
+            {% if m.home.id == tid or m.away.id == tid %}
+              {% set ns.found = true %}
             {% endif %}
           {% endfor %}
         {% endfor %}
-        {% if ns.score is none %}unknown{% else %}{{ ns.score }}{% endif %}
+        {{ ns.found }}
+      value_template: >-
+        {% set tid = 7855 %}
+        {% set ns = namespace(score=0) %}
+        {% for league in value_json.leagues | default([]) %}
+          {% for m in league.matches | default([]) %}
+            {% if m.home.id == tid %}
+              {% set ns.score = m.home.score | default(0) %}
+            {% elif m.away.id == tid %}
+              {% set ns.score = m.away.score | default(0) %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        {{ ns.score }}
   binary_sensor:
     - name: FotMob Maccabi Match Live
       unique_id: fotmob_maccabi_tlv_match_live
