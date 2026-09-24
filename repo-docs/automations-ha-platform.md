@@ -8,13 +8,13 @@ Automations tied to **core / container updates**, **HACS**, **external DNS scrip
 
 | Automation `id` | Alias | Role |
 | --------------- | ----- | ---- |
-| `ha_update_available_html5` | Update Available Notifications | `binary_sensor.docker_hub_update_available` change → HTML5 “update available” |
-| `ha_docker_tag_changed_simple` | Notify - Home Assistant docker tag changed (simple) | Same binary sensor, template filters trivial/unavailable flaps → persistent + HTML5 |
-| `ha_docker_tag_changed_var` | Notify - Home Assistant docker tag changed (tracked) | `sensor.docker_hub` or HA **start**; compares `sensor.latest_docker_version` vs `input_text.ha_version_notification`; release-note links; updates stored version |
+| `ha_update_available_html5` | Update Available Notifications | `binary_sensor.docker_hub_update_available` change → `html5.send_message` (Chrome) + ntfy |
+| `ha_docker_tag_changed_simple` | Notify - Home Assistant docker tag changed (simple) | Same binary sensor, template filters trivial/unavailable flaps → persistent + `html5.send_message` |
+| `ha_docker_tag_changed_var` | Notify - Home Assistant docker tag changed (tracked) | `sensor.docker_hub` or HA **start**; compares `sensor.latest_docker_version` vs `input_text.ha_version_notification`; release-note links; `html5.send_message` |
 | `hacs_notify_new_repo` | Create a notification when something is added to HACS | `hacs/repository` registration event → persistent with repo link |
 | `hacs_notify_updates` | Create a notification when there is updates pending in HACS | `sensor.hacs` non-zero → persistent listing repos |
 | `duckdns_update_failed` | DuckDNS update script failed notification | `binary_sensor.duckdns_update_problem` **on** for **90 min** → Telegram |
-| `html5_notification_clicked_update_fw` | Handle HTML5 notification action: Update FW | `html5_notification.clicked` + `action: update_shelly_fw` → `system_log.write` |
+| `html5_notification_clicked_update_fw` | Handle HTML5 notification action: Update FW | `event.received` on `event.msi_chrome` (`clicked`) + `action == update_shelly_fw` → `system_log.write` |
 | `1673194670911` | Healthchecks HeartBeat | Every **10 minutes** (`time_pattern` minutes `/10`) → `shell_command.watchdog` |
 
 ---

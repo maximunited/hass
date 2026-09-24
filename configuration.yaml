@@ -318,13 +318,8 @@ notify: !include notify.yaml
 #           - 100
 
 # Notifications (require HTTPS)
-# notify:
-#     # @url: https://www.home-assistant.io/integrations/html5/
-#   - platform: html5
-#     name: notify_html5
-#     vapid_pub_key: !secret vapid_pub_key
-#     vapid_prv_key: !secret vapid_prv_key
-#     vapid_email: !secret vapid_email
+# HTML5: UI integration only (Settings → Devices & services → HTML5). Use notify.send_message
+# or html5.send_message — not notify.notify_html5 / event bus html5_notification.*.
 # notify:
   # - platform: telegram
   #   name: telegram_bot
