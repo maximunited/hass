@@ -101,6 +101,10 @@ Persistent notes from log analysis and live-instance checks. **Update this file*
 
 **Post-safe delay (2026-04-08):** After **ok**, **Enter safe** applies `scene.safe_pikud` and starts **`timer.pikud_safe_post_restore`** (3m30s); **`pikud_post_safe_restore_original`** then restores the pre-Pikud snapshot and runs ambient cleanup. Pre-alert **from `ok`** re-snapshots even if `pikud_scene_active` is still on. See [`repo-docs/automations-pikud-oref.md`](automations-pikud-oref.md).
 
+**Deferred ambient presence (2026-09-24):** Post-safe and timeout restore apply pending `scene.ambient_full` when **`group.household` is home or** `binary_sensor.presence_sensor_fp2_dec1_presence_sensor_1` is **on** (same OR as ambient sunset), so FP2-only occupancy can clear `pikud_ambient_pending`.
+
+**Ambient off after Pikud (2026-09-24):** If the 02:00 run of `ambient_lights_off_fp2_clear_after_2am` was skipped while `pikud_scene_active` was on, and post-safe/timeout later applied `scene.ambient_full` with FP2 already clear, no FP2 transition fired and strips could stay on until evening. Fix: also trigger that automation when `pikud_scene_active` turns **off** or any ambient strip turns **on** (same after-2am / before-sunrise / FP2-clear-10m / pikud-off conditions).
+
 ---
 
 ## Snapshot: 2026-08-05 (repairs + current log)
@@ -253,6 +257,8 @@ HA **2026.8.2**, restarted **2026-08-18 ~21:28 UTC** (~00:28 local). Since resta
 
 | Date | Change |
 | ---- | ------ |
+| 2026-09-24 | Ambient off after 2am: also trigger on `pikud_scene_active` off and ambient strip on (Pikud restore left lights on when FP2 already clear). |
+| 2026-09-24 | Pikud deferred ambient: post-safe + timeout accept household home **or** FP2 zone 1 on (align with ambient sunset). |
 | 2026-09-13 | Ollama: alterai.duckdns.org integration; Assist "..." fixed (unload stuck qwen2.5:7b, chat agent on llama3.2:3b); pipeline on `conversation.ollama`. |
 | 2026-09-13 | Ollama: alterai.duckdns.org integration + `conversation.ollama`; secrets in `secrets.yaml` / sample. |
 | 2026-08-27 | Low battery: single daily summary (device name, %, type); removed duplicate Blackshome blueprint automations; no all-OK “Low Battery Alert”. |

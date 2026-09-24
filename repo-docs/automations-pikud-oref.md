@@ -2,7 +2,7 @@
 
 This suite drives **lighting and notifications** when Israel’s **Pikud Haoref / Oref** civil-defense integration changes state (`sensor.oref_alert`). It snapshots selected lights before applying alert scenes, optionally runs a **20-minute timer** after pre-alert, restores **pre-Pikud** lighting after **all clear** via a **3.5-minute post-safe delay** (or on 20-minute timeout), and coordinates with **evening ambient** lighting so the two do not fight each other.
 
-**Related suite:** evening ambient is documented in [automations-ambient-sunset.md](automations-ambient-sunset.md). Pikud **post-safe**, **timeout**, and related automations apply deferred ambient when `input_boolean.pikud_ambient_pending` is on and `group.household` is **home**.
+**Related suite:** evening ambient is documented in [automations-ambient-sunset.md](automations-ambient-sunset.md). Pikud **post-safe**, **timeout**, and related automations apply deferred ambient when `input_boolean.pikud_ambient_pending` is on and someone is present (`group.household` **home** or FP2 zone 1 **on**).
 
 **Troubleshooting history:** see [HA_DIAGNOSTICS.md](HA_DIAGNOSTICS.md) (section *Pikud Oref lighting*) for older timer/safe interaction notes.
 
@@ -144,7 +144,7 @@ flowchart TD
   R -->|no| CLEAR
   SNAP_ON --> CLEAR[ Clear input_text snapshot ]
   CLEAR --> OFF[ pikud_scene_active OFF ]
-  OFF --> AMB{ ambient_pending ON and household home? }
+  OFF --> AMB{ ambient_pending ON and household home or FP2 on? }
   AMB -->|yes| AMB_FULL[ scene.ambient_full + pending OFF ]
   AMB -->|no| END([done])
   AMB_FULL --> END
@@ -158,7 +158,7 @@ flowchart TD
 | ------ | ---- |
 | `input_boolean.pikud_scene_active` | **On** while Pikud-controlled scenes should be considered authoritative; blocks duplicate snapshots (except pre-alert **from ok**) and drives the ambient sunset branch (see [ambient doc](automations-ambient-sunset.md)). Stays **on** during the post-safe green period until **post-safe restore** runs. |
 | `input_boolean.pikud_timeout_restore` | Defined in [`input_boolean.yaml`](../input_boolean.yaml). When **on**, pre-alert **starts** the 20-minute timer and timeout restore may call `scene.turn_on` on the snapshot. When **off**, the timer is not started and timeout skips scene restore but still clears state. |
-| `input_boolean.pikud_ambient_pending` | Set by the sunset automation when ambient should run later but Pikud is active; cleared when post-safe or timeout applies `scene.ambient_full` with household home. |
+| `input_boolean.pikud_ambient_pending` | Set by the sunset automation when ambient should run later but Pikud is active; cleared when post-safe or timeout applies `scene.ambient_full` with household home or FP2 occupied. |
 | `input_text.pikud_original_snapshot_scene` | Stores the entity id of the snapshot scene (typically `scene.pikud_original_lights`) for restore logic. |
 | `timer.pikud_scene_timeout` | 20-minute window after pre-alert (optional); **cancelled** on **ok**. May be UI-defined if not in [`timer.yaml`](../timer.yaml). |
 | `timer.pikud_safe_post_restore` | **3m30s** delay after **ok**; defined in [`timer.yaml`](../timer.yaml). **Cancelled** on new **pre_alert** or **alert**. |
@@ -173,7 +173,7 @@ flowchart TD
 | `scene.pre_alert_pikud` | Pre-alert visual state. |
 | `scene.alert_pikud` | Full alert visual state. |
 | `scene.safe_pikud` | All-clear **green** visual state during the **post-safe delay**; pre-Pikud lighting returns when **post-safe restore** runs. |
-| `scene.ambient_full` | Evening ambient; applied from **post-safe** / **timeout** when pending + household home. Defined in [`scenes.yaml`](../scenes.yaml). |
+| `scene.ambient_full` | Evening ambient; applied from **post-safe** / **timeout** when pending + household home or FP2 on. Defined in [`scenes.yaml`](../scenes.yaml). |
 
 ---
 
