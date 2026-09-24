@@ -183,10 +183,35 @@ See [automations-main-media.md](automations-main-media.md).
 
 ---
 
+## Ollama on alterai OCI (2026-09-13)
+
+**Setup:** Native **Ollama** integration → `https://alterai.duckdns.org` (Bearer token in `secrets.yaml` as `ollama_api_token`; same value as `OLLAMA_API_TOKEN` in `docker/.env` on the OCI host).
+
+**Conversation agent (current):** Subentry **Ollama** on **`llama3.2:3b`**, `num_ctx: 4096`, `keep_alive: 300`, `max_history: 10`, **`llm_hass_api: []`** (chat-only, no HA tool calls) → entity `conversation.ollama`. Default Assist pipeline **Home Assistant** uses `conversation.ollama`.
+
+**Models on alterai:** `qwen2.5:7b` (tools), `llama3.2:3b` (chat).
+
+**Symptom (2026-09-13):** Assist showed only **"..."** — `conversation.ollama` was configured, but **inference on alterai was hung**. `GET /api/tags` and `GET /api/ps` responded; **`POST /api/chat` / `POST /api/generate` returned no bytes** for minutes. `/api/ps` showed `qwen2.5:7b` loaded on CPU (`size_vram: 0`).
+
+**Fix applied (2026-09-13, from hassvm — no SSH):**
+
+1. **Unload stuck model** via Ollama API:
+   `POST /api/generate` with `{"model":"qwen2.5:7b","prompt":"","keep_alive":0}`.
+2. **Reconfigure** conversation subentry to **`llama3.2:3b`** without Assist API (7B + tool context was too slow on OCI CPU).
+3. Assist pipeline stays on **`conversation.ollama`**; `conversation.process` responds in ~4–10s (verified).
+
+**SSH note:** `ubuntu@alter-ai` does not resolve on hassvm; `ubuntu@alterai.duckdns.org` / `92.5.132.100` → **Permission denied (publickey)** — OCI key (`OCI-VM-ssh-key-2026-07-29.key`) is on Windows, not hassvm. Remote API fix was sufficient; for host-level hardening SSH from a machine with the key.
+
+**If it regresses:** unload via API (above); or on the VM: `cd ~/stack && docker compose restart ollama`; test `curl` to `http://127.0.0.1:11434/api/generate` with `llama3.2:3b`. For HA device control, add a **second** conversation subentry with `qwen2.5:7b` + Assist API and smaller `num_ctx`, or use `conversation.home_assistant` for control.
+
+---
+
 ## Changelog
 
 | Date | Change |
 | ---- | ------ |
+| 2026-09-13 | Ollama: alterai.duckdns.org integration; Assist "..." fixed (unload stuck qwen2.5:7b, chat agent on llama3.2:3b); pipeline on `conversation.ollama`. |
+| 2026-09-13 | Ollama: alterai.duckdns.org integration + `conversation.ollama`; secrets in `secrets.yaml` / sample. |
 | 2026-08-19 | `input_select.main_media` duplicate ID ERROR: removed YAML definition from `input_select.yaml` (UI helper in `.storage/input_select` is canonical; options synced by `main_media_ensure_options`). |
 | 2026-08-15 | DPAD fallback timing: 75ms between all presses; Stremio 2/2 MCP pass. |
 | 2026-08-15 | DPAD fallback timing: 200ms between all presses; package wait 2s; initial HOME wait 800ms (TCL calibration). |
