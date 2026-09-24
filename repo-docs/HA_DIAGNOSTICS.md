@@ -206,12 +206,19 @@ See [automations-main-media.md](automations-main-media.md).
 
 ---
 
+## RPi heartbeat (reference)
+
+- **HA NUC check:** automation `Healthchecks HeartBeat` every 10 min → `shell_command.watchdog` → `binary_sensor.home_assistant_on_nuc`.
+- **RPi check:** `binary_sensor.rpi_heartbeat` (Healthchecks.io integration; UUID lives in `secrets.yaml` / Pi `HEALTHCHECKS_RPI_URL`, not in git). Must be pinged **from the Pi** — not from HA.
+- **Deploy / reinstall on Pi:** templates in `repo-docs/rpi-healthchecks-heartbeat/` — copy `.sh` to `/usr/local/sbin/`, set `/etc/default/pi-healthchecks-heartbeat` with `HEALTHCHECKS_RPI_URL=…`, install `.service` + `.timer` under `/etc/systemd/system/`, then `systemctl enable --now rpi-healthchecks-heartbeat.timer`. **Do not** put these in `startup_scripts/` (that folder is mounted to HA `/etc/cont-init.d`).
+
 ## Changelog
 
 | Date | Change |
 | ---- | ------ |
 | 2026-09-13 | Ollama: alterai.duckdns.org integration; Assist "..." fixed (unload stuck qwen2.5:7b, chat agent on llama3.2:3b); pipeline on `conversation.ollama`. |
 | 2026-09-13 | Ollama: alterai.duckdns.org integration + `conversation.ollama`; secrets in `secrets.yaml` / sample. |
+| 2026-08-19 | Housekeeping: HTTP YAML removed again; `recorder.yaml` (14d retention) + purge/repack; RPi Healthchecks timer deployed; Aug 18 restart verified. |
 | 2026-08-19 | `input_select.main_media` duplicate ID ERROR: removed YAML definition from `input_select.yaml` (UI helper in `.storage/input_select` is canonical; options synced by `main_media_ensure_options`). |
 | 2026-08-15 | DPAD fallback timing: 75ms between all presses; Stremio 2/2 MCP pass. |
 | 2026-08-15 | DPAD fallback timing: 200ms between all presses; package wait 2s; initial HOME wait 800ms (TCL calibration). |
