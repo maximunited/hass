@@ -1450,3 +1450,25 @@
         entity_id: input_text.ha_release_notes_version_shown
       data:
         value: "{{ version }}"
+- id: tcl_tv_israeli_vod_pause_adguard_1h
+  alias: TCL TV - Pause AdGuard for 12+/Reshet
+  description: When TCL opens Keshet 12+ (mako) or Reshet 13, pause AdGuard filtering for 1 hour via the existing script.
+  mode: single
+  triggers:
+  - trigger: state
+    entity_id: media_player.tcl_tv
+    attribute: app_id
+    to: com.keshet.mako.VODAndroidTV
+  - trigger: state
+    entity_id: media_player.tcl_tv
+    attribute: app_id
+    to: com.applicaster.iReshet
+  conditions:
+  - condition: state
+    entity_id: switch.adguard_home_filtering
+    state: 'on'
+  - condition: state
+    entity_id: script.adguard_disable_protection_for_1_hour
+    state: 'off'
+  actions:
+  - action: script.adguard_disable_protection_for_1_hour
