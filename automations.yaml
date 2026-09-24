@@ -207,9 +207,14 @@
     - condition: state
       entity_id: input_boolean.pikud_ambient_pending
       state: 'on'
-    - condition: state
-      entity_id: group.household
-      state: home
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: group.household
+        state: home
+      - condition: state
+        entity_id: binary_sensor.presence_sensor_fp2_dec1_presence_sensor_1
+        state: 'on'
     then:
     - target:
         entity_id: scene.ambient_full
@@ -259,9 +264,14 @@
     - condition: state
       entity_id: input_boolean.pikud_ambient_pending
       state: 'on'
-    - condition: state
-      entity_id: group.household
-      state: home
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: group.household
+        state: home
+      - condition: state
+        entity_id: binary_sensor.presence_sensor_fp2_dec1_presence_sensor_1
+        state: 'on'
     then:
     - target:
         entity_id: scene.ambient_full
@@ -272,15 +282,39 @@
   mode: single
 - id: ambient_lights_sunset_household_home
   alias: Ambient lights on if someone is home
-  description: Turn on ambient scene 30 minutes before sunset when anyone is home.
+  description: Turn on ambient scene from 30 minutes before sunset when household
+    is home or FP2 presence zone 1 is occupied. FP2-on trigger only between
+    sunset and 23:00.
   triggers:
-  - event: sunset
+  - id: sunset
+    event: sunset
     offset: -00:30:00
     trigger: sun
+  - id: fp2
+    entity_id: binary_sensor.presence_sensor_fp2_dec1_presence_sensor_1
+    to: 'on'
+    trigger: state
   conditions:
-  - condition: state
-    entity_id: group.household
-    state: home
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: group.household
+      state: home
+    - condition: state
+      entity_id: binary_sensor.presence_sensor_fp2_dec1_presence_sensor_1
+      state: 'on'
+  - condition: or
+    conditions:
+    - condition: trigger
+      id: sunset
+    - condition: and
+      conditions:
+      - condition: trigger
+        id: fp2
+      - condition: sun
+        after: sunset
+      - condition: time
+        before: '23:00:00'
   actions:
   - if:
     - condition: state
@@ -297,6 +331,52 @@
     - target:
         entity_id: input_boolean.pikud_ambient_pending
       action: input_boolean.turn_on
+  mode: single
+- id: ambient_lights_off_fp2_clear_after_2am
+  alias: Ambient lights off after 2am if FP2 clear
+  description: After 02:00 and before sunrise, turn off ambient LED strips when
+    FP2 presence zone 1 has been clear for 10 minutes (skipped while Pikud scene
+    is active). Also runs when Pikud scene control turns off or ambient strips
+    turn on after 2am, so a deferred ambient_full restore cannot leave them on.
+  triggers:
+  - id: fp2_clear
+    entity_id: binary_sensor.presence_sensor_fp2_dec1_presence_sensor_1
+    to: 'off'
+    for: 00:10:00
+    trigger: state
+  - id: two_am
+    at: 02:00:00
+    trigger: time
+  - id: pikud_cleared
+    entity_id: input_boolean.pikud_scene_active
+    to: 'off'
+    trigger: state
+  - id: ambient_on
+    entity_id:
+    - light.stove_light
+    - light.peninsula_light
+    - light.curtain_light
+    to: 'on'
+    trigger: state
+  conditions:
+  - condition: time
+    after: 02:00:00
+  - condition: sun
+    before: sunrise
+  - condition: state
+    entity_id: binary_sensor.presence_sensor_fp2_dec1_presence_sensor_1
+    state: 'off'
+    for: 00:10:00
+  - condition: state
+    entity_id: input_boolean.pikud_scene_active
+    state: 'off'
+  actions:
+  - target:
+      entity_id:
+      - light.stove_light
+      - light.peninsula_light
+      - light.curtain_light
+    action: light.turn_off
   mode: single
 - id: boos_home_notify_pushbullet
   alias: Boo's home

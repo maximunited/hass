@@ -30,6 +30,7 @@ flowchart TB
   end
   subgraph amb [Ambient sunset suite]
     A1[Ambient lights on if someone is home]
+    A2[Ambient lights off after 2am if FP2 clear]
   end
   subgraph shared [Shared entities]
     E1[ scene.ambient_full ]
@@ -45,6 +46,8 @@ flowchart TB
   A1 <--> E4
   A1 <--> E1
   A1 <--> E2
+  A2 --> E1
+  A2 --> E3
 ```
 
 ### Other shared entities (quick map)
