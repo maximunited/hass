@@ -906,6 +906,7 @@
 - id: '1673194586071'
   alias: Notify for new devices (old variant)
   description: Legacy new-device notification kept for compatibility.
+  enabled: false
   trigger:
   - platform: event
     event_type: device_tracker_new_device
