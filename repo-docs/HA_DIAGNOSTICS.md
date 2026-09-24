@@ -212,6 +212,39 @@ See [automations-main-media.md](automations-main-media.md).
 - **RPi check:** `binary_sensor.rpi_heartbeat` (Healthchecks.io integration; UUID lives in `secrets.yaml` / Pi `HEALTHCHECKS_RPI_URL`, not in git). Must be pinged **from the Pi** — not from HA.
 - **Deploy / reinstall on Pi:** templates in `repo-docs/rpi-healthchecks-heartbeat/` — copy `.sh` to `/usr/local/sbin/`, set `/etc/default/pi-healthchecks-heartbeat` with `HEALTHCHECKS_RPI_URL=…`, install `.service` + `.timer` under `/etc/systemd/system/`, then `systemctl enable --now rpi-healthchecks-heartbeat.timer`. **Do not** put these in `startup_scripts/` (that folder is mounted to HA `/etc/cont-init.d`).
 
+---
+
+## Snapshot: 2026-08-19 (housekeeping)
+
+HA **2026.8.2**, restarted **2026-08-18 ~21:28 UTC** (~00:28 local). Since restart: log noise low (IEC/Palgate/CityMind occasional).
+
+### Fixed in repo / ops (2026-08-19)
+
+| Item | Action |
+| ---- | ------ |
+| **HTTP YAML regression** | Removed `http:` block from `configuration.yaml` again (re-introduced by `da42e9d` on 2026-08-18). Settings remain in UI / `.storage/http`. **Restart HA** to clear repair `yaml_still_present_after_migration`. |
+| **RPi heartbeat** | `binary_sensor.rpi_heartbeat` was **off** — RPi had `pi-boot-heartbeat` (FAT debug log only), no Healthchecks ping. Deployed `rpi-healthchecks-heartbeat.timer` on the Pi (every 5 min → hc-ping URL from secrets). Templates in `repo-docs/rpi-healthchecks-heartbeat/` (not `startup_scripts/` — that path is HA cont-init). |
+| **Recorder DB** | `home-assistant_v2.db` was **~3.9 GB**. Added `recorder.yaml` (`purge_keep_days: 14`, excludes aligned with `history.yaml`). Ran `recorder.purge` with `repack: true`. **Restart HA** to load `recorder.yaml`; re-check DB size after purge completes. |
+| **Aug 18 config** | After restart: `script.main_media_set`, MQTT RPI sensors (`binary_sensor.rpi_undervoltage`, `sensor.rpi_core_voltage`), Glances, Jellyfin all healthy. |
+
+### Still open
+
+| Item | Note |
+| ---- | ---- |
+| IEC reauth | Repair `config_entry_reauth_iec`; entities unavailable |
+| CityMind 429 | Occasional rate-limit at boot |
+| Dreame vacuum | `vacuum.x50_ultra_complete` unavailable (offline) |
+| Palgate | `device not found` serial `0549847494` |
+| HTML5 deprecation | **Verified 2026-09-08:** YAML uses `html5.send_message` → `notify.msi_chrome` and `notify.send_message` for ntfy/Telegram; IFTTT forwarder blocks `notify.html5` / `html5.dismiss`. After reload, dismiss stale repairs: `deprecated_notify_action_notify.html5`, `deprecated_event_bus_html5_notification.clicked`, `deprecated_yaml_html5`. |
+| Proxmox repair | **Stale:** UI entry healthy (`sensor.nuc_cpu_usage` etc.). Repair `deprecated_yaml_import_issue_invalid_auth` from old YAML import — dismiss in Repairs. |
+
+### Recorder housekeeping
+
+- Config: `recorder.yaml` (14-day retention). Purge older rows via **Developer tools → Services** → `recorder.purge` (`keep_days`, `repack: true`) after changing retention.
+- DB file: `home-assistant_v2.db` in config root — monitor size after purge/repack (may take several minutes while HA is running).
+
+---
+
 ## Changelog
 
 | Date | Change |
@@ -219,6 +252,7 @@ See [automations-main-media.md](automations-main-media.md).
 | 2026-09-13 | Ollama: alterai.duckdns.org integration; Assist "..." fixed (unload stuck qwen2.5:7b, chat agent on llama3.2:3b); pipeline on `conversation.ollama`. |
 | 2026-09-13 | Ollama: alterai.duckdns.org integration + `conversation.ollama`; secrets in `secrets.yaml` / sample. |
 | 2026-08-19 | Housekeeping: HTTP YAML removed again; `recorder.yaml` (14d retention) + purge/repack; RPi Healthchecks timer deployed; Aug 18 restart verified. |
+| 2026-08-19 | HTML5: migrate `notify.notify_html5` and `html5_notification.clicked` to `notify.send_message` / `event.received`. Proxmox: UI entry healthy; stale YAML-import repair — dismiss in UI. |
 | 2026-08-19 | `input_select.main_media` duplicate ID ERROR: removed YAML definition from `input_select.yaml` (UI helper in `.storage/input_select` is canonical; options synced by `main_media_ensure_options`). |
 | 2026-08-15 | DPAD fallback timing: 75ms between all presses; Stremio 2/2 MCP pass. |
 | 2026-08-15 | DPAD fallback timing: 200ms between all presses; package wait 2s; initial HOME wait 800ms (TCL calibration). |
