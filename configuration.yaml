@@ -102,6 +102,9 @@ media_player: !include media_player.yaml
 # Sensors
 sensor: !include_dir_merge_list sensors/
 
+# FotMob REST (Maccabi TLV goals / match live)
+rest: !include rest.yaml
+
 # Templates
 template: !include_dir_merge_list templates/
 

@@ -1,0 +1,43 @@
+# FotMob daily matches — Maccabi Tel Aviv (football team id 7855)
+# API: https://www.fotmob.com/api/data/matches?date=YYYYMMDD
+- resource_template: >-
+    https://www.fotmob.com/api/data/matches?date={{ now().strftime('%Y%m%d') }}
+  scan_interval: 30
+  timeout: 20
+  headers:
+    User-Agent: HomeAssistant-FotMob/1.0
+    Accept: application/json
+  sensor:
+    - name: FotMob Maccabi Goals
+      unique_id: fotmob_maccabi_tlv_goals
+      unit_of_measurement: goals
+      state_class: measurement
+      value_template: >-
+        {% set tid = 7855 %}
+        {% set ns = namespace(score=none) %}
+        {% for league in value_json.leagues | default([]) %}
+          {% for m in league.matches | default([]) %}
+            {% if m.home.id == tid %}
+              {% set ns.score = m.home.score %}
+            {% elif m.away.id == tid %}
+              {% set ns.score = m.away.score %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        {% if ns.score is none %}unknown{% else %}{{ ns.score }}{% endif %}
+  binary_sensor:
+    - name: FotMob Maccabi Match Live
+      unique_id: fotmob_maccabi_tlv_match_live
+      device_class: running
+      value_template: >-
+        {% set tid = 7855 %}
+        {% set ns = namespace(live=false) %}
+        {% for league in value_json.leagues | default([]) %}
+          {% for m in league.matches | default([]) %}
+            {% if m.home.id == tid or m.away.id == tid %}
+              {% set st = m.status | default({}) %}
+              {% set ns.live = st.started and not st.finished %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        {{ ns.live }}
