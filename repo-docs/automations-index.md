@@ -14,7 +14,7 @@ This folder groups **related automations** into readable guides. Each guide expl
 | Presence and devices | Boo’s home, unknown tracker, new `device_tracker` events | [automations-presence-and-devices.md](automations-presence-and-devices.md) |
 | Google and IFTTT | Keep, broadcast TTS, IFTTT webhooks, startup trigger | [automations-google-ifttt.md](automations-google-ifttt.md) |
 | HA platform | Docker/HACS/DuckDNS/HTML5 action, Healthchecks heartbeat | [automations-ha-platform.md](automations-ha-platform.md) |
-| Monitoring and misc | Batteries, missing sensors, SpeedTest, blueprints, sports, No-IP | [automations-monitoring-alerts.md](automations-monitoring-alerts.md) |
+| Monitoring and misc | Batteries, missing sensors, SpeedTest, sports, No-IP | [automations-monitoring-alerts.md](automations-monitoring-alerts.md) |
 | Main media | `input_select.main_media` ↔ scripts ↔ AVR/TV sync | [automations-main-media.md](automations-main-media.md) |
 
 ## Cross-links between suites
