@@ -205,8 +205,10 @@ yeelight:
     192.168.1.120:
       name: Curtain light
       model: strip1
+    # strip6 replacement (MAC B4:60:ED:1D:3E:62); DHCP reserved .121
     192.168.1.121:
       name: Peninsula light
+      model: strip6
     192.168.1.122:
       name: Stove light
     192.168.1.123:
