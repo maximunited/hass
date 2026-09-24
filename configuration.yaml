@@ -41,7 +41,7 @@ default_config:
 # updater:
 
 # Recorder
-# recorder: !include recorder.yaml
+recorder: !include recorder.yaml
 
 # Logger
 logger: !include logger.yaml
