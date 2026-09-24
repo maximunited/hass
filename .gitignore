@@ -68,6 +68,8 @@ backups
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak
 ip_bans.yaml
 secrets.yaml
+esphome/secrets.yaml
+esphome/.esphome/
 known_devices.yaml
 hass_vscode.code-workspace
 
