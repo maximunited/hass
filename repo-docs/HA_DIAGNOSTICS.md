@@ -253,10 +253,26 @@ HA **2026.8.2**, restarted **2026-08-18 ~21:28 UTC** (~00:28 local). Since resta
 
 ---
 
+## FotMob Maccabi TLV goal lights (2026-09-24)
+
+**Symptom:** Automation `maccabi_tlv_goal_lights` showed **Unknown entity** for `sensor.fotmob_maccabi_goals` and `binary_sensor.fotmob_maccabi_match_live`. `scene.maccabi_goal_lights_snapshot` also unknown in the UI (expected until first `scene.create` at runtime).
+
+**Root causes:**
+
+1. `rest: !include rest.yaml` was added after the last HA boot (~20:33). Only **automations** were reloaded (~23:46); REST never set up, so entities did not exist.
+2. After restart, goals sensor still failed setup: `state_class: measurement` + `unit_of_measurement: goals` require a **numeric** state, but the template returned the string `unknown` when team 7855 had no match that day → `ValueError` / entity not added.
+
+**Fix:** Full HA restart to load `rest`; change `rest.yaml` so no-match uses `availability_template` (entity **unavailable**) and `value_template` always returns a number. Then `rest.reload` (after REST is already loaded). Live check: `sensor.fotmob_maccabi_goals` **unavailable**, `binary_sensor.fotmob_maccabi_match_live` **off** on a non-match day. FotMob API OK.
+
+**Note:** New top-level `rest:` needs a restart once; later YAML edits can use **Developer tools → YAML → REST entities** / `rest.reload`.
+
+---
+
 ## Changelog
 
 | Date | Change |
 | ---- | ------ |
+| 2026-09-24 | FotMob: Unknown entity = no restart + goals template `unknown` vs measurement; fix availability + restart/`rest.reload`. |
 | 2026-09-24 | FotMob Maccabi TLV (team 7855): `rest.yaml` → goals + match-live sensors; automation `maccabi_tlv_goal_lights` flashes ambient Yeelights on score increase while live. |
 | 2026-09-24 | Ambient off after 2am: also trigger on `pikud_scene_active` off and ambient strip on (Pikud restore left lights on when FP2 already clear). |
 | 2026-09-24 | Pikud deferred ambient: post-safe + timeout accept household home **or** FP2 zone 1 on (align with ambient sunset). |
