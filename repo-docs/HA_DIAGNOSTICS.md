@@ -257,6 +257,7 @@ HA **2026.8.2**, restarted **2026-08-18 ~21:28 UTC** (~00:28 local). Since resta
 
 | Date | Change |
 | ---- | ------ |
+| 2026-09-24 | FotMob Maccabi TLV (team 7855): `rest.yaml` → goals + match-live sensors; automation `maccabi_tlv_goal_lights` flashes ambient Yeelights on score increase while live. |
 | 2026-09-24 | Ambient off after 2am: also trigger on `pikud_scene_active` off and ambient strip on (Pikud restore left lights on when FP2 already clear). |
 | 2026-09-24 | Pikud deferred ambient: post-safe + timeout accept household home **or** FP2 zone 1 on (align with ambient sunset). |
 | 2026-09-13 | Ollama: alterai.duckdns.org integration; Assist "..." fixed (unload stuck qwen2.5:7b, chat agent on llama3.2:3b); pipeline on `conversation.ollama`. |

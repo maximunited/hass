@@ -1393,6 +1393,45 @@
       entity_id: input_number.max_download_speed
       value: '{{ states(''sensor.speedtest_download'') }}'
   mode: single
+- id: maccabi_tlv_goal_lights
+  alias: Maccabi TLV goal lights (FotMob)
+  description: When FotMob reports a Maccabi Tel Aviv goal increase during a live
+    match, flash curtain/peninsula/stove Yeelights (Alarm), then restore prior state.
+  triggers:
+  - entity_id: sensor.fotmob_maccabi_goals
+    trigger: state
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.fotmob_maccabi_match_live
+    state: 'on'
+  - condition: template
+    value_template: "{% set fr = trigger.from_state.state | default('') %}{% set to
+      = trigger.to_state.state | default('') %}{{ fr not in ['unknown', 'unavailable',
+      'none', ''] and to not in ['unknown', 'unavailable', 'none', ''] and (to |
+      int(0)) > (fr | int(0)) }}"
+  actions:
+  - data:
+      scene_id: maccabi_goal_lights_snapshot
+      snapshot_entities:
+      - light.curtain_light
+      - light.peninsula_light
+      - light.stove_light
+    action: scene.create
+  - target:
+      entity_id:
+      - light.curtain_light
+      - light.peninsula_light
+      - light.stove_light
+    data:
+      effect: Alarm
+      brightness: 255
+    action: light.turn_on
+  - delay: 00:00:08
+  - target:
+      entity_id: scene.maccabi_goal_lights_snapshot
+    action: scene.turn_on
+  mode: queued
+  max: 5
 - id: notify_maccabi_scores
   alias: Notify when Maccabi scores
   description: Notify when Maccabi team_score increases on tt_maccabi_fc sensor.

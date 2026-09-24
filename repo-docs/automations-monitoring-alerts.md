@@ -14,6 +14,7 @@ Daily **low-battery summary**, **sensor health** toggle, **SpeedTest** record-ke
 | `notify_missing_sensors` | Notify Missing Sensors | `input_boolean.notify_missing_sensors` **on** → sensors **unavailable** more than **14 days** |
 | `track_speedtest_maximum_download` | Track SpeedTest Maximum Download | Hourly check; if `sensor.speedtest_download` beats `input_number.max_download_speed`, update it |
 | `notify_maccabi_scores` | Notify when Maccabi scores | `sensor.tt_maccabi_fc` **team_score** attribute increases → persistent notification |
+| `maccabi_tlv_goal_lights` | Maccabi TLV goal lights (FotMob) | `sensor.fotmob_maccabi_goals` increases while `binary_sensor.fotmob_maccabi_match_live` is **on** → flash curtain/peninsula/stove, then restore |
 | `notify_noip_hosts_renewed` | notify PB if noip hosts were renewed | `sensor.noip_hosts_renewed` above 0 for 30s → Pushbullet |
 
 ---
@@ -58,7 +59,8 @@ Hourly: if current download **exceeds** stored `input_number.max_download_speed`
 
 ## Misc notifiers
 
-- **Maccabi:** Attribute trigger on live score sensor; compares int team score before/after.
+- **Maccabi (Team Tracker):** Attribute trigger on `sensor.tt_maccabi_fc`; compares int team score before/after → persistent notification.
+- **Maccabi TLV goal lights (FotMob):** REST poll of FotMob daily matches (~30s) for team id **7855**. Entities from [`rest.yaml`](../rest.yaml): `sensor.fotmob_maccabi_goals`, `binary_sensor.fotmob_maccabi_match_live`. On goal increase while live, snapshot → Yeelight **Alarm** on curtain/peninsula/stove → 8s → restore snapshot. Verify: Developer tools → States for those entities on a match day; force a state change only for dry-run testing.
 - **No-IP:** Docker renew counter sensor; Pushbullet when renews detected.
 
 ---
