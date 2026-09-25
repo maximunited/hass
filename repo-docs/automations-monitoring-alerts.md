@@ -60,7 +60,7 @@ Hourly: if current download **exceeds** stored `input_number.max_download_speed`
 ## Misc notifiers
 
 - **Maccabi (Team Tracker):** Attribute trigger on `sensor.tt_maccabi_fc`; compares int team score before/after → persistent notification.
-- **Maccabi TLV goal lights (FotMob):** REST poll of FotMob daily matches (~30s) for team id **7855**. Entities from [`rest.yaml`](../rest.yaml): `sensor.fotmob_maccabi_goals`, `binary_sensor.fotmob_maccabi_match_live`. On goal increase while live, `scene.create` → Yeelight **Alarm** on curtain/peninsula/stove → 8s → `scene.turn_on` restore. Placeholder `scene.maccabi_goal_lights_snapshot` in [`scenes.yaml`](../scenes.yaml) keeps the editor happy; runtime create overwrites it. Verify: Developer tools → States for those entities on a match day; force a state change only for dry-run testing.
+- **Maccabi TLV goal lights (FotMob):** REST poll of FotMob daily matches (~30s) for team id **7855**. Entities from [`rest.yaml`](../rest.yaml): `sensor.fotmob_maccabi_goals` (always numeric; **0** when no match — no `availability_template` under `rest:`), `binary_sensor.fotmob_maccabi_match_live`. On goal increase while live, `scene.create` → Yeelight **Alarm** on curtain/peninsula/stove → 8s → `scene.turn_on` restore. Placeholder `scene.maccabi_goal_lights_snapshot` in [`scenes.yaml`](../scenes.yaml) keeps the editor happy; runtime create overwrites it. Verify: Developer tools → States for those entities on a match day; force a state change only for dry-run testing.
 - **No-IP:** Docker renew counter sensor; Pushbullet when renews detected.
 
 ---
