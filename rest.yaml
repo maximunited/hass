@@ -12,18 +12,8 @@
       unique_id: fotmob_maccabi_tlv_goals
       unit_of_measurement: goals
       state_class: measurement
-      # measurement + unit require a numeric state; no match → unavailable
-      availability_template: >-
-        {% set tid = 7855 %}
-        {% set ns = namespace(found=false) %}
-        {% for league in value_json.leagues | default([]) %}
-          {% for m in league.matches | default([]) %}
-            {% if m.home.id == tid or m.away.id == tid %}
-              {% set ns.found = true %}
-            {% endif %}
-          {% endfor %}
-        {% endfor %}
-        {{ ns.found }}
+      # measurement + unit require a numeric state; no match → 0 (not "unknown").
+      # rest sensor has no availability_template; live gate is binary_sensor below.
       value_template: >-
         {% set tid = 7855 %}
         {% set ns = namespace(score=0) %}
