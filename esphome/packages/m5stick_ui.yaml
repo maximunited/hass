@@ -1,0 +1,152 @@
+font:
+  - file: "gfonts://Figtree"
+    id: font_date
+    size: 18
+  - file: "gfonts://Figtree"
+    id: font_battery
+    size: 14
+  - file: "gfonts://Figtree"
+    id: font_clock
+    size: 48
+  - file: "gfonts://Figtree"
+    id: font_ampm
+    size: 16
+  - file: "gfonts://Kanit"
+    id: font_alert
+    size: 30
+  - file: "gfonts://Noto Sans Hebrew"
+    id: font_alert_he
+    size: 26
+  - file: "gfonts://Figtree"
+    id: font_shelter
+    size: 18
+  - file: "gfonts://Noto Sans Hebrew"
+    id: font_shelter_he
+    size: 16
+
+output:
+  - platform: ledc
+    pin: GPIO38
+    id: lcd_backlight_raw
+    frequency: 1000Hz
+
+light:
+  - platform: monochromatic
+    id: backlight
+    name: "Display backlight"
+    icon: mdi:cellphone
+    output: lcd_backlight_raw
+    restore_mode: ALWAYS_ON
+    default_transition_length: 0s
+
+lvgl:
+  rotation: 270
+  displays:
+    - stick_display
+  on_idle:
+    - timeout: ${idle_time}
+      then:
+        - if:
+            condition:
+              and:
+                - lambda: 'return id(display_mode) == 0;'
+                - binary_sensor.is_off: external_power
+            then:
+              - lvgl.page.show: page_clock
+              - lvgl.widget.redraw:
+              - delay: 50ms
+              - light.turn_off:
+                  id: backlight
+              - lvgl.pause:
+              - lambda: 'id(clock_screen_asleep) = true;'
+  pages:
+    - id: page_clock
+      bg_color: 0x000000
+      widgets:
+        - label:
+            id: lbl_date
+            y: 4
+            align: TOP_MID
+            text: "--/--/--"
+            text_color: 0x8A8A8A
+            text_font: font_date
+        - label:
+            id: lbl_ha_status
+            x: 6
+            y: 4
+            align: TOP_LEFT
+            text: "HA"
+            text_color: 0x00CC00
+            text_font: font_battery
+        - label:
+            id: lbl_battery
+            x: -6
+            y: -6
+            align: BOTTOM_RIGHT
+            text: "--%"
+            text_color: 0xB0B0B0
+            text_font: font_battery
+        - label:
+            id: lbl_clock
+            align: CENTER
+            y: -8
+            text: "--:--"
+            text_color: 0xFFFFFF
+            text_font: font_clock
+        - label:
+            id: lbl_ampm
+            align: CENTER
+            y: 30
+            text: "--"
+            text_color: 0x8A8A8A
+            text_font: font_ampm
+
+    - id: page_pre_alert_text
+      bg_color: 0x000000
+      widgets:
+        - label:
+            id: lbl_pre_alert
+            align: CENTER
+            width: 130
+            long_mode: WRAP
+            text: "Pre-Alert"
+            text_color: 0xFF8800
+            text_font: font_alert
+
+    - id: page_pre_alert_full
+      bg_color: 0xFF8800
+
+    - id: page_alert_text
+      bg_color: 0x000000
+      widgets:
+        - label:
+            id: lbl_alert
+            align: CENTER
+            y: -20
+            text: "ALERT !"
+            text_color: 0xFF0000
+            text_font: font_alert
+        - label:
+            id: lbl_alert_shelter
+            align: CENTER
+            y: 28
+            text: ""
+            text_color: 0xFFFFFF
+            text_font: font_shelter
+            hidden: true
+
+    - id: page_alert_full
+      bg_color: 0xFF0000
+
+    - id: page_safe_text
+      bg_color: 0x000000
+      widgets:
+        - label:
+            id: lbl_safe
+            align: CENTER
+            text: "SAFE"
+            text_color: 0x00CC00
+            text_font: font_alert
+
+    - id: page_safe_full
+      bg_color: 0x00CC00

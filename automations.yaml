@@ -2,8 +2,9 @@
   alias: Pikud Oref - Enter pre-alert state
   description: When Oref changes to pre_alert, cancel any post-safe restore delay
     timer, snapshot current lighting if Pikud was not active or we are re-arming from
-    ok (after safe), activate the Pre-Alert scene, and start the 20-minute timer only
-    if input_boolean.pikud_timeout_restore is on.
+    ok (after safe), activate the Pre-Alert scene, and start the pre-alert timeout
+    timer only if input_boolean.pikud_timeout_restore is on (duration from
+    input_number.pikud_scene_timeout_minutes).
   triggers:
   - entity_id: sensor.oref_alert
     to: pre_alert
@@ -41,7 +42,10 @@
     then:
     - data:
         entity_id: timer.pikud_scene_timeout
-        duration: 00:20:00
+        duration: >
+          {% set mins = states('input_number.pikud_scene_timeout_minutes') | float(20) %}
+          {% set secs = (mins * 60) | round(0) | int %}
+          {{ '%02d:%02d:%02d' | format(secs // 3600, (secs % 3600) // 60, secs % 60) }}
       action: timer.start
   - sequence:
     - target:
@@ -129,10 +133,11 @@
   mode: restart
 - id: pikud_safe_start
   alias: Pikud Oref - Enter safe state
-  description: When Oref changes to ok, cancel the pre-alert 20m timer and any prior
-    post-safe delay, apply the Safe scene and notify, keep snapshot text and input_boolean.pikud_scene_active
-    until timer.pikud_safe_post_restore (3m30s) finishes — then Pikud Oref - Post-safe
-    restore applies pre-Pikud lights and cleanup.
+  description: When Oref changes to ok, cancel the pre-alert timeout timer and any
+    prior post-safe delay, apply the Safe scene and notify, keep snapshot text and
+    input_boolean.pikud_scene_active until timer.pikud_safe_post_restore finishes
+    (duration from input_number.pikud_safe_post_restore_minutes) — then Pikud Oref
+    - Post-safe restore applies pre-Pikud lights and cleanup.
   triggers:
   - entity_id: sensor.oref_alert
     to: ok
@@ -149,7 +154,10 @@
     action: scene.turn_on
   - data:
       entity_id: timer.pikud_safe_post_restore
-      duration: 00:03:30
+      duration: >
+        {% set mins = states('input_number.pikud_safe_post_restore_minutes') | float(3.5) %}
+        {% set secs = (mins * 60) | round(0) | int %}
+        {{ '%02d:%02d:%02d' | format(secs // 3600, (secs % 3600) // 60, secs % 60) }}
     action: timer.start
   - parallel:
     - action: ntfy.publish

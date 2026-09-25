@@ -1,0 +1,472 @@
+script:
+  - id: clock_status_text
+    then:
+      - lvgl.label.update:
+          id: lbl_battery
+          text: !lambda |-
+            if (id(external_power).state) {
+              return std::string("PWR");
+            }
+            int level = M5.Power.getBatteryLevel();
+            if (level < 0) {
+              return std::string("--%");
+            }
+            char buf[16];
+            snprintf(buf, sizeof(buf), "%d%%", level);
+            return std::string(buf);
+          text_color: !lambda |-
+            if (id(external_power).state) {
+              return lv_color_hex(0x44AAFF);
+            }
+            int level = M5.Power.getBatteryLevel();
+            if (level < 0) {
+              return lv_color_hex(0xB0B0B0);
+            }
+            if (level >= 60) {
+              return lv_color_hex(0x00CC00);
+            }
+            if (level >= 30) {
+              return lv_color_hex(0xFFAA00);
+            }
+            return lv_color_hex(0xFF4444);
+      - lvgl.label.update:
+          id: lbl_ha_status
+          text: !lambda |-
+            return id(ha_connected) ? std::string("HA") : std::string("HA?");
+          text_color: !lambda |-
+            return id(ha_connected) ? lv_color_hex(0x00CC00) : lv_color_hex(0xFF6600);
+
+  - id: clock_time_text
+    then:
+      - script.execute: refresh_clock_labels
+
+  - id: refresh_clock_labels
+    then:
+      - script.execute: clock_status_text
+      - lvgl.label.update:
+          id: lbl_clock
+          text: !lambda |-
+            auto t = id(esptime).now();
+            int h = t.hour % 12;
+            if (h == 0) h = 12;
+            char buf[8];
+            snprintf(buf, sizeof(buf), "%d:%02d", h, t.minute);
+            return std::string(buf);
+      - lvgl.label.update:
+          id: lbl_ampm
+          text: !lambda |-
+            return id(esptime).now().hour < 12 ? std::string("AM") : std::string("PM");
+      - lvgl.label.update:
+          id: lbl_date
+          text: !lambda 'return id(esptime).now().strftime("%d/%m/%y");'
+
+  - id: update_alert_labels
+    then:
+      - lvgl.label.update:
+          id: lbl_pre_alert
+          text: !lambda |-
+            bool he = id(alert_language).has_state() && id(alert_language).state == "hebrew";
+            return he ? std::string("התרעה מוקדמת") : std::string("Pre-Alert");
+          text_font: !lambda |-
+            bool he = id(alert_language).has_state() && id(alert_language).state == "hebrew";
+            return he ? id(font_alert_he) : id(font_alert);
+      - lvgl.label.update:
+          id: lbl_alert
+          text: !lambda |-
+            bool he = id(alert_language).has_state() && id(alert_language).state == "hebrew";
+            return he ? std::string("אזעקה!") : std::string("ALERT !");
+          text_font: !lambda |-
+            bool he = id(alert_language).has_state() && id(alert_language).state == "hebrew";
+            return he ? id(font_alert_he) : id(font_alert);
+      - lvgl.label.update:
+          id: lbl_safe
+          text: !lambda |-
+            bool he = id(alert_language).has_state() && id(alert_language).state == "hebrew";
+            return he ? std::string("בטוח") : std::string("SAFE");
+          text_font: !lambda |-
+            bool he = id(alert_language).has_state() && id(alert_language).state == "hebrew";
+            return he ? id(font_alert_he) : id(font_alert);
+
+  - id: update_shelter_label
+    then:
+      - lvgl.label.update:
+          id: lbl_alert_shelter
+          text: !lambda |-
+            if (id(oref_prev_state) == "test_alert") {
+              char buf[16];
+              snprintf(buf, sizeof(buf), "[TEST %d]", id(test_shelter_secs));
+              return std::string(buf);
+            }
+            bool he = id(alert_language).has_state() && id(alert_language).state == "hebrew";
+            if (isnan(id(shelter_seconds).state)) {
+              return he ? std::string("מקלט: ?") : std::string("Shelter: ?");
+            }
+            int secs = (int) id(shelter_seconds).state;
+            if (secs < 0) secs = 0;
+            int mins = secs / 60;
+            int rem = secs % 60;
+            char buf[28];
+            if (he) {
+              if (mins > 0) {
+                snprintf(buf, sizeof(buf), "מקלט: %d דק' %d ש'", mins, rem);
+              } else {
+                snprintf(buf, sizeof(buf), "מקלט: %d ש'", rem);
+              }
+            } else {
+              if (mins > 0) {
+                snprintf(buf, sizeof(buf), "Shelter: %dm %ds", mins, rem);
+              } else {
+                snprintf(buf, sizeof(buf), "Shelter: %ds", rem);
+              }
+            }
+            return std::string(buf);
+          text_font: !lambda |-
+            bool he = id(alert_language).has_state() && id(alert_language).state == "hebrew";
+            return he ? id(font_shelter_he) : id(font_shelter);
+
+  - id: apply_clock_rotation
+    then:
+      - lambda: |-
+          int deg = id(clock_rotation_deg);
+          if (deg != 0 && deg != 90 && deg != 180 && deg != 270) {
+            id(clock_rotation_deg) = 270;
+          }
+      - if:
+          condition:
+            lambda: 'return id(clock_rotation_deg) == 0;'
+          then:
+            - lvgl.display.set_rotation: 0
+      - if:
+          condition:
+            lambda: 'return id(clock_rotation_deg) == 90;'
+          then:
+            - lvgl.display.set_rotation: 90
+      - if:
+          condition:
+            lambda: 'return id(clock_rotation_deg) == 180;'
+          then:
+            - lvgl.display.set_rotation: 180
+      - if:
+          condition:
+            lambda: 'return id(clock_rotation_deg) == 270;'
+          then:
+            - lvgl.display.set_rotation: 270
+
+  - id: rotate_clock_90
+    then:
+      - lambda: |-
+          int deg = id(clock_rotation_deg) + 90;
+          if (deg >= 360) deg = 0;
+          id(clock_rotation_deg) = deg;
+      - script.execute: apply_clock_rotation
+      - script.execute: render_clock_screen
+
+  - id: screen_sleep
+    then:
+      - lambda: 'id(clock_screen_asleep) = true;'
+      - light.turn_off:
+          id: backlight
+      - lvgl.pause:
+
+  - id: screen_wake
+    then:
+      - lambda: 'id(clock_screen_asleep) = false;'
+      - lvgl.resume:
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 0;'
+          then:
+            - script.execute: apply_clock_rotation
+            - script.execute: render_clock_screen
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 1;'
+          then:
+            - script.execute: pikud_pre_alert_loop
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 2;'
+          then:
+            - script.execute: pikud_alert_loop
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 3;'
+          then:
+            - script.execute: pikud_safe_loop
+
+  - id: pikud_wake_display
+    then:
+      - if:
+          condition:
+            lambda: 'return !id(clock_screen_asleep);'
+          then:
+            - lvgl.resume:
+            - light.turn_on:
+                id: backlight
+                brightness: 90%
+
+  - id: pikud_force_wake_display
+    then:
+      - lambda: 'id(clock_screen_asleep) = false;'
+      - lvgl.resume:
+      - light.turn_on:
+          id: backlight
+          brightness: 90%
+
+  - id: render_clock_screen
+    then:
+      - lambda: 'id(clock_screen_asleep) = false;'
+      - lvgl.resume:
+      - script.execute: refresh_clock_labels
+      - lvgl.widget.hide: lbl_alert_shelter
+      - lvgl.page.show: page_clock
+      - if:
+          condition:
+            binary_sensor.is_on: external_power
+          then:
+            - light.turn_on:
+                id: backlight
+                brightness: 70%
+          else:
+            - light.turn_on:
+                id: backlight
+                brightness: 40%
+
+  - id: pikud_show_clock
+    mode: restart
+    then:
+      - script.stop: pikud_pre_alert_loop
+      - script.stop: pikud_alert_loop
+      - script.stop: pikud_safe_loop
+      - lambda: 'id(display_mode) = 0;'
+      - script.execute: render_clock_screen
+
+  - id: pikud_dismiss
+    mode: restart
+    then:
+      - script.execute: pikud_show_clock
+
+  - id: button_a_release
+    then:
+      - lambda: |-
+          uint32_t now = millis();
+          uint32_t gap = now - id(btn_a_last_release_ms);
+          if (gap < 350 && gap > 30) {
+            id(btn_a_last_release_ms) = 0;
+            id(btn_a_pending_single) = false;
+          } else {
+            id(btn_a_pending_single) = true;
+            id(btn_a_last_release_ms) = now;
+          }
+      - if:
+          condition:
+            lambda: 'return id(btn_a_last_release_ms) == 0;'
+          then:
+            - script.execute: pikud_show_clock
+      - if:
+          condition:
+            lambda: 'return id(btn_a_last_release_ms) != 0;'
+          then:
+            - delay: 300ms
+            - if:
+                condition:
+                  lambda: 'return id(btn_a_pending_single);'
+                then:
+                  - lambda: 'id(btn_a_pending_single) = false;'
+                  - script.execute: button_a_short
+
+  - id: button_a_short
+    then:
+      - if:
+          condition:
+            lambda: 'return id(display_mode) != 0;'
+          then:
+            - script.execute: pikud_show_clock
+          else:
+            - if:
+                condition:
+                  lambda: 'return id(clock_screen_asleep);'
+                then:
+                  - script.execute: screen_wake
+                else:
+                  - script.execute: screen_sleep
+
+  - id: button_b_short
+    then:
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 0;'
+          then:
+            - script.execute: rotate_clock_90
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 2;'
+          then:
+            - script.execute: pikud_force_wake_display
+            - script.execute: update_shelter_label
+            - lvgl.widget.show: lbl_alert_shelter
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 1 || id(display_mode) == 3;'
+          then:
+            - script.execute: pikud_force_wake_display
+
+  - id: handle_oref_state
+    mode: restart
+    then:
+      - lambda: |-
+          const std::string &raw = id(oref_alert_state).state;
+          if (raw == id(oref_prev_raw)) {
+            id(oref_state_changed) = false;
+            return;
+          }
+          id(oref_prev_raw) = raw;
+          id(oref_state_changed) = true;
+          std::string s = raw;
+          const size_t pipe = raw.find('|');
+          if (pipe != std::string::npos) {
+            s = raw.substr(0, pipe);
+          }
+          const std::string &prev = id(oref_prev_state);
+          if (s == "pre_alert" || s == "test_pre_alert") {
+            id(display_mode) = 1;
+          } else if (s == "alert" || s == "test_alert") {
+            id(display_mode) = 2;
+            if (s == "test_alert") {
+              id(test_shelter_secs) = 90;
+            }
+          } else if (s == "test_ok") {
+            id(display_mode) = 3;
+            id(safe_start_ms) = millis();
+          } else if (s == "ok") {
+            if (prev == "alert" || prev == "pre_alert") {
+              id(display_mode) = 3;
+              id(safe_start_ms) = millis();
+            } else {
+              id(display_mode) = 0;
+            }
+          } else {
+            id(display_mode) = 0;
+          }
+          id(oref_prev_state) = s;
+      - if:
+          condition:
+            lambda: 'return id(oref_state_changed);'
+          then:
+            - script.stop: pikud_pre_alert_loop
+            - script.stop: pikud_alert_loop
+            - script.stop: pikud_safe_loop
+            - script.stop: pikud_show_clock
+            - script.execute: update_alert_labels
+            - if:
+                condition:
+                  lambda: 'return id(display_mode) == 1 || id(display_mode) == 2 || id(display_mode) == 3;'
+                then:
+                  - script.execute: pikud_force_wake_display
+            - if:
+                condition:
+                  lambda: 'return id(display_mode) == 1;'
+                then:
+                  - script.execute: pikud_pre_alert_loop
+            - if:
+                condition:
+                  lambda: 'return id(display_mode) == 2;'
+                then:
+                  - script.execute: pikud_alert_loop
+            - if:
+                condition:
+                  lambda: 'return id(display_mode) == 3;'
+                then:
+                  - script.execute: pikud_safe_loop
+            - if:
+                condition:
+                  lambda: 'return id(display_mode) == 0;'
+                then:
+                  - script.execute: pikud_show_clock
+
+  - id: pikud_pre_alert_loop
+    mode: restart
+    then:
+      - while:
+          condition:
+            lambda: 'return id(display_mode) == 1;'
+          then:
+            - script.execute: pikud_wake_display
+            - script.execute: update_alert_labels
+            - lvgl.page.show: page_pre_alert_text
+            - delay: ${pikud_flash_seconds}
+            - if:
+                condition:
+                  lambda: 'return id(display_mode) != 1;'
+                then:
+                  - script.stop: pikud_pre_alert_loop
+            - lvgl.page.show: page_pre_alert_full
+            - delay: ${pikud_flash_seconds}
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 0;'
+          then:
+            - script.execute: render_clock_screen
+
+  - id: pikud_alert_loop
+    mode: restart
+    then:
+      - while:
+          condition:
+            lambda: 'return id(display_mode) == 2;'
+          then:
+            - script.execute: pikud_wake_display
+            - script.execute: update_alert_labels
+            - script.execute: update_shelter_label
+            - lvgl.widget.show: lbl_alert_shelter
+            - lvgl.page.show: page_alert_text
+            - delay: ${pikud_flash_seconds}
+            - if:
+                condition:
+                  lambda: 'return id(display_mode) != 2;'
+                then:
+                  - script.stop: pikud_alert_loop
+            - lvgl.page.show: page_alert_full
+            - delay: ${pikud_flash_seconds}
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 0;'
+          then:
+            - script.execute: render_clock_screen
+
+  - id: pikud_safe_loop
+    mode: restart
+    then:
+      - while:
+          condition:
+            lambda: |-
+              if (id(display_mode) != 3) return false;
+              float max_m = atof("${pikud_safe_max_minutes_default}");
+              if (id(safe_max_minutes).has_state() && !isnan(id(safe_max_minutes).state)) {
+                max_m = id(safe_max_minutes).state;
+              }
+              if (max_m < 0.5f) max_m = 0.5f;
+              if (max_m > 60.0f) max_m = 60.0f;
+              return (millis() - id(safe_start_ms)) < (uint32_t)(max_m * 60.0f * 1000.0f);
+          then:
+            - script.execute: pikud_wake_display
+            - script.execute: update_alert_labels
+            - lvgl.widget.hide: lbl_alert_shelter
+            - lvgl.page.show: page_safe_text
+            - delay: ${pikud_flash_seconds}
+            - if:
+                condition:
+                  lambda: 'return id(display_mode) != 3;'
+                then:
+                  - script.stop: pikud_safe_loop
+            - lvgl.page.show: page_safe_full
+            - delay: ${pikud_flash_seconds}
+      - lambda: |-
+          if (id(display_mode) == 3) {
+            id(display_mode) = 0;
+          }
+      - if:
+          condition:
+            lambda: 'return id(display_mode) == 0;'
+          then:
+            - script.execute: render_clock_screen

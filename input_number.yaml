@@ -6,3 +6,33 @@ m5stick_pikud_sync:
   mode: box
   initial: 0
   icon: mdi:counter
+
+m5stick_pikud_safe_minutes:
+  name: M5Stick Pikud safe screen duration
+  min: 0.5
+  max: 60
+  step: 0.5
+  mode: box
+  initial: 5
+  unit_of_measurement: min
+  icon: mdi:timer-outline
+
+pikud_safe_post_restore_minutes:
+  name: Pikud post-safe restore delay
+  min: 0.5
+  max: 30
+  step: 0.5
+  mode: box
+  initial: 3.5
+  unit_of_measurement: min
+  icon: mdi:timer-sand
+
+pikud_scene_timeout_minutes:
+  name: Pikud pre-alert timeout
+  min: 1
+  max: 120
+  step: 1
+  mode: box
+  initial: 20
+  unit_of_measurement: min
+  icon: mdi:timer-alert-outline

@@ -1,0 +1,32 @@
+binary_sensor:
+  - platform: gpio
+    id: key1
+    name: "Button A"
+    pin:
+      number: GPIO11
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    filters:
+      - delayed_on: 10ms
+      - delayed_off: 10ms
+    on_release:
+      then:
+        - script.execute: button_a_release
+
+  - platform: gpio
+    id: key2
+    name: "Button B"
+    pin:
+      number: GPIO12
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    filters:
+      - delayed_on: 10ms
+      - delayed_off: 10ms
+    on_press:
+      then:
+        - script.execute: button_b_short

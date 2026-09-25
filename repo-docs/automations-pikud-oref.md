@@ -40,11 +40,11 @@ stateDiagram-v2
 
 ## End-to-end behavior (high level)
 
-1. **Pre-alert** — **Cancels** `timer.pikud_safe_post_restore` (so a pending post-safe restore does not run after a new warning). Takes a **new** snapshot if `input_boolean.pikud_scene_active` is **off** **or** Oref came **from** `ok` (re-arm during the post-safe window). Stores `scene.pikud_original_lights` in `input_text.pikud_original_snapshot_scene`, turns **on** `input_boolean.pikud_scene_active`, optionally **starts** `timer.pikud_scene_timeout` for 20 minutes (only when `input_boolean.pikud_timeout_restore` is on), applies `scene.pre_alert_pikud`, and sends notifications.
+1. **Pre-alert** — **Cancels** `timer.pikud_safe_post_restore` (so a pending post-safe restore does not run after a new warning). Takes a **new** snapshot if `input_boolean.pikud_scene_active` is **off** **or** Oref came **from** `ok` (re-arm during the post-safe window). Stores `scene.pikud_original_lights` in `input_text.pikud_original_snapshot_scene`, turns **on** `input_boolean.pikud_scene_active`, optionally **starts** `timer.pikud_scene_timeout` (duration from `input_number.pikud_scene_timeout_minutes`, default 20; only when `input_boolean.pikud_timeout_restore` is on), applies `scene.pre_alert_pikud`, and sends notifications.
 2. **Alert** — **Cancels** `timer.pikud_safe_post_restore`. If Pikud was not yet active, snapshots as above. Turns on `input_boolean.pikud_scene_active`, applies `scene.alert_pikud`, and sends stronger notifications with shelter timing from `sensor.oref_alert_time_to_shelter` where available.
-3. **Safe (`ok`)** — **Cancels** `timer.pikud_scene_timeout` and `timer.pikud_safe_post_restore`, applies **`scene.safe_pikud`** (green), **starts** `timer.pikud_safe_post_restore` for **3 minutes 30 seconds**, and sends safe notifications. It does **not** restore pre-Pikud lights yet: **`input_text`** and **`pikud_scene_active`** stay set until the post-safe timer finishes (so sunset ambient stays deferred during the green “safe” period).
-4. **Post-safe (3.5 minutes)** — When `timer.pikud_safe_post_restore` **finishes**, restores the snapshot if valid, clears `input_text`, turns **off** `input_boolean.pikud_scene_active`, and runs the **pending ambient** branch when household is home.
-5. **Timeout (20 minutes)** — Fires only if pre-alert started the timer and it is allowed to finish. **Cancels** `timer.pikud_safe_post_restore` (defensive). If `input_boolean.pikud_timeout_restore` is on, it may **restore** the snapshot; it always **clears** the snapshot text and turns off `input_boolean.pikud_scene_active`, then runs the same **pending ambient** branch when household is home.
+3. **Safe (`ok`)** — **Cancels** `timer.pikud_scene_timeout` and `timer.pikud_safe_post_restore`, applies **`scene.safe_pikud`** (green), **starts** `timer.pikud_safe_post_restore` (duration from `input_number.pikud_safe_post_restore_minutes`, default 3.5), and sends safe notifications. It does **not** restore pre-Pikud lights yet: **`input_text`** and **`pikud_scene_active`** stay set until the post-safe timer finishes (so sunset ambient stays deferred during the green “safe” period).
+4. **Post-safe** — When `timer.pikud_safe_post_restore` **finishes**, restores the snapshot if valid, clears `input_text`, turns **off** `input_boolean.pikud_scene_active`, and runs the **pending ambient** branch when household is home.
+5. **Timeout** — Fires only if pre-alert started the timer and it is allowed to finish. **Cancels** `timer.pikud_safe_post_restore` (defensive). If `input_boolean.pikud_timeout_restore` is on, it may **restore** the snapshot; it always **clears** the snapshot text and turns off `input_boolean.pikud_scene_active`, then runs the same **pending ambient** branch when household is home.
 
 ### Trigger map (automations ↔ events)
 
@@ -157,11 +157,13 @@ flowchart TD
 | Entity | Role |
 | ------ | ---- |
 | `input_boolean.pikud_scene_active` | **On** while Pikud-controlled scenes should be considered authoritative; blocks duplicate snapshots (except pre-alert **from ok**) and drives the ambient sunset branch (see [ambient doc](automations-ambient-sunset.md)). Stays **on** during the post-safe green period until **post-safe restore** runs. |
-| `input_boolean.pikud_timeout_restore` | Defined in [`input_boolean.yaml`](../input_boolean.yaml). When **on**, pre-alert **starts** the 20-minute timer and timeout restore may call `scene.turn_on` on the snapshot. When **off**, the timer is not started and timeout skips scene restore but still clears state. |
+| `input_boolean.pikud_timeout_restore` | Defined in [`input_boolean.yaml`](../input_boolean.yaml). When **on**, pre-alert **starts** the timeout timer (duration from `input_number.pikud_scene_timeout_minutes`, default 20) and timeout restore may call `scene.turn_on` on the snapshot. When **off**, the timer is not started and timeout skips scene restore but still clears state. |
+| `input_number.pikud_scene_timeout_minutes` | Pre-alert timeout length in minutes (default **20**). Used when starting `timer.pikud_scene_timeout`. |
+| `input_number.pikud_safe_post_restore_minutes` | Post-safe green delay in minutes (default **3.5**). Used when starting `timer.pikud_safe_post_restore`. |
 | `input_boolean.pikud_ambient_pending` | Set by the sunset automation when ambient should run later but Pikud is active; cleared when post-safe or timeout applies `scene.ambient_full` with household home or FP2 occupied. |
 | `input_text.pikud_original_snapshot_scene` | Stores the entity id of the snapshot scene (typically `scene.pikud_original_lights`) for restore logic. |
-| `timer.pikud_scene_timeout` | 20-minute window after pre-alert (optional); **cancelled** on **ok**. May be UI-defined if not in [`timer.yaml`](../timer.yaml). |
-| `timer.pikud_safe_post_restore` | **3m30s** delay after **ok**; defined in [`timer.yaml`](../timer.yaml). **Cancelled** on new **pre_alert** or **alert**. |
+| `timer.pikud_scene_timeout` | Optional window after pre-alert; duration set at start from `input_number.pikud_scene_timeout_minutes`. **Cancelled** on **ok**. May be UI-defined if not in [`timer.yaml`](../timer.yaml). |
+| `timer.pikud_safe_post_restore` | Delay after **ok**; duration set at start from `input_number.pikud_safe_post_restore_minutes`. **Cancelled** on new **pre_alert** or **alert**. |
 
 ---
 
@@ -188,7 +190,7 @@ flowchart TD
 
 - **Restart mode** on pre-alert and alert allows rapid re-entry if the sensor flaps; the latest run wins.
 - **Safe** cancels the 20m timer so you do not get a **stale** timeout restore after an official **ok**.
-- **Post-safe delay** keeps the green **safe** scene visible for **3.5 minutes**, then restores **pre-Pikud** snapshot (no immediate overwrite by green in the same second as restore).
+- **Post-safe delay** keeps the green **safe** scene visible for the configured post-safe minutes (default **3.5**), then restores **pre-Pikud** snapshot (no immediate overwrite by green in the same second as restore).
 - Pre-alert **from `ok`** refreshes the snapshot even if `pikud_scene_active` is still on, so a **new** warning during the post-safe window does not reuse a stale snapshot.
 - **Timeout** cancels the post-safe timer defensively if both could ever overlap.
 
@@ -200,7 +202,8 @@ flowchart TD
 | ---- | -------------------- |
 | [`automations.yaml`](../automations.yaml) | Automation `id`s, conditions, light lists in `scene.create`, notification targets. |
 | [`input_boolean.yaml`](../input_boolean.yaml) | `pikud_timeout_restore` (and any future Pikud toggles). |
-| [`timer.yaml`](../timer.yaml) | `timer.pikud_safe_post_restore` duration and name. |
+| [`input_number.yaml`](../input_number.yaml) | `pikud_scene_timeout_minutes`, `pikud_safe_post_restore_minutes`. |
+| [`timer.yaml`](../timer.yaml) | Optional UI timer helpers; start durations come from `input_number`. |
 | [`scenes.yaml`](../scenes.yaml) | Pikud and ambient scene definitions. |
 | [`configuration.yaml`](../configuration.yaml) | `timer: !include timer.yaml` |
 | [`templates/oref.yaml`](../templates/oref.yaml) | Template sensors around Oref (informational for dashboards; not the core alert `sensor.oref_alert` from the integration). |

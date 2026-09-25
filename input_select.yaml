@@ -123,6 +123,14 @@ m5stick_pikud_test_mode:
   initial: live
   icon: mdi:cellphone-dock
 
+m5stick_pikud_alert_language:
+  name: M5Stick Pikud alert language
+  options:
+    - english
+    - hebrew
+  initial: english
+  icon: mdi:translate
+
 living_room_lights:
   name: Living Room Lights
   options:

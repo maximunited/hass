@@ -1,0 +1,88 @@
+text_sensor:
+  - platform: homeassistant
+    id: oref_alert_state
+    entity_id: sensor.m5stick_pikud_display_state
+    internal: true
+    on_value:
+      then:
+        - script.execute: handle_oref_state
+
+  - platform: homeassistant
+    id: alert_language
+    entity_id: input_select.m5stick_pikud_alert_language
+    internal: true
+    on_value:
+      then:
+        - script.execute: update_alert_labels
+
+sensor:
+  - platform: homeassistant
+    id: shelter_seconds
+    entity_id: sensor.oref_alert_time_to_shelter
+    internal: true
+    on_value:
+      then:
+        - if:
+            condition:
+              lambda: 'return id(display_mode) == 2;'
+            then:
+              - script.execute: update_shelter_label
+
+  - platform: homeassistant
+    id: safe_max_minutes
+    entity_id: input_number.m5stick_pikud_safe_minutes
+    internal: true
+
+  - platform: template
+    name: "Battery level"
+    id: battery_level_ha
+    unit_of_measurement: "%"
+    device_class: battery
+    state_class: measurement
+    entity_category: diagnostic
+    accuracy_decimals: 0
+    update_interval: 60s
+    lambda: |-
+      if (id(external_power).state) {
+        return NAN;
+      }
+      int level = M5.Power.getBatteryLevel();
+      if (level < 0) {
+        return NAN;
+      }
+      return (float) level;
+
+binary_sensor:
+  - platform: template
+    id: external_power
+    name: "Charging"
+    device_class: battery_charging
+    entity_category: diagnostic
+    filters:
+      - delayed_off: 10s
+    on_state:
+      then:
+        - if:
+            condition:
+              and:
+                - lambda: 'return id(display_mode) == 0;'
+                - lambda: 'return !id(clock_screen_asleep);'
+            then:
+              - script.execute: clock_status_text
+    lambda: |-
+      return M5.Power.isCharging() == m5::Power_Class::is_charging_t::is_charging;
+
+  - platform: template
+    name: "API connected"
+    id: api_connected_ha
+    device_class: connectivity
+    entity_category: diagnostic
+    lambda: |-
+      return id(ha_connected);
+
+m5sticks3_power:
+  id: stick_power
+  update_interval: 60s
+  beep:
+    name: "Confirmation beep"
+    internal: true
