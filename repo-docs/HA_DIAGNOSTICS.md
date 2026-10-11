@@ -316,3 +316,4 @@ HA **2026.8.2**, restarted **2026-08-18 ~21:28 UTC** (~00:28 local). Since resta
 | 2026-04-05 | Moved from repo root to `docs/HA_DIAGNOSTICS.md`; added discovery note for AI tools. |
 | 2026-04-05 | Renamed folder `docs/` → `repo-docs/` to avoid confusion with official HA documentation. |
 | 2026-04-05 | Added Cursor rule `.cursor/rules/homeassistant-repo-docs.mdc` to load this doc for HA-related tasks. |
+| 2026-10-11 | Master Bedroom blinds: card **v20** (ResizeObserver + `forcePng`). Root cause of “floating” shade: PE style used `translate(-50%,-50%)` on a 100% overlay — shifted art off the windows. Fixed to `left/top: 0`. Frames = photoreal wipe into glass quads. |
