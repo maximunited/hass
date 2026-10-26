@@ -15,7 +15,7 @@ class HaFanLoopCard extends HTMLElement {
     const ent = hass.states[this._cfg.entity];
     if (!ent) return;
     const on = ent.state === 'on';
-    
+
     /* --- decide playback rate --- */
     let rate = 0;
     if (on) {
@@ -29,7 +29,7 @@ class HaFanLoopCard extends HTMLElement {
         rate = 1;              // default
       }
     }
-    
+
     /* --- apply --- */
     if (rate === 0) {                               // off → freeze
       if (this._usePNG) {
@@ -66,16 +66,16 @@ class HaFanLoopCard extends HTMLElement {
   _build() {
     this._built = true;
     this._frames = this._cfg.frames;
-    
+
     // Check if mobile - use PNG sequence instead of WebM
     this._usePNG = this._isMobile();
-    
+
     if (this._usePNG) {
       this._buildPNGVersion();
     } else {
       this._buildVideoVersion();
     }
-    
+
     this._currentFrame = 0;
     this._animationId = null;
   }
@@ -89,12 +89,12 @@ class HaFanLoopCard extends HTMLElement {
       pointerEvents: 'none',
       display: 'block'
     });
-    
+
     // Preload all PNG frames
     this._pngFrames = [];
     this._loadedFrames = 0;
     this._pngPath = this._cfg.png_path || '/local/images/3d_floorplan/Isometric Bedroom/fan_';
-    
+
     // Load all frames
     for (let i = 0; i < this._frames; i++) {
       const img = new Image();
@@ -112,7 +112,7 @@ class HaFanLoopCard extends HTMLElement {
       };
       this._pngFrames[i] = img;
     }
-    
+
     const wrap = document.createElement('div');
     Object.assign(wrap.style, {
       position: 'relative',
@@ -120,14 +120,14 @@ class HaFanLoopCard extends HTMLElement {
       height: '100%',
       overflow: 'hidden'
     });
-    
+
     // Apply user styles to wrapper
     if (this._cfg.style) {
       Object.assign(wrap.style, this._cfg.style);
     }
-    
+
     wrap.appendChild(this._canvas);
-    
+
     // Don't wrap in ha-card for picture-elements compatibility
     this.appendChild(wrap);
   }
@@ -140,7 +140,7 @@ class HaFanLoopCard extends HTMLElement {
       muted: true,
       playsInline: true,
     });
-    
+
     // Style for picture-elements compatibility
     Object.assign(this._v.style, {
       width: '100%',
@@ -149,14 +149,14 @@ class HaFanLoopCard extends HTMLElement {
       pointerEvents: 'none',
       display: 'block'
     });
-    
+
     // Apply user styles
     if (this._cfg.style) {
       Object.assign(this._v.style, this._cfg.style);
     }
-    
+
     this._v.addEventListener('loadeddata', () => this._v.pause()); // start frozen
-    
+
     const wrap = document.createElement('div');
     Object.assign(wrap.style, {
       position: 'relative',
@@ -164,9 +164,9 @@ class HaFanLoopCard extends HTMLElement {
       height: '100%',
       overflow: 'hidden'
     });
-    
+
     wrap.appendChild(this._v);
-    
+
     // Don't wrap in ha-card for picture-elements compatibility
     this.appendChild(wrap);
   }
@@ -174,18 +174,18 @@ class HaFanLoopCard extends HTMLElement {
   /* ── draw PNG frame (for mobile) ───────────────────── */
   _drawPNGFrame(frameIndex) {
     if (!this._allPNGsLoaded || frameIndex < 0 || frameIndex >= this._frames) return;
-    
+
     const canvas = this._canvas;
     const ctx = canvas.getContext('2d');
     const img = this._pngFrames[frameIndex];
-    
+
     if (!img || !img.complete) return;
-    
+
     // Set canvas size to match container
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width;
     canvas.height = rect.height;
-    
+
     // Clear and draw the specific frame
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
@@ -194,12 +194,12 @@ class HaFanLoopCard extends HTMLElement {
   /* ── PNG animation control ───────────────────── */
   _startPNGAnimation(rate) {
     if (!this._allPNGsLoaded) return;
-    
+
     this._stopPNGAnimation(); // Stop any existing animation
-    
+
     const frameDelay = 1000 / (this._cfg.fps * rate); // Adjust FPS by playback rate
     let lastFrameTime = 0;
-    
+
     const animate = (currentTime) => {
       if (currentTime - lastFrameTime >= frameDelay) {
         this._currentFrame = (this._currentFrame + 1) % this._frames;
@@ -208,7 +208,7 @@ class HaFanLoopCard extends HTMLElement {
       }
       this._animationId = requestAnimationFrame(animate);
     };
-    
+
     this._animationId = requestAnimationFrame(animate);
   }
 
